@@ -3329,7 +3329,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\uD074\uB9AD \uC2DC  \uACE8\uB4DC \uD68D\uB4DD\n10\n\n\uD074\uB9AD \uC2DC
-    \uC9C0\uC2DD \uD68D\uB4DD\n1 [\uD68C\uB4DD \uD655\uB960 2%]"
+    \uC9C0\uC2DD \uD68D\uB4DD\n1 [\uD68D\uB4DD \uD655\uB960 2%]"
 --- !u!222 &1021697480
 CanvasRenderer:
   m_ObjectHideFlags: 0
