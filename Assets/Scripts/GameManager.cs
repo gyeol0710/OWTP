@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public long robotTierUpPrice; // 로봇 티어업 비용
     public Text robotTierAndLevel; // 로봇 업그레이드 패널 티어 및 레벨
     public Text robotInfo; // 로봇 현재 골드 획득 및 지식 획득 정보
+    public Text robotLevelUpInfo;
+    public Text robotTierUpInfo;
     public Button robotLevelUpButton; // 로봇 레벨업 버튼
     public Button robotTierUpButton; // 로봇 티어업 버튼
 
@@ -30,7 +32,6 @@ public class GameManager : MonoBehaviour
     public Text textMoney;
     public Text textScience;
     public Text textYears;
-    public Text textRobot;
 
     public GameObject prefabMoney;
     public GameObject prefabScience;
