@@ -56,14 +56,15 @@ public class GameManager : MonoBehaviour
     public void MoneyIncrease()
     {
         money += moneyIncreaseAmount; // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Instantiate(prefabMoney, mousePosition, Quaternion.identity);
+        float r1 = Random.Range(-0.4, 0.4);
+        Vector2 MoneyPosition = (r1, -4);
+        Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
     }
 
     public void ScienceIncrease()
     {
-        float r = Random.Range(0, 50); // 0이상 50미만의 실수 랜덤 출력 [원래는 rand() 함수를 사용하려고 했으나 표본이 적으면 확률이 극단적이라 게임본질을 헤칠 위험 있음 = 실력겜]
-        if (r <= robotLevel)
+        float r2 = Random.Range(0, 50); // 0이상 50미만의 실수 랜덤 출력 [원래는 rand() 함수를 사용하려고 했으나 표본이 적으면 확률이 극단적이라 게임본질을 헤칠 위험 있음 = 실력겜]
+        if (r2 <= robotLevel)
         {
             science += scienceIncreaseAmount; // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

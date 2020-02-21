@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoneyMove : MonoBehaviour
 {
-    public Vector2 point;
+    Vector2 point;
 
     Text txt;
 
@@ -21,7 +21,7 @@ public class MoneyMove : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, point, Time.deltaTime * 7f);
+        transform = Translate(Vector2.Up * 0.1f);
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - 0.007f);
