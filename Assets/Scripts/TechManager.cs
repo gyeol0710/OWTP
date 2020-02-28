@@ -6,65 +6,77 @@ using UnityEngine.EventSystems;
 
 public class TechManager : MonoBehaviour
 {
-    public Button ElectricityButton;
+    public Button SteamEngineButton;
     public Button Tech02Button;
     public Button Tech03Button;
     public Button Tech04Button;
 
-    public long ElectricitySciencePrice; // 전기 기술 필요 연구력 양
+    public long SteamEngineSciencePrice; // 전기 기술 필요 연구력 양
     public long Tech02Price;
     public long Tech03Price;
     public long Tech04Price;
 
-    static public bool ElectricityComplete; // 전기 기술 완료 판단
+    static public bool SteamEngineComplete; // 전기 기술 완료 판단
     static public bool Tech02Complete;
     static public bool Tech03Complete;
     static public bool Tech04Complete;
 
+    public GameObject ScrollBar;
+    public GameObject L01;
+
     void Start()
     {
-        
+        ScrollBar.GetComponent<Scrollbar>().value = 1;
     }
 
     void Update()
     {
-        ElectricityButtonActiveCheck();
+        SteamEngineButtonActiveCheck();
         Tech02ButtonActiveCheck();
         Tech03ButtonActiveCheck();
         Tech04ButtonActiveCheck();
+        LineCompleteCheck();
     }
 
-    public void ElectricityResearch()
+    void LineCompleteCheck()
     {
-        if (ElectricityComplete == false)
+        if (SteamEngineComplete == true)
         {
-            if (GameManager.science >= ElectricitySciencePrice)
+            L01.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        }
+    }
+
+    public void SteamEngineResearch()
+    {
+        if (SteamEngineComplete == false)
+        {
+            if (GameManager.science >= SteamEngineSciencePrice)
             {
-                GameManager.science -= ElectricitySciencePrice;
-                ElectricityComplete = true;
+                GameManager.science -= SteamEngineSciencePrice;
+                SteamEngineComplete = true;
                 GameManager.years += 20;
             }
         }
     }
 
-    void ElectricityButtonActiveCheck()
+    void SteamEngineButtonActiveCheck()
     {
-        if (ElectricityComplete == false)
+        if (SteamEngineComplete == false)
         {
-            if (GameManager.science >= ElectricitySciencePrice)
+            if (GameManager.science >= SteamEngineSciencePrice)
             {
-                ElectricityButton.interactable = true;
+                SteamEngineButton.interactable = true;
             }
             else
-                ElectricityButton.interactable = false;
+                SteamEngineButton.interactable = false;
         }
         else
-            ElectricityButton.interactable = false;
+            SteamEngineButton.interactable = false;
     }
 
     public void Tech02Research()
     {
-        if (ElectricityComplete == true)
+        if (SteamEngineComplete == true)
         {
             if (Tech02Complete == false)
             {
@@ -80,7 +92,7 @@ public class TechManager : MonoBehaviour
 
     void Tech02ButtonActiveCheck()
     {
-        if (ElectricityComplete == true)
+        if (SteamEngineComplete == true)
         {
             if (Tech02Complete == false)
             {
@@ -100,7 +112,7 @@ public class TechManager : MonoBehaviour
 
     public void Tech03Research()
     {
-        if (ElectricityComplete == true)
+        if (SteamEngineComplete == true)
         {
             if (Tech03Complete == false)
             {
@@ -116,7 +128,7 @@ public class TechManager : MonoBehaviour
 
     void Tech03ButtonActiveCheck()
     {
-        if (ElectricityComplete == true)
+        if (SteamEngineComplete == true)
         {
             if (Tech03Complete == false)
             {

@@ -47,7 +47,7 @@ public class ProductManager : MonoBehaviour
 
     public void LightBulb()
     {
-        if (TechManager.ElectricityComplete == true)
+        if (TechManager.SteamEngineComplete == true)
         {
             if (LightBulbComplete == false)
             {
@@ -64,7 +64,7 @@ public class ProductManager : MonoBehaviour
 
     void LightBulbButtonActiveCheck()
     {
-        if (TechManager.ElectricityComplete == true)
+        if (TechManager.SteamEngineComplete == true)
         {
             if (LightBulbComplete == false)
             {

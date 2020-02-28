@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         money = 0;
-        science = 0;
+        science = 30;
         years = 1760;
         robotLevel = 1;
         robotTier = 1;
@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     public void MoneyIncrease()
     {
         money += moneyIncreaseAmount; // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
-        float r1 = Random.Range(-0.4, 0.4);
-        Vector2 MoneyPosition = (r1, -4);
+        float r1 = Random.Range(-0.4f, 0.4f);
+        Vector2 MoneyPosition = new Vector2(r1, -4);
         Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
     }
 
