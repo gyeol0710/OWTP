@@ -23,10 +23,13 @@ public class TechManager : MonoBehaviour
 
     public GameObject ScrollBar;
     public GameObject L01;
+    public GameObject Noti;
 
     void Start()
     {
         ScrollBar.GetComponent<Scrollbar>().value = 1;
+        Color NotiC = Noti.GetComponent<Image>().color; // 알림 투명도 관련
+        Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
     }
 
     void Update()
@@ -44,6 +47,11 @@ public class TechManager : MonoBehaviour
         {
             L01.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         }
+    }
+
+    public void ButtonNotiOff()
+    {
+        Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
     }
 
     public void SteamEngineResearch()
@@ -66,6 +74,7 @@ public class TechManager : MonoBehaviour
             if (GameManager.science >= SteamEngineSciencePrice)
             {
                 SteamEngineButton.interactable = true;
+                Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             }
             else
                 SteamEngineButton.interactable = false;

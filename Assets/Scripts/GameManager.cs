@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     static public long money; // 돈
+    public long DisplayedMoney; // 표시되는 돈
     public long moneyIncreaseAmount; // 클릭 시 돈 증가량
     static public long science; // 연구력
     public long scienceIncreaseAmount; // 클릭 시 연구력 증가량
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         money = 0;
         science = 30;
-        years = 1760;
+        years = 1700;
         robotLevel = 1;
         robotTier = 1;
     }
@@ -74,17 +75,160 @@ public class GameManager : MonoBehaviour
 
     void ShowInfo()
     {
+        if (DisplayedMoney != money)
+        {
+            if (DisplayedMoney < money)
+            {
+                long DIF = money - DisplayedMoney;
+
+                /*
+                for(int n=10; n < 0; n--)
+                {
+                    int val = 1;
+                    for(int m = 0; n<=m; m++)
+                    {
+                        val = val * 10;
+                    }
+                    if (DIF > val)
+                    {
+                        DisplayedMoney = DisplayedMoney + val;
+                        val = 1;
+                    }
+                }
+                */ //반복문 안먹음 일단 서렌 ㄱ
+
+                if (DIF > 11111111111110)
+                {
+                    DisplayedMoney += 10000000000000;
+                }
+                if (DIF > 1111111111110)
+                {
+                    DisplayedMoney += 1000000000000;
+                }
+                if (DIF > 111111111110)
+                {
+                    DisplayedMoney += 100000000000;
+                }
+                if (DIF > 11111111110)
+                {
+                    DisplayedMoney += 10000000000;
+                }
+                if (DIF > 1111111110)
+                {
+                    DisplayedMoney += 1000000000;
+                }
+                if (DIF > 111111110)
+                {
+                    DisplayedMoney += 100000000;
+                }
+                if (DIF > 11111110)
+                {
+                    DisplayedMoney += 10000000;
+                }
+                if (DIF > 1111110)
+                {
+                    DisplayedMoney += 1000000;
+                }
+                if (DIF > 111110)
+                {
+                    DisplayedMoney += 100000;
+                }
+                if (DIF > 11110)
+                {
+                    DisplayedMoney += 10000;
+                }
+                if (DIF > 1110)
+                {
+                    DisplayedMoney += 1000;
+                }
+                if (DIF > 110)
+                {
+                    DisplayedMoney += 100;
+                }
+                if (DIF > 10)
+                {
+                    DisplayedMoney += 10;
+                }
+                if (DIF > 0)
+                {
+                    DisplayedMoney += 1;
+                }
+            }
+
+            else if (DisplayedMoney > money)
+            {
+                long DIF = DisplayedMoney - money;
+
+                if (DIF > 11111111111110)
+                {
+                    DisplayedMoney -= 10000000000000;
+                }
+                if (DIF > 1111111111110)
+                {
+                    DisplayedMoney -= 1000000000000;
+                }
+                if (DIF > 111111111110)
+                {
+                    DisplayedMoney -= 100000000000;
+                }
+                if (DIF > 11111111110)
+                {
+                    DisplayedMoney -= 10000000000;
+                }
+                if (DIF > 1111111110)
+                {
+                    DisplayedMoney -= 1000000000;
+                }
+                if (DIF > 111111110)
+                {
+                    DisplayedMoney -= 100000000;
+                }
+                if (DIF > 11111110)
+                {
+                    DisplayedMoney -= 10000000;
+                }
+                if (DIF > 1111110)
+                {
+                    DisplayedMoney -= 1000000;
+                }
+                if (DIF > 111110)
+                {
+                    DisplayedMoney -= 100000;
+                }
+                if (DIF > 11110)
+                {
+                    DisplayedMoney -= 10000;
+                }
+                if (DIF > 1110)
+                {
+                    DisplayedMoney -= 1000;
+                }
+                if (DIF > 110)
+                {
+                    DisplayedMoney -= 100;
+                }
+                if (DIF > 10)
+                {
+                    DisplayedMoney -= 10;
+                }
+                if (DIF > 0)
+                {
+                    DisplayedMoney -= 1;
+                }
+            }
+        }
+
         if (money == 0)
             textMoney.text = "0";
         else
-            textMoney.text = money.ToString("###,###");
+            textMoney.text = DisplayedMoney.ToString("###,###");
 
         if (science == 0)
             textScience.text = "0";
         else
             textScience.text = science.ToString("###,###");
 
-        textYears.text = years.ToString("####");
+        textYears.text = years.ToString("####" + "년");
     }
 
     void UpdateRobotPanelText()
@@ -110,7 +254,6 @@ public class GameManager : MonoBehaviour
                     moneyIncreaseAmount += robotLevel * 100;
                     robotLevelUpPrice += robotLevel * 500;
                 }
-                CreateRobot();
             }
             else if (robotTier == 2)
             {
@@ -121,7 +264,6 @@ public class GameManager : MonoBehaviour
                     moneyIncreaseAmount += robotLevel * 2000;
                     robotLevelUpPrice += robotLevel * 10000;
                 }
-                CreateRobot();
             }
             else
             {
@@ -132,7 +274,6 @@ public class GameManager : MonoBehaviour
                     moneyIncreaseAmount += robotLevel * 40000;
                     robotLevelUpPrice += robotLevel * 200000;
                 }
-                CreateRobot();
             }
         }
     }
@@ -174,14 +315,5 @@ public class GameManager : MonoBehaviour
         }
         else
             robotTierUpButton.interactable = false;
-    }
-
-    void CreateRobot()
-    {
-        Vector2 RobotSpot = GameObject.Find("Robot").transform.position;
-        float spotX = RobotSpot.x + (robotLevel % robotWidth) * robotSpace;
-        float spotY = RobotSpot.y - (robotLevel / robotWidth) * robotSpace;
-
-        Instantiate(prefabRobot, new Vector2(spotX, spotY), Quaternion.identity);
     }
 }
