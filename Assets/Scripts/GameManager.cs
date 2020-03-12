@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject prefabRobot; // 로봇 프리팹
 
 
-    public Text textMoney;
+    public TextMeshProUGUI textMoney;
     public Text textScience;
     public Text textYears;
 
