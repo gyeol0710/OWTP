@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     public GameObject prefabRobot; // 로봇 프리팹
 
 
-    public TextMeshProUGUI textMoney;
+    public Text textMoney;
     public Text textScience;
     public Text textYears;
 

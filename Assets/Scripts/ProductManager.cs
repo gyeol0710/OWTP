@@ -31,7 +31,8 @@ public class ProductManager : MonoBehaviour
     bool Product02Complete;
     bool Product03Complete;
     bool Product04Complete;
-
+}
+    /*
     void Start()
     {
         StartCoroutine(MoneyAutoIncrease());
@@ -203,3 +204,4 @@ public class ProductManager : MonoBehaviour
         }
     }
 }
+*/

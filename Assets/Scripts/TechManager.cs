@@ -22,12 +22,17 @@ public class TechManager : MonoBehaviour
     static public bool Tech04Complete;
 
     public GameObject ScrollBar;
+    public GameObject SBHandle;
     public GameObject L01;
     public GameObject Noti;
 
+    Scrollbar SbTech; // AutoHidingHandle() 관련
+    float CurrentHandleValue; // AutoHidingHandle() 관련
+
     void Start()
     {
-        ScrollBar.GetComponent<Scrollbar>().value = 1;
+        SbTech = ScrollBar.GetComponent<Scrollbar>();
+        SbTech.value = 1;
         Color NotiC = Noti.GetComponent<Image>().color; // 알림 투명도 관련
         Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
     }
@@ -39,6 +44,7 @@ public class TechManager : MonoBehaviour
         Tech03ButtonActiveCheck();
         Tech04ButtonActiveCheck();
         LineCompleteCheck();
+        AutoHidingHandle();
     }
 
     void LineCompleteCheck()
@@ -52,6 +58,17 @@ public class TechManager : MonoBehaviour
     public void ButtonNotiOff()
     {
         Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+    }
+
+    void AutoHidingHandle()
+    {
+        Image im = SBHandle.GetComponent<Image>();
+        im.color = new Color(im.color.r, im.color.g, im.color.b, im.color.a - 0.02f);
+        if (SbTech.value != CurrentHandleValue)
+        {
+            im.color = new Color32(255, 255, 255, 255);
+            CurrentHandleValue = SbTech.value;
+        }
     }
 
     public void SteamEngineResearch()
