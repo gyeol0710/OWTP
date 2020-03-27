@@ -39,12 +39,15 @@ public class TechManager : MonoBehaviour
 
     void Update()
     {
+        /*
         SteamEngineButtonActiveCheck();
         Tech02ButtonActiveCheck();
         Tech03ButtonActiveCheck();
         Tech04ButtonActiveCheck();
         LineCompleteCheck();
+        */
         AutoHidingHandle();
+
     }
 
     void LineCompleteCheck()

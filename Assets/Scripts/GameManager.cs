@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         ShowInfo();
         UpdateRobotPanelText();
         RobotLevelUpButtonActiveCheck();
-        RobotTierUpButtonActiveCheck();
     }
 
     public void MoneyIncrease()
