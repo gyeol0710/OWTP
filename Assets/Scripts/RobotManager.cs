@@ -1,72 +1,99 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RobotManager : MonoBehaviour
 {
-    Transform tr;
-    public float Speed;
-
-    public Sprite INDRobot01L;
-    public Sprite INDRobot01R;
-    public Sprite INDRobot02L;
-    public Sprite INDRobot02R;
-    public Sprite INDRobot03L;
-    public Sprite INDRobot03R;
-    public Sprite INDRobot04L;
-    public Sprite INDRobot04R;
-    public Sprite INDRobot05L;
-    public Sprite INDRobot05R;
-    public Sprite INDRobot06L;
-    public Sprite INDRobot06R;
-    public Sprite INDRobot07L;
-    public Sprite INDRobot07R;
-    public Sprite INDRobot08L;
-    public Sprite INDRobot08R;
-    public Sprite INDRobot09L;
-    public Sprite INDRobot09R;
-    public Sprite INDRobot10L;
-    public Sprite INDRobot10R;
-    static Sprite currentRobotL;
-    static Sprite currentRobotR;
-
-    private SpriteRenderer RobotRenderer;
-    private bool RightOn;
-
-    
+    public GameObject Robot01;
+    public GameObject Robot02;
+    public GameObject Robot03;
+    public GameObject Robot04;
+    public GameObject Robot05;
+    public GameObject Robot06;
+    public GameObject Robot07;
+    public GameObject Robot08;
+    public GameObject Robot09;
+    public GameObject Robot10;
 
     void Start()
     {
-        tr = GetComponent<Transform>();
-        RobotRenderer = gameObject.GetComponent<SpriteRenderer>();
-        currentRobotL = INDRobot01L;
-        currentRobotR = INDRobot01R;
-        RobotRenderer.sprite = currentRobotL;
-        RightOn = false;
+        StartCoroutine(RobotFadeIn());
     }
 
     void Update()
     {
-        if (RightOn == false)
-        {
-            RobotRenderer.sprite = currentRobotL;
-            tr.Translate(Vector3.left * Speed * 0.001f);
+        
+    }
 
-            if (tr.position.x < -7.5)
-            {
-                RightOn = true;
-            }
+    IEnumerator RobotFadeIn()
+    {
+        if (GameManager.robotTier > 1)
+        {
+            StopCoroutine(RobotFadeIn());
         }
 
-        else if (RightOn == true)
+        if (GameManager.robotLevel > 9)
         {
-            RobotRenderer.sprite = currentRobotR;
-            tr.Translate(Vector3.right * Speed * 0.001f);
-
-            if (tr.position.x > 7.5)
-            {
-                RightOn = false;
-            }
+            StopCoroutine(RobotFadeIn());
         }
+
+        while (true)
+        {
+            if (GameManager.robotLevel == 1)
+            {
+                SpriteRenderer sr = Robot01.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 2)
+            {
+                SpriteRenderer sr = Robot02.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 3)
+            {
+                SpriteRenderer sr = Robot03.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 4)
+            {
+                SpriteRenderer sr = Robot04.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 5)
+            {
+                SpriteRenderer sr = Robot05.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 6)
+            {
+                SpriteRenderer sr = Robot06.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 7)
+            {
+                SpriteRenderer sr = Robot07.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 8)
+            {
+                SpriteRenderer sr = Robot08.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 9)
+            {
+                SpriteRenderer sr = Robot09.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+            }
+            if (GameManager.robotLevel == 10)
+            {
+                SpriteRenderer sr = Robot10.GetComponent<SpriteRenderer>();
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 255);
+                break;
+            }
+            yield return null;
+        }
+        StopCoroutine(RobotFadeIn());
     }
 }

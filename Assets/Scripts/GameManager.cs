@@ -25,17 +25,17 @@ public class GameManager : MonoBehaviour
     static public int robotLevel; // 로봇 레벨
     static public int robotTier; // 로봇 티어
 
-    public int robotWidth; // 가로 로봇 수
-    public float robotSpace; // 로봇 간격
-    public GameObject prefabRobot; // 로봇 프리팹
-
-
     public Text textMoney;
     public Text textScience;
     public Text textYears;
 
     public GameObject prefabMoney;
     public GameObject prefabScience;
+
+    public GameObject Offer01;
+    public GameObject Offer02;
+    public GameObject Offer03;
+    public ScrollRect ScR; // 제안창 스크롤렉트 코루틴 강제 진행을 위해 스프라이트 이미지 컬러 접근을 위한 변수
 
     static public bool gomsg;
 
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         money = 0;
         science = 30;
         years = 1700;
-        robotLevel = 1;
+        robotLevel = 0;
         robotTier = 1;
     }
 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void ScienceIncrease()
     {
-        float r2 = Random.Range(0, 50); // 0이상 50미만의 실수 랜덤 출력 [원래는 rand() 함수를 사용하려고 했으나 표본이 적으면 확률이 극단적이라 게임본질을 헤칠 위험 있음 = 실력겜]
+        float r2 = Random.Range(0, 100); // 0이상 100미만의 실수 랜덤 출력 [원래는 rand() 함수를 사용하려고 했으나 표본이 적으면 확률이 극단적이라 게임본질을 헤칠 위험 있음 = 실력겜]
         if (r2 <= robotLevel)
         {
             science += scienceIncreaseAmount; // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
@@ -234,17 +234,18 @@ public class GameManager : MonoBehaviour
 
     void UpdateRobotPanelText()
     {
-        if (robotLevel <= 50)
+        if (robotLevel <= 100)
         {
             robotTierAndLevel.text = "Tier " + robotTier + "   Level " + robotLevel;
-            robotInfo.text = "클릭 시 골드 획득\n" + moneyIncreaseAmount.ToString("###,###") + "\n\n"; ;
-            robotInfo.text += "클릭 시 지식 획득\n" + scienceIncreaseAmount + "[획득 확률 " + robotLevel * 2 + "%]";
+            robotInfo.text = "현재 Touch 골드 획득\n" + moneyIncreaseAmount.ToString("###,###") + "\n\n"; ;
+            robotInfo.text += "현재 Touch 지식 획득\n" + scienceIncreaseAmount + " [획득 확률 " + robotLevel * 2 + "%]" + "\n\n";
+            robotInfo.text += "레벨업! 비용 : " + robotLevelUpPrice;
         }
     }
 
     public void RobotLevelUp()
     {
-        if (robotLevel < 50)
+        if (robotLevel < 100)
         {
             if (robotTier == 1)
             {
@@ -252,8 +253,8 @@ public class GameManager : MonoBehaviour
                 {
                     money -= robotLevelUpPrice;
                     robotLevel += 1;
-                    moneyIncreaseAmount += robotLevel * 100;
-                    robotLevelUpPrice += robotLevel * 500;
+                    moneyIncreaseAmount += robotLevel * 10;
+                    robotLevelUpPrice += robotLevel * 30;
                 }
             }
             else if (robotTier == 2)
@@ -316,5 +317,46 @@ public class GameManager : MonoBehaviour
         }
         else
             robotTierUpButton.interactable = false;
+    }
+    
+    IEnumerable RobotFade()
+    {
+        yield return null;
+    }
+
+    public void StoryON()
+    {
+        Image img1 = ScR.GetComponent<Image>();
+        img1.color = new Color32(255, 255, 255, 1);
+
+        Image img2 = Offer01.GetComponent<Image>();
+        img2.color = new Color32(255, 255, 255, 255);
+
+        Image img3 = Offer02.GetComponent<Image>();
+
+        Image img4 = Offer03.GetComponent<Image>();
+
+        img1.raycastTarget = true;
+        img2.raycastTarget = true;
+        img3.raycastTarget = true;
+        img4.raycastTarget = true;
+    }
+
+    public void StoryOFF()
+    {
+        Image img1 = ScR.GetComponent<Image>();
+        img1.color = new Color32(255, 255, 255, 0);
+
+        Image img2 = Offer01.GetComponent<Image>();
+        img2.color = new Color32(255, 255, 255, 0);
+
+        Image img3 = Offer02.GetComponent<Image>();
+
+        Image img4 = Offer03.GetComponent<Image>();
+
+        img1.raycastTarget = false;
+        img2.raycastTarget = false;
+        img3.raycastTarget = false;
+        img4.raycastTarget = false;
     }
 }

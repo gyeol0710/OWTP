@@ -29,7 +29,7 @@ public class TextSet : MonoBehaviour
         for (n = 0; n < Length; n++)
         {
             text.text += subtext[n];
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.07f);
         }
         yield return new WaitForSeconds(0.5f);
         MessageManager.gomsg = true;
