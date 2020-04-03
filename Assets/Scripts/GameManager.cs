@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject prefabMoney;
     public GameObject prefabScience;
+
+    static public bool gomsg;
 
     void Start()
     {
