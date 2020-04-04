@@ -6,17 +6,19 @@ using UnityEngine.EventSystems;
 
 public class TechManager : MonoBehaviour
 {
+    public long SteamEngineSciencePrice; // 증기기관 기술 필요 연구력 양
+    public static long Tech001; // 증기기관 기술 전역변수
+
     public Button SteamEngineButton;
     public Button Tech02Button;
     public Button Tech03Button;
     public Button Tech04Button;
 
-    public long SteamEngineSciencePrice; // 전기 기술 필요 연구력 양
     public long Tech02Price;
     public long Tech03Price;
     public long Tech04Price;
 
-    static public bool SteamEngineComplete; // 전기 기술 완료 판단
+    static public bool SteamEngineComplete; // 증기기관 기술 완료 판단
     static public bool Tech02Complete;
     static public bool Tech03Complete;
     static public bool Tech04Complete;
@@ -28,6 +30,11 @@ public class TechManager : MonoBehaviour
 
     Scrollbar SbTech; // AutoHidingHandle() 관련
     float CurrentHandleValue; // AutoHidingHandle() 관련
+
+    void Awake() // Tech 전역변수를 위한 awake
+    {
+        Tech001 = SteamEngineSciencePrice;
+    }
 
     void Start()
     {

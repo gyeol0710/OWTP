@@ -22,12 +22,14 @@ public class TextSet : MonoBehaviour
     IEnumerator TextAnim()
     {
         Text text = GetComponent<Text>();
+        Scrollbar scrbar = MessageManager.ScrBar.GetComponent<Scrollbar>();
         string subtext = MessageManager.MSGtext;
         int n;
         int Length = subtext.Length;
-
         for (n = 0; n < Length; n++)
         {
+            scrbar.value = 0;
+
             text.text += subtext[n];
             yield return new WaitForSeconds(0.07f);
         }

@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     {
         money = 0;
         science = 30;
-        years = 1700;
+        years = 1770;
         robotLevel = 0;
         robotTier = 1;
     }
