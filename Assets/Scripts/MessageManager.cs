@@ -198,7 +198,7 @@ public class MessageManager : MonoBehaviour
             yield return null;
         }
         MSGtext = MSG;
-        Instantiate(prefabMessage).transform.SetParent(par.transform);
+        Instantiate(prefabMessage).transform.SetParent(par.transform, false);
         Scrollbar scrbar = ScrBar.GetComponent<Scrollbar>();
         scrbar.value = 0;
 
@@ -217,7 +217,7 @@ public class MessageManager : MonoBehaviour
             yield return null;
         }
         
-        Instantiate(prefabLine).transform.SetParent(par.transform);
+        Instantiate(prefabLine).transform.SetParent(par.transform, false);
         
         gomsg = false;
         StopCoroutine(GoLine());
