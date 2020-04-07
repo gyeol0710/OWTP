@@ -35,7 +35,7 @@ public class TutorialManager : MonoBehaviour
     public Button Robot;
     public Button Product;
     public Button Tech;
-
+    public Button Offer;
 
 
     void Start()
@@ -50,6 +50,7 @@ public class TutorialManager : MonoBehaviour
             Robot.interactable = false;
             Product.interactable = false;
             Tech.interactable = false;
+            Offer.interactable = false;
 
             T01 = true;
         }
@@ -78,6 +79,7 @@ public class TutorialManager : MonoBehaviour
 
         if (T04c ==true)
         {
+            Offer.interactable = true;
             Robot.interactable = true;
         }
 

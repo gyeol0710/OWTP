@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
     public long robotLevelUpPrice; // 로봇 레벨업 비용
     public long robotTierUpPrice; // 로봇 티어업 비용
     public Text robotTierAndLevel; // 로봇 업그레이드 패널 티어 및 레벨
-    public Text robotInfo; // 로봇 현재 골드 획득 및 지식 획득 정보
+    public Text robotInfo1; // 로봇 현재 골드 획득 및 지식 획득 정보
+    public Text robotInfo2;
+    public Text robotInfo3;
     public Text robotLevelUpInfo;
     public Text robotTierUpInfo;
     public Button robotLevelUpButton; // 로봇 레벨업 버튼
@@ -237,9 +239,9 @@ public class GameManager : MonoBehaviour
         if (robotLevel <= 100)
         {
             robotTierAndLevel.text = "Tier " + robotTier + "   Level " + robotLevel;
-            robotInfo.text = "현재 Touch 골드 획득\n" + moneyIncreaseAmount.ToString("###,###") + "\n\n"; ;
-            robotInfo.text += "현재 Touch 지식 획득\n" + scienceIncreaseAmount + " [획득 확률 " + robotLevel * 2 + "%]" + "\n\n";
-            robotInfo.text += "레벨업! 비용 : " + robotLevelUpPrice;
+            robotInfo1.text = "현재 Touch 골드 획득\n" + moneyIncreaseAmount.ToString("###,###");
+            robotInfo2.text = "현재 Touch 지식 획득\n" + scienceIncreaseAmount + " [획득 확률 " + robotLevel * 2 + "%]" + "\n\n";
+            robotInfo3.text = "레벨업! 비용 : " + robotLevelUpPrice.ToString("###,###");
         }
     }
 
@@ -330,7 +332,7 @@ public class GameManager : MonoBehaviour
         img1.color = new Color32(255, 255, 255, 1);
 
         Image img2 = Offer01.GetComponent<Image>();
-        img2.color = new Color32(255, 255, 255, 255);
+        img2.color = new Color32(255, 255, 255, 220);
 
         Image img3 = Offer02.GetComponent<Image>();
 
