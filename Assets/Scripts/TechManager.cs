@@ -146,6 +146,7 @@ public class TechManager : MonoBehaviour
     public GameObject ScrollBar;
     public GameObject SBHandle;
     public GameObject L2;
+    public GameObject L2_3;
     public GameObject L3;
     public GameObject L4;
     public GameObject L5;
@@ -195,14 +196,7 @@ public class TechManager : MonoBehaviour
         Tech20 = tc20_필라멘트_연구력;
         Tech21 = tc21_무선통신_연구력;
         Tech22 = tc22_동력비행_연구력;
-    }
 
-    void Start()
-    {
-        SbTech = ScrollBar.GetComponent<Scrollbar>();
-        SbTech.value = 1;
-        Color NotiC = Noti.GetComponent<Image>().color; // 알림 투명도 관련
-        Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
         Pr1.text = Tech1.ToString();
         Pr2.text = Tech2.ToString();
         Pr3.text = Tech3.ToString();
@@ -225,17 +219,41 @@ public class TechManager : MonoBehaviour
         Pr20.text = Tech20.ToString();
         Pr21.text = Tech21.ToString();
         Pr22.text = Tech22.ToString();
+
+        Tech1Button.interactable = false;
+        Tech2Button.interactable = false;
+        Tech3Button.interactable = false;
+        Tech4Button.interactable = false;
+        Tech5Button.interactable = false;
+        Tech6Button.interactable = false;
+        Tech7Button.interactable = false;
+        Tech8Button.interactable = false;
+        Tech9Button.interactable = false;
+        Tech10Button.interactable = false;
+        Tech11Button.interactable = false;
+        Tech12Button.interactable = false;
+        Tech13Button.interactable = false;
+        Tech14Button.interactable = false;
+        Tech15Button.interactable = false;
+        Tech16Button.interactable = false;
+        Tech17Button.interactable = false;
+        Tech18Button.interactable = false;
+        Tech19Button.interactable = false;
+        Tech20Button.interactable = false;
+        Tech21Button.interactable = false;
+        Tech22Button.interactable = false;
+    }
+
+    void Start()
+    {
+        SbTech = ScrollBar.GetComponent<Scrollbar>();
+        SbTech.value = 1;
+        Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
+        StartCoroutine(TechAcs0(Tech1Button, Tech1Complete, Tech1));
     }
 
     void Update()
     {
-        /*
-        SteamEngineButtonActiveCheck();
-        Tech02ButtonActiveCheck();
-        Tech03ButtonActiveCheck();
-        Tech04ButtonActiveCheck();
-        LineCompleteCheck();
-        */
         AutoHidingHandle();
     }
 
@@ -270,138 +288,241 @@ public class TechManager : MonoBehaviour
             CurrentHandleValue = SbTech.value;
         }
     }
-    
+
+    IEnumerator TechAcs0(Button btn, bool a, long s) // 사전연구가 0개 필요한 연구 (연구버튼, 연구완료 판단변수, 필요 연구량)
+    {
+        while(true)
+        {
+            if (a == false)
+            {
+                if (GameManager.science >= s)
+                {
+                    btn.interactable = true;
+                }
+                else if (GameManager.science < s)
+                {
+                    btn.interactable = false;
+                }
+            }
+            else if (a == true)
+            {
+                StopCoroutine(TechAcs0(btn, a, s));
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    IEnumerator TechAcs1(Button btn, bool a, bool b, long s) // 사전연구가 1개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 필요 연구량)
+    {
+        while (true)
+        {
+            if (a == false)
+            {
+                if (b == true)
+                {
+                    if (GameManager.science >= s)
+                    {
+                        btn.interactable = true;
+                    }
+                    else if (GameManager.science < s)
+                    {
+                        btn.interactable = false;
+                    }
+                }
+            }
+            else if (a == true)
+            {
+                StopCoroutine(TechAcs1(btn, a, b, s));
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    IEnumerator TechAcs2(Button btn, bool a, bool b, bool c, long s) // 사전연구가 2개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 사전연구2 판단변수, 필요 연구량)
+    {
+        while (true)
+        {
+            if (a == false)
+            {
+                if (b == true)
+                {
+                    if (c == true)
+                    {
+                        if (GameManager.science >= s)
+                        {
+                            btn.interactable = true;
+                        }
+                        else if (GameManager.science < s)
+                        {
+                            btn.interactable = false;
+                        }
+                    }
+                }
+            }
+            else if (a == true)
+            {
+                StopCoroutine(TechAcs2(btn, a, b, c, s));
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
     public void TechGo1() // 버튼에 할당하는 함수
     {
         GameManager.science -= Tech1;
         GameManager.years += tYear1;
         Tech1Complete = true;
+        Tech1Button.interactable = false;
     }
     public void TechGo2()
     {
         GameManager.science -= Tech2;
         GameManager.years += tYear2;
         Tech2Complete = true;
+        Tech2Button.interactable = false;
+        L2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L2_3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
     }
     public void TechGo3()
     {
         GameManager.science -= Tech3;
         GameManager.years += tYear3;
         Tech3Complete = true;
+        Tech3Button.interactable = false;
+
     }
     public void TechGo4()
     {
         GameManager.science -= Tech4;
         GameManager.years += tYear4;
         Tech4Complete = true;
+        Tech4Button.interactable = false;
     }
     public void TechGo5()
     {
         GameManager.science -= Tech5;
         GameManager.years += tYear5;
         Tech5Complete = true;
+        Tech5Button.interactable = false;
     }
     public void TechGo6()
     {
         GameManager.science -= Tech6;
         GameManager.years += tYear6;
         Tech6Complete = true;
+        Tech6Button.interactable = false;
     }
     public void TechGo7()
     {
         GameManager.science -= Tech7;
         GameManager.years += tYear7;
         Tech7Complete = true;
+        Tech7Button.interactable = false;
     }
     public void TechGo8()
     {
         GameManager.science -= Tech8;
         GameManager.years += tYear8;
         Tech8Complete = true;
+        Tech8Button.interactable = false;
     }
     public void TechGo9()
     {
         GameManager.science -= Tech9;
         GameManager.years += tYear9;
         Tech9Complete = true;
+        Tech9Button.interactable = false;
     }
     public void TechGo10()
     {
         GameManager.science -= Tech10;
         GameManager.years += tYear10;
         Tech10Complete = true;
+        Tech10Button.interactable = false;
     }
     public void TechGo11()
     {
         GameManager.science -= Tech11;
         GameManager.years += tYear11;
         Tech11Complete = true;
+        Tech11Button.interactable = false;
     }
     public void TechGo12()
     {
         GameManager.science -= Tech12;
         GameManager.years += tYear12;
         Tech12Complete = true;
+        Tech12Button.interactable = false;
     }
     public void TechGo13()
     {
         GameManager.science -= Tech13;
         GameManager.years += tYear13;
         Tech13Complete = true;
+        Tech13Button.interactable = false;
     }
     public void TechGo14()
     {
         GameManager.science -= Tech14;
         GameManager.years += tYear14;
         Tech14Complete = true;
+        Tech14Button.interactable = false;
     }
     public void TechGo15()
     {
         GameManager.science -= Tech15;
         GameManager.years += tYear15;
         Tech15Complete = true;
+        Tech15Button.interactable = false;
     }
     public void TechGo16()
     {
         GameManager.science -= Tech16;
         GameManager.years += tYear16;
         Tech16Complete = true;
+        Tech16Button.interactable = false;
     }
     public void TechGo17()
     {
         GameManager.science -= Tech17;
         GameManager.years += tYear17;
         Tech17Complete = true;
+        Tech17Button.interactable = false;
     }
     public void TechGo18()
     {
         GameManager.science -= Tech18;
         GameManager.years += tYear18;
         Tech18Complete = true;
+        Tech18Button.interactable = false;
     }
     public void TechGo19()
     {
         GameManager.science -= Tech19;
         GameManager.years += tYear19;
         Tech19Complete = true;
+        Tech19Button.interactable = false;
     }
     public void TechGo20()
     {
         GameManager.science -= Tech20;
         GameManager.years += tYear20;
         Tech20Complete = true;
+        Tech20Button.interactable = false;
     }
     public void TechGo21()
     {
         GameManager.science -= Tech21;
         GameManager.years += tYear21;
         Tech21Complete = true;
+        Tech21Button.interactable = false;
     }
     public void TechGo22()
     {
         GameManager.science -= Tech22;
         GameManager.years += tYear22;
         Tech22Complete = true;
+        Tech22Button.interactable = false;
     }
 
 
