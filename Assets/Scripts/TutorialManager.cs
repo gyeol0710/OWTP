@@ -93,7 +93,7 @@ public class TutorialManager : MonoBehaviour
             T05 = true;
         }
 
-        if (GameManager.science >= TechManager.Tech001)
+        if (GameManager.science >= TechManager.Tech1)
         {
             P02 = true;
         }

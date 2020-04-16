@@ -161,7 +161,7 @@ public class MessageManager : MonoBehaviour
 
         while (true)
         {
-            if (GameManager.science >= TechManager.Tech001)
+            if (GameManager.science >= TechManager.Tech1)
             {
                 break;
             }

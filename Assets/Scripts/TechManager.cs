@@ -6,154 +6,153 @@ using UnityEngine.EventSystems;
 
 public class TechManager : MonoBehaviour
 {
-    public long T001_증기기관_연구력; // 증기기관 기술 필요 연구력 양
-    public static long Tech001; // 증기기관 기술 전역변수
-    public long T002_증기선_연구력;
-    public static long Tech002;
-    public long T003_수직기_연구력;
-    public static long Tech003;
-    public long T004_방적기_연구력;
-    public static long Tech004;
-    public long T005_증기기관플러스_연구력;
-    public static long Tech005;
-    public long T006_방직기_연구력;
-    public static long Tech006;
-    public long T007_기체화학_연구력;
-    public static long Tech007;
-    public long T008_동물전기_연구력;
-    public static long Tech008;
-    public long T009_대기전기_연구력;
-    public static long Tech009;
-    public long T010_석탄_연구력;
-    public static long Tech010;
-    public long T011_철강업_연구력;
-    public static long Tech011;
-    public long T012_증기압축_연구력;
-    public static long Tech012;
-    public long T013_자기력_연구력;
-    public static long Tech013;
-    public long T014_열역학_연구력;
-    public static long Tech014;
-    public long T015_유선통신_연구력;
-    public static long Tech015;
-    public long T016_탄도학_연구력;
-    public static long Tech016;
-    public long T017_나이트로글리세린_연구력;
-    public static long Tech017;
-    public long T018_소리_연구력;
-    public static long Tech018;
-    public long T019_전류진동_연구력;
-    public static long Tech019;
-    public long T020_필라멘트_연구력;
-    public static long Tech020;
-    public long T021_무선통신_연구력;
-    public static long Tech021;
-    public long T022_동력비행_연구력;
-    public static long Tech022;
+    public long tc1_증기기관_연구력; // 증기기관 기술 필요 연구력 양
+    public static long Tech1; // 증기기관 기술 전역변수
+    public long tc2_증기선_연구력;
+    public static long Tech2;
+    public long tc3_수직기_연구력;
+    public static long Tech3;
+    public long tc4_방적기_연구력;
+    public static long Tech4;
+    public long tc5_증기기관플러스_연구력;
+    public static long Tech5;
+    public long tc6_방직기_연구력;
+    public static long Tech6;
+    public long tc7_기체화학_연구력;
+    public static long Tech7;
+    public long tc8_동물전기_연구력;
+    public static long Tech8;
+    public long tc9_대기전기_연구력;
+    public static long Tech9;
+    public long tc10_석탄_연구력;
+    public static long Tech10;
+    public long tc11_철강업_연구력;
+    public static long Tech11;
+    public long tc12_증기압축_연구력;
+    public static long Tech12;
+    public long tc13_자기력_연구력;
+    public static long Tech13;
+    public long tc14_열역학_연구력;
+    public static long Tech14;
+    public long tc15_유선통신_연구력;
+    public static long Tech15;
+    public long tc16_탄도학_연구력;
+    public static long Tech16;
+    public long tc17_나이트로글리세린_연구력;
+    public static long Tech17;
+    public long tc18_소리_연구력;
+    public static long Tech18;
+    public long tc19_전류진동_연구력;
+    public static long Tech19;
+    public long tc20_필라멘트_연구력;
+    public static long Tech20;
+    public long tc21_무선통신_연구력;
+    public static long Tech21;
+    public long tc22_동력비행_연구력;
+    public static long Tech22;
 
-    public int tYear001; // 증기기관 연구 완료 시 연도 증가량
-    public int tYear002;
-    public int tYear003;
-    public int tYear004;
-    public int tYear005;
-    public int tYear006;
-    public int tYear007;
-    public int tYear008;
-    public int tYear009;
-    public int tYear010;
-    public int tYear011;
-    public int tYear012;
-    public int tYear013;
-    public int tYear014;
-    public int tYear015;
-    public int tYear016;
-    public int tYear017;
-    public int tYear018;
-    public int tYear019;
-    public int tYear020;
-    public int tYear021;
-    public int tYear022;
+    public int tYear1; // 증기기관 연구 완료 시 연도 증가량
+    public int tYear2;
+    public int tYear3;
+    public int tYear4;
+    public int tYear5;
+    public int tYear6;
+    public int tYear7;
+    public int tYear8;
+    public int tYear9;
+    public int tYear10;
+    public int tYear11;
+    public int tYear12;
+    public int tYear13;
+    public int tYear14;
+    public int tYear15;
+    public int tYear16;
+    public int tYear17;
+    public int tYear18;
+    public int tYear19;
+    public int tYear20;
+    public int tYear21;
+    public int tYear22;
 
-    public Button Tech001Button;
-    public Button Tech002Button;
-    public Button Tech003Button;
-    public Button Tech004Button;
-    public Button Tech005Button;
-    public Button Tech006Button;
-    public Button Tech007Button;
-    public Button Tech008Button;
-    public Button Tech009Button;
-    public Button Tech010Button;
-    public Button Tech011Button;
-    public Button Tech012Button;
-    public Button Tech013Button;
-    public Button Tech014Button;
-    public Button Tech015Button;
-    public Button Tech016Button;
-    public Button Tech017Button;
-    public Button Tech018Button;
-    public Button Tech019Button;
-    public Button Tech020Button;
-    public Button Tech021Button;
-    public Button Tech022Button;
+    public Button Tech1Button;
+    public Button Tech2Button;
+    public Button Tech3Button;
+    public Button Tech4Button;
+    public Button Tech5Button;
+    public Button Tech6Button;
+    public Button Tech7Button;
+    public Button Tech8Button;
+    public Button Tech9Button;
+    public Button Tech10Button;
+    public Button Tech11Button;
+    public Button Tech12Button;
+    public Button Tech13Button;
+    public Button Tech14Button;
+    public Button Tech15Button;
+    public Button Tech16Button;
+    public Button Tech17Button;
+    public Button Tech18Button;
+    public Button Tech19Button;
+    public Button Tech20Button;
+    public Button Tech21Button;
+    public Button Tech22Button;
 
-    static public bool Tech001Complete; // 증기기관 기술 완료 판단
-    static public bool Tech002Complete;
-    static public bool Tech003Complete;
-    static public bool Tech004Complete;
-    static public bool Tech005Complete;
-    static public bool Tech006Complete;
-    static public bool Tech007Complete;
-    static public bool Tech008Complete;
-    static public bool Tech009Complete;
-    static public bool Tech010Complete;
-    static public bool Tech011Complete;
-    static public bool Tech012Complete;
-    static public bool Tech013Complete;
-    static public bool Tech014Complete;
-    static public bool Tech015Complete;
-    static public bool Tech016Complete;
-    static public bool Tech017Complete;
-    static public bool Tech018Complete;
-    static public bool Tech019Complete;
-    static public bool Tech020Complete;
-    static public bool Tech021Complete;
-    static public bool Tech022Complete;
+    static public bool Tech1Complete; // 증기기관 기술 완료 판단
+    static public bool Tech2Complete;
+    static public bool Tech3Complete;
+    static public bool Tech4Complete;
+    static public bool Tech5Complete;
+    static public bool Tech6Complete;
+    static public bool Tech7Complete;
+    static public bool Tech8Complete;
+    static public bool Tech9Complete;
+    static public bool Tech10Complete;
+    static public bool Tech11Complete;
+    static public bool Tech12Complete;
+    static public bool Tech13Complete;
+    static public bool Tech14Complete;
+    static public bool Tech15Complete;
+    static public bool Tech16Complete;
+    static public bool Tech17Complete;
+    static public bool Tech18Complete;
+    static public bool Tech19Complete;
+    static public bool Tech20Complete;
+    static public bool Tech21Complete;
+    static public bool Tech22Complete;
 
-    public Text Pr001; // 필요 연구력 텍스트
-    public Text Pr002;
-    public Text Pr003;
-    public Text Pr004;
-    public Text Pr005;
-    public Text Pr006;
-    public Text Pr007;
-    public Text Pr008;
-    public Text Pr009;
-    public Text Pr010;
-    public Text Pr011;
-    public Text Pr012;
-    public Text Pr013;
-    public Text Pr014;
-    public Text Pr015;
-    public Text Pr016;
-    public Text Pr017;
-    public Text Pr018;
-    public Text Pr019;
-    public Text Pr020;
-    public Text Pr021;
-    public Text Pr022;
+    public Text Pr1; // 필요 연구력 텍스트
+    public Text Pr2;
+    public Text Pr3;
+    public Text Pr4;
+    public Text Pr5;
+    public Text Pr6;
+    public Text Pr7;
+    public Text Pr8;
+    public Text Pr9;
+    public Text Pr10;
+    public Text Pr11;
+    public Text Pr12;
+    public Text Pr13;
+    public Text Pr14;
+    public Text Pr15;
+    public Text Pr16;
+    public Text Pr17;
+    public Text Pr18;
+    public Text Pr19;
+    public Text Pr20;
+    public Text Pr21;
+    public Text Pr22;
 
     public GameObject ScrollBar;
     public GameObject SBHandle;
-    public GameObject L01;
-    public GameObject L02;
-    public GameObject L03;
-    public GameObject L04;
-    public GameObject L05;
-    public GameObject L06;
-    public GameObject L07;
-    public GameObject L08;
-    public GameObject L09;
+    public GameObject L2;
+    public GameObject L3;
+    public GameObject L4;
+    public GameObject L5;
+    public GameObject L6;
+    public GameObject L7;
+    public GameObject L8;
+    public GameObject L9;
     public GameObject L10;
     public GameObject L11;
     public GameObject L12;
@@ -174,28 +173,28 @@ public class TechManager : MonoBehaviour
 
     void Awake() // Tech 전역변수를 위한 awake
     {
-        Tech001 = T001_증기기관_연구력;
-        Tech002 = T002_증기선_연구력;
-        Tech003 = T003_수직기_연구력;
-        Tech004 = T004_방적기_연구력;
-        Tech005 = T005_증기기관플러스_연구력;
-        Tech006 = T006_방직기_연구력;
-        Tech007 = T007_기체화학_연구력;
-        Tech008 = T008_동물전기_연구력;
-        Tech009 = T009_대기전기_연구력;
-        Tech010 = T010_석탄_연구력;
-        Tech011 = T011_철강업_연구력;
-        Tech012 = T012_증기압축_연구력;
-        Tech013 = T013_자기력_연구력;
-        Tech014 = T014_열역학_연구력;
-        Tech015 = T015_유선통신_연구력;
-        Tech016 = T016_탄도학_연구력;
-        Tech017 = T017_나이트로글리세린_연구력;
-        Tech018 = T018_소리_연구력;
-        Tech019 = T019_전류진동_연구력;
-        Tech020 = T020_필라멘트_연구력;
-        Tech021 = T021_무선통신_연구력;
-        Tech022 = T022_동력비행_연구력;
+        Tech1 = tc1_증기기관_연구력;
+        Tech2 = tc2_증기선_연구력;
+        Tech3 = tc3_수직기_연구력;
+        Tech4 = tc4_방적기_연구력;
+        Tech5 = tc5_증기기관플러스_연구력;
+        Tech6 = tc6_방직기_연구력;
+        Tech7 = tc7_기체화학_연구력;
+        Tech8 = tc8_동물전기_연구력;
+        Tech9 = tc9_대기전기_연구력;
+        Tech10 = tc10_석탄_연구력;
+        Tech11 = tc11_철강업_연구력;
+        Tech12 = tc12_증기압축_연구력;
+        Tech13 = tc13_자기력_연구력;
+        Tech14 = tc14_열역학_연구력;
+        Tech15 = tc15_유선통신_연구력;
+        Tech16 = tc16_탄도학_연구력;
+        Tech17 = tc17_나이트로글리세린_연구력;
+        Tech18 = tc18_소리_연구력;
+        Tech19 = tc19_전류진동_연구력;
+        Tech20 = tc20_필라멘트_연구력;
+        Tech21 = tc21_무선통신_연구력;
+        Tech22 = tc22_동력비행_연구력;
     }
 
     void Start()
@@ -204,30 +203,28 @@ public class TechManager : MonoBehaviour
         SbTech.value = 1;
         Color NotiC = Noti.GetComponent<Image>().color; // 알림 투명도 관련
         Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
-
-        Pr001.text = Tech001.ToString();
-        Pr002.text = Tech002.ToString();
-        Pr003.text = Tech003.ToString();
-        Pr004.text = Tech004.ToString();
-        Pr005.text = Tech005.ToString();
-        Pr006.text = Tech006.ToString();
-        Pr007.text = Tech007.ToString();
-        Pr008.text = Tech008.ToString();
-        Pr009.text = Tech009.ToString();
-        Pr010.text = Tech010.ToString();
-        Pr011.text = Tech011.ToString();
-        Pr012.text = Tech012.ToString();
-        Pr013.text = Tech013.ToString();
-        Pr014.text = Tech014.ToString();
-        Pr015.text = Tech015.ToString();
-        Pr016.text = Tech016.ToString();
-        Pr017.text = Tech017.ToString();
-        Pr018.text = Tech018.ToString();
-        Pr019.text = Tech019.ToString();
-        Pr020.text = Tech020.ToString();
-        Pr021.text = Tech021.ToString();
-        Pr022.text = Tech022.ToString();
-        StartCoroutine(TechClick(Tech001Button, Tech001Complete, Tech001, 10));
+        Pr1.text = Tech1.ToString();
+        Pr2.text = Tech2.ToString();
+        Pr3.text = Tech3.ToString();
+        Pr4.text = Tech4.ToString();
+        Pr5.text = Tech5.ToString();
+        Pr6.text = Tech6.ToString();
+        Pr7.text = Tech7.ToString();
+        Pr8.text = Tech8.ToString();
+        Pr9.text = Tech9.ToString();
+        Pr10.text = Tech10.ToString();
+        Pr11.text = Tech11.ToString();
+        Pr12.text = Tech12.ToString();
+        Pr13.text = Tech13.ToString();
+        Pr14.text = Tech14.ToString();
+        Pr15.text = Tech15.ToString();
+        Pr16.text = Tech16.ToString();
+        Pr17.text = Tech17.ToString();
+        Pr18.text = Tech18.ToString();
+        Pr19.text = Tech19.ToString();
+        Pr20.text = Tech20.ToString();
+        Pr21.text = Tech21.ToString();
+        Pr22.text = Tech22.ToString();
     }
 
     void Update()
@@ -242,11 +239,19 @@ public class TechManager : MonoBehaviour
         AutoHidingHandle();
     }
 
-    void LineCompleteCheck()
+    IEnumerator LineCheck()
     {
-        if (Tech001Complete == true)
+        while (true)
         {
-            L01.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void LineChecking1_1(bool a, GameObject b)
+    {
+        if (a == true)
+        {
+            b.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
     }
 
@@ -265,33 +270,141 @@ public class TechManager : MonoBehaviour
             CurrentHandleValue = SbTech.value;
         }
     }
-
-    IEnumerator TechClick(Button Btn, bool a, long b, int c)
+    
+    public void TechGo1() // 버튼에 할당하는 함수
     {
-            Button btn = Btn.transform.GetComponent<Button>();
-            btn.onClick.AddListener(delegate { Research0(a, b, c); });
-            yield return null;
-        
+        GameManager.science -= Tech1;
+        GameManager.years += tYear1;
+        Tech1Complete = true;
     }
-    void Research0 (bool a, long b, int c) // 위에 트리가 0개인 연구 코루틴함수(즉, 맨 위에 있는 첫번 째 연구 ex) 증기기관
-                                           // a는 연구 완료 판단 변수, b는 필요 연구력 양, c는 추가되는 years량
+    public void TechGo2()
     {
-        if (a == true)
-        {
-
-        }
-
-        else if (a == false)
-        {
-            if (GameManager.science >= b)
-            {
-                GameManager.science -= b;
-
-                GameManager.years += c;
-            }
-        }
+        GameManager.science -= Tech2;
+        GameManager.years += tYear2;
+        Tech2Complete = true;
     }
-        
+    public void TechGo3()
+    {
+        GameManager.science -= Tech3;
+        GameManager.years += tYear3;
+        Tech3Complete = true;
+    }
+    public void TechGo4()
+    {
+        GameManager.science -= Tech4;
+        GameManager.years += tYear4;
+        Tech4Complete = true;
+    }
+    public void TechGo5()
+    {
+        GameManager.science -= Tech5;
+        GameManager.years += tYear5;
+        Tech5Complete = true;
+    }
+    public void TechGo6()
+    {
+        GameManager.science -= Tech6;
+        GameManager.years += tYear6;
+        Tech6Complete = true;
+    }
+    public void TechGo7()
+    {
+        GameManager.science -= Tech7;
+        GameManager.years += tYear7;
+        Tech7Complete = true;
+    }
+    public void TechGo8()
+    {
+        GameManager.science -= Tech8;
+        GameManager.years += tYear8;
+        Tech8Complete = true;
+    }
+    public void TechGo9()
+    {
+        GameManager.science -= Tech9;
+        GameManager.years += tYear9;
+        Tech9Complete = true;
+    }
+    public void TechGo10()
+    {
+        GameManager.science -= Tech10;
+        GameManager.years += tYear10;
+        Tech10Complete = true;
+    }
+    public void TechGo11()
+    {
+        GameManager.science -= Tech11;
+        GameManager.years += tYear11;
+        Tech11Complete = true;
+    }
+    public void TechGo12()
+    {
+        GameManager.science -= Tech12;
+        GameManager.years += tYear12;
+        Tech12Complete = true;
+    }
+    public void TechGo13()
+    {
+        GameManager.science -= Tech13;
+        GameManager.years += tYear13;
+        Tech13Complete = true;
+    }
+    public void TechGo14()
+    {
+        GameManager.science -= Tech14;
+        GameManager.years += tYear14;
+        Tech14Complete = true;
+    }
+    public void TechGo15()
+    {
+        GameManager.science -= Tech15;
+        GameManager.years += tYear15;
+        Tech15Complete = true;
+    }
+    public void TechGo16()
+    {
+        GameManager.science -= Tech16;
+        GameManager.years += tYear16;
+        Tech16Complete = true;
+    }
+    public void TechGo17()
+    {
+        GameManager.science -= Tech17;
+        GameManager.years += tYear17;
+        Tech17Complete = true;
+    }
+    public void TechGo18()
+    {
+        GameManager.science -= Tech18;
+        GameManager.years += tYear18;
+        Tech18Complete = true;
+    }
+    public void TechGo19()
+    {
+        GameManager.science -= Tech19;
+        GameManager.years += tYear19;
+        Tech19Complete = true;
+    }
+    public void TechGo20()
+    {
+        GameManager.science -= Tech20;
+        GameManager.years += tYear20;
+        Tech20Complete = true;
+    }
+    public void TechGo21()
+    {
+        GameManager.science -= Tech21;
+        GameManager.years += tYear21;
+        Tech21Complete = true;
+    }
+    public void TechGo22()
+    {
+        GameManager.science -= Tech22;
+        GameManager.years += tYear22;
+        Tech22Complete = true;
+    }
+
+
     /*
     public void SteamEngineResearch()
     {
