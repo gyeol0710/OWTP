@@ -146,28 +146,81 @@ public class TechManager : MonoBehaviour
     public GameObject ScrollBar;
     public GameObject SBHandle;
     public GameObject L2;
-    public GameObject L2_3;
+    public GameObject L2_3; // 영향을 받는 라인 L2, L3
     public GameObject L3;
     public GameObject L4;
     public GameObject L5;
     public GameObject L6;
     public GameObject L7;
+    public GameObject L7_5; // L5, L7
     public GameObject L8;
     public GameObject L9;
     public GameObject L10;
+    public GameObject L10_8; // L8, L10
     public GameObject L11;
+    public GameObject L11_12; // L11, L12
     public GameObject L12;
     public GameObject L13;
     public GameObject L14;
     public GameObject L15;
     public GameObject L16;
     public GameObject L17;
+    public GameObject L17_16; // L16, L17
     public GameObject L18;
-    public GameObject L19;
+    public GameObject L19_1;
+    public GameObject L19_2;
     public GameObject L20;
+    public GameObject L20_19; // L19, L20
     public GameObject L21;
     public GameObject L22;
+    public GameObject L22_21; // L21, L22
     public GameObject Noti;
+
+    public GameObject TechIcon1;
+    public GameObject TechIcon2;
+    public GameObject TechIcon3;
+    public GameObject TechIcon4;
+    public GameObject TechIcon5;
+    public GameObject TechIcon6;
+    public GameObject TechIcon7;
+    public GameObject TechIcon8;
+    public GameObject TechIcon9;
+    public GameObject TechIcon10;
+    public GameObject TechIcon11;
+    public GameObject TechIcon12;
+    public GameObject TechIcon13;
+    public GameObject TechIcon14;
+    public GameObject TechIcon15;
+    public GameObject TechIcon16;
+    public GameObject TechIcon17;
+    public GameObject TechIcon18;
+    public GameObject TechIcon19;
+    public GameObject TechIcon20;
+    public GameObject TechIcon21;
+    public GameObject TechIcon22;
+
+    public Sprite TechCplImg1; // 증기기관 연구 완료된 이미지(화이트)
+    public Sprite TechCplImg2;
+    public Sprite TechCplImg3;
+    public Sprite TechCplImg4;
+    public Sprite TechCplImg5;
+    public Sprite TechCplImg6;
+    public Sprite TechCplImg7;
+    public Sprite TechCplImg8;
+    public Sprite TechCplImg9;
+    public Sprite TechCplImg10;
+    public Sprite TechCplImg11;
+    public Sprite TechCplImg12;
+    public Sprite TechCplImg13;
+    public Sprite TechCplImg14;
+    public Sprite TechCplImg15;
+    public Sprite TechCplImg16;
+    public Sprite TechCplImg17;
+    public Sprite TechCplImg18;
+    public Sprite TechCplImg19;
+    public Sprite TechCplImg20;
+    public Sprite TechCplImg21;
+    public Sprite TechCplImg22;
 
     Scrollbar SbTech; // 스크롤바 import를 위한 변수 AutoHidingHandle() 관련
     float CurrentHandleValue; // 스크롤바 커서 위치값 변수 AutoHidingHandle() 관련
@@ -250,27 +303,32 @@ public class TechManager : MonoBehaviour
         SbTech.value = 1;
         Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
         StartCoroutine(TechAcs0(Tech1Button, Tech1Complete, Tech1));
+        StartCoroutine(TechAcs1(Tech2Button, Tech2Complete, Tech1Complete, Tech2));
+        StartCoroutine(TechAcs1(Tech3Button, Tech3Complete, Tech1Complete, Tech3));
+        StartCoroutine(TechAcs1(Tech4Button, Tech4Complete, Tech3Complete, Tech4));
+        StartCoroutine(TechAcs1(Tech5Button, Tech5Complete, Tech2Complete, Tech5));
+        StartCoroutine(TechAcs1(Tech6Button, Tech6Complete, Tech4Complete, Tech6));
+        StartCoroutine(TechAcs1(Tech7Button, Tech7Complete, Tech2Complete, Tech7));
+        StartCoroutine(TechAcs1(Tech8Button, Tech8Complete, Tech7Complete, Tech8));
+        StartCoroutine(TechAcs1(Tech9Button, Tech9Complete, Tech8Complete, Tech9));
+        StartCoroutine(TechAcs1(Tech10Button, Tech10Complete, Tech7Complete, Tech10));
+        StartCoroutine(TechAcs1(Tech11Button, Tech11Complete, Tech10Complete, Tech11));
+        StartCoroutine(TechAcs1(Tech12Button, Tech12Complete, Tech10Complete, Tech12));
+        StartCoroutine(TechAcs1(Tech13Button, Tech13Complete, Tech9Complete, Tech13));
+        StartCoroutine(TechAcs1(Tech14Button, Tech14Complete, Tech11Complete, Tech14));
+        StartCoroutine(TechAcs1(Tech15Button, Tech15Complete, Tech13Complete, Tech15));
+        StartCoroutine(TechAcs1(Tech16Button, Tech16Complete, Tech14Complete, Tech16));
+        StartCoroutine(TechAcs1(Tech17Button, Tech17Complete, Tech14Complete, Tech17));
+        StartCoroutine(TechAcs1(Tech18Button, Tech18Complete, Tech16Complete, Tech18));
+        StartCoroutine(TechAcs2(Tech19Button, Tech19Complete, Tech15Complete, Tech17Complete, Tech19));
+        StartCoroutine(TechAcs1(Tech20Button, Tech20Complete, Tech17Complete, Tech20));
+        StartCoroutine(TechAcs1(Tech21Button, Tech21Complete, Tech20Complete, Tech21));
+        StartCoroutine(TechAcs1(Tech22Button, Tech22Complete, Tech20Complete, Tech22));
     }
 
     void Update()
     {
         AutoHidingHandle();
-    }
-
-    IEnumerator LineCheck()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
-    }
-
-    void LineChecking1_1(bool a, GameObject b)
-    {
-        if (a == true)
-        {
-            b.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
-        }
     }
 
     public void ButtonNotiOff()
@@ -291,7 +349,7 @@ public class TechManager : MonoBehaviour
 
     IEnumerator TechAcs0(Button btn, bool a, long s) // 사전연구가 0개 필요한 연구 (연구버튼, 연구완료 판단변수, 필요 연구량)
     {
-        while(true)
+        while (true)
         {
             if (a == false)
             {
@@ -373,6 +431,7 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear1;
         Tech1Complete = true;
         Tech1Button.interactable = false;
+        TechIcon1.GetComponent<Image>().sprite = TechCplImg1;
     }
     public void TechGo2()
     {
@@ -382,6 +441,7 @@ public class TechManager : MonoBehaviour
         Tech2Button.interactable = false;
         L2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L2_3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon2.GetComponent<Image>().sprite = TechCplImg2;
     }
     public void TechGo3()
     {
@@ -389,7 +449,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear3;
         Tech3Complete = true;
         Tech3Button.interactable = false;
-
+        L3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L2_3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon3.GetComponent<Image>().sprite = TechCplImg3;
     }
     public void TechGo4()
     {
@@ -397,6 +459,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear4;
         Tech4Complete = true;
         Tech4Button.interactable = false;
+        L4.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon4.GetComponent<Image>().sprite = TechCplImg4;
     }
     public void TechGo5()
     {
@@ -404,6 +468,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear5;
         Tech5Complete = true;
         Tech5Button.interactable = false;
+        L5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L7_5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon5.GetComponent<Image>().sprite = TechCplImg5;
     }
     public void TechGo6()
     {
@@ -411,6 +478,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear6;
         Tech6Complete = true;
         Tech6Button.interactable = false;
+        L6.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon6.GetComponent<Image>().sprite = TechCplImg6;
     }
     public void TechGo7()
     {
@@ -418,6 +487,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear7;
         Tech7Complete = true;
         Tech7Button.interactable = false;
+        L7.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L7_5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon7.GetComponent<Image>().sprite = TechCplImg7;
     }
     public void TechGo8()
     {
@@ -425,6 +497,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear8;
         Tech8Complete = true;
         Tech8Button.interactable = false;
+        L8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L10_8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon8.GetComponent<Image>().sprite = TechCplImg8;
     }
     public void TechGo9()
     {
@@ -432,6 +507,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear9;
         Tech9Complete = true;
         Tech9Button.interactable = false;
+        L9.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon9.GetComponent<Image>().sprite = TechCplImg9;
     }
     public void TechGo10()
     {
@@ -439,6 +516,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear10;
         Tech10Complete = true;
         Tech10Button.interactable = false;
+        L10.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L10_8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon10.GetComponent<Image>().sprite = TechCplImg10;
     }
     public void TechGo11()
     {
@@ -446,6 +526,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear11;
         Tech11Complete = true;
         Tech11Button.interactable = false;
+        L11.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L11_12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon11.GetComponent<Image>().sprite = TechCplImg11;
     }
     public void TechGo12()
     {
@@ -453,6 +536,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear12;
         Tech12Complete = true;
         Tech12Button.interactable = false;
+        L12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L11_12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon12.GetComponent<Image>().sprite = TechCplImg12;
     }
     public void TechGo13()
     {
@@ -460,6 +546,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear13;
         Tech13Complete = true;
         Tech13Button.interactable = false;
+        L13.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon13.GetComponent<Image>().sprite = TechCplImg13;
     }
     public void TechGo14()
     {
@@ -467,6 +555,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear14;
         Tech14Complete = true;
         Tech14Button.interactable = false;
+        L14.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon14.GetComponent<Image>().sprite = TechCplImg14;
     }
     public void TechGo15()
     {
@@ -474,6 +564,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear15;
         Tech15Complete = true;
         Tech15Button.interactable = false;
+        L15.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon15.GetComponent<Image>().sprite = TechCplImg15;
     }
     public void TechGo16()
     {
@@ -481,6 +573,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear16;
         Tech16Complete = true;
         Tech16Button.interactable = false;
+        L16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L17_16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon16.GetComponent<Image>().sprite = TechCplImg16;
     }
     public void TechGo17()
     {
@@ -488,6 +583,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear17;
         Tech17Complete = true;
         Tech17Button.interactable = false;
+        L17.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L17_16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon17.GetComponent<Image>().sprite = TechCplImg17;
     }
     public void TechGo18()
     {
@@ -495,6 +593,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear18;
         Tech18Complete = true;
         Tech18Button.interactable = false;
+        L18.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon18.GetComponent<Image>().sprite = TechCplImg18;
     }
     public void TechGo19()
     {
@@ -502,6 +602,11 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear19;
         Tech19Complete = true;
         Tech19Button.interactable = false;
+        L19_1.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L19_2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L20_19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon19.GetComponent<Image>().sprite = TechCplImg19;
+
     }
     public void TechGo20()
     {
@@ -509,6 +614,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear20;
         Tech20Complete = true;
         Tech20Button.interactable = false;
+        L20.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L20_19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon20.GetComponent<Image>().sprite = TechCplImg20;
     }
     public void TechGo21()
     {
@@ -516,6 +624,9 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear21;
         Tech21Complete = true;
         Tech21Button.interactable = false;
+        L21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L22_21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon21.GetComponent<Image>().sprite = TechCplImg21;
     }
     public void TechGo22()
     {
@@ -523,153 +634,8 @@ public class TechManager : MonoBehaviour
         GameManager.years += tYear22;
         Tech22Complete = true;
         Tech22Button.interactable = false;
+        L22.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L22_21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon22.GetComponent<Image>().sprite = TechCplImg22;
     }
-
-
-    /*
-    public void SteamEngineResearch()
-    {
-        if (Tech001Complete == false)
-        {
-            if (GameManager.science >= SteamEngineSciencePrice)
-            {
-                GameManager.science -= SteamEngineSciencePrice;
-                SteamEngineComplete = true;
-                GameManager.years += 20;
-            }
-        }
-    }
-
-    void SteamEngineButtonActiveCheck()
-    {
-        if (SteamEngineComplete == false)
-        {
-            if (GameManager.science >= SteamEngineSciencePrice)
-            {
-                SteamEngineButton.interactable = true;
-                Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            }
-            else
-                SteamEngineButton.interactable = false;
-        }
-        else
-            SteamEngineButton.interactable = false;
-    }
-
-    public void Tech02Research()
-    {
-        if (SteamEngineComplete == true)
-        {
-            if (Tech02Complete == false)
-            {
-                if (GameManager.science >= Tech02Price)
-                {
-                    GameManager.science -= Tech02Price;
-                    Tech02Complete = true;
-                    GameManager.years += 15;
-                }
-            }
-        }
-    }
-
-    void Tech02ButtonActiveCheck()
-    {
-        if (SteamEngineComplete == true)
-        {
-            if (Tech02Complete == false)
-            {
-                if (GameManager.science >= Tech02Price)
-                {
-                    Tech02Button.interactable = true;
-                }
-                else
-                    Tech02Button.interactable = false;
-            }
-            else
-                Tech02Button.interactable = false;
-        }
-        else
-            Tech02Button.interactable = false;
-    }
-
-    public void Tech03Research()
-    {
-        if (SteamEngineComplete == true)
-        {
-            if (Tech03Complete == false)
-            {
-                if (GameManager.science >= Tech03Price)
-                {
-                    GameManager.science -= Tech03Price;
-                    Tech03Complete = true;
-                    GameManager.years += 15;
-                }
-            }
-        }
-    }
-
-    void Tech03ButtonActiveCheck()
-    {
-        if (SteamEngineComplete == true)
-        {
-            if (Tech03Complete == false)
-            {
-                if (GameManager.science >= Tech03Price)
-                {
-                    Tech03Button.interactable = true;
-                }
-                else
-                    Tech03Button.interactable = false;
-            }
-            else
-                Tech03Button.interactable = false;
-        }
-        else
-            Tech03Button.interactable = false;
-    }
-
-    public void Tech04Research()
-    {
-        if (Tech02Complete == true)
-        {
-            if (Tech03Complete == true)
-            {
-                if (Tech04Complete == false)
-                {
-                    if (GameManager.science >= Tech04Price)
-                    {
-                        GameManager.science -= Tech04Price;
-                        Tech04Complete = true;
-                        GameManager.years += 10;
-                    }
-                }
-            }
-        }
-    }
-
-    void Tech04ButtonActiveCheck()
-    {
-        if (Tech02Complete == true)
-        {
-            if (Tech03Complete == true)
-            {
-                if (Tech04Complete == false)
-                {
-                    if (GameManager.science >= Tech04Price)
-                    {
-                        Tech04Button.interactable = true;
-                    }
-                    else
-                        Tech04Button.interactable = false;
-                }
-                else
-                    Tech04Button.interactable = false;
-            }
-            else
-                Tech04Button.interactable = false;
-        }
-        else
-            Tech04Button.interactable = false;
-    }
-    */
 }
