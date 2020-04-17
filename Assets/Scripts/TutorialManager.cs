@@ -24,6 +24,9 @@ public class TutorialManager : MonoBehaviour
     static public bool P02;
     static public bool P02c;
 
+    static public bool P03;
+    static public bool P03c;
+
     static public bool T06;
     static public bool T06c;
     static public bool T07;
@@ -101,6 +104,7 @@ public class TutorialManager : MonoBehaviour
         if (P02c == true)
         {
             Tech.interactable = true;
+            P03 = true;
         }
     }
 }

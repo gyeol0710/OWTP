@@ -142,9 +142,7 @@ public class TechManager : MonoBehaviour
     public Text Pr20;
     public Text Pr21;
     public Text Pr22;
-
-    public GameObject ScrollBar;
-    public GameObject SBHandle;
+    
     public GameObject L2;
     public GameObject L2_3; // 영향을 받는 라인 L2, L3
     public GameObject L3;
@@ -222,11 +220,18 @@ public class TechManager : MonoBehaviour
     public Sprite TechCplImg21;
     public Sprite TechCplImg22;
 
+    public GameObject MainTechPanel;
+    public GameObject ScrollBar;
+    public GameObject SBHandle;
     Scrollbar SbTech; // 스크롤바 import를 위한 변수 AutoHidingHandle() 관련
     float CurrentHandleValue; // 스크롤바 커서 위치값 변수 AutoHidingHandle() 관련
 
-    void Awake() // Tech 전역변수를 위한 awake
+    void Awake()
     {
+        MainTechPanel.SetActive(true);
+        SbTech = ScrollBar.GetComponent<Scrollbar>();
+        SbTech.value = 1;
+
         Tech1 = tc1_증기기관_연구력;
         Tech2 = tc2_증기선_연구력;
         Tech3 = tc3_수직기_연구력;
@@ -295,40 +300,40 @@ public class TechManager : MonoBehaviour
         Tech20Button.interactable = false;
         Tech21Button.interactable = false;
         Tech22Button.interactable = false;
+        
     }
 
     void Start()
     {
-        SbTech = ScrollBar.GetComponent<Scrollbar>();
-        SbTech.value = 1;
+        MainTechPanel.SetActive(false);
         Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
-        StartCoroutine(TechAcs0(Tech1Button, Tech1Complete, Tech1));
-        StartCoroutine(TechAcs1(Tech2Button, Tech2Complete, Tech1Complete, Tech2));
-        StartCoroutine(TechAcs1(Tech3Button, Tech3Complete, Tech1Complete, Tech3));
-        StartCoroutine(TechAcs1(Tech4Button, Tech4Complete, Tech3Complete, Tech4));
-        StartCoroutine(TechAcs1(Tech5Button, Tech5Complete, Tech2Complete, Tech5));
-        StartCoroutine(TechAcs1(Tech6Button, Tech6Complete, Tech4Complete, Tech6));
-        StartCoroutine(TechAcs1(Tech7Button, Tech7Complete, Tech2Complete, Tech7));
-        StartCoroutine(TechAcs1(Tech8Button, Tech8Complete, Tech7Complete, Tech8));
-        StartCoroutine(TechAcs1(Tech9Button, Tech9Complete, Tech8Complete, Tech9));
-        StartCoroutine(TechAcs1(Tech10Button, Tech10Complete, Tech7Complete, Tech10));
-        StartCoroutine(TechAcs1(Tech11Button, Tech11Complete, Tech10Complete, Tech11));
-        StartCoroutine(TechAcs1(Tech12Button, Tech12Complete, Tech10Complete, Tech12));
-        StartCoroutine(TechAcs1(Tech13Button, Tech13Complete, Tech9Complete, Tech13));
-        StartCoroutine(TechAcs1(Tech14Button, Tech14Complete, Tech11Complete, Tech14));
-        StartCoroutine(TechAcs1(Tech15Button, Tech15Complete, Tech13Complete, Tech15));
-        StartCoroutine(TechAcs1(Tech16Button, Tech16Complete, Tech14Complete, Tech16));
-        StartCoroutine(TechAcs1(Tech17Button, Tech17Complete, Tech14Complete, Tech17));
-        StartCoroutine(TechAcs1(Tech18Button, Tech18Complete, Tech16Complete, Tech18));
-        StartCoroutine(TechAcs2(Tech19Button, Tech19Complete, Tech15Complete, Tech17Complete, Tech19));
-        StartCoroutine(TechAcs1(Tech20Button, Tech20Complete, Tech17Complete, Tech20));
-        StartCoroutine(TechAcs1(Tech21Button, Tech21Complete, Tech20Complete, Tech21));
-        StartCoroutine(TechAcs1(Tech22Button, Tech22Complete, Tech20Complete, Tech22));
     }
 
     void Update()
     {
         AutoHidingHandle();
+        TechAcs0(Tech1Button, ref Tech1Complete, Tech1);
+        TechAcs1(Tech2Button, ref Tech2Complete, ref Tech1Complete, Tech2);
+        TechAcs1(Tech3Button, ref Tech3Complete, ref Tech1Complete, Tech3);
+        TechAcs1(Tech4Button, ref Tech4Complete, ref Tech3Complete, Tech4);
+        TechAcs1(Tech5Button, ref Tech5Complete, ref Tech2Complete, Tech5);
+        TechAcs1(Tech6Button, ref Tech6Complete, ref Tech4Complete, Tech6);
+        TechAcs1(Tech7Button, ref Tech7Complete, ref Tech2Complete, Tech7);
+        TechAcs1(Tech8Button, ref Tech8Complete, ref Tech7Complete, Tech8);
+        TechAcs1(Tech9Button, ref Tech9Complete, ref Tech8Complete, Tech9);
+        TechAcs1(Tech10Button, ref Tech10Complete, ref Tech7Complete, Tech10);
+        TechAcs1(Tech11Button, ref Tech11Complete, ref Tech10Complete, Tech11);
+        TechAcs1(Tech12Button, ref Tech12Complete, ref Tech10Complete, Tech12);
+        TechAcs1(Tech13Button, ref Tech13Complete, ref Tech9Complete, Tech13);
+        TechAcs1(Tech14Button, ref Tech14Complete, ref Tech11Complete, Tech14);
+        TechAcs1(Tech15Button, ref Tech15Complete, ref Tech13Complete, Tech15);
+        TechAcs1(Tech16Button, ref Tech16Complete, ref Tech14Complete, Tech16);
+        TechAcs1(Tech17Button, ref Tech17Complete, ref Tech14Complete, Tech17);
+        TechAcs1(Tech18Button, ref Tech18Complete, ref Tech16Complete, Tech18);
+        TechAcs2(Tech19Button, ref Tech19Complete, ref Tech15Complete, ref Tech17Complete, Tech19);
+        TechAcs1(Tech20Button, ref Tech20Complete, ref Tech17Complete, Tech20);
+        TechAcs1(Tech21Button, ref Tech21Complete, ref Tech20Complete, Tech21);
+        TechAcs1(Tech22Button, ref Tech22Complete, ref Tech20Complete, Tech22);
     }
 
     public void ButtonNotiOff()
@@ -347,81 +352,57 @@ public class TechManager : MonoBehaviour
         }
     }
 
-    IEnumerator TechAcs0(Button btn, bool a, long s) // 사전연구가 0개 필요한 연구 (연구버튼, 연구완료 판단변수, 필요 연구량)
+    void TechAcs0(Button btn, ref bool a, long s) // 사전연구가 0개 필요한 연구 (연구버튼, 연구완료 판단변수, 필요 연구량)
     {
-        while (true)
+        if (a == false)
         {
-            if (a == false)
+            if (GameManager.science >= s)
+            {
+                btn.interactable = true;
+            }
+        }
+        else
+        {
+            btn.interactable = false;
+        }
+    }
+
+    void TechAcs1(Button btn, ref bool a, ref bool b, long s) // 사전연구가 1개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 필요 연구량)
+    {
+        if (a == false)
+        {
+            if (b == true)
             {
                 if (GameManager.science >= s)
                 {
                     btn.interactable = true;
                 }
-                else if (GameManager.science < s)
-                {
-                    btn.interactable = false;
-                }
             }
-            else if (a == true)
-            {
-                StopCoroutine(TechAcs0(btn, a, s));
-            }
-            yield return new WaitForSeconds(0.2f);
+        }
+        else
+        {
+            btn.interactable = false;
         }
     }
 
-    IEnumerator TechAcs1(Button btn, bool a, bool b, long s) // 사전연구가 1개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 필요 연구량)
+    void TechAcs2(Button btn, ref bool a, ref bool b, ref bool c, long s) // 사전연구가 2개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 사전연구2 판단변수, 필요 연구량)
     {
-        while (true)
+        if (a == false)
         {
-            if (a == false)
+            if (b == true)
             {
-                if (b == true)
+                if (c == true)
                 {
                     if (GameManager.science >= s)
                     {
                         btn.interactable = true;
                     }
-                    else if (GameManager.science < s)
-                    {
-                        btn.interactable = false;
-                    }
                 }
             }
-            else if (a == true)
-            {
-                StopCoroutine(TechAcs1(btn, a, b, s));
-            }
-            yield return new WaitForSeconds(0.2f);
         }
-    }
-
-    IEnumerator TechAcs2(Button btn, bool a, bool b, bool c, long s) // 사전연구가 2개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 사전연구2 판단변수, 필요 연구량)
-    {
-        while (true)
+        else
         {
-            if (a == false)
-            {
-                if (b == true)
-                {
-                    if (c == true)
-                    {
-                        if (GameManager.science >= s)
-                        {
-                            btn.interactable = true;
-                        }
-                        else if (GameManager.science < s)
-                        {
-                            btn.interactable = false;
-                        }
-                    }
-                }
-            }
-            else if (a == true)
-            {
-                StopCoroutine(TechAcs2(btn, a, b, c, s));
-            }
-            yield return new WaitForSeconds(0.2f);
+            btn.interactable = false;
         }
     }
 
@@ -432,6 +413,7 @@ public class TechManager : MonoBehaviour
         Tech1Complete = true;
         Tech1Button.interactable = false;
         TechIcon1.GetComponent<Image>().sprite = TechCplImg1;
+        TechIcon1.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
     }
     public void TechGo2()
     {

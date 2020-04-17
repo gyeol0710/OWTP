@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
 
     static public bool gomsg;
 
+    public GameObject Noti_R;
+    public GameObject Noti_P;
+    public GameObject Noti_T;
+    public GameObject Noti_O;
+
     void Start()
     {
         money = 0;
@@ -344,6 +349,43 @@ public class GameManager : MonoBehaviour
         img4.raycastTarget = true;
     }
 
+    public void StoryOnToOff()
+    {
+        Image img1 = ScR.GetComponent<Image>();
+        Image img2 = Offer01.GetComponent<Image>();
+        Image img3 = Offer02.GetComponent<Image>();
+        Image img4 = Offer03.GetComponent<Image>();
+        if (img2.color == new Color32(255, 255, 255, 0))
+        {
+            img1.color = new Color32(255, 255, 255, 1);
+
+            img2.color = new Color32(255, 255, 255, 220);
+
+            img1.raycastTarget = true;
+            img2.raycastTarget = true;
+            img3.raycastTarget = true;
+            img4.raycastTarget = true;
+        }
+        if (img2.color == new Color32(255, 255, 255, 220))
+        {
+
+        }
+            img1 = ScR.GetComponent<Image>();
+        img1.color = new Color32(255, 255, 255, 0);
+
+        img2 = Offer01.GetComponent<Image>();
+        img2.color = new Color32(255, 255, 255, 0);
+
+        img3 = Offer02.GetComponent<Image>();
+
+        img4 = Offer03.GetComponent<Image>();
+
+        img1.raycastTarget = false;
+        img2.raycastTarget = false;
+        img3.raycastTarget = false;
+        img4.raycastTarget = false;
+    }
+
     public void StoryOFF()
     {
         Image img1 = ScR.GetComponent<Image>();
@@ -360,5 +402,22 @@ public class GameManager : MonoBehaviour
         img2.raycastTarget = false;
         img3.raycastTarget = false;
         img4.raycastTarget = false;
+    }
+
+    public void Noti_R_Off()
+    {
+        Noti_R.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+    }
+    public void Noti_P_Off()
+    {
+        Noti_P.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+    }
+    public void Noti_T_Off()
+    {
+        Noti_T.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+    }
+    public void Noti_O_Off()
+    {
+        Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 0);
     }
 }

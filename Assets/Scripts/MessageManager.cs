@@ -19,10 +19,21 @@ public class MessageManager : MonoBehaviour
 
     static public bool gomsg;
 
+    bool message01c;
+
+    public GameObject TechMainPanel;
+    public GameObject TechIcon_1;
+    public GameObject Noti_R;
+    public GameObject Noti_P;
+    public GameObject Noti_T;
+    public GameObject Noti_O;
+
+
     void Start()
     {
         ScrBar = GameObject.Find("OfferScrollbar").GetComponent<Scrollbar>();
-        StartCoroutine(Message01());
+        StartCoroutine(Message1());
+        StartCoroutine(Message02());
     }
 
     void Update()
@@ -30,8 +41,13 @@ public class MessageManager : MonoBehaviour
 
     }
 
-    IEnumerator Message01()
+    IEnumerator Message1()
     {
+        if (message01c == false)
+        {
+            StopCoroutine(Message1());
+        }
+
         yield return StartCoroutine(Tuto(TutorialManager.T01)); // T01이 true이면 다음으로 진행 가능
         gomsg = true;
         if (TutorialManager.T01c == false) // 대화창 1
@@ -172,7 +188,7 @@ public class MessageManager : MonoBehaviour
 
         yield return StartCoroutine(Tuto(TutorialManager.P02));
 
-        if (TutorialManager.P02c == false) // 대화창 6 [조건 : 증기기관 연구를 위한 연구력 충족]
+        if (TutorialManager.P02c == false) // 푸시 2 [조건 : 증기기관 연구를 위한 연구력 충족]
         {
             gomsg = true;
             yield return StartCoroutine(GoPush("자 이제 연구를 시작해봅시다."));
@@ -182,6 +198,64 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
+        while (true)
+        {
+            if (TechMainPanel.activeSelf == true)
+            {
+                break;
+            }
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        yield return StartCoroutine(Tuto(TutorialManager.P03));
+
+        if (TutorialManager.P03c == false) // 푸시 2 [조건 : 증기기관 연구를 위한 연구력 충족]
+        {
+            gomsg = true;
+            yield return StartCoroutine(GoPush("반짝이고 있는 증기기관 연구 아이콘을 클릭하여 연구하세요."));
+        }
+        TutorialManager.P03c = true;
+
+        yield return new WaitForSeconds(0.1f);
+
+        while (true)
+        {
+            if (TechManager.Tech1Complete == true)
+            {
+                break;
+            }
+            if (TechIcon_1.GetComponent<Image>().color == new Color32(255, 255, 255, 255))
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    TechIcon_1.GetComponent<Image>().color -= new Color32(0, 0, 0, 3);
+                    yield return new WaitForSeconds(0.01f);
+                }
+            }
+            else
+            {
+                for (int i = 1; i < 50; i++)
+                {
+                    TechIcon_1.GetComponent<Image>().color += new Color32(0, 0, 0, 3);
+                    yield return new WaitForSeconds(0.01f);
+                }
+            }
+            yield return null;
+        }
+        message01c = true;
+
+        yield return null;
+    }
+
+    IEnumerator Message02()
+    {
+        if(message01c == false)
+        {
+            StopCoroutine(Message02());
+        }
+        yield return null;
     }
 
 
