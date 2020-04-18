@@ -414,6 +414,13 @@ public class TechManager : MonoBehaviour
         Tech1Button.interactable = false;
         TechIcon1.GetComponent<Image>().sprite = TechCplImg1;
         TechIcon1.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        L2.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L2_3.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L3.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon2.GetComponent<Button>().interactable = true;
+        TechIcon3.GetComponent<Button>().interactable = true;
     }
     public void TechGo2()
     {
@@ -424,6 +431,13 @@ public class TechManager : MonoBehaviour
         L2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L2_3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon2.GetComponent<Image>().sprite = TechCplImg2;
+        L5.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L7_5.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L7.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon7.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon5.GetComponent<Button>().interactable = true;
+        TechIcon7.GetComponent<Button>().interactable = true;
     }
     public void TechGo3()
     {
@@ -434,6 +448,9 @@ public class TechManager : MonoBehaviour
         L3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L2_3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon3.GetComponent<Image>().sprite = TechCplImg3;
+        L4.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon4.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon4.GetComponent<Button>().interactable = true;
     }
     public void TechGo4()
     {
@@ -443,6 +460,9 @@ public class TechManager : MonoBehaviour
         Tech4Button.interactable = false;
         L4.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon4.GetComponent<Image>().sprite = TechCplImg4;
+        L6.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon6.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon6.GetComponent<Button>().interactable = true;
     }
     public void TechGo5()
     {
@@ -472,6 +492,13 @@ public class TechManager : MonoBehaviour
         L7.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L7_5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon7.GetComponent<Image>().sprite = TechCplImg7;
+        L8.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L10_8.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L10.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon10.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon8.GetComponent<Button>().interactable = true;
+        TechIcon10.GetComponent<Button>().interactable = true;
     }
     public void TechGo8()
     {
@@ -482,6 +509,9 @@ public class TechManager : MonoBehaviour
         L8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L10_8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon8.GetComponent<Image>().sprite = TechCplImg8;
+        L9.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon9.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon9.GetComponent<Button>().interactable = true;
     }
     public void TechGo9()
     {
@@ -491,6 +521,9 @@ public class TechManager : MonoBehaviour
         Tech9Button.interactable = false;
         L9.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon9.GetComponent<Image>().sprite = TechCplImg9;
+        L13.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon13.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon13.GetComponent<Button>().interactable = true;
     }
     public void TechGo10()
     {
@@ -501,6 +534,13 @@ public class TechManager : MonoBehaviour
         L10.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L10_8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon10.GetComponent<Image>().sprite = TechCplImg10;
+        L11.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L11_12.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L12.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon11.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon11.GetComponent<Button>().interactable = true;
+        TechIcon12.GetComponent<Button>().interactable = true;
     }
     public void TechGo11()
     {
@@ -511,6 +551,9 @@ public class TechManager : MonoBehaviour
         L11.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L11_12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon11.GetComponent<Image>().sprite = TechCplImg11;
+        L14.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon14.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon14.GetComponent<Button>().interactable = true;
     }
     public void TechGo12()
     {
@@ -530,6 +573,9 @@ public class TechManager : MonoBehaviour
         Tech13Button.interactable = false;
         L13.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon13.GetComponent<Image>().sprite = TechCplImg13;
+        L15.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon15.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon15.GetComponent<Button>().interactable = true;
     }
     public void TechGo14()
     {
@@ -539,6 +585,13 @@ public class TechManager : MonoBehaviour
         Tech14Button.interactable = false;
         L14.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon14.GetComponent<Image>().sprite = TechCplImg14;
+        L16.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L17_16.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L17.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon17.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon16.GetComponent<Button>().interactable = true;
+        TechIcon17.GetComponent<Button>().interactable = true;
     }
     public void TechGo15()
     {
@@ -548,6 +601,12 @@ public class TechManager : MonoBehaviour
         Tech15Button.interactable = false;
         L15.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon15.GetComponent<Image>().sprite = TechCplImg15;
+        L19_1.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        if (Tech17Complete == true)
+        {
+            TechIcon19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon19.GetComponent<Button>().interactable = true;
+        }
     }
     public void TechGo16()
     {
@@ -558,6 +617,9 @@ public class TechManager : MonoBehaviour
         L16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L17_16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon16.GetComponent<Image>().sprite = TechCplImg16;
+        L18.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon18.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon18.GetComponent<Button>().interactable = true;
     }
     public void TechGo17()
     {
@@ -568,6 +630,16 @@ public class TechManager : MonoBehaviour
         L17.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L17_16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon17.GetComponent<Image>().sprite = TechCplImg17;
+        L19_2.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L20.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L20_19.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon20.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon20.GetComponent<Button>().interactable = true;
+        if (Tech15Complete == true)
+        {
+            TechIcon19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon19.GetComponent<Button>().interactable = true;
+        }
     }
     public void TechGo18()
     {
@@ -577,6 +649,7 @@ public class TechManager : MonoBehaviour
         Tech18Button.interactable = false;
         L18.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon18.GetComponent<Image>().sprite = TechCplImg18;
+        
     }
     public void TechGo19()
     {
@@ -599,6 +672,13 @@ public class TechManager : MonoBehaviour
         L20.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L20_19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon20.GetComponent<Image>().sprite = TechCplImg20;
+        L21.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L22_21.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        L22.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
+        TechIcon21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon22.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        TechIcon21.GetComponent<Button>().interactable = true;
+        TechIcon22.GetComponent<Button>().interactable = true;
     }
     public void TechGo21()
     {

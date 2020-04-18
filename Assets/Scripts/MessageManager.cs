@@ -28,12 +28,11 @@ public class MessageManager : MonoBehaviour
     public GameObject Noti_T;
     public GameObject Noti_O;
 
-
     void Start()
     {
         ScrBar = GameObject.Find("OfferScrollbar").GetComponent<Scrollbar>();
         StartCoroutine(Message1());
-        StartCoroutine(Message02());
+        StartCoroutine(Message2());
     }
 
     void Update()
@@ -43,16 +42,14 @@ public class MessageManager : MonoBehaviour
 
     IEnumerator Message1()
     {
-        if (message01c == false)
+        if (message01c == true)
         {
-            StopCoroutine(Message1());
+            yield break;
         }
-
         yield return StartCoroutine(Tuto(TutorialManager.T01)); // T01이 true이면 다음으로 진행 가능
-        gomsg = true;
         if (TutorialManager.T01c == false) // 대화창 1
         {
-            
+            gomsg = true;
             yield return StartCoroutine(GoMessage("........."));
             yield return StartCoroutine(GoMessage("........."));
             yield return StartCoroutine(GoMessage("XᴂP33S⧣⦹eDscx⦩ᜈ"));
@@ -122,6 +119,7 @@ public class MessageManager : MonoBehaviour
             yield return StartCoroutine(GoMessage("기존에 있던 부품들로"));
             yield return StartCoroutine(GoMessage("직원들을 좀 만들어 봅시다."));
             yield return StartCoroutine(GoLine());
+            Noti_R.GetComponent<Image>().color = new Color(255, 255, 255, 255);
         }
         TutorialManager.T04c = true;
 
@@ -166,6 +164,7 @@ public class MessageManager : MonoBehaviour
         if (TutorialManager.T05c == false) // 대화창 5 [조건 : 로봇레벨 5 이상]
         {
             gomsg = true;
+            Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 255);
             yield return StartCoroutine(GoMessage("좋아요."));
             yield return StartCoroutine(GoMessage("점점 숫자가 늘어가는 걸 보니 예감이 좋습니다."));
             yield return StartCoroutine(GoMessage("이 행성에서의 기분 좋은 출발입니다."));
@@ -193,6 +192,7 @@ public class MessageManager : MonoBehaviour
             gomsg = true;
             yield return StartCoroutine(GoPush("자 이제 연구를 시작해봅시다."));
             yield return StartCoroutine(GoPush("연구 아이콘을 클릭해보세요."));
+            Noti_T.GetComponent<Image>().color = new Color(255, 255, 255, 255);
         }
         TutorialManager.P02c = true;
 
@@ -220,6 +220,8 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
+        message01c = true;
+
         while (true)
         {
             if (TechManager.Tech1Complete == true)
@@ -244,18 +246,53 @@ public class MessageManager : MonoBehaviour
             }
             yield return null;
         }
-        message01c = true;
 
-        yield return null;
+        StartCoroutine(Message2());
+
+        yield break;
     }
 
-    IEnumerator Message02()
+    IEnumerator Message2()
     {
         if(message01c == false)
         {
-            StopCoroutine(Message02());
+            yield break;
         }
-        yield return null;
+
+        yield return StartCoroutine(Tuto(TutorialManager.T06));
+
+        if (TutorialManager.T06c == false) // 대화창 6
+        {
+            gomsg = true;
+            Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            yield return StartCoroutine(GoMessage("좋아요."));
+            yield return StartCoroutine(GoMessage("지금까지 우주선에 모인 연구력을 가지고 연구를 완료했어요."));
+            yield return StartCoroutine(GoMessage("이제 이걸 사람한테 주입하면 되겠네요.ᜈ"));
+            yield return StartCoroutine(GoMessage("세상과 인연이 없는 사람을 하나 구해왔어요."));
+            yield return StartCoroutine(GoMessage("어릴 적 기억과 주변 환경을 조작하는 중입니다..."));
+            yield return StartCoroutine(GoMessage("주입중......"));
+            yield return StartCoroutine(GoLine());
+        }
+        TutorialManager.T06c = true;
+
+        yield return new WaitForSeconds(5.0f);
+
+        yield return StartCoroutine(Tuto(TutorialManager.T07));
+
+        if (TutorialManager.T07c == false) // 대화창 6
+        {
+            gomsg = true;
+            Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            yield return StartCoroutine(GoMessage("자! 네 이름은 뉴커멘이란다."));
+            yield return StartCoroutine(GoMessage("어린시절 생각과 증기기관을 완전하게 조작해 두었으니 걱정마세요."));
+            yield return StartCoroutine(GoMessage("조만간 세상에 증기기관을 전파 할 것입니다."));
+            yield return StartCoroutine(GoLine());
+        }
+        TutorialManager.T07c = true;
+
+        yield return new WaitForSeconds(2.0f);
+
+        yield break;
     }
 
 
@@ -275,7 +312,7 @@ public class MessageManager : MonoBehaviour
         scrbar.value = 0;
 
         gomsg = false;
-        StopCoroutine(GoMessage(MSG));
+        yield break;
     }
 
     IEnumerator GoLine()
@@ -292,7 +329,7 @@ public class MessageManager : MonoBehaviour
         Instantiate(prefabLine).transform.SetParent(par.transform, false);
         
         gomsg = false;
-        StopCoroutine(GoLine());
+        yield break;
     }
 
     IEnumerator Tuto(bool T)
@@ -305,7 +342,7 @@ public class MessageManager : MonoBehaviour
             }
             yield return null;
         }
-        StopCoroutine(Tuto(T));
+        yield break;
     }
 
     IEnumerator GoPush(string a)
@@ -346,8 +383,6 @@ public class MessageManager : MonoBehaviour
         }
         gomsg = true;
 
-        StopCoroutine(GoPush(a));
-
-        yield return null;
+        yield break;
     }
 }

@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         money = 0;
-        science = 30;
+        science = 300000;
         years = 1770;
         robotLevel = 0;
         robotTier = 1;
@@ -366,24 +366,18 @@ public class GameManager : MonoBehaviour
             img3.raycastTarget = true;
             img4.raycastTarget = true;
         }
-        if (img2.color == new Color32(255, 255, 255, 220))
+        else if (img2.color == new Color32(255, 255, 255, 220))
         {
+            img1.color = new Color32(255, 255, 255, 0);
 
+            img2.color = new Color32(255, 255, 255, 0);
+
+            img1.raycastTarget = false;
+            img2.raycastTarget = false;
+            img3.raycastTarget = false;
+            img4.raycastTarget = false;
         }
-            img1 = ScR.GetComponent<Image>();
-        img1.color = new Color32(255, 255, 255, 0);
-
-        img2 = Offer01.GetComponent<Image>();
-        img2.color = new Color32(255, 255, 255, 0);
-
-        img3 = Offer02.GetComponent<Image>();
-
-        img4 = Offer03.GetComponent<Image>();
-
-        img1.raycastTarget = false;
-        img2.raycastTarget = false;
-        img3.raycastTarget = false;
-        img4.raycastTarget = false;
+        
     }
 
     public void StoryOFF()
@@ -404,6 +398,14 @@ public class GameManager : MonoBehaviour
         img4.raycastTarget = false;
     }
 
+    IEnumerator AtuoMoney()
+    {
+        while(true)
+        {
+            money += ProductManager.autoMoney;
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
     public void Noti_R_Off()
     {
         Noti_R.GetComponent<Image>().color = new Color(255, 255, 255, 0);

@@ -16,7 +16,7 @@ public class ProductManager : MonoBehaviour
     public Text Product03LevelText;
     public Text Product04LevelText;
 
-    long AutoMoneyIncreaseAmount; // 통합 1초당 획득 돈
+    static public long autoMoney; // 통합 1초당 획득 돈
 
     public long LightBulbPrice; // 전구 개발 비용
     public long LightBulbMoneyIncreaseAmount; // 전구 연구 시 1초당 획득 돈

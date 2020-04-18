@@ -106,5 +106,15 @@ public class TutorialManager : MonoBehaviour
             Tech.interactable = true;
             P03 = true;
         }
+
+        if (TechManager.Tech1Complete == true)
+        {
+            T06 = true;
+        }
+
+        if (T06c == true)
+        {
+            T07 = true;
+        }
     }
 }
