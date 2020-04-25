@@ -220,6 +220,27 @@ public class TechManager : MonoBehaviour
     public Sprite TechCplImg21;
     public Sprite TechCplImg22;
 
+    public GameObject ProdBtn1;
+    public GameObject ProdBtn3;
+    public GameObject ProdBtn4;
+    public GameObject ProdBtn5;
+    public GameObject ProdBtn6;
+    public GameObject ProdBtn7;
+    public GameObject ProdBtn8;
+    public GameObject ProdBtn9;
+    public GameObject ProdBtn10;
+    public GameObject ProdBtn11;
+    public GameObject ProdBtn12;
+    public GameObject ProdBtn13;
+    public GameObject ProdBtn14;
+    public GameObject ProdBtn15;
+    public GameObject ProdBtn17;
+    public GameObject ProdBtn18;
+    public GameObject ProdBtn19;
+    public GameObject ProdBtn20;
+    public GameObject ProdBtn21;
+    public GameObject ProdBtn22;
+
     public GameObject MainTechPanel;
     public GameObject ScrollBar;
     public GameObject SBHandle;
@@ -354,12 +375,9 @@ public class TechManager : MonoBehaviour
 
     void TechAcs0(Button btn, ref bool a, long s) // 사전연구가 0개 필요한 연구 (연구버튼, 연구완료 판단변수, 필요 연구량)
     {
-        if (a == false)
+        if (a == false && GameManager.science >= s)
         {
-            if (GameManager.science >= s)
-            {
-                btn.interactable = true;
-            }
+            btn.interactable = true;
         }
         else
         {
@@ -369,15 +387,9 @@ public class TechManager : MonoBehaviour
 
     void TechAcs1(Button btn, ref bool a, ref bool b, long s) // 사전연구가 1개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 필요 연구량)
     {
-        if (a == false)
+        if (a == false && b == true && GameManager.science >= s)
         {
-            if (b == true)
-            {
-                if (GameManager.science >= s)
-                {
-                    btn.interactable = true;
-                }
-            }
+            btn.interactable = true;
         }
         else
         {
@@ -387,18 +399,9 @@ public class TechManager : MonoBehaviour
 
     void TechAcs2(Button btn, ref bool a, ref bool b, ref bool c, long s) // 사전연구가 2개 필요한 연구 (연구버튼, 연구완료 판단변수, 사전연구1 판단변수, 사전연구2 판단변수, 필요 연구량)
     {
-        if (a == false)
+        if (a == false && b == true && c == true && GameManager.science >= s)
         {
-            if (b == true)
-            {
-                if (c == true)
-                {
-                    if (GameManager.science >= s)
-                    {
-                        btn.interactable = true;
-                    }
-                }
-            }
+            btn.interactable = true;
         }
         else
         {
@@ -421,6 +424,7 @@ public class TechManager : MonoBehaviour
         TechIcon3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon2.GetComponent<Button>().interactable = true;
         TechIcon3.GetComponent<Button>().interactable = true;
+        ProdBtn1.SetActive(true);
     }
     public void TechGo2()
     {
@@ -451,6 +455,7 @@ public class TechManager : MonoBehaviour
         L4.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         TechIcon4.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon4.GetComponent<Button>().interactable = true;
+        ProdBtn3.SetActive(true);
     }
     public void TechGo4()
     {
@@ -463,6 +468,7 @@ public class TechManager : MonoBehaviour
         L6.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         TechIcon6.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon6.GetComponent<Button>().interactable = true;
+        ProdBtn4.SetActive(true);
     }
     public void TechGo5()
     {
@@ -473,6 +479,7 @@ public class TechManager : MonoBehaviour
         L5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L7_5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon5.GetComponent<Image>().sprite = TechCplImg5;
+        ProdBtn5.SetActive(true);
     }
     public void TechGo6()
     {
@@ -482,6 +489,7 @@ public class TechManager : MonoBehaviour
         Tech6Button.interactable = false;
         L6.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon6.GetComponent<Image>().sprite = TechCplImg6;
+        ProdBtn6.SetActive(true);
     }
     public void TechGo7()
     {
@@ -499,6 +507,7 @@ public class TechManager : MonoBehaviour
         TechIcon10.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon8.GetComponent<Button>().interactable = true;
         TechIcon10.GetComponent<Button>().interactable = true;
+        ProdBtn7.SetActive(true);
     }
     public void TechGo8()
     {
@@ -512,6 +521,7 @@ public class TechManager : MonoBehaviour
         L9.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         TechIcon9.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon9.GetComponent<Button>().interactable = true;
+        ProdBtn8.SetActive(true);
     }
     public void TechGo9()
     {
@@ -524,6 +534,7 @@ public class TechManager : MonoBehaviour
         L13.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         TechIcon13.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon13.GetComponent<Button>().interactable = true;
+        ProdBtn9.SetActive(true);
     }
     public void TechGo10()
     {
@@ -541,6 +552,7 @@ public class TechManager : MonoBehaviour
         TechIcon12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon11.GetComponent<Button>().interactable = true;
         TechIcon12.GetComponent<Button>().interactable = true;
+        ProdBtn10.SetActive(true);
     }
     public void TechGo11()
     {
@@ -554,6 +566,7 @@ public class TechManager : MonoBehaviour
         L14.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         TechIcon14.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon14.GetComponent<Button>().interactable = true;
+        ProdBtn11.SetActive(true);
     }
     public void TechGo12()
     {
@@ -564,6 +577,7 @@ public class TechManager : MonoBehaviour
         L12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L11_12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon12.GetComponent<Image>().sprite = TechCplImg12;
+        ProdBtn12.SetActive(true);
     }
     public void TechGo13()
     {
@@ -576,6 +590,7 @@ public class TechManager : MonoBehaviour
         L15.GetComponent<Image>().color = new Color32(48, 114, 175, 255);
         TechIcon15.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon15.GetComponent<Button>().interactable = true;
+        ProdBtn13.SetActive(true);
     }
     public void TechGo14()
     {
@@ -592,6 +607,7 @@ public class TechManager : MonoBehaviour
         TechIcon17.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon16.GetComponent<Button>().interactable = true;
         TechIcon17.GetComponent<Button>().interactable = true;
+        ProdBtn14.SetActive(true);
     }
     public void TechGo15()
     {
@@ -607,6 +623,7 @@ public class TechManager : MonoBehaviour
             TechIcon19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             TechIcon19.GetComponent<Button>().interactable = true;
         }
+        ProdBtn15.SetActive(true);
     }
     public void TechGo16()
     {
@@ -640,6 +657,7 @@ public class TechManager : MonoBehaviour
             TechIcon19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             TechIcon19.GetComponent<Button>().interactable = true;
         }
+        ProdBtn17.SetActive(true);
     }
     public void TechGo18()
     {
@@ -650,6 +668,7 @@ public class TechManager : MonoBehaviour
         L18.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon18.GetComponent<Image>().sprite = TechCplImg18;
         
+        ProdBtn18.SetActive(true);
     }
     public void TechGo19()
     {
@@ -662,6 +681,7 @@ public class TechManager : MonoBehaviour
         L20_19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon19.GetComponent<Image>().sprite = TechCplImg19;
 
+        ProdBtn19.SetActive(true);
     }
     public void TechGo20()
     {
@@ -679,6 +699,7 @@ public class TechManager : MonoBehaviour
         TechIcon22.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon21.GetComponent<Button>().interactable = true;
         TechIcon22.GetComponent<Button>().interactable = true;
+        ProdBtn20.SetActive(true);
     }
     public void TechGo21()
     {
@@ -689,6 +710,7 @@ public class TechManager : MonoBehaviour
         L21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L22_21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon21.GetComponent<Image>().sprite = TechCplImg21;
+        ProdBtn21.SetActive(true);
     }
     public void TechGo22()
     {
@@ -699,5 +721,6 @@ public class TechManager : MonoBehaviour
         L22.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         L22_21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
         TechIcon22.GetComponent<Image>().sprite = TechCplImg22;
+        ProdBtn22.SetActive(true);
     }
 }

@@ -6,6 +6,43 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
+    public long StandardConst_IND_GoldUp;
+    public double GoldUp_Lv1_10_IND;
+    public double GoldUp_Lv11_20_IND;
+    public double GoldUp_Lv21_30_IND;
+    public double GoldUp_Lv31_40_IND;
+    public double GoldUp_Lv41_50_IND;
+    public double GoldUp_Lv51_60_IND;
+    public double GoldUp_Lv61_70_IND;
+    public double GoldUp_Lv71_80_IND;
+    public double GoldUp_Lv81_90_IND;
+    public double GoldUp_Lv91_100_IND;
+
+    public long Science_Lv1_10_IND;
+    public long Science_Lv11_20_IND;
+    public long Science_Lv21_30_IND;
+    public long Science_Lv31_40_IND;
+    public long Science_Lv41_50_IND;
+    public long Science_Lv51_60_IND;
+    public long Science_Lv61_70_IND;
+    public long Science_Lv71_80_IND;
+    public long Science_Lv81_90_IND;
+    public long Science_Lv91_100_IND;
+
+    public long StandardConst_IND_Need;
+    public double Need_Lv1_10_IND;
+    public double Need_Lv11_20_IND;
+    public double Need_Lv21_30_IND;
+    public double Need_Lv31_40_IND;
+    public double Need_Lv41_50_IND;
+    public double Need_Lv51_60_IND;
+    public double Need_Lv61_70_IND;
+    public double Need_Lv71_80_IND;
+    public double Need_Lv81_90_IND;
+    public double Need_Lv91_100_IND;
+
+    static public bool RePlay;
+
     static public long money; // 돈
     public long DisplayedMoney; // 표시되는 돈
     public long moneyIncreaseAmount; // 클릭 시 돈 증가량
@@ -18,8 +55,6 @@ public class GameManager : MonoBehaviour
     public Text robotInfo1; // 로봇 현재 골드 획득 및 지식 획득 정보
     public Text robotInfo2;
     public Text robotInfo3;
-    public Text robotLevelUpInfo;
-    public Text robotTierUpInfo;
     public Button robotLevelUpButton; // 로봇 레벨업 버튼
     public Button robotTierUpButton; // 로봇 티어업 버튼
 
@@ -48,11 +83,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        money = 0;
-        science = 300000;
-        years = 1770;
-        robotLevel = 0;
-        robotTier = 1;
+        StartCoroutine(AtuoMoney());
+        StartCoroutine(RobotGoldUpMec());
+        StartCoroutine(ScienceUpMec());
+        if (RePlay == false)
+        {
+            money = 0;
+            science = 0;
+            years = 1770;
+            robotLevel = 0;
+            robotTier = 1;
+        }
+        RePlay = true;
     }
 
     void Update()
@@ -60,6 +102,7 @@ public class GameManager : MonoBehaviour
         ShowInfo();
         UpdateRobotPanelText();
         RobotLevelUpButtonActiveCheck();
+        RobotGoldUpNeedMec();
     }
 
     public void MoneyIncrease()
@@ -72,8 +115,7 @@ public class GameManager : MonoBehaviour
 
     public void ScienceIncrease()
     {
-        float r2 = Random.Range(0, 100); // 0이상 100미만의 실수 랜덤 출력 [원래는 rand() 함수를 사용하려고 했으나 표본이 적으면 확률이 극단적이라 게임본질을 헤칠 위험 있음 = 실력겜]
-        if (r2 <= robotLevel)
+        if(robotLevel >= 1)
         {
             science += scienceIncreaseAmount; // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -241,12 +283,206 @@ public class GameManager : MonoBehaviour
 
     void UpdateRobotPanelText()
     {
-        if (robotLevel <= 100)
-        {
             robotTierAndLevel.text = "Tier " + robotTier + "   Level " + robotLevel;
             robotInfo1.text = "현재 Touch 골드 획득\n" + moneyIncreaseAmount.ToString("###,###");
-            robotInfo2.text = "현재 Touch 지식 획득\n" + scienceIncreaseAmount + " [획득 확률 " + robotLevel * 2 + "%]" + "\n\n";
-            robotInfo3.text = "레벨업! 비용 : " + robotLevelUpPrice.ToString("###,###");
+            robotInfo2.text = "현재 Touch 지식 획득\n" + scienceIncreaseAmount;
+            robotInfo3.text = robotLevelUpPrice.ToString("###,###");
+    }
+
+    IEnumerator RobotGoldUpMec()
+    {
+        while(true)
+        {
+            if (robotTier == 1)
+            {
+                if (robotLevel == 0)
+                {
+                    moneyIncreaseAmount = StandardConst_IND_GoldUp;
+                }
+                else if (robotLevel >= 1 && robotLevel <= 10)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv1_10_IND);
+                }
+                else if (robotLevel >= 11 && robotLevel <= 20)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv11_20_IND);
+                }
+                else if (robotLevel >= 21 && robotLevel <= 30)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv21_30_IND);
+                }
+                else if (robotLevel >= 31 && robotLevel <= 40)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv31_40_IND);
+                }
+                else if (robotLevel >= 41 && robotLevel <= 50)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv41_50_IND);
+                }
+                else if (robotLevel >= 51 && robotLevel <= 60)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv51_60_IND);
+                }
+                else if (robotLevel >= 61 && robotLevel <= 70)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv61_70_IND);
+                }
+                else if (robotLevel >= 71 && robotLevel <= 80)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv71_80_IND);
+                }
+                else if (robotLevel >= 81 && robotLevel <= 90)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv81_90_IND);
+                }
+                else if (robotLevel >= 91 && robotLevel <= 100)
+                {
+                    moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv91_100_IND);
+                }
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator ScienceUpMec()
+    {
+        while(true)
+        {
+            if (robotTier == 1)
+            {
+                if (robotLevel == 0)
+                {
+                    scienceIncreaseAmount = 0;
+                }
+                else if (robotLevel >= 1 && robotLevel <= 10)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv1_10_IND;
+                }
+                else if (robotLevel >= 11 && robotLevel < 20)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv11_20_IND;
+                }
+                else if (robotLevel == 20)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv11_20_IND;
+                }
+                else if (robotLevel >= 21 && robotLevel < 30)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv21_30_IND;
+                }
+                else if (robotLevel == 30)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv21_30_IND;
+                }
+                else if (robotLevel >= 31 && robotLevel < 40)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv31_40_IND;
+                }
+                else if (robotLevel == 40)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv31_40_IND;
+                }
+                else if (robotLevel >= 41 && robotLevel < 50)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv41_50_IND;
+                }
+                else if (robotLevel == 50)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv41_50_IND;
+                }
+                else if (robotLevel >= 51 && robotLevel < 60)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv51_60_IND;
+                }
+                else if (robotLevel == 60)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv51_60_IND;
+                }
+                else if (robotLevel >= 61 && robotLevel < 70)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv61_70_IND;
+                }
+                else if (robotLevel == 70)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv61_70_IND;
+                }
+                else if (robotLevel >= 71 && robotLevel < 80)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv71_80_IND;
+                }
+                else if (robotLevel == 80)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv71_80_IND;
+                }
+                else if (robotLevel >= 81 && robotLevel < 90)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv81_90_IND;
+                }
+                else if (robotLevel == 90)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv81_90_IND;
+                }
+                else if (robotLevel >= 91 && robotLevel < 100)
+                {
+                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv91_100_IND;
+                }
+                else if (robotLevel == 100)
+                {
+                    scienceIncreaseAmount = robotLevel * Science_Lv91_100_IND;
+                }
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void RobotGoldUpNeedMec()
+    {
+        if (robotTier == 1)
+        {
+            if (robotLevel == 0)
+            {
+                robotLevelUpPrice = StandardConst_IND_Need;
+            }
+            else if (robotLevel >= 1 && robotLevel <= 10)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv1_10_IND);
+            }
+            else if (robotLevel >= 11 && robotLevel <= 20)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv11_20_IND);
+            }
+            else if (robotLevel >= 21 && robotLevel <= 30)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv21_30_IND);
+            }
+            else if (robotLevel >= 31 && robotLevel <= 40)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv31_40_IND);
+            }
+            else if (robotLevel >= 41 && robotLevel <= 50)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv41_50_IND);
+            }
+            else if (robotLevel >= 51 && robotLevel <= 60)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv51_60_IND);
+            }
+            else if (robotLevel >= 61 && robotLevel <= 70)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv61_70_IND);
+            }
+            else if (robotLevel >= 71 && robotLevel <= 80)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv71_80_IND);
+            }
+            else if (robotLevel >= 81 && robotLevel <= 90)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv81_90_IND);
+            }
+            else if (robotLevel >= 91 && robotLevel <= 100)
+            {
+                robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv91_100_IND);
+            }
         }
     }
 
@@ -256,33 +492,8 @@ public class GameManager : MonoBehaviour
         {
             if (robotTier == 1)
             {
-                if (money >= robotLevelUpPrice)
-                {
-                    money -= robotLevelUpPrice;
-                    robotLevel += 1;
-                    moneyIncreaseAmount += robotLevel * 10;
-                    robotLevelUpPrice += robotLevel * 30;
-                }
-            }
-            else if (robotTier == 2)
-            {
-                if (money >= robotLevelUpPrice)
-                {
-                    money -= robotLevelUpPrice;
-                    robotLevel += 1;
-                    moneyIncreaseAmount += robotLevel * 2000;
-                    robotLevelUpPrice += robotLevel * 10000;
-                }
-            }
-            else
-            {
-                if (money >= robotLevelUpPrice)
-                {
-                    money -= robotLevelUpPrice;
-                    robotLevel += 1;
-                    moneyIncreaseAmount += robotLevel * 40000;
-                    robotLevelUpPrice += robotLevel * 200000;
-                }
+                money -= robotLevelUpPrice;
+                robotLevel += 1;
             }
         }
     }
@@ -302,12 +513,9 @@ public class GameManager : MonoBehaviour
 
     void RobotLevelUpButtonActiveCheck()
     {
-        if (robotLevel < 50)
+        if (robotLevel < 100 && money >= robotLevelUpPrice)
         {
-            if (money >= robotLevelUpPrice)
-                robotLevelUpButton.interactable = true;
-            else
-                robotLevelUpButton.interactable = false;
+            robotLevelUpButton.interactable = true;
         }
         else
             robotLevelUpButton.interactable = false;
@@ -402,8 +610,9 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            money += ProductManager.autoMoney;
-            yield return new WaitForSeconds(1.0f);
+            money += (ProductManager.autoMoney)/10;
+
+            yield return new WaitForSeconds(0.1f);
         }
     }
     public void Noti_R_Off()

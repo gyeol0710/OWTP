@@ -293,6 +293,7 @@ public class MessageManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         yield break;
+
     }
 
 

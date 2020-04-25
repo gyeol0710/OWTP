@@ -115,6 +115,7 @@ public class TutorialManager : MonoBehaviour
         if (T06c == true)
         {
             T07 = true;
+            Product.interactable = true; // 추후 튜토리얼 수정시 삭제 요망
         }
     }
 }
