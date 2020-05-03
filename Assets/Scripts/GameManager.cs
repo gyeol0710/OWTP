@@ -81,6 +81,15 @@ public class GameManager : MonoBehaviour
     public GameObject Noti_T;
     public GameObject Noti_O;
 
+    void Awake()
+    {
+        string path = Application.persistentDataPath + "/save.xml";
+        if (System.IO.File.Exists(path))
+        {
+            Load();
+        }
+    }
+
     void Start()
     {
         StartCoroutine(AtuoMoney());
@@ -103,6 +112,41 @@ public class GameManager : MonoBehaviour
         UpdateRobotPanelText();
         RobotLevelUpButtonActiveCheck();
         RobotGoldUpNeedMec();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
+    void Save()
+    {
+        SaveData saveData = new SaveData();
+
+        saveData.money = money;
+        saveData.moneyIncreaseAmount = moneyIncreaseAmount;
+        saveData.science = science;
+        saveData.scienceIncreaseAmount = scienceIncreaseAmount;
+        saveData.years = years;
+        saveData.RePlay = RePlay;
+
+        string path = Application.persistentDataPath + "/save.xml";
+        XmlManager.XmlSave<SaveData>(saveData, path);
+    }
+
+    void Load()
+    {
+        SaveData saveData = new SaveData();
+
+        string path = Application.persistentDataPath + "/save.xml";
+        saveData = XmlManager.XmlLoad<SaveData>(path);
+
+        money = saveData.money;
+        moneyIncreaseAmount = saveData.moneyIncreaseAmount;
+        science = saveData.science;
+        scienceIncreaseAmount = saveData.scienceIncreaseAmount;
+        years = saveData.years;
+        RePlay = saveData.RePlay;
     }
 
     public void MoneyIncrease()
