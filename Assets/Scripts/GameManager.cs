@@ -83,15 +83,18 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        /*
         string path = Application.persistentDataPath + "/save.xml";
         if (System.IO.File.Exists(path))
         {
             Load();
         }
+        */
     }
-
+    
     void Start()
     {
+        // StartCoroutine(save());
         StartCoroutine(AtuoMoney());
         StartCoroutine(RobotGoldUpMec());
         StartCoroutine(ScienceUpMec());
@@ -117,6 +120,15 @@ public class GameManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         Save();
+    }
+
+    IEnumerator save()
+    {
+        while(true)
+        {
+            Save();
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     void Save()

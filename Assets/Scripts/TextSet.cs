@@ -31,7 +31,7 @@ public class TextSet : MonoBehaviour
             scrbar.value = 0;
 
             text.text += subtext[n];
-            yield return new WaitForSeconds(0.07f);
+            yield return new WaitForSeconds(0.03f);
         }
         yield return new WaitForSeconds(0.5f);
         MessageManager.gomsg = true;

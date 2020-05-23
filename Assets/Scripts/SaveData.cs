@@ -8,4 +8,5 @@ public class SaveData
     public int years;
 
     public bool RePlay;
+    public bool TutoAllclear;
 }
