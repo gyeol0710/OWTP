@@ -50,6 +50,37 @@ public class TechManager : MonoBehaviour
     public static long Tech21;
     public long tc22_동력비행_연구력;
     public static long Tech22;
+    public long tc23_개틀링건_연구력;
+    public static long Tech23;
+    public long tc24_진공_연구력;
+    public static long Tech24;
+    public long tc25_오프셋인쇄_연구력;
+    public static long Tech25;
+    public long tc26_냉각순환_연구력;
+    public static long Tech26;
+    public long tc27_전자기파_연구력;
+    public static long Tech27;
+    public long tc28_폭격기_연구력;
+    public static long Tech28;
+    public long tc29_4기통엔진_연구력;
+    public static long Tech29;
+    public long tc30_암모니아_연구력;
+    public static long Tech30;
+    public long tc31_암호학_연구력;
+    public static long Tech31;
+    public long tc32_탱크_연구력;
+    public static long Tech32;
+    public long tc33_급속동결_연구력;
+    public static long Tech33;
+    public long tc34_항생재_연구력;
+    public static long Tech34;
+    public long tc35_나일론_연구력;
+    public static long Tech35;
+    public long tc36_제트엔진_연구력;
+    public static long Tech36;
+    public long tc37_우라늄_연구력;
+    public static long Tech37;
+
 
     public int tYear1; // 증기기관 연구 완료 시 연도 증가량
     public int tYear2;
@@ -73,6 +104,21 @@ public class TechManager : MonoBehaviour
     public int tYear20;
     public int tYear21;
     public int tYear22;
+    public int tYear23;
+    public int tYear24;
+    public int tYear25;
+    public int tYear26;
+    public int tYear27;
+    public int tYear28;
+    public int tYear29;
+    public int tYear30;
+    public int tYear31;
+    public int tYear32;
+    public int tYear33;
+    public int tYear34;
+    public int tYear35;
+    public int tYear36;
+    public int tYear37;
 
     static public bool Tech1Complete; // 증기기관 기술 완료 판단
     static public bool Tech2Complete;
@@ -96,6 +142,21 @@ public class TechManager : MonoBehaviour
     static public bool Tech20Complete;
     static public bool Tech21Complete;
     static public bool Tech22Complete;
+    static public bool Tech23Complete;
+    static public bool Tech24Complete;
+    static public bool Tech25Complete;
+    static public bool Tech26Complete;
+    static public bool Tech27Complete;
+    static public bool Tech28Complete;
+    static public bool Tech29Complete;
+    static public bool Tech30Complete;
+    static public bool Tech31Complete;
+    static public bool Tech32Complete;
+    static public bool Tech33Complete;
+    static public bool Tech34Complete;
+    static public bool Tech35Complete;
+    static public bool Tech36Complete;
+    static public bool Tech37Complete;
 
     bool Tech1AnimC;
     bool Tech2AnimC;
@@ -119,6 +180,21 @@ public class TechManager : MonoBehaviour
     bool Tech20AnimC;
     bool Tech21AnimC;
     bool Tech22AnimC;
+    bool Tech23AnimC;
+    bool Tech24AnimC;
+    bool Tech25AnimC;
+    bool Tech26AnimC;
+    bool Tech27AnimC;
+    bool Tech28AnimC;
+    bool Tech29AnimC;
+    bool Tech30AnimC;
+    bool Tech31AnimC;
+    bool Tech32AnimC;
+    bool Tech33AnimC;
+    bool Tech34AnimC;
+    bool Tech35AnimC;
+    bool Tech36AnimC;
+    bool Tech37AnimC;
 
     public GameObject L2;
     public GameObject L2_3; // 영향을 받는 라인 L2, L3
@@ -173,6 +249,21 @@ public class TechManager : MonoBehaviour
     public GameObject TechIcon20;
     public GameObject TechIcon21;
     public GameObject TechIcon22;
+    public GameObject TechIcon23;
+    public GameObject TechIcon24;
+    public GameObject TechIcon25;
+    public GameObject TechIcon26;
+    public GameObject TechIcon27;
+    public GameObject TechIcon28;
+    public GameObject TechIcon29;
+    public GameObject TechIcon30;
+    public GameObject TechIcon31;
+    public GameObject TechIcon32;
+    public GameObject TechIcon33;
+    public GameObject TechIcon34;
+    public GameObject TechIcon35;
+    public GameObject TechIcon36;
+    public GameObject TechIcon37;
 
     public Sprite TechCplImg1; // 증기기관 연구 완료된 이미지(화이트)
     public Sprite TechCplImg2;
@@ -196,6 +287,21 @@ public class TechManager : MonoBehaviour
     public Sprite TechCplImg20;
     public Sprite TechCplImg21;
     public Sprite TechCplImg22;
+    public Sprite TechCplImg23;
+    public Sprite TechCplImg24;
+    public Sprite TechCplImg25;
+    public Sprite TechCplImg26;
+    public Sprite TechCplImg27;
+    public Sprite TechCplImg28;
+    public Sprite TechCplImg29;
+    public Sprite TechCplImg30;
+    public Sprite TechCplImg31;
+    public Sprite TechCplImg32;
+    public Sprite TechCplImg33;
+    public Sprite TechCplImg34;
+    public Sprite TechCplImg35;
+    public Sprite TechCplImg36;
+    public Sprite TechCplImg37;
 
     public GameObject ProdBtn1;
     public GameObject ProdBtn3;
@@ -217,6 +323,21 @@ public class TechManager : MonoBehaviour
     public GameObject ProdBtn20;
     public GameObject ProdBtn21;
     public GameObject ProdBtn22;
+    public GameObject ProdBtn23;
+    public GameObject ProdBtn24;
+    public GameObject ProdBtn25;
+    public GameObject ProdBtn26;
+    public GameObject ProdBtn27;
+    public GameObject ProdBtn28;
+    public GameObject ProdBtn29;
+    public GameObject ProdBtn30;
+    public GameObject ProdBtn31;
+    public GameObject ProdBtn32;
+    public GameObject ProdBtn33;
+    public GameObject ProdBtn34;
+    public GameObject ProdBtn35;
+    public GameObject ProdBtn36;
+    public GameObject ProdBtn37;
 
     // 연구아이콘 클릭 시 나오는 패널 관련
     public Text title;
@@ -262,6 +383,21 @@ public class TechManager : MonoBehaviour
         Tech20 = tc20_필라멘트_연구력;
         Tech21 = tc21_무선통신_연구력;
         Tech22 = tc22_동력비행_연구력;
+        Tech23 = tc23_개틀링건_연구력;
+        Tech24 = tc24_진공_연구력;
+        Tech25 = tc25_오프셋인쇄_연구력;
+        Tech26 = tc26_냉각순환_연구력;
+        Tech27 = tc27_전자기파_연구력;
+        Tech28 = tc28_폭격기_연구력;
+        Tech29 = tc29_4기통엔진_연구력;
+        Tech30 = tc30_암모니아_연구력;
+        Tech31 = tc31_암호학_연구력;
+        Tech32 = tc32_탱크_연구력;
+        Tech33 = tc33_급속동결_연구력;
+        Tech34 = tc34_항생재_연구력;
+        Tech35 = tc35_나일론_연구력;
+        Tech36 = tc36_제트엔진_연구력;
+        Tech37 = tc37_우라늄_연구력;
     }
 
     void Start()
@@ -385,6 +521,10 @@ public class TechManager : MonoBehaviour
         else if (PanelNum == 22)
         {
             UpTechLogic0(Tech22, tYear22, ref Tech22Complete, ref TechIcon22, TechCplImg22, ref ProdBtn22);
+        }
+        else if (PanelNum == 23)
+        {
+            UpTechLogic2(Tech23, tYear23, ref Tech23Complete, ref TechIcon23, TechCplImg23, ref ProdBtn23, ref TechIcon24, ref TechIcon25);
         }
     }
 
