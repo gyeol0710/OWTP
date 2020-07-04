@@ -225,6 +225,31 @@ public class TechManager : MonoBehaviour
     public GameObject L21;
     public GameObject L22;
     public GameObject L22_21; // L21, L22
+    public GameObject L24;
+    public GameObject L24_25;
+    public GameObject L25;
+    public GameObject L26;
+    public GameObject L27;
+    public GameObject L27_28;
+    public GameObject L28;
+    public GameObject L28_32;
+    public GameObject L29;
+    public GameObject L29_32;
+    public GameObject L30;
+    public GameObject L31;
+    public GameObject L32;
+    public GameObject L33;
+    public GameObject L34;
+    public GameObject L35;
+    public GameObject L36_1;
+    public GameObject L36_2;
+    public GameObject L36_3;
+    public GameObject L37_1;
+    public GameObject L37_2;
+    public GameObject L37_3;
+    public GameObject L37_35;
+    public GameObject L37_36;
+
     public GameObject Noti;
 
     public GameObject TechIcon1;
@@ -350,16 +375,23 @@ public class TechManager : MonoBehaviour
     short PanelNum;
 
     public GameObject MainTechPanel;
-    public GameObject ScrollBar;
-    public GameObject SBHandle;
-    Scrollbar SbTech; // 스크롤바 import를 위한 변수 AutoHidingHandle() 관련
-    float CurrentHandleValue; // 스크롤바 커서 위치값 변수 AutoHidingHandle() 관련
+    public GameObject ScrollBar_IND;
+    public GameObject SBHandle_IND;
+    public GameObject ScrollBar_WAR;
+    public GameObject SBHandle_WAR;
+
+    Scrollbar SbTech_IND; // 스크롤바 import를 위한 변수 AutoHidingHandle() 관련
+    float CurrentHandleValue_IND; // 스크롤바 커서 위치값 변수 AutoHidingHandle() 관련
+    Scrollbar SbTech_WAR;
+    float CurrentHandleValue_WAR;
 
     void Awake()
     {
         MainTechPanel.SetActive(true);
-        SbTech = ScrollBar.GetComponent<Scrollbar>();
-        SbTech.value = 1;
+        SbTech_IND = ScrollBar_IND.GetComponent<Scrollbar>();
+        SbTech_IND.value = 1;
+        SbTech_WAR = ScrollBar_WAR.GetComponent<Scrollbar>();
+        SbTech_WAR.value = 1;
 
         Tech1 = tc1_증기기관_연구력;
         Tech2 = tc2_증기선_연구력;
@@ -421,12 +453,21 @@ public class TechManager : MonoBehaviour
 
     void AutoHidingHandle()
     {
-        Image im = SBHandle.GetComponent<Image>();
-        im.color = new Color(im.color.r, im.color.g, im.color.b, im.color.a - 0.02f);
-        if (SbTech.value != CurrentHandleValue)
+        Image im1 = SBHandle_IND.GetComponent<Image>();
+        Image im2 = SBHandle_WAR.GetComponent<Image>();
+
+        im1.color = new Color(im1.color.r, im1.color.g, im1.color.b, im1.color.a - 0.02f);
+        if (SbTech_IND.value != CurrentHandleValue_IND)
         {
-            im.color = new Color32(255, 255, 255, 255);
-            CurrentHandleValue = SbTech.value;
+            im1.color = new Color32(255, 255, 255, 255);
+            CurrentHandleValue_IND = SbTech_IND.value;
+        }
+
+        im2.color = new Color(im2.color.r, im2.color.g, im2.color.b, im2.color.a - 0.02f);
+        if (SbTech_WAR.value != CurrentHandleValue_WAR)
+        {
+            im2.color = new Color32(255, 255, 255, 255);
+            CurrentHandleValue_WAR = SbTech_WAR.value;
         }
     }
 
@@ -524,7 +565,63 @@ public class TechManager : MonoBehaviour
         }
         else if (PanelNum == 23)
         {
-            UpTechLogic2(Tech23, tYear23, ref Tech23Complete, ref TechIcon23, TechCplImg23, ref ProdBtn23, ref TechIcon24, ref TechIcon25);
+            UpTechLogic2(Tech23, tYear23, ref Tech23Complete, ref TechIcon23, TechCplImg23, ref TechIcon24, ref TechIcon25, ref ProdBtn23);
+        }
+        else if (PanelNum == 24)
+        {
+            UpTechLogic1(Tech24, tYear24, ref Tech24Complete, ref TechIcon24, TechCplImg24, ref TechIcon26, ref ProdBtn24);
+        }
+        else if (PanelNum == 25)
+        {
+            UpTechLogic1(Tech25, tYear25, ref Tech25Complete, ref TechIcon25, TechCplImg25, ref TechIcon29, ref ProdBtn25);
+        }
+        else if (PanelNum == 26)
+        {
+            UpTechLogic2(Tech26, tYear26, ref Tech26Complete, ref TechIcon26, TechCplImg26, ref TechIcon27, ref TechIcon28, ref ProdBtn26);
+        }
+        else if (PanelNum == 27)
+        {
+            UpTechLogic1(Tech27, tYear27, ref Tech27Complete, ref TechIcon27, TechCplImg27, ref TechIcon30, ref ProdBtn27);
+        }
+        else if (PanelNum == 28)
+        {
+            UpTechLogic0(Tech28, tYear28, ref Tech28Complete, ref TechIcon28, TechCplImg28, ref ProdBtn28);
+        }
+        else if (PanelNum == 29)
+        {
+            UpTechLogic0(Tech29, tYear29, ref Tech29Complete, ref TechIcon29, TechCplImg29, ref ProdBtn29);
+        }
+        else if (PanelNum == 30)
+        {
+            UpTechLogic1(Tech30, tYear30, ref Tech30Complete, ref TechIcon30, TechCplImg30, ref TechIcon31, ref ProdBtn30);
+        }
+        else if (PanelNum == 31)
+        {
+            UpTechLogic1(Tech31, tYear31, ref Tech31Complete, ref TechIcon31, TechCplImg31, ref TechIcon33, ref ProdBtn31);
+        }
+        else if (PanelNum == 32)
+        {
+            UpTechLogic1(Tech32, tYear32, ref Tech32Complete, ref TechIcon32, TechCplImg32, ref TechIcon34, ref ProdBtn32);
+        }
+        else if (PanelNum == 33)
+        {
+            UpTechLogic0(Tech33, tYear33, ref Tech33Complete, ref TechIcon33, TechCplImg33, ref ProdBtn33);
+        }
+        else if (PanelNum == 34)
+        {
+            UpTechLogic1(Tech34, tYear34, ref Tech34Complete, ref TechIcon34, TechCplImg34, ref TechIcon35, ref ProdBtn34);
+        }
+        else if (PanelNum == 35)
+        {
+            UpTechLogic0(Tech35, tYear35, ref Tech35Complete, ref TechIcon35, TechCplImg35, ref ProdBtn35);
+        }
+        else if (PanelNum == 36)
+        {
+            UpTechLogic0(Tech36, tYear36, ref Tech36Complete, ref TechIcon36, TechCplImg36, ref ProdBtn36);
+        }
+        else if (PanelNum == 37)
+        {
+            UpTechLogic0(Tech37, tYear37, ref Tech37Complete, ref TechIcon37, TechCplImg37, ref ProdBtn37);
         }
     }
 
@@ -629,6 +726,23 @@ public class TechManager : MonoBehaviour
         TechAnimLogic2_2_3(ref Tech20AnimC, ref Tech20Complete, ref TechIcon20, ref TechIcon21, ref TechIcon22, ref L20, ref L20_19, ref L21, ref L22_21, ref L22);
         TechAnimLogic0_2_0(ref Tech21AnimC, ref Tech21Complete, ref TechIcon21, ref L21, ref L22_21);
         TechAnimLogic0_2_0(ref Tech22AnimC, ref Tech22Complete, ref TechIcon22, ref L22, ref L22_21);
+
+        TechAnimLogic2_0_3(ref Tech23AnimC, ref Tech23Complete, ref TechIcon23, ref TechIcon24, ref TechIcon25, ref L24, ref L24_25, ref L25);
+        TechAnimLogic1_2_1(ref Tech24AnimC, ref Tech24Complete, ref TechIcon24, ref TechIcon26, ref L24, ref L24_25, ref L26);
+        TechAnimLogic1_2_1(ref Tech25AnimC, ref Tech25Complete, ref TechIcon25, ref TechIcon29, ref L24_25, ref L25, ref L29);
+        TechAnimLogic2_1_3(ref Tech26AnimC, ref Tech26Complete, ref TechIcon26, ref TechIcon27, ref TechIcon28, ref L26, ref L27, ref L27_28, ref L28);
+        TechAnimLogic1_2_1(ref Tech27AnimC, ref Tech27Complete, ref TechIcon27, ref TechIcon30, ref L27, ref L27_28, ref L30);
+        TechAnimLogic0_2_2(ref Tech28AnimC, ref Tech28Complete, ref TechIcon28, ref L27_28, ref L28, ref L28_32, ref L32);
+        TechAnimLogic0_1_2(ref Tech29AnimC, ref Tech29Complete, ref TechIcon29, ref L29, ref L29_32, ref L32);
+        TechAnimLogic1_1_1(ref Tech30AnimC, ref Tech30Complete, ref TechIcon30, ref TechIcon31, ref L30, ref L31);
+        TechAnimLogic1_1_1(ref Tech31AnimC, ref Tech31Complete, ref TechIcon31, ref TechIcon33, ref L31, ref L33);
+        TechAnimLogic1_3_1(ref Tech32AnimC, ref Tech32Complete, ref TechIcon32, ref TechIcon34, ref L28_32, ref L29_32, ref L32, ref L34);
+        TechAnimLogic0_1_2(ref Tech33AnimC, ref Tech33Complete, ref TechIcon33, ref L33, ref L36_1, ref L36_3);
+        TechAnimLogic1_1_6(ref Tech34AnimC, ref Tech34Complete, ref TechIcon34, ref TechIcon35, ref L34, ref L35, ref L36_2, ref L36_3, ref L37_1, ref L37_36, ref L37_35);
+        TechAnimLogic0_2_1(ref Tech35AnimC, ref Tech35Complete, ref TechIcon35, ref L35, ref L37_35, ref L37_2);
+        TechAnimLogic0_5_1(ref Tech36AnimC, ref Tech36Complete, ref TechIcon36, ref L36_1, ref L36_2, ref L36_3, ref L37_35, ref L37_36, ref L37_3);
+        TechAnimLogic0_5_0(ref Tech37AnimC, ref Tech37Complete, ref TechIcon37, ref L37_1, ref L37_2, ref L37_3, ref L37_35, ref L37_36);
+
     }
 
     void TechAnimLogic0_1_0(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1)
@@ -660,6 +774,22 @@ public class TechManager : MonoBehaviour
         }
     }
 
+    void TechAnimLogic0_1_2(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1, ref GameObject L__a, ref GameObject L__b)
+    //후행연구 0개, 선행라인 1개, 후행라인 2개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__b.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
     void TechAnimLogic0_2_0(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1, ref GameObject L__2)
     //후행연구 0개, 선행라인 2개, 후행라인 0개
     {
@@ -668,6 +798,39 @@ public class TechManager : MonoBehaviour
             c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
             L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
             L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
+    void TechAnimLogic0_2_1(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1, ref GameObject L__2, ref GameObject L__a)
+    //후행연구 0개, 선행라인 2개, 후행라인 1개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
+    void TechAnimLogic0_2_2(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1, ref GameObject L__2, ref GameObject L__a, ref GameObject L__b)
+    //후행연구 0개, 선행라인 2개, 후행라인 2개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__b.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             if (c.GetComponent<Image>().color.a > 2.7)
             {
                 a = true;
@@ -691,6 +854,43 @@ public class TechManager : MonoBehaviour
         }
     }
 
+    void TechAnimLogic0_5_0(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1, ref GameObject L__2, ref GameObject L__3, ref GameObject L__4, ref GameObject L__5)
+    //후행연구 0개, 선행라인 5개, 후행라인 0개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__3.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__4.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__5.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
+    void TechAnimLogic0_5_1(ref bool a, ref bool b, ref GameObject c, ref GameObject L__1, ref GameObject L__2, ref GameObject L__3, ref GameObject L__4, ref GameObject L__5, ref GameObject L__a)
+    //후행연구 0개, 선행라인 5개, 후행라인 1개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__3.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__4.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__5.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
     void TechAnimLogic1_1_1(ref bool a, ref bool b, ref GameObject c, ref GameObject d, ref GameObject L__1, ref GameObject L__a)
     //후행연구 1개, 선행라인 1개, 후행라인 1개
     {
@@ -700,6 +900,27 @@ public class TechManager : MonoBehaviour
             d.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
             L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
             L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
+    void TechAnimLogic1_1_6(ref bool a, ref bool b, ref GameObject c, ref GameObject d, ref GameObject L__1, ref GameObject L__a, ref GameObject L__b, ref GameObject L__c, ref GameObject L__d, ref GameObject L__e, ref GameObject L__f)
+    //후행연구 1개, 선행라인 1개, 후행라인 6개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            d.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__b.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__c.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__d.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__e.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__f.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             if (c.GetComponent<Image>().color.a > 2.7)
             {
                 a = true;
@@ -736,6 +957,24 @@ public class TechManager : MonoBehaviour
             L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             L__b.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             L__c.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
+    void TechAnimLogic1_3_1(ref bool a, ref bool b, ref GameObject c, ref GameObject d, ref GameObject L__1, ref GameObject L__2, ref GameObject L__3, ref GameObject L__a)
+    //후행연구 1개, 선행라인 3개, 후행라인 1개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            d.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__3.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             if (c.GetComponent<Image>().color.a > 2.7)
             {
                 a = true;
@@ -1044,6 +1283,171 @@ public class TechManager : MonoBehaviour
         TechUpPanel.SetActive(true);
     }
 
+    public void Tech_23_Oepn()
+    {
+        title.text = "개틀링건";
+        exp.text = "회전운동을 왕복운동으로 바꾸어 여러 개의 총신에서 높은 발사력을 지닙니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg23;
+        NeedScience.text = Tech23.ToString("###,###");
+        TechOpenCom(ref Tech23Complete);
+        PanelNum = 23;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_24_Oepn()
+    {
+        title.text = "진공";
+        exp.text = "외부로부터 어떠한 작용도 내부의 물질도 존재하지 않는 공간입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg24;
+        NeedScience.text = Tech24.ToString("###,###");
+        TechOpenCom(ref Tech24Complete);
+        PanelNum = 24;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_25_Oepn()
+    {
+        title.text = "오프셋인쇄";
+        exp.text = "인쇄판과 고무롤러를 사용해 종이에 인쇄하는 방법입니다.  대량의 인쇄가 가능합니다";
+        Icon.GetComponent<Image>().sprite = TechCplImg25;
+        NeedScience.text = Tech25.ToString("###,###");
+        TechOpenCom(ref Tech25Complete);
+        PanelNum = 25;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_26_Oepn()
+    {
+        title.text = "냉각순환";
+        exp.text = "열을 빼앗아 온도를 낮춥니다. 원하는 공간의 온도를 조절할 수 있습니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg26;
+        NeedScience.text = Tech26.ToString("###,###");
+        TechOpenCom(ref Tech26Complete);
+        PanelNum = 26;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_27_Oepn()
+    {
+        title.text = "전자기파";
+        exp.text = "특정 전자기적인 과정에서 복사되는 에너지입니다. 볼 순 없지만 사용할 순 있습니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg27;
+        NeedScience.text = Tech27.ToString("###,###");
+        TechOpenCom(ref Tech27Complete);
+        PanelNum = 27;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_28_Oepn()
+    {
+        title.text = "폭격기";
+        exp.text = "폭탄을 싣고 적의 시설이나 진지를 폭격하는 항공기체입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg28;
+        NeedScience.text = Tech28.ToString("###,###");
+        TechOpenCom(ref Tech28Complete);
+        PanelNum = 28;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_29_Oepn()
+    {
+        title.text = "4기통엔진";
+        exp.text = "실린더의 개수가 4개인 엔진입니다. 기계의 심장입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg29;
+        NeedScience.text = Tech29.ToString("###,###");
+        TechOpenCom(ref Tech29Complete);
+        PanelNum = 29;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_30_Oepn()
+    {
+        title.text = "암모니아";
+        exp.text = "자극적인 악취가 나는 무색의 기체입니다. 인공적으로 만들 수 있습니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg30;
+        NeedScience.text = Tech30.ToString("###,###");
+        TechOpenCom(ref Tech30Complete);
+        PanelNum = 30;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_31_Oepn()
+    {
+        title.text = "암호학";
+        exp.text = "정보의 소통이 많아짐에 따라 평문에 기밀성을 더하는 연구입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg31;
+        NeedScience.text = Tech31.ToString("###,###");
+        TechOpenCom(ref Tech31Complete);
+        PanelNum = 31;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_32_Oepn()
+    {
+        title.text = "탱크";
+        exp.text = "무한궤도를 장착한 기갑 전투 차량입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg32;
+        NeedScience.text = Tech32.ToString("###,###");
+        TechOpenCom(ref Tech32Complete);
+        PanelNum = 32;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_33_Oepn()
+    {
+        title.text = "급속동결";
+        exp.text = "최대얼음결정생성대의 온도대역을 빠르게 통과하는 기술입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg33;
+        NeedScience.text = Tech33.ToString("###,###");
+        TechOpenCom(ref Tech33Complete);
+        PanelNum = 33;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_34_Oepn()
+    {
+        title.text = "항생재";
+        exp.text = "세균을 죽이거나 세균의 성장을 억제하는 약입니다. 인공적으로 제공 가능합니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg34;
+        NeedScience.text = Tech34.ToString("###,###");
+        TechOpenCom(ref Tech34Complete);
+        PanelNum = 34;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_35_Oepn()
+    {
+        title.text = "나일론";
+        exp.text = "인공적으로 만들어 낸 합성 섬유입니다. 가볍고 부드러우며 탄력적입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg35;
+        NeedScience.text = Tech35.ToString("###,###");
+        TechOpenCom(ref Tech35Complete);
+        PanelNum = 35;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_36_Oepn()
+    {
+        title.text = "제트엔진";
+        exp.text = "고온의 가스를 분출하여 반작용을 통해 추진력을 얻는 엔진입니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg36;
+        NeedScience.text = Tech36.ToString("###,###");
+        TechOpenCom(ref Tech36Complete);
+        PanelNum = 36;
+        TechUpPanel.SetActive(true);
+    }
+
+    public void Tech_37_Oepn()
+    {
+        title.text = "우라늄";
+        exp.text = "α붕괴를 하는 광택이 있는 백색 고체의 금속입니다. 피폭의 위험이 있습니다.";
+        Icon.GetComponent<Image>().sprite = TechCplImg37;
+        NeedScience.text = Tech37.ToString("###,###");
+        TechOpenCom(ref Tech37Complete);
+        PanelNum = 37;
+        TechUpPanel.SetActive(true);
+    }
+
     /*
     public void Tech__Oepn()
     {
@@ -1091,6 +1495,22 @@ public class TechManager : MonoBehaviour
         TUBC_Logic1(20, ref Tech20Complete, Tech20, ref Tech17Complete);
         TUBC_Logic1(21, ref Tech21Complete, Tech21, ref Tech20Complete);
         TUBC_Logic1(22, ref Tech22Complete, Tech22, ref Tech20Complete);
+        TUBC_Logic0(23, ref Tech23Complete, Tech23);
+        TUBC_Logic1(24, ref Tech24Complete, Tech24, ref Tech23Complete);
+        TUBC_Logic1(25, ref Tech25Complete, Tech25, ref Tech23Complete);
+        TUBC_Logic1(26, ref Tech26Complete, Tech26, ref Tech24Complete);
+        TUBC_Logic1(27, ref Tech27Complete, Tech27, ref Tech26Complete);
+        TUBC_Logic1(28, ref Tech28Complete, Tech28, ref Tech26Complete);
+        TUBC_Logic1(29, ref Tech29Complete, Tech29, ref Tech25Complete);
+        TUBC_Logic1(30, ref Tech30Complete, Tech30, ref Tech27Complete);
+        TUBC_Logic1(31, ref Tech31Complete, Tech31, ref Tech30Complete);
+        TUBC_Logic2(32, ref Tech32Complete, Tech32, ref Tech28Complete, ref Tech29Complete);
+        TUBC_Logic1(33, ref Tech33Complete, Tech33, ref Tech31Complete);
+        TUBC_Logic1(34, ref Tech34Complete, Tech34, ref Tech32Complete);
+        TUBC_Logic1(35, ref Tech35Complete, Tech35, ref Tech34Complete);
+        TUBC_Logic2(36, ref Tech36Complete, Tech36, ref Tech33Complete, ref Tech34Complete);
+        TUBC_Logic3(37, ref Tech37Complete, Tech37, ref Tech34Complete, ref Tech35Complete, ref Tech36Complete);
+
     }
 
     void TUBC_Logic0(short a, ref bool b, long c) // a는 PanelNum,  b는 연구완료 판단 변수,  c는 필요 연구량
@@ -1123,7 +1543,7 @@ public class TechManager : MonoBehaviour
         }
     }
 
-    void TUBC_Logic2(short a, ref bool b, long c, ref bool d, ref bool e) // a는 PanelNum,  b는 연구완료 판단 변수,  c는 필요 연구량,  d는 필요 연구1
+    void TUBC_Logic2(short a, ref bool b, long c, ref bool d, ref bool e) // a는 PanelNum,  b는 연구완료 판단 변수,  c는 필요 연구량,  d는 필요 연구1,  e는 필요 연구2
     {
         if (PanelNum == a)
         {
@@ -1138,16 +1558,58 @@ public class TechManager : MonoBehaviour
         }
     }
 
+    void TUBC_Logic3(short a, ref bool b, long c, ref bool d, ref bool e, ref bool f) // a는 PanelNum,  b는 연구완료 판단 변수,  c는 필요 연구량,  d는 필요 연구1,  e는 필요 연구2,  f는 필요 연구3
+    {
+        if (PanelNum == a)
+        {
+            if (b == false && GameManager.science >= c && d == true && e == true && f == true)
+            {
+                TechUpBtn.interactable = true;
+            }
+            else
+            {
+                TechUpBtn.interactable = false;
+            }
+        }
+    }
+
     /* ==================================================================================================== */
 
     void ExceptionRule() // 예외규칙. 업데이트 함수에 대입
     {
-        if (Tech15Complete == true && Tech17Complete == true && Tech19Complete == false)
+        if (Tech15Complete == true && Tech17Complete == true && Tech19Complete == false) // 유선통신(15) + 나이트로글리세린(17) -> 전류진동(19)
         {
             TechIcon19.GetComponent<Button>().interactable = true;
             if (TechIcon19.GetComponent<Image>().color.a < 2.7)
             {
                 TechIcon19.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            }
+        }
+
+        if (Tech28Complete == true && Tech29Complete == true && Tech32Complete == false) // 폭격기(28) + 4기통엔진(29) -> 탱크(32)
+        {
+            TechIcon32.GetComponent<Button>().interactable = true;
+            if (TechIcon32.GetComponent<Image>().color.a < 2.7)
+            {
+                TechIcon32.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            }
+        }
+
+        if (Tech33Complete == true && Tech34Complete == true && Tech36Complete == false) // 급속동결(33) + 항생제(34) -> 제트엔진(36)
+        {
+            TechIcon36.GetComponent<Button>().interactable = true;
+            if (TechIcon36.GetComponent<Image>().color.a < 2.7)
+            {
+                TechIcon36.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            }
+        }
+
+        if (Tech34Complete == true && Tech35Complete == true && Tech36Complete == true && Tech37Complete == false) // 항생제(34) + 나일론(35) + 제트엔진(36) -> 우라늄(37)
+        {
+            TechIcon36.GetComponent<Button>().interactable = true;
+            if (TechIcon36.GetComponent<Image>().color.a < 2.7)
+            {
+                TechIcon36.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
             }
         }
     }
