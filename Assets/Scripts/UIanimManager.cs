@@ -71,8 +71,8 @@ public class UIanimManager : MonoBehaviour
             {
                 break;
             }
-            TechUI_Pos.anchoredPosition -= new Vector2(40,0);
-            yield return new WaitForSeconds(0.001f);
+            TechUI_Pos.anchoredPosition -= new Vector2(70,0);
+            yield return new WaitForSeconds(0.005f);
         }
         yield return null;
     }
@@ -85,8 +85,8 @@ public class UIanimManager : MonoBehaviour
             {
                 break;
             }
-            TechUI_Pos.anchoredPosition += new Vector2(40, 0);
-            yield return new WaitForSeconds(0.001f);
+            TechUI_Pos.anchoredPosition += new Vector2(70, 0);
+            yield return new WaitForSeconds(0.005f);
 
         }
         TechUI.SetActive(false);
@@ -101,8 +101,8 @@ public class UIanimManager : MonoBehaviour
             {
                 break;
             }
-            ProdUI_Pos.anchoredPosition += new Vector2(40, 0);
-            yield return new WaitForSeconds(0.001f);
+            ProdUI_Pos.anchoredPosition += new Vector2(70, 0);
+            yield return new WaitForSeconds(0.005f);
         }
         yield return null;
     }
@@ -115,8 +115,8 @@ public class UIanimManager : MonoBehaviour
             {
                 break;
             }
-            ProdUI_Pos.anchoredPosition -= new Vector2(40, 0);
-            yield return new WaitForSeconds(0.001f);
+            ProdUI_Pos.anchoredPosition -= new Vector2(70, 0);
+            yield return new WaitForSeconds(0.005f);
 
         }
         ProdUI.SetActive(false);
