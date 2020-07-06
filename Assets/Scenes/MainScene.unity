@@ -4502,7 +4502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &215168619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4874,8 +4874,8 @@ RectTransform:
   m_Father: {fileID: 607011402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.348}
-  m_AnchorMax: {x: 1, y: 0.65199995}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13993,7 +13993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &600957893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23165,7 +23165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1026702898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29283,8 +29283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1196, y: 6000}
+  m_AnchoredPosition: {x: 0, y: -2088}
+  m_SizeDelta: {x: 1196, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347348709
 MonoBehaviour:
@@ -34071,7 +34071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1552341551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35068,6 +35068,24 @@ MonoBehaviour:
   "tc35_\uB098\uC77C\uB860_\uC5F0\uAD6C\uB825": 130000
   "tc36_\uC81C\uD2B8\uC5D4\uC9C4_\uC5F0\uAD6C\uB825": 160000
   "tc37_\uC6B0\uB77C\uB284_\uC5F0\uAD6C\uB825": 200000
+  "tc38_\uC0BC\uC6D0\uC0C9_\uC5F0\uAD6C\uB825": 0
+  "tc39_\uADF9\uCD08\uB2E8\uD30C_\uC5F0\uAD6C\uB825": 0
+  "tc40_\uC2E0\uD638\uBCC0\uD658_\uC5F0\uAD6C\uB825": 0
+  "tc41_\uB808\uC774\uC800_\uC5F0\uAD6C\uB825": 0
+  "tc42_\uD574\uC5F4\uC9C4\uD1B5\uC81C_\uC5F0\uAD6C\uB825": 0
+  "tc43_\uC790\uAE30\uC800\uC7A5\uC18C_\uC5F0\uAD6C\uB825": 0
+  "tc44_\uC18C\uB9AC\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 0
+  "tc45_\uBC1C\uAD11\uB2E4\uC774\uC624\uB4DC_\uC5F0\uAD6C\uB825": 0
+  "tc46_\uC2E0\uACBD\uC548\uC815\uC81C_\uC5F0\uAD6C\uB825": 0
+  "tc47_\uC800\uC7A5\uC18C\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 0
+  "tc48_\uB17C\uB9AC\uD68C\uB85C_\uC5F0\uAD6C\uB825": 0
+  "tc49_\uC804\uC790\uB450\uB1CC_\uC5F0\uAD6C\uB825": 0
+  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 0
+  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 0
+  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 0
+  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 0
+  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 0
+  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 0
   tYear1: 1
   tYear2: 1
   tYear3: 1
@@ -41328,7 +41346,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 237494200}
   m_HandleRect: {fileID: 237494199}
   m_Direction: 2
-  m_Value: 0.5
+  m_Value: 1
   m_Size: 0.304
   m_NumberOfSteps: 0
   m_OnValueChanged:

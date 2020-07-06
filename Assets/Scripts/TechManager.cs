@@ -80,7 +80,42 @@ public class TechManager : MonoBehaviour
     public static long Tech36;
     public long tc37_우라늄_연구력;
     public static long Tech37;
-
+    public long tc38_삼원색_연구력;
+    public static long Tech38;
+    public long tc39_극초단파_연구력;
+    public static long Tech39;
+    public long tc40_신호변환_연구력;
+    public static long Tech40;
+    public long tc41_레이저_연구력;
+    public static long Tech41;
+    public long tc42_해열진통제_연구력;
+    public static long Tech42;
+    public long tc43_자기저장소_연구력;
+    public static long Tech43;
+    public long tc44_소리플러스_연구력;
+    public static long Tech44;
+    public long tc45_발광다이오드_연구력;
+    public static long Tech45;
+    public long tc46_신경안정제_연구력;
+    public static long Tech46;
+    public long tc47_저장소플러스_연구력;
+    public static long Tech47;
+    public long tc48_논리회로_연구력;
+    public static long Tech48;
+    public long tc49_전자두뇌_연구력;
+    public static long Tech49;
+    public long tc50_보이저계획_연구력;
+    public static long Tech50;
+    public long tc51_콜레스테릭_연구력;
+    public static long Tech51;
+    public long tc52_이더넷_연구력;
+    public static long Tech52;
+    public long tc53_양성자반응_연구력;
+    public static long Tech53;
+    public long tc54_전송_연구력;
+    public static long Tech54;
+    public long tc55_전자오락_연구력;
+    public static long Tech55;
 
     public int tYear1; // 증기기관 연구 완료 시 연도 증가량
     public int tYear2;
