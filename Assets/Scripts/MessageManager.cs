@@ -15,6 +15,8 @@ public class MessageManager : MonoBehaviour
     public GameObject Tip;
     public Text tipText;
 
+    public string[] SaveText = new string[20];
+
     static public Scrollbar ScrBar;
 
     static public bool gomsg;
@@ -308,6 +310,11 @@ public class MessageManager : MonoBehaviour
             yield return null;
         }
         MSGtext = MSG;
+        for(int i = 0; i < 19; i++)
+        {
+            SaveText[i + 1] = SaveText[i]; 
+        }
+        SaveText[0] = MSG;
         Instantiate(prefabMessage).transform.SetParent(par.transform, false);
         Scrollbar scrbar = ScrBar.GetComponent<Scrollbar>();
         scrbar.value = 0;
