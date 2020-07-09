@@ -15,7 +15,7 @@ public class ProductManager : MonoBehaviour
 
     //제품 업그레이드 비용
     public long pd1_뉴커멘엔진_업글비용;
-    public static long Pd1; // 제품 업글비용 전역변수
+    public static long Pd1; // 제품 업글비용 전역변수, 2번 제품 없음
     public long pd3_나는북_업글비용;
     public static long Pd3;
     public long pd4_뮬방적기_업글비용;
@@ -41,7 +41,7 @@ public class ProductManager : MonoBehaviour
     public long pd14_내연기관_업글비용;
     public static long Pd14;
     public long pd15_전신줄_업글비용;
-    public static long Pd15;
+    public static long Pd15; // 16번 제품 없음
     public long pd17_다이너마이트_업글비용;
     public static long Pd17;
     public long pd18_포노토그라프_업글비용;
@@ -54,10 +54,103 @@ public class ProductManager : MonoBehaviour
     public static long Pd21;
     public long pd22_비행선_업글비용;
     public static long Pd22;
+    public long pd23_총신크랭크_업글비용;
+    public static long Pd23;
+    public long pd24_라디오_업글비용;
+    public static long Pd24;
+    public long pd25_룰러_업글비용;
+    public static long Pd25;
+    public long pd26_에어컨_업글비용;
+    public static long Pd26;
+    public long pd27_모스부호기_업글비용;
+    public static long Pd27;
+    public long pd28_운송폭탄_업글비용;
+    public static long Pd28;
+    public long pd29_자동차_업글비용;
+    public static long Pd29;
+    public long pd30_독가스_업글비용;
+    public static long Pd30;
+    public long pd31_에니그마_업글비용;
+    public static long Pd31;
+    public long pd32_무한궤도_업글비용;
+    public static long Pd32;
+    public long pd33_냉동식품_업글비용;
+    public static long Pd33;
+    public long pd34_페니실린_업글비용;
+    public static long Pd34;
+    public long pd35_터보제트_업글비용;
+    public static long Pd35;
+    public long pd36_스타킹_업글비용;
+    public static long Pd36;
+    public long pd37_우라늄_업글비용;
+    public static long Pd37;
+    public long pd38_컬러TV_업글비용;
+    public static long Pd38;
+    public long pd39_전자레인지_업글비용;
+    public static long Pd39;
+    public long pd40_트랜지스터플러스_업글비용;
+    public static long Pd40;
+    public long pd41_레이저포인트_업글비용;
+    public static long Pd41;
+    public long pd42_아스피린_업글비용;
+    public static long Pd42;
+    public long pd43_하드드라이브_업글비용;
+    public static long Pd43;
+    public long pd44_카세트_업글비용;
+    public static long Pd44;
+    public long pd45_LED_업글비용;
+    public static long Pd45;
+    public long pd46_다이제팜_업글비용;
+    public static long Pd46;
+    public long pd47_RAM_업글비용;
+    public static long Pd47;
+    public long pd48_계산기_업글비용;
+    public static long Pd48;
+    public long pd49_CPU_업글비용;
+    public static long Pd49; // 50번 제품 없음
+    public long pd51_LCD_업글비용;
+    public static long Pd51;
+    public long pd52_랜선_업글비용;
+    public static long Pd52;
+    public long pd53_MRI_업글비용;
+    public static long Pd53;
+    public long pd54_휴대폰_업글비용;
+    public static long Pd54;
+    public long pd55_휴대용게임기_업글비용;
+    public static long Pd55;
+    public long pd56_JAVA_업글비용;
+    public static long Pd56; // 57번 제품 없음
+    public long pd58_WIFI_업글비용;
+    public static long Pd58;
+    public long pd59_GPS_업글비용;
+    public static long Pd59;
+    public long pd60_대왕감자_업글비용;
+    public static long Pd60;
+    public long pd61_인터넷_업글비용;
+    public static long Pd61;
+    public long pd62_시험관_업글비용;
+    public static long Pd62;
+    public long pd63_GPU_업글비용;
+    public static long Pd63;
+    public long pd64_비트코인_업글비용;
+    public static long Pd64;
+    public long pd65_딥러닝_업글비용;
+    public static long Pd65;
+    public long pd66_10G_업글비용;
+    public static long Pd66;
+    public long pd67_VR_업글비용;
+    public static long Pd67;
+    public long pd68_AR_업글비용;
+    public static long Pd68;
+    public long pd69_유전자칩_업글비용;
+    public static long Pd69;
+    public long pd70_차원관문_업글비용;
+    public static long Pd70;
+
 
     //제품 1개당 골드 생산량
     public long pd1_뉴커멘엔진_생산량;
-    public static long perOneAutoMoney1;
+    public static long perOneAutoMoney1; // 2번 제품 없음
     public long pd3_나는북_생산량;
     public static long perOneAutoMoney3;
     public long pd4_뮬방적기_생산량;
@@ -83,7 +176,7 @@ public class ProductManager : MonoBehaviour
     public long pd14_내연기관_생산량;
     public static long perOneAutoMoney14;
     public long pd15_전신줄_생산량;
-    public static long perOneAutoMoney15;
+    public static long perOneAutoMoney15; // 16번 제품 없음
     public long pd17_다이너마이트_생산량;
     public static long perOneAutoMoney17;
     public long pd18_포노토그라프_생산량;
@@ -96,9 +189,101 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney21;
     public long pd22_비행선_생산량;
     public static long perOneAutoMoney22;
+    public long pd23_총신크랭크_생산량;
+    public static long perOneAutoMoney23;
+    public long pd24_라디오_생산량;
+    public static long perOneAutoMoney24;
+    public long pd25_룰러_생산량;
+    public static long perOneAutoMoney25;
+    public long pd26_에어컨_생산량;
+    public static long perOneAutoMoney26;
+    public long pd27_모스부호기_생산량;
+    public static long perOneAutoMoney27;
+    public long pd28_운송폭탄_생산량;
+    public static long perOneAutoMoney28;
+    public long pd29_자동차_생산량;
+    public static long perOneAutoMoney29;
+    public long pd30_독가스_생산량;
+    public static long perOneAutoMoney30;
+    public long pd31_에니그마_생산량;
+    public static long perOneAutoMoney31;
+    public long pd32_무한궤도_생산량;
+    public static long perOneAutoMoney32;
+    public long pd33_냉동식품_생산량;
+    public static long perOneAutoMoney33;
+    public long pd34_페니실린_생산량;
+    public static long perOneAutoMoney34;
+    public long pd35_터보제트_생산량;
+    public static long perOneAutoMoney35;
+    public long pd36_스타킹_생산량;
+    public static long perOneAutoMoney36;
+    public long pd37_우라늄_생산량;
+    public static long perOneAutoMoney37;
+    public long pd38_컬러TV_생산량;
+    public static long perOneAutoMoney38;
+    public long pd39_전자레인지_생산량;
+    public static long perOneAutoMoney39;
+    public long pd40_트랜지스터플러스_생산량;
+    public static long perOneAutoMoney40;
+    public long pd41_레이저포인트_생산량;
+    public static long perOneAutoMoney41;
+    public long pd42_아스피린_생산량;
+    public static long perOneAutoMoney42;
+    public long pd43_하드드라이브_생산량;
+    public static long perOneAutoMoney43;
+    public long pd44_카세트_생산량;
+    public static long perOneAutoMoney44;
+    public long pd45_LED_생산량;
+    public static long perOneAutoMoney45;
+    public long pd46_다이제팜_생산량;
+    public static long perOneAutoMoney46;
+    public long pd47_RAM_생산량;
+    public static long perOneAutoMoney47;
+    public long pd48_계산기_생산량;
+    public static long perOneAutoMoney48;
+    public long pd49_CPU_생산량;
+    public static long perOneAutoMoney49; // 50번 제품 없음
+    public long pd51_LCD_생산량;
+    public static long perOneAutoMoney51;
+    public long pd52_랜선_생산량;
+    public static long perOneAutoMoney52;
+    public long pd53_MRI_생산량;
+    public static long perOneAutoMoney53;
+    public long pd54_휴대폰_생산량;
+    public static long perOneAutoMoney54;
+    public long pd55_휴대용게임기_생산량;
+    public static long perOneAutoMoney55;
+    public long pd56_JAVA_생산량;
+    public static long perOneAutoMoney56; // 57번 제품 없음
+    public long pd58_WIFI_생산량;
+    public static long perOneAutoMoney58;
+    public long pd59_GPS_생산량;
+    public static long perOneAutoMoney59;
+    public long pd60_대왕감자_생산량;
+    public static long perOneAutoMoney60;
+    public long pd61_인터넷_생산량;
+    public static long perOneAutoMoney61;
+    public long pd62_시험관_생산량;
+    public static long perOneAutoMoney62;
+    public long pd63_GPU_생산량;
+    public static long perOneAutoMoney63;
+    public long pd64_비트코인_생산량;
+    public static long perOneAutoMoney64;
+    public long pd65_딥러닝_생산량;
+    public static long perOneAutoMoney65;
+    public long pd66_10G_생산량;
+    public static long perOneAutoMoney66;
+    public long pd67_VR_생산량;
+    public static long perOneAutoMoney67;
+    public long pd68_AR_생산량;
+    public static long perOneAutoMoney68;
+    public long pd69_유전자칩_생산량;
+    public static long perOneAutoMoney69;
+    public long pd70_차원관문_생산량;
+    public static long perOneAutoMoney70;
 
     //제품 레벨
-    public int Prod_1_Level;
+    public int Prod_1_Level; // 2번 제품 없음
     public int Prod_3_Level;
     public int Prod_4_Level;
     public int Prod_5_Level;
@@ -111,13 +296,59 @@ public class ProductManager : MonoBehaviour
     public int Prod_12_Level;
     public int Prod_13_Level;
     public int Prod_14_Level;
-    public int Prod_15_Level;
+    public int Prod_15_Level; // 16번 제품 없음
     public int Prod_17_Level;
     public int Prod_18_Level;
     public int Prod_19_Level;
     public int Prod_20_Level;
     public int Prod_21_Level;
     public int Prod_22_Level;
+    public int Prod_23_Level;
+    public int Prod_24_Level;
+    public int Prod_25_Level;
+    public int Prod_26_Level;
+    public int Prod_27_Level;
+    public int Prod_28_Level;
+    public int Prod_29_Level;
+    public int Prod_30_Level;
+    public int Prod_31_Level;
+    public int Prod_32_Level;
+    public int Prod_33_Level;
+    public int Prod_34_Level;
+    public int Prod_35_Level;
+    public int Prod_36_Level;
+    public int Prod_37_Level;
+    public int Prod_38_Level;
+    public int Prod_39_Level;
+    public int Prod_40_Level;
+    public int Prod_41_Level;
+    public int Prod_42_Level;
+    public int Prod_43_Level;
+    public int Prod_44_Level;
+    public int Prod_45_Level;
+    public int Prod_46_Level;
+    public int Prod_47_Level;
+    public int Prod_48_Level;
+    public int Prod_49_Level; // 50번 제품 없음
+    public int Prod_51_Level;
+    public int Prod_52_Level;
+    public int Prod_53_Level;
+    public int Prod_54_Level;
+    public int Prod_55_Level;
+    public int Prod_56_Level; // 57번 제품 없음
+    public int Prod_58_Level;
+    public int Prod_59_Level;
+    public int Prod_60_Level;
+    public int Prod_61_Level;
+    public int Prod_62_Level;
+    public int Prod_63_Level;
+    public int Prod_64_Level;
+    public int Prod_65_Level;
+    public int Prod_66_Level;
+    public int Prod_67_Level;
+    public int Prod_68_Level;
+    public int Prod_69_Level;
+    public int Prod_70_Level;
 
     //패널 부분
     public Text title;
@@ -143,7 +374,7 @@ public class ProductManager : MonoBehaviour
     public short PanelNum;
 
     //제품 아이콘 버튼
-    public GameObject ProdBtn1;
+    public GameObject ProdBtn1; // 2번 제품 없음
     public GameObject ProdBtn3;
     public GameObject ProdBtn4;
     public GameObject ProdBtn5;
@@ -156,16 +387,62 @@ public class ProductManager : MonoBehaviour
     public GameObject ProdBtn12;
     public GameObject ProdBtn13;
     public GameObject ProdBtn14;
-    public GameObject ProdBtn15;
+    public GameObject ProdBtn15; // 16번 제품 없음
     public GameObject ProdBtn17;
     public GameObject ProdBtn18;
     public GameObject ProdBtn19;
     public GameObject ProdBtn20;
     public GameObject ProdBtn21;
     public GameObject ProdBtn22;
+    public GameObject ProdBtn23;
+    public GameObject ProdBtn24;
+    public GameObject ProdBtn25;
+    public GameObject ProdBtn26;
+    public GameObject ProdBtn27;
+    public GameObject ProdBtn28;
+    public GameObject ProdBtn29;
+    public GameObject ProdBtn30;
+    public GameObject ProdBtn31;
+    public GameObject ProdBtn32;
+    public GameObject ProdBtn33;
+    public GameObject ProdBtn34;
+    public GameObject ProdBtn35;
+    public GameObject ProdBtn36;
+    public GameObject ProdBtn37;
+    public GameObject ProdBtn38;
+    public GameObject ProdBtn39;
+    public GameObject ProdBtn40;
+    public GameObject ProdBtn41;
+    public GameObject ProdBtn42;
+    public GameObject ProdBtn43;
+    public GameObject ProdBtn44;
+    public GameObject ProdBtn45;
+    public GameObject ProdBtn46;
+    public GameObject ProdBtn47;
+    public GameObject ProdBtn48;
+    public GameObject ProdBtn49; // 50번 제품 없음
+    public GameObject ProdBtn51;
+    public GameObject ProdBtn52;
+    public GameObject ProdBtn53;
+    public GameObject ProdBtn54;
+    public GameObject ProdBtn55;
+    public GameObject ProdBtn56; // 57번 제품 없음
+    public GameObject ProdBtn58;
+    public GameObject ProdBtn59;
+    public GameObject ProdBtn60;
+    public GameObject ProdBtn61;
+    public GameObject ProdBtn62;
+    public GameObject ProdBtn63;
+    public GameObject ProdBtn64;
+    public GameObject ProdBtn65;
+    public GameObject ProdBtn66;
+    public GameObject ProdBtn67;
+    public GameObject ProdBtn68;
+    public GameObject ProdBtn69;
+    public GameObject ProdBtn70;
 
     //제품 스프라이트
-    public Sprite ProdIcon1;
+    public Sprite ProdIcon1; // 2번 제품 없음
     public Sprite ProdIcon3;
     public Sprite ProdIcon4;
     public Sprite ProdIcon5;
@@ -178,13 +455,59 @@ public class ProductManager : MonoBehaviour
     public Sprite ProdIcon12;
     public Sprite ProdIcon13;
     public Sprite ProdIcon14;
-    public Sprite ProdIcon15;
+    public Sprite ProdIcon15; // 16번 제품 없음
     public Sprite ProdIcon17;
     public Sprite ProdIcon18;
     public Sprite ProdIcon19;
     public Sprite ProdIcon20;
     public Sprite ProdIcon21;
     public Sprite ProdIcon22;
+    public Sprite ProdIcon23;
+    public Sprite ProdIcon24;
+    public Sprite ProdIcon25;
+    public Sprite ProdIcon26;
+    public Sprite ProdIcon27;
+    public Sprite ProdIcon28;
+    public Sprite ProdIcon29;
+    public Sprite ProdIcon30;
+    public Sprite ProdIcon31;
+    public Sprite ProdIcon32;
+    public Sprite ProdIcon33;
+    public Sprite ProdIcon34;
+    public Sprite ProdIcon35;
+    public Sprite ProdIcon36;
+    public Sprite ProdIcon37;
+    public Sprite ProdIcon38;
+    public Sprite ProdIcon39;
+    public Sprite ProdIcon40;
+    public Sprite ProdIcon41;
+    public Sprite ProdIcon42;
+    public Sprite ProdIcon43;
+    public Sprite ProdIcon44;
+    public Sprite ProdIcon45;
+    public Sprite ProdIcon46;
+    public Sprite ProdIcon47;
+    public Sprite ProdIcon48;
+    public Sprite ProdIcon49; // 50번 제품 없음
+    public Sprite ProdIcon51;
+    public Sprite ProdIcon52;
+    public Sprite ProdIcon53;
+    public Sprite ProdIcon54;
+    public Sprite ProdIcon55;
+    public Sprite ProdIcon56; // 57번 제품 없음
+    public Sprite ProdIcon58;
+    public Sprite ProdIcon59;
+    public Sprite ProdIcon60;
+    public Sprite ProdIcon61;
+    public Sprite ProdIcon62;
+    public Sprite ProdIcon63;
+    public Sprite ProdIcon64;
+    public Sprite ProdIcon65;
+    public Sprite ProdIcon66;
+    public Sprite ProdIcon67;
+    public Sprite ProdIcon68;
+    public Sprite ProdIcon69;
+    public Sprite ProdIcon70;
 
     void Awake()
     {
@@ -207,13 +530,59 @@ public class ProductManager : MonoBehaviour
             Pd12 = pd12_냉장고_업글비용;
             Pd13 = pd13_자석_업글비용;
             Pd14 = pd14_내연기관_업글비용;
-            Pd15 = pd15_전신줄_업글비용;
+            Pd15 = pd15_전신줄_업글비용; // 16번 제품 없음
             Pd17 = pd17_다이너마이트_업글비용;
             Pd18 = pd18_포노토그라프_업글비용;
             Pd19 = pd19_전화기_업글비용;
             Pd20 = pd20_백열등_업글비용;
             Pd21 = pd21_무선전신_업글비용;
             Pd22 = pd22_비행선_업글비용;
+            Pd23 = pd23_총신크랭크_업글비용;
+            Pd24 = pd24_라디오_업글비용;
+            Pd25 = pd25_룰러_업글비용;
+            Pd26 = pd26_에어컨_업글비용;
+            Pd27 = pd27_모스부호기_업글비용;
+            Pd28 = pd28_운송폭탄_업글비용;
+            Pd29 = pd29_자동차_업글비용;
+            Pd30 = pd30_독가스_업글비용;
+            Pd31 = pd31_에니그마_업글비용;
+            Pd32 = pd32_무한궤도_업글비용;
+            Pd33 = pd33_냉동식품_업글비용;
+            Pd34 = pd34_페니실린_업글비용;
+            Pd35 = pd35_터보제트_업글비용;
+            Pd36 = pd36_스타킹_업글비용;
+            Pd37 = pd37_우라늄_업글비용;
+            Pd38 = pd38_컬러TV_업글비용;
+            Pd39 = pd39_전자레인지_업글비용;
+            Pd40 = pd40_트랜지스터플러스_업글비용;
+            Pd41 = pd41_레이저포인트_업글비용;
+            Pd42 = pd42_아스피린_업글비용;
+            Pd43 = pd43_하드드라이브_업글비용;
+            Pd44 = pd44_카세트_업글비용;
+            Pd45 = pd45_LED_업글비용;
+            Pd46 = pd46_다이제팜_업글비용;
+            Pd47 = pd47_RAM_업글비용;
+            Pd48 = pd48_계산기_업글비용;
+            Pd49 = pd49_CPU_업글비용;
+            Pd51 = pd51_LCD_업글비용;
+            Pd52 = pd52_랜선_업글비용;
+            Pd53 = pd53_MRI_업글비용;
+            Pd54 = pd54_휴대폰_업글비용;
+            Pd55 = pd55_휴대용게임기_업글비용;
+            Pd56 = pd56_JAVA_업글비용;
+            Pd58 = pd58_WIFI_업글비용;
+            Pd59 = pd59_GPS_업글비용;
+            Pd60 = pd60_대왕감자_업글비용;
+            Pd61 = pd61_인터넷_업글비용;
+            Pd62 = pd62_시험관_업글비용;
+            Pd63 = pd63_GPU_업글비용;
+            Pd64 = pd64_비트코인_업글비용;
+            Pd65 = pd65_딥러닝_업글비용;
+            Pd66 = pd66_10G_업글비용;
+            Pd67 = pd67_VR_업글비용;
+            Pd68 = pd68_AR_업글비용;
+            Pd69 = pd69_유전자칩_업글비용;
+            Pd70 = pd70_차원관문_업글비용;
         }
 
         perOneAutoMoney1 = pd1_뉴커멘엔진_생산량;
@@ -229,13 +598,59 @@ public class ProductManager : MonoBehaviour
         perOneAutoMoney12 = pd12_냉장고_생산량;
         perOneAutoMoney13 = pd13_자석_생산량;
         perOneAutoMoney14 = pd14_내연기관_생산량;
-        perOneAutoMoney15 = pd15_전신줄_생산량;
+        perOneAutoMoney15 = pd15_전신줄_생산량; // 16번 제품 없음
         perOneAutoMoney17 = pd17_다이너마이트_생산량;
         perOneAutoMoney18 = pd18_포노토그라프_생산량;
         perOneAutoMoney19 = pd19_전화기_생산량;
         perOneAutoMoney20 = pd20_백열등_생산량;
         perOneAutoMoney21 = pd21_무선전신_생산량;
         perOneAutoMoney22 = pd22_비행선_생산량;
+        perOneAutoMoney23 = pd23_총신크랭크_생산량;
+        perOneAutoMoney24 = pd24_라디오_생산량;
+        perOneAutoMoney25 = pd25_룰러_생산량;
+        perOneAutoMoney26 = pd26_에어컨_생산량;
+        perOneAutoMoney27 = pd27_모스부호기_생산량;
+        perOneAutoMoney28 = pd28_운송폭탄_생산량;
+        perOneAutoMoney29 = pd29_자동차_생산량;
+        perOneAutoMoney30 = pd30_독가스_생산량;
+        perOneAutoMoney31 = pd31_에니그마_생산량;
+        perOneAutoMoney32 = pd32_무한궤도_생산량;
+        perOneAutoMoney33 = pd33_냉동식품_생산량;
+        perOneAutoMoney34 = pd34_페니실린_생산량;
+        perOneAutoMoney35 = pd35_터보제트_생산량;
+        perOneAutoMoney36 = pd36_스타킹_생산량;
+        perOneAutoMoney37 = pd37_우라늄_생산량;
+        perOneAutoMoney38 = pd38_컬러TV_생산량;
+        perOneAutoMoney39 = pd39_전자레인지_생산량;
+        perOneAutoMoney40 = pd40_트랜지스터플러스_생산량;
+        perOneAutoMoney41 = pd41_레이저포인트_생산량;
+        perOneAutoMoney42 = pd42_아스피린_생산량;
+        perOneAutoMoney43 = pd43_하드드라이브_생산량;
+        perOneAutoMoney44 = pd44_카세트_생산량;
+        perOneAutoMoney45 = pd45_LED_생산량;
+        perOneAutoMoney46 = pd46_다이제팜_생산량;
+        perOneAutoMoney47 = pd47_RAM_생산량;
+        perOneAutoMoney48 = pd48_계산기_생산량;
+        perOneAutoMoney49 = pd49_CPU_생산량;
+        perOneAutoMoney51 = pd51_LCD_생산량;
+        perOneAutoMoney52 = pd52_랜선_생산량;
+        perOneAutoMoney53 = pd53_MRI_생산량;
+        perOneAutoMoney54 = pd54_휴대폰_생산량;
+        perOneAutoMoney55 = pd55_휴대용게임기_생산량;
+        perOneAutoMoney56 = pd56_JAVA_생산량;
+        perOneAutoMoney58 = pd58_WIFI_생산량;
+        perOneAutoMoney59 = pd59_GPS_생산량;
+        perOneAutoMoney60 = pd60_대왕감자_생산량;
+        perOneAutoMoney61 = pd61_인터넷_생산량;
+        perOneAutoMoney62 = pd62_시험관_생산량;
+        perOneAutoMoney63 = pd63_GPU_생산량;
+        perOneAutoMoney64 = pd64_비트코인_생산량;
+        perOneAutoMoney65 = pd65_딥러닝_생산량;
+        perOneAutoMoney66 = pd66_10G_생산량;
+        perOneAutoMoney67 = pd67_VR_생산량;
+        perOneAutoMoney68 = pd68_AR_생산량;
+        perOneAutoMoney69 = pd69_유전자칩_생산량;
+        perOneAutoMoney70 = pd70_차원관문_생산량;
 
         UpTimes = 업글비용배수;
     }
@@ -274,8 +689,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech3Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "나는북";
+            exp.text = "기존 수직기의 능률을 크게 향상시킨 제품입니다. 북이 좌우로 흔들리며 섬유를 재단합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon3;
             Level.text = Prod_3_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney3.ToString("###,###") + paneltext1;
@@ -293,8 +708,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech4Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "뮬방적기";
+            exp.text = "이전의 모든 방적기를 뛰어넘는 방적기 입니다. 빠른 속도로 실을 뽑아냅니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon4;
             Level.text = Prod_4_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney4.ToString("###,###") + paneltext1;
@@ -312,8 +727,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech5Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "실린더";
+            exp.text = "증기기관과 내연기관의 주요한 부품입니다. 내부에서 피스톤을 압력에 의해 왕복 운동시킵니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon5;
             Level.text = Prod_5_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney5.ToString("###,###") + paneltext1;
@@ -331,8 +746,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech6Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "역직기";
+            exp.text = "인간의 힘이 아닌 다른 동력원으로도 베를 짤 수 있습니다. 인간의 삶의 질을 향상시킵니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon6;
             Level.text = Prod_6_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney6.ToString("###,###") + paneltext1;
@@ -350,8 +765,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech7Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "기구";
+            exp.text = "원하는 만큼은 아니지만 인간이 공중을 돌아다닐 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon7;
             Level.text = Prod_7_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney7.ToString("###,###") + paneltext1;
@@ -369,8 +784,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech8Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "개구리전지";
+            exp.text = "개구리 뒷다리로 전지를 만들었습니다. 실용성은 없지만 신기해서 잘 팔립니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon8;
             Level.text = Prod_8_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney8.ToString("###,###") + paneltext1;
@@ -388,8 +803,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech9Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "볼타전지";
+            exp.text = "전류를 지속적으로 발생 할 수 있습니다. 아직은 미약합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon9;
             Level.text = Prod_9_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney9.ToString("###,###") + paneltext1;
@@ -407,8 +822,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech10Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "가스등";
+            exp.text = "석탄 가스를 도관에 흐르게 해서 밤을 밝힙니다. 인간이 활동할 수 있는 시간적 범위가 늘어납니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon10;
             Level.text = Prod_10_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney10.ToString("###,###") + paneltext1;
@@ -426,8 +841,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech11Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "강철";
+            exp.text = "산업을 이끄는 더 단단한 물질을 만들 수 있습니다. 많은 기계에 이 재료가 필요합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon11;
             Level.text = Prod_11_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney11.ToString("###,###") + paneltext1;
@@ -445,8 +860,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech12Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "냉장고";
+            exp.text = "음식을 서늘한 곳에서 더 오래 보관할 수 있습니다. 음식이 상하는 것을 방지합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon12;
             Level.text = Prod_12_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney12.ToString("###,###") + paneltext1;
@@ -464,8 +879,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech13Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "자석";
+            exp.text = "자성을 띈 광물로 만든 물건입니다. 같은 극이면 밀어내고, 다른 극이면 달라붙습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon13;
             Level.text = Prod_13_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney13.ToString("###,###") + paneltext1;
@@ -483,8 +898,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech14Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "내연기관";
+            exp.text = "연소를 시켜 동력을 얻는 기관입니다. 각종 에너지를 운동으로 바꿔줍니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon14;
             Level.text = Prod_14_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney14.ToString("###,###") + paneltext1;
@@ -502,8 +917,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech15Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "전신줄";
+            exp.text = "전기가 흐를 수 있는 도체로 연결한 선입니다. 이 선 하나로 세상 어디든 전기를 보낼 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon15;
             Level.text = Prod_15_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney15.ToString("###,###") + paneltext1;
@@ -521,8 +936,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech17Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "다이너마이트";
+            exp.text = "안정성을 늘린 폭탄입니다. 구멍을 팔때는 뚫기보다는 부수는게 쉽다는 것을 알아냈습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon17;
             Level.text = Prod_17_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney17.ToString("###,###") + paneltext1;
@@ -540,8 +955,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech18Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "포노토그라프";
+            exp.text = "음의 진동을 음향 패턴의 형태로 볼 수 있습니다. 소리를 눈으로 볼 수 있는 제품입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon18;
             Level.text = Prod_18_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney18.ToString("###,###") + paneltext1;
@@ -559,8 +974,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech19Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "전화기";
+            exp.text = "음성을 전기신호로 바꾸어 먼 곳으로 전송하고, 신호를 다시 음성으로 재생합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon19;
             Level.text = Prod_19_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney19.ToString("###,###") + paneltext1;
@@ -578,8 +993,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech20Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "백열등";
+            exp.text = "전구 내부의 필라멘트를 가열해 빛을 내는 조명장치 입니다. 집에서도 밤에 활동이 가능합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon20;
             Level.text = Prod_20_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney20.ToString("###,###") + paneltext1;
@@ -597,8 +1012,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech21Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "무선전신기";
+            exp.text = "전파를 맞추고 송신기를 통해 통신할 수 있습니다. 주파수를 통해 연결합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon21;
             Level.text = Prod_21_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney21.ToString("###,###") + paneltext1;
@@ -616,8 +1031,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech22Complete)
         {
-            title.text = "연구명";
-            exp.text = "동민아 여기에 설명을 추가해줘";
+            title.text = "비행선";
+            exp.text = "하늘에서 원하는 방향으로 이동할 수 있는 도구입니다. 활동 반경이 넓어집니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon22;
             Level.text = Prod_22_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney22.ToString("###,###") + paneltext1;
@@ -628,6 +1043,880 @@ public class ProductManager : MonoBehaviour
             }
             UpPriceText.text = Pd22.ToString("###,###");
             PanelNum = 22;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_23_Oepn()
+    {
+        if (TechManager.Tech23Complete)
+        {
+            title.text = "총신크랭크";
+            exp.text = "총에다 끼우는 크랭크 축입니다. 총을 연속적으로 사용할 수 있도록 돕습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon23;
+            Level.text = Prod_23_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney23.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney23 * Prod_23_Level).ToString("###,###") + paneltext2;
+            if (Prod_23_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd23.ToString("###,###");
+            PanelNum = 23;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_24_Oepn()
+    {
+        if (TechManager.Tech24Complete)
+        {
+            title.text = "라디오";
+            exp.text = "주파수를 통해 방송합니다. 정보의 전파 속도가 더욱 빨라집니다. ";
+            Icon.GetComponent<Image>().sprite = ProdIcon24;
+            Level.text = Prod_24_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney24.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney24 * Prod_24_Level).ToString("###,###") + paneltext2;
+            if (Prod_24_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd24.ToString("###,###");
+            PanelNum = 24;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_25_Oepn()
+    {
+        if (TechManager.Tech25Complete)
+        {
+            title.text = "룰러";
+            exp.text = "회전하는 원통형의 물건입니다. 인쇄술 등 다양한 분야에 활용됩니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon25;
+            Level.text = Prod_25_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney25.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney25 * Prod_25_Level).ToString("###,###") + paneltext2;
+            if (Prod_25_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd25.ToString("###,###");
+            PanelNum = 25;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_26_Oepn()
+    {
+        if (TechManager.Tech26Complete)
+        {
+            title.text = "에어컨";
+            exp.text = "일정한 공간을 시원하게 하는 도구입니다. 자연을 극복하고 일의 능률을 올립니다";
+            Icon.GetComponent<Image>().sprite = ProdIcon26;
+            Level.text = Prod_26_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney26.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney26 * Prod_26_Level).ToString("###,###") + paneltext2;
+            if (Prod_26_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd26.ToString("###,###");
+            PanelNum = 26;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_27_Oepn()
+    {
+        if (TechManager.Tech27Complete)
+        {
+            title.text = "모스부호기";
+            exp.text = "전신용 기호를 통해 통신합니다. 발신전류 만을 가지고 문장을 구성하고 전달합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon27;
+            Level.text = Prod_27_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney27.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney27 * Prod_27_Level).ToString("###,###") + paneltext2;
+            if (Prod_27_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd27.ToString("###,###");
+            PanelNum = 27;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_28_Oepn()
+    {
+        if (TechManager.Tech28Complete)
+        {
+            title.text = "운송폭탄";
+            exp.text = "운반할 수 있는 폭발하는 물질입니다. 폭발 시 파괴, 화재, 붕괴 그리고 공포심을 유발합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon28;
+            Level.text = Prod_28_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney28.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney28 * Prod_28_Level).ToString("###,###") + paneltext2;
+            if (Prod_28_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd28.ToString("###,###");
+            PanelNum = 28;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_29_Oepn()
+    {
+        if (TechManager.Tech29Complete)
+        {
+            title.text = "자동차";
+            exp.text = "땅 위를 일정한 속도로 달릴 수 있는 도구입니다. 원하는 것을 태우고 빠르게 이동할 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon29;
+            Level.text = Prod_29_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney29.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney29 * Prod_29_Level).ToString("###,###") + paneltext2;
+            if (Prod_29_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd29.ToString("###,###");
+            PanelNum = 29;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_30_Oepn()
+    {
+        if (TechManager.Tech30Complete)
+        {
+            title.text = "독가스";
+            exp.text = "들이마시거나 노출 시 해를 끼치는 독성 기체입니다. 수 많은 인구수를 빠르게 줄입니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon30;
+            Level.text = Prod_30_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney30.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney30 * Prod_30_Level).ToString("###,###") + paneltext2;
+            if (Prod_30_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd30.ToString("###,###");
+            PanelNum = 30;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_31_Oepn()
+    {
+        if (TechManager.Tech31Complete)
+        {
+            title.text = "에니그마";
+            exp.text = "전기적 암호 기계입니다. 정보를 숨길 수 있고, 기밀을 유지할 때 유용합니다";
+            Icon.GetComponent<Image>().sprite = ProdIcon31;
+            Level.text = Prod_31_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney31.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney31 * Prod_31_Level).ToString("###,###") + paneltext2;
+            if (Prod_31_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd31.ToString("###,###");
+            PanelNum = 31;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_32_Oepn()
+    {
+        if (TechManager.Tech32Complete)
+        {
+            title.text = "무한궤도";
+            exp.text = "탱크의 바퀴가 되는 부분입니다. 험한 지형에서도 무리없이 이동할 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon32;
+            Level.text = Prod_32_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney32.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney32 * Prod_32_Level).ToString("###,###") + paneltext2;
+            if (Prod_32_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd32.ToString("###,###");
+            PanelNum = 32;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_33_Oepn()
+    {
+        if (TechManager.Tech33Complete)
+        {
+            title.text = "냉동식품";
+            exp.text = "[★설명 잘못됨★] 해산물 등을 빠르게 얼릴 수 있는 냉동기계입니다. 음식을 더 오랜기간 보관합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon33;
+            Level.text = Prod_33_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney33.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney33 * Prod_33_Level).ToString("###,###") + paneltext2;
+            if (Prod_33_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd33.ToString("###,###");
+            PanelNum = 33;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_34_Oepn()
+    {
+        if (TechManager.Tech34Complete)
+        {
+            title.text = "페니실린";
+            exp.text = "세균과 강제적으로 결합하여 세균의 기능을 상실시킵니다. 세균의 증식을 억제합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon34;
+            Level.text = Prod_34_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney34.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney34 * Prod_34_Level).ToString("###,###") + paneltext2;
+            if (Prod_34_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd34.ToString("###,###");
+            PanelNum = 34;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_35_Oepn()
+    {
+        if (TechManager.Tech35Complete)
+        {
+            title.text = "터보제트";
+            exp.text = "유입된 공기를 압축시켜 고온 고압의 압축공기를 이용하여 분사하는 강력한 엔진입니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon35;
+            Level.text = Prod_35_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney35.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney35 * Prod_35_Level).ToString("###,###") + paneltext2;
+            if (Prod_35_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd35.ToString("###,###");
+            PanelNum = 35;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_36_Oepn()
+    {
+        if (TechManager.Tech36Complete)
+        {
+            title.text = "스타킹";
+            exp.text = "발과 다리를 감싸는 긴 양말류입니다. 군사용 복장으로 강한 재질이 피부를 긁는 것을 막습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon36;
+            Level.text = Prod_36_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney36.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney36 * Prod_36_Level).ToString("###,###") + paneltext2;
+            if (Prod_36_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd36.ToString("###,###");
+            PanelNum = 36;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_37_Oepn()
+    {
+        if (TechManager.Tech37Complete)
+        {
+            title.text = "우라늄";
+            exp.text = "핵분열이 가능한 원자입니다. 자연계에서 드물게 발견되며 핵무기를 만들 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon37;
+            Level.text = Prod_37_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney37.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney37 * Prod_37_Level).ToString("###,###") + paneltext2;
+            if (Prod_37_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd37.ToString("###,###");
+            PanelNum = 37;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_38_Oepn()
+    {
+        if (TechManager.Tech38Complete)
+        {
+            title.text = "컬러TV";
+            exp.text = "통신을 통해서 카메라를 통해 찍은 영상을 보여줄 수 있는 장치입니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon38;
+            Level.text = Prod_38_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney38.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney38 * Prod_38_Level).ToString("###,###") + paneltext2;
+            if (Prod_38_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd38.ToString("###,###");
+            PanelNum = 38;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_39_Oepn()
+    {
+        if (TechManager.Tech39Complete)
+        {
+            title.text = "전자레인지";
+            exp.text = "수분을 통해 음식을 빠르게 데우는 장치입니다. 고주파를 이용하여 전자를 빠르게 진동시킵니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon39;
+            Level.text = Prod_39_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney39.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney39 * Prod_39_Level).ToString("###,###") + paneltext2;
+            if (Prod_39_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd39.ToString("###,###");
+            PanelNum = 39;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_40_Oepn()
+    {
+        if (TechManager.Tech40Complete)
+        {
+            title.text = "트랜지스터+";
+            exp.text = "전자 신호 및 전력을 증폭하거나 스위칭하는 데 사용되는 반도체소자입니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon40;
+            Level.text = Prod_40_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney40.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney40 * Prod_40_Level).ToString("###,###") + paneltext2;
+            if (Prod_40_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd40.ToString("###,###");
+            PanelNum = 40;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_41_Oepn()
+    {
+        if (TechManager.Tech41Complete)
+        {
+            title.text = "레이저포인트";
+            exp.text = "눈에 보이는 가시광선을 통해 물체를 지목할 수 있습니다. 눈에 안좋은 영향을 미칩니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon41;
+            Level.text = Prod_41_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney41.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney41 * Prod_41_Level).ToString("###,###") + paneltext2;
+            if (Prod_41_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd41.ToString("###,###");
+            PanelNum = 41;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_42_Oepn()
+    {
+        if (TechManager.Tech42Complete)
+        {
+            title.text = "아스피린";
+            exp.text = "진통제, 해열제로 사용되는 약품입니다. 인류의 생명을 증가시킵니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon42;
+            Level.text = Prod_42_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney42.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney42 * Prod_42_Level).ToString("###,###") + paneltext2;
+            if (Prod_42_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd42.ToString("###,###");
+            PanelNum = 42;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_43_Oepn()
+    {
+        if (TechManager.Tech43Complete)
+        {
+            title.text = "하드드라이브";
+            exp.text = "자성을 이용하여 데이터를 저장합니다. 저장한 데이터를 다시 불러올 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon43;
+            Level.text = Prod_43_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney43.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney43 * Prod_43_Level).ToString("###,###") + paneltext2;
+            if (Prod_43_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd43.ToString("###,###");
+            PanelNum = 43;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_44_Oepn()
+    {
+        if (TechManager.Tech44Complete)
+        {
+            title.text = "카세트";
+            exp.text = "소리를 녹음시키고 재생할 수 있는 장치입니다. 소리를 상태 그대로 저장할 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon44;
+            Level.text = Prod_44_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney44.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney44 * Prod_44_Level).ToString("###,###") + paneltext2;
+            if (Prod_44_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd44.ToString("###,###");
+            PanelNum = 44;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_45_Oepn()
+    {
+        if (TechManager.Tech45Complete)
+        {
+            title.text = "LED";
+            exp.text = "전기에너지를 빛에너지로 변환시켜주는 광반도체입니다. 더 효율적인 밝은 빛을 쓸 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon45;
+            Level.text = Prod_45_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney45.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney45 * Prod_45_Level).ToString("###,###") + paneltext2;
+            if (Prod_45_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd45.ToString("###,###");
+            PanelNum = 45;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_46_Oepn()
+    {
+        if (TechManager.Tech46Complete)
+        {
+            title.text = "다이제팜";
+            exp.text = "정신적인 장애나 경련 발작등을 치료할 수 있는 약품입니다. 인간의 건강을 늘려줍니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon46;
+            Level.text = Prod_46_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney46.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney46 * Prod_46_Level).ToString("###,###") + paneltext2;
+            if (Prod_46_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd46.ToString("###,###");
+            PanelNum = 46;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_47_Oepn()
+    {
+        if (TechManager.Tech47Complete)
+        {
+            title.text = "RAM";
+            exp.text = "원하는 데이터를 바로 찾을 수 있는 장치입니다. 주소를 기록하고 바로 일을 수행합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon47;
+            Level.text = Prod_47_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney47.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney47 * Prod_47_Level).ToString("###,###") + paneltext2;
+            if (Prod_47_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd47.ToString("###,###");
+            PanelNum = 47;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_48_Oepn()
+    {
+        if (TechManager.Tech48Complete)
+        {
+            title.text = "계산기";
+            exp.text = "간단한 수학적 계산을 할 수 있는 장치입니다. 휴대가 가능할 정도로 크기가 작아졌습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon48;
+            Level.text = Prod_48_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney48.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney48 * Prod_48_Level).ToString("###,###") + paneltext2;
+            if (Prod_48_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd48.ToString("###,###");
+            PanelNum = 48;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_49_Oepn()
+    {
+        if (TechManager.Tech49Complete)
+        {
+            title.text = "CPU";
+            exp.text = "기계가 작업을 수행할 수 있게 하는 두뇌입니다. 명령을 해석하고 연산 가능한 총체적인 장치입니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon49;
+            Level.text = Prod_49_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney49.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney49 * Prod_49_Level).ToString("###,###") + paneltext2;
+            if (Prod_49_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd49.ToString("###,###");
+            PanelNum = 49;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_51_Oepn()
+    {
+        if (TechManager.Tech51Complete)
+        {
+            title.text = "LCD";
+            exp.text = "액정을 핵심 소재로 한 평판 디스플레이입니다. 전기 자극의 조절을 통해 실용화 가능합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon51;
+            Level.text = Prod_51_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney51.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney51 * Prod_51_Level).ToString("###,###") + paneltext2;
+            if (Prod_51_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd51.ToString("###,###");
+            PanelNum = 51;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_52_Oepn()
+    {
+        if (TechManager.Tech52Complete)
+        {
+            title.text = "랜선";
+            exp.text = "전자세계에 연결할 수 있도록 돕는 연결선입니다. 이 선 하나로 전세계와 만날 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon52;
+            Level.text = Prod_52_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney52.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney52 * Prod_52_Level).ToString("###,###") + paneltext2;
+            if (Prod_52_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd52.ToString("###,###");
+            PanelNum = 52;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_53_Oepn()
+    {
+        if (TechManager.Tech53Complete)
+        {
+            title.text = "MRI";
+            exp.text = "자기공명장치 입니다. 기계의 자기장을 통해 물체의 내부 겹 단위로 볼 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon53;
+            Level.text = Prod_53_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney53.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney53 * Prod_53_Level).ToString("###,###") + paneltext2;
+            if (Prod_53_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd53.ToString("###,###");
+            PanelNum = 53;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_54_Oepn()
+    {
+        if (TechManager.Tech54Complete)
+        {
+            title.text = "휴대폰";
+            exp.text = "선이 없이 통화를 할 수 있는 장치입니다. 더 이상 정보의 전달은 공간과 시간에 구애받지 않습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon54;
+            Level.text = Prod_54_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney54.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney54 * Prod_54_Level).ToString("###,###") + paneltext2;
+            if (Prod_54_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd54.ToString("###,###");
+            PanelNum = 54;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_55_Oepn()
+    {
+        if (TechManager.Tech55Complete)
+        {
+            title.text = "휴대용게임기";
+            exp.text = "데이터 조각들을 모아 유기적으로 움직이는 게임기입니다. 사람들은 이것에 열광합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon55;
+            Level.text = Prod_55_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney55.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney55 * Prod_55_Level).ToString("###,###") + paneltext2;
+            if (Prod_55_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd55.ToString("###,###");
+            PanelNum = 55;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_56_Oepn()
+    {
+        if (TechManager.Tech56Complete)
+        {
+            title.text = "JAVA";
+            exp.text = "컴퓨터와 대화할 수 있는 하나의 수단입니다. 일반 사람들도 이용할 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon56;
+            Level.text = Prod_56_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney56.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
+            if (Prod_56_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd56.ToString("###,###");
+            PanelNum = 56;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_58_Oepn()
+    {
+        if (TechManager.Tech58Complete)
+        {
+            title.text = "WI-FI";
+            exp.text = "다른 사람과 서버를 무선으로 공유할 수 있습니다. 어디서든 전자세계를 이용할 수 있습니다";
+            Icon.GetComponent<Image>().sprite = ProdIcon58;
+            Level.text = Prod_58_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney58.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney58 * Prod_58_Level).ToString("###,###") + paneltext2;
+            if (Prod_58_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd58.ToString("###,###");
+            PanelNum = 58;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_59_Oepn()
+    {
+        if (TechManager.Tech59Complete)
+        {
+            title.text = "GPS";
+            exp.text = "위치를 추적할 수 있습니다. 현실세계의 모든 조작이 전자세계에서 추적이 가능합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon59;
+            Level.text = Prod_59_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney59.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney59 * Prod_59_Level).ToString("###,###") + paneltext2;
+            if (Prod_59_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd59.ToString("###,###");
+            PanelNum = 59;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_60_Oepn()
+    {
+        if (TechManager.Tech60Complete)
+        {
+            title.text = "대왕감자";
+            exp.text = "정말 큰 감자입니다. 정말 큽니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon60;
+            Level.text = Prod_60_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney60.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney60 * Prod_60_Level).ToString("###,###") + paneltext2;
+            if (Prod_60_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd60.ToString("###,###");
+            PanelNum = 60;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_61_Oepn()
+    {
+        if (TechManager.Tech61Complete)
+        {
+            title.text = "인터넷";
+            exp.text = "모든 정보와 의견이 존재하는 공간입니다. 인터넷을 할 수 있는 3평의 공간이면, 공간은 의미없어집니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon61;
+            Level.text = Prod_61_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney61.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney61 * Prod_61_Level).ToString("###,###") + paneltext2;
+            if (Prod_61_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd61.ToString("###,###");
+            PanelNum = 61;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_62_Oepn()
+    {
+        if (TechManager.Tech62Complete)
+        {
+            title.text = "시험관";
+            exp.text = "출산을 돕는 기구입니다. 고도의 기술이 들어가지만, 인구수를 증가시킬 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon62;
+            Level.text = Prod_62_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney62.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney62 * Prod_62_Level).ToString("###,###") + paneltext2;
+            if (Prod_62_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd62.ToString("###,###");
+            PanelNum = 62;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_63_Oepn()
+    {
+        if (TechManager.Tech63Complete)
+        {
+            title.text = "GPU";
+            exp.text = "전자세계를 좀 더 현실에 가깝게 보이도록 도와주는 전자부품입니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon63;
+            Level.text = Prod_63_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney63.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney63 * Prod_63_Level).ToString("###,###") + paneltext2;
+            if (Prod_63_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd63.ToString("###,###");
+            PanelNum = 63;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_64_Oepn()
+    {
+        if (TechManager.Tech64Complete)
+        {
+            title.text = "비트코인";
+            exp.text = "아무도 수정, 대체 불가능한 가상화폐입니다. 종이와 같은 현물을 대체할 수 있습니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon64;
+            Level.text = Prod_64_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney64.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney64 * Prod_64_Level).ToString("###,###") + paneltext2;
+            if (Prod_64_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd64.ToString("###,###");
+            PanelNum = 64;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_65_Oepn()
+    {
+        if (TechManager.Tech65Complete)
+        {
+            title.text = "딥러닝";
+            exp.text = "AI가 스스로 학습합니다. 인터넷을 통해 수많은 정보를 받아드리고 인간의 생각을 복사합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon65;
+            Level.text = Prod_65_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney65.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney65 * Prod_65_Level).ToString("###,###") + paneltext2;
+            if (Prod_65_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd66.ToString("###,###");
+            PanelNum = 66;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_66_Oepn()
+    {
+        if (TechManager.Tech66Complete)
+        {
+            title.text = "10G";
+            exp.text = "가장 빠른 통신 기술입니다. 정보를 주고 받는 시간을 단축합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon66;
+            Level.text = Prod_66_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney66.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney66 * Prod_66_Level).ToString("###,###") + paneltext2;
+            if (Prod_66_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd66.ToString("###,###");
+            PanelNum = 66;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_67_Oepn()
+    {
+        if (TechManager.Tech67Complete)
+        {
+            title.text = "VR";
+            exp.text = "실제와 유사하게 꾸민 인공환경입니다. 오감을 사용할 수 있게 합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon67;
+            Level.text = Prod_67_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney67.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney67 * Prod_67_Level).ToString("###,###") + paneltext2;
+            if (Prod_67_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd67.ToString("###,###");
+            PanelNum = 67;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_68_Oepn()
+    {
+        if (TechManager.Tech68Complete)
+        {
+            title.text = "AR";
+            exp.text = "현실에 전자의 세계를 도입하여 확장시킵니다. 현실세계와 가상세계과 합쳐집니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon68;
+            Level.text = Prod_68_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney68.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney68 * Prod_68_Level).ToString("###,###") + paneltext2;
+            if (Prod_68_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd68.ToString("###,###");
+            PanelNum = 68;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_69_Oepn()
+    {
+        if (TechManager.Tech69Complete)
+        {
+            title.text = "유전자칩";
+            exp.text = "생물의 몸 속에 심어놓습니다. 질병을 처리함은 물론 전자세계의 일들은 본인의 신체에서 해결 가능합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon69;
+            Level.text = Prod_69_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney69.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney69 * Prod_69_Level).ToString("###,###") + paneltext2;
+            if (Prod_69_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd69.ToString("###,###");
+            PanelNum = 69;
+            ProdUpPanel.SetActive(true);
+        }
+    }
+    public void Prod_70_Oepn()
+    {
+        if (TechManager.Tech70Complete)
+        {
+            title.text = "차원관문";
+            exp.text = "차원을 이동하는 관문입니다. 공간을 무시합니다.";
+            Icon.GetComponent<Image>().sprite = ProdIcon70;
+            Level.text = Prod_70_Level.ToString();
+            ProdMoneyText.text = perOneAutoMoney70.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoMoney70 * Prod_70_Level).ToString("###,###") + paneltext2;
+            if (Prod_70_Level == 0)
+            {
+                TotalProdMoneyText.text = paneltext3;
+            }
+            UpPriceText.text = Pd70.ToString("###,###");
+            PanelNum = 70;
             ProdUpPanel.SetActive(true);
         }
     }
@@ -833,6 +2122,466 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_22_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney22 * Prod_22_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd22.ToString("###,###");
+        }
+        else if (PanelNum == 23)
+        {
+            GameManager.money -= Pd23;
+            Prod_23_Level++;
+            Pd23 = (long)((float)Pd23 * UpTimes);
+
+            Level.text = Prod_23_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney23 * Prod_23_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd23.ToString("###,###");
+        }
+        else if (PanelNum == 24)
+        {
+            GameManager.money -= Pd24;
+            Prod_24_Level++;
+            Pd24 = (long)((float)Pd24 * UpTimes);
+
+            Level.text = Prod_24_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney24 * Prod_24_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd24.ToString("###,###");
+        }
+        else if (PanelNum == 25)
+        {
+            GameManager.money -= Pd25;
+            Prod_25_Level++;
+            Pd25 = (long)((float)Pd25 * UpTimes);
+
+            Level.text = Prod_25_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney25 * Prod_25_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd25.ToString("###,###");
+        }
+        else if (PanelNum == 26)
+        {
+            GameManager.money -= Pd26;
+            Prod_26_Level++;
+            Pd26 = (long)((float)Pd26 * UpTimes);
+
+            Level.text = Prod_26_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney26 * Prod_26_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd26.ToString("###,###");
+        }
+        else if (PanelNum == 27)
+        {
+            GameManager.money -= Pd27;
+            Prod_27_Level++;
+            Pd27 = (long)((float)Pd27 * UpTimes);
+
+            Level.text = Prod_27_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney27 * Prod_27_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd27.ToString("###,###");
+        }
+        else if (PanelNum == 28)
+        {
+            GameManager.money -= Pd28;
+            Prod_28_Level++;
+            Pd28 = (long)((float)Pd28 * UpTimes);
+
+            Level.text = Prod_28_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney28 * Prod_28_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd28.ToString("###,###");
+        }
+        else if (PanelNum == 29)
+        {
+            GameManager.money -= Pd29;
+            Prod_29_Level++;
+            Pd29 = (long)((float)Pd29 * UpTimes);
+
+            Level.text = Prod_29_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney29 * Prod_29_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd29.ToString("###,###");
+        }
+        else if (PanelNum == 30)
+        {
+            GameManager.money -= Pd30;
+            Prod_30_Level++;
+            Pd30 = (long)((float)Pd30 * UpTimes);
+
+            Level.text = Prod_30_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney30 * Prod_30_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd30.ToString("###,###");
+        }
+        else if (PanelNum == 31)
+        {
+            GameManager.money -= Pd31;
+            Prod_31_Level++;
+            Pd31 = (long)((float)Pd31 * UpTimes);
+
+            Level.text = Prod_31_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney31 * Prod_31_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd31.ToString("###,###");
+        }
+        else if (PanelNum == 32)
+        {
+            GameManager.money -= Pd32;
+            Prod_32_Level++;
+            Pd32 = (long)((float)Pd32 * UpTimes);
+
+            Level.text = Prod_32_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney32 * Prod_32_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd32.ToString("###,###");
+        }
+        else if (PanelNum == 33)
+        {
+            GameManager.money -= Pd33;
+            Prod_33_Level++;
+            Pd33 = (long)((float)Pd33 * UpTimes);
+
+            Level.text = Prod_33_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney33 * Prod_33_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd33.ToString("###,###");
+        }
+        else if (PanelNum == 34)
+        {
+            GameManager.money -= Pd34;
+            Prod_34_Level++;
+            Pd34 = (long)((float)Pd34 * UpTimes);
+
+            Level.text = Prod_34_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney34 * Prod_34_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd34.ToString("###,###");
+        }
+        else if (PanelNum == 35)
+        {
+            GameManager.money -= Pd35;
+            Prod_35_Level++;
+            Pd35 = (long)((float)Pd35 * UpTimes);
+
+            Level.text = Prod_35_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney35 * Prod_35_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd35.ToString("###,###");
+        }
+        else if (PanelNum == 36)
+        {
+            GameManager.money -= Pd36;
+            Prod_36_Level++;
+            Pd36 = (long)((float)Pd36 * UpTimes);
+
+            Level.text = Prod_36_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney36 * Prod_36_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd36.ToString("###,###");
+        }
+        else if (PanelNum == 37)
+        {
+            GameManager.money -= Pd37;
+            Prod_37_Level++;
+            Pd37 = (long)((float)Pd37 * UpTimes);
+
+            Level.text = Prod_37_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney37 * Prod_37_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd37.ToString("###,###");
+        }
+        else if (PanelNum == 38)
+        {
+            GameManager.money -= Pd38;
+            Prod_38_Level++;
+            Pd38 = (long)((float)Pd38 * UpTimes);
+
+            Level.text = Prod_38_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney38 * Prod_38_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd38.ToString("###,###");
+        }
+        else if (PanelNum == 39)
+        {
+            GameManager.money -= Pd39;
+            Prod_39_Level++;
+            Pd39 = (long)((float)Pd39 * UpTimes);
+
+            Level.text = Prod_39_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney39 * Prod_39_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd39.ToString("###,###");
+        }
+        else if (PanelNum == 40)
+        {
+            GameManager.money -= Pd40;
+            Prod_40_Level++;
+            Pd40 = (long)((float)Pd40 * UpTimes);
+
+            Level.text = Prod_40_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney40 * Prod_40_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd40.ToString("###,###");
+        }
+        else if (PanelNum == 41)
+        {
+            GameManager.money -= Pd41;
+            Prod_41_Level++;
+            Pd41 = (long)((float)Pd41 * UpTimes);
+
+            Level.text = Prod_41_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney41 * Prod_41_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd41.ToString("###,###");
+        }
+        else if (PanelNum == 42)
+        {
+            GameManager.money -= Pd42;
+            Prod_42_Level++;
+            Pd42 = (long)((float)Pd42 * UpTimes);
+
+            Level.text = Prod_42_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney42 * Prod_42_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd42.ToString("###,###");
+        }
+        else if (PanelNum == 43)
+        {
+            GameManager.money -= Pd43;
+            Prod_43_Level++;
+            Pd43 = (long)((float)Pd43 * UpTimes);
+
+            Level.text = Prod_43_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney43 * Prod_43_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd43.ToString("###,###");
+        }
+        else if (PanelNum == 44)
+        {
+            GameManager.money -= Pd44;
+            Prod_44_Level++;
+            Pd44 = (long)((float)Pd44 * UpTimes);
+
+            Level.text = Prod_44_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney44 * Prod_44_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd44.ToString("###,###");
+        }
+        else if (PanelNum == 45)
+        {
+            GameManager.money -= Pd45;
+            Prod_45_Level++;
+            Pd45 = (long)((float)Pd45 * UpTimes);
+
+            Level.text = Prod_45_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney45 * Prod_45_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd45.ToString("###,###");
+        }
+        else if (PanelNum == 46)
+        {
+            GameManager.money -= Pd46;
+            Prod_46_Level++;
+            Pd46 = (long)((float)Pd46 * UpTimes);
+
+            Level.text = Prod_46_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney46 * Prod_46_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd46.ToString("###,###");
+        }
+        else if (PanelNum == 47)
+        {
+            GameManager.money -= Pd47;
+            Prod_47_Level++;
+            Pd47 = (long)((float)Pd47 * UpTimes);
+
+            Level.text = Prod_47_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney47 * Prod_47_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd47.ToString("###,###");
+        }
+        else if (PanelNum == 48)
+        {
+            GameManager.money -= Pd48;
+            Prod_48_Level++;
+            Pd48 = (long)((float)Pd48 * UpTimes);
+
+            Level.text = Prod_48_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney48 * Prod_48_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd48.ToString("###,###");
+        }
+        else if (PanelNum == 49)
+        {
+            GameManager.money -= Pd49;
+            Prod_49_Level++;
+            Pd49 = (long)((float)Pd49 * UpTimes);
+
+            Level.text = Prod_49_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney49 * Prod_49_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd49.ToString("###,###");
+        }
+        else if (PanelNum == 51)
+        {
+            GameManager.money -= Pd51;
+            Prod_51_Level++;
+            Pd51 = (long)((float)Pd51 * UpTimes);
+
+            Level.text = Prod_51_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney51 * Prod_51_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd51.ToString("###,###");
+        }
+        else if (PanelNum == 52)
+        {
+            GameManager.money -= Pd52;
+            Prod_52_Level++;
+            Pd52 = (long)((float)Pd52 * UpTimes);
+
+            Level.text = Prod_52_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney52 * Prod_52_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd52.ToString("###,###");
+        }
+        else if (PanelNum == 53)
+        {
+            GameManager.money -= Pd53;
+            Prod_53_Level++;
+            Pd53 = (long)((float)Pd53 * UpTimes);
+
+            Level.text = Prod_53_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney53 * Prod_53_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd53.ToString("###,###");
+        }
+        else if (PanelNum == 54)
+        {
+            GameManager.money -= Pd54;
+            Prod_54_Level++;
+            Pd54 = (long)((float)Pd54 * UpTimes);
+
+            Level.text = Prod_54_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney54 * Prod_54_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd54.ToString("###,###");
+        }
+        else if (PanelNum == 55)
+        {
+            GameManager.money -= Pd55;
+            Prod_55_Level++;
+            Pd55 = (long)((float)Pd55 * UpTimes);
+
+            Level.text = Prod_55_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney55 * Prod_55_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd55.ToString("###,###");
+        }
+        else if (PanelNum == 56)
+        {
+            GameManager.money -= Pd56;
+            Prod_56_Level++;
+            Pd56 = (long)((float)Pd56 * UpTimes);
+
+            Level.text = Prod_56_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd56.ToString("###,###");
+        }
+        else if (PanelNum == 58)
+        {
+            GameManager.money -= Pd58;
+            Prod_58_Level++;
+            Pd58 = (long)((float)Pd58 * UpTimes);
+
+            Level.text = Prod_58_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney58 * Prod_58_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd58.ToString("###,###");
+        }
+        else if (PanelNum == 59)
+        {
+            GameManager.money -= Pd59;
+            Prod_59_Level++;
+            Pd59 = (long)((float)Pd59 * UpTimes);
+
+            Level.text = Prod_59_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney59 * Prod_59_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd59.ToString("###,###");
+        }
+        else if (PanelNum == 60)
+        {
+            GameManager.money -= Pd60;
+            Prod_60_Level++;
+            Pd60 = (long)((float)Pd60 * UpTimes);
+
+            Level.text = Prod_60_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney60 * Prod_60_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd60.ToString("###,###");
+        }
+        else if (PanelNum == 61)
+        {
+            GameManager.money -= Pd61;
+            Prod_61_Level++;
+            Pd61 = (long)((float)Pd61 * UpTimes);
+
+            Level.text = Prod_61_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney61 * Prod_61_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd61.ToString("###,###");
+        }
+        else if (PanelNum == 62)
+        {
+            GameManager.money -= Pd62;
+            Prod_62_Level++;
+            Pd62 = (long)((float)Pd62 * UpTimes);
+
+            Level.text = Prod_62_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney62 * Prod_62_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd62.ToString("###,###");
+        }
+        else if (PanelNum == 63)
+        {
+            GameManager.money -= Pd63;
+            Prod_63_Level++;
+            Pd63 = (long)((float)Pd63 * UpTimes);
+
+            Level.text = Prod_63_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney63 * Prod_63_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd63.ToString("###,###");
+        }
+        else if (PanelNum == 64)
+        {
+            GameManager.money -= Pd64;
+            Prod_64_Level++;
+            Pd64 = (long)((float)Pd64 * UpTimes);
+
+            Level.text = Prod_64_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney64 * Prod_64_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd64.ToString("###,###");
+        }
+        else if (PanelNum == 65)
+        {
+            GameManager.money -= Pd65;
+            Prod_65_Level++;
+            Pd65 = (long)((float)Pd65 * UpTimes);
+
+            Level.text = Prod_65_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney65 * Prod_65_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd65.ToString("###,###");
+        }
+        else if (PanelNum == 66)
+        {
+            GameManager.money -= Pd66;
+            Prod_66_Level++;
+            Pd66 = (long)((float)Pd66 * UpTimes);
+
+            Level.text = Prod_66_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney66 * Prod_66_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd66.ToString("###,###");
+        }
+        else if (PanelNum == 67)
+        {
+            GameManager.money -= Pd67;
+            Prod_67_Level++;
+            Pd67 = (long)((float)Pd67 * UpTimes);
+
+            Level.text = Prod_67_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney67 * Prod_67_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd67.ToString("###,###");
+        }
+        else if (PanelNum == 68)
+        {
+            GameManager.money -= Pd68;
+            Prod_68_Level++;
+            Pd68 = (long)((float)Pd68 * UpTimes);
+
+            Level.text = Prod_68_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney68 * Prod_68_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd68.ToString("###,###");
+        }
+        else if (PanelNum == 69)
+        {
+            GameManager.money -= Pd69;
+            Prod_69_Level++;
+            Pd69 = (long)((float)Pd69 * UpTimes);
+
+            Level.text = Prod_69_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney69 * Prod_69_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd69.ToString("###,###");
+        }
+        else if (PanelNum == 70)
+        {
+            GameManager.money -= Pd70;
+            Prod_70_Level++;
+            Pd70 = (long)((float)Pd70 * UpTimes);
+
+            Level.text = Prod_70_Level.ToString();
+            TotalProdMoneyText.text = (perOneAutoMoney70 * Prod_70_Level).ToString("###,###") + paneltext2;
+            UpPriceText.text = Pd70.ToString("###,###");
         }
     }
 
@@ -1058,6 +2807,512 @@ public class ProductManager : MonoBehaviour
                 UpgradeProdButton.interactable = false;
             }
         }
+        else if (PanelNum == 23)
+        {
+            if (GameManager.money >= Pd23)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 24)
+        {
+            if (GameManager.money >= Pd24)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 25)
+        {
+            if (GameManager.money >= Pd25)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 26)
+        {
+            if (GameManager.money >= Pd26)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 27)
+        {
+            if (GameManager.money >= Pd27)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 28)
+        {
+            if (GameManager.money >= Pd28)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 29)
+        {
+            if (GameManager.money >= Pd29)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 30)
+        {
+            if (GameManager.money >= Pd30)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 31)
+        {
+            if (GameManager.money >= Pd31)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 32)
+        {
+            if (GameManager.money >= Pd32)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 33)
+        {
+            if (GameManager.money >= Pd33)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 34)
+        {
+            if (GameManager.money >= Pd34)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 35)
+        {
+            if (GameManager.money >= Pd35)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 36)
+        {
+            if (GameManager.money >= Pd36)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 37)
+        {
+            if (GameManager.money >= Pd37)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 38)
+        {
+            if (GameManager.money >= Pd38)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 39)
+        {
+            if (GameManager.money >= Pd39)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 40)
+        {
+            if (GameManager.money >= Pd40)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 41)
+        {
+            if (GameManager.money >= Pd41)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 42)
+        {
+            if (GameManager.money >= Pd42)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 43)
+        {
+            if (GameManager.money >= Pd43)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 44)
+        {
+            if (GameManager.money >= Pd44)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 45)
+        {
+            if (GameManager.money >= Pd45)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 46)
+        {
+            if (GameManager.money >= Pd46)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 47)
+        {
+            if (GameManager.money >= Pd47)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 48)
+        {
+            if (GameManager.money >= Pd48)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 49)
+        {
+            if (GameManager.money >= Pd49)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 51)
+        {
+            if (GameManager.money >= Pd51)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 52)
+        {
+            if (GameManager.money >= Pd52)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 53)
+        {
+            if (GameManager.money >= Pd53)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 54)
+        {
+            if (GameManager.money >= Pd54)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 55)
+        {
+            if (GameManager.money >= Pd55)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 56)
+        {
+            if (GameManager.money >= Pd56)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 58)
+        {
+            if (GameManager.money >= Pd58)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 59)
+        {
+            if (GameManager.money >= Pd59)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 60)
+        {
+            if (GameManager.money >= Pd60)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 61)
+        {
+            if (GameManager.money >= Pd61)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 62)
+        {
+            if (GameManager.money >= Pd62)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 63)
+        {
+            if (GameManager.money >= Pd63)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 64)
+        {
+            if (GameManager.money >= Pd64)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 65)
+        {
+            if (GameManager.money >= Pd65)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 66)
+        {
+            if (GameManager.money >= Pd66)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 67)
+        {
+            if (GameManager.money >= Pd67)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 68)
+        {
+            if (GameManager.money >= Pd68)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 69)
+        {
+            if (GameManager.money >= Pd69)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
+        else if (PanelNum == 70)
+        {
+            if (GameManager.money >= Pd70)
+            {
+                UpgradeProdButton.interactable = true;
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+        }
         else
         {
             UpgradeProdButton.interactable = false;
@@ -1154,7 +3409,17 @@ public class ProductManager : MonoBehaviour
             autoMoney = (perOneAutoMoney1 * Prod_1_Level) + (perOneAutoMoney3 * Prod_3_Level) + (perOneAutoMoney4 * Prod_4_Level) + (perOneAutoMoney5 * Prod_5_Level) + (perOneAutoMoney6 * Prod_6_Level) +
                     (perOneAutoMoney7 * Prod_7_Level) + (perOneAutoMoney8 * Prod_8_Level) + (perOneAutoMoney9 * Prod_9_Level) + (perOneAutoMoney10 * Prod_10_Level) + (perOneAutoMoney11 * Prod_11_Level) +
                     (perOneAutoMoney12 * Prod_12_Level) + (perOneAutoMoney13 * Prod_13_Level) + (perOneAutoMoney14 * Prod_14_Level) + (perOneAutoMoney15 * Prod_15_Level) + (perOneAutoMoney17 * Prod_17_Level) +
-                    (perOneAutoMoney18 * Prod_18_Level) + (perOneAutoMoney19 * Prod_19_Level) + (perOneAutoMoney20 * Prod_20_Level) + (perOneAutoMoney21 * Prod_21_Level) + (perOneAutoMoney22 * Prod_22_Level);
+                    (perOneAutoMoney18 * Prod_18_Level) + (perOneAutoMoney19 * Prod_19_Level) + (perOneAutoMoney20 * Prod_20_Level) + (perOneAutoMoney21 * Prod_21_Level) + (perOneAutoMoney22 * Prod_22_Level) +
+                    (perOneAutoMoney23 * Prod_23_Level) + (perOneAutoMoney24 * Prod_24_Level) + (perOneAutoMoney25 * Prod_25_Level) + (perOneAutoMoney26 * Prod_26_Level) + (perOneAutoMoney27 * Prod_27_Level) +
+                    (perOneAutoMoney28 * Prod_28_Level) + (perOneAutoMoney29 * Prod_29_Level) + (perOneAutoMoney30 * Prod_30_Level) + (perOneAutoMoney31 * Prod_31_Level) + (perOneAutoMoney32 * Prod_32_Level) +
+                    (perOneAutoMoney33 * Prod_33_Level) + (perOneAutoMoney34 * Prod_34_Level) + (perOneAutoMoney35 * Prod_35_Level) + (perOneAutoMoney36 * Prod_36_Level) + (perOneAutoMoney37 * Prod_37_Level) +
+                    (perOneAutoMoney38 * Prod_38_Level) + (perOneAutoMoney39 * Prod_39_Level) + (perOneAutoMoney40 * Prod_40_Level) + (perOneAutoMoney41 * Prod_41_Level) + (perOneAutoMoney42 * Prod_42_Level) +
+                    (perOneAutoMoney43 * Prod_43_Level) + (perOneAutoMoney44 * Prod_44_Level) + (perOneAutoMoney45 * Prod_45_Level) + (perOneAutoMoney46 * Prod_46_Level) + (perOneAutoMoney47 * Prod_47_Level) +
+                    (perOneAutoMoney48 * Prod_48_Level) + (perOneAutoMoney49 * Prod_49_Level) + (perOneAutoMoney51 * Prod_51_Level) + (perOneAutoMoney52 * Prod_52_Level) + (perOneAutoMoney53 * Prod_53_Level) +
+                    (perOneAutoMoney54 * Prod_54_Level) + (perOneAutoMoney55 * Prod_55_Level) + (perOneAutoMoney56 * Prod_56_Level) + (perOneAutoMoney58 * Prod_58_Level) + (perOneAutoMoney59 * Prod_59_Level) +
+                    (perOneAutoMoney60 * Prod_60_Level) + (perOneAutoMoney61 * Prod_61_Level) + (perOneAutoMoney62 * Prod_62_Level) + (perOneAutoMoney63 * Prod_63_Level) + (perOneAutoMoney64 * Prod_64_Level) +
+                    (perOneAutoMoney65 * Prod_65_Level) + (perOneAutoMoney66 * Prod_66_Level) + (perOneAutoMoney67 * Prod_67_Level) + (perOneAutoMoney68 * Prod_68_Level) + (perOneAutoMoney69 * Prod_69_Level) +
+                    (perOneAutoMoney70 * Prod_70_Level);
             yield return new WaitForSeconds(0.3f);
         }
     }
