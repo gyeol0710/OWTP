@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class ProductManager : MonoBehaviour
 {
     static public long autoMoney; // 통합 1초당 획득 돈
+    static public long autoScience; // 통합 1초당 획득 연구력
 
     public float 업글비용배수;
     float UpTimes;
@@ -3421,6 +3422,14 @@ public class ProductManager : MonoBehaviour
                     (perOneAutoMoney65 * Prod_65_Level) + (perOneAutoMoney66 * Prod_66_Level) + (perOneAutoMoney67 * Prod_67_Level) + (perOneAutoMoney68 * Prod_68_Level) + (perOneAutoMoney69 * Prod_69_Level) +
                     (perOneAutoMoney70 * Prod_70_Level);
             yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    IEnumerator AutoScienceGo()
+    {
+        while(true)
+        {
+            
         }
     }
 }
