@@ -156,16 +156,12 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney3;
     public long pd4_뮬방적기_생산량;
     public static long perOneAutoMoney4;
-    public long pd5_실린더_생산량;
-    public static long perOneAutoMoney5;
     public long pd6_역직기_생산량;
     public static long perOneAutoMoney6;
     public long pd7_기구_생산량;
     public static long perOneAutoMoney7;
     public long pd8_개구리전지_생산량;
     public static long perOneAutoMoney8;
-    public long pd9_볼타전지_생산량;
-    public static long perOneAutoMoney9;
     public long pd10_가스등_생산량;
     public static long perOneAutoMoney10;
     public long pd11_강철_생산량;
@@ -180,20 +176,14 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney15; // 16번 제품 없음
     public long pd17_다이너마이트_생산량;
     public static long perOneAutoMoney17;
-    public long pd18_포노토그라프_생산량;
-    public static long perOneAutoMoney18;
     public long pd19_전화기_생산량;
     public static long perOneAutoMoney19;
     public long pd20_백열등_생산량;
     public static long perOneAutoMoney20;
     public long pd21_무선전신_생산량;
     public static long perOneAutoMoney21;
-    public long pd22_비행선_생산량;
-    public static long perOneAutoMoney22;
     public long pd23_총신크랭크_생산량;
     public static long perOneAutoMoney23;
-    public long pd24_라디오_생산량;
-    public static long perOneAutoMoney24;
     public long pd25_룰러_생산량;
     public static long perOneAutoMoney25;
     public long pd26_에어컨_생산량;
@@ -206,8 +196,6 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney29;
     public long pd30_독가스_생산량;
     public static long perOneAutoMoney30;
-    public long pd31_에니그마_생산량;
-    public static long perOneAutoMoney31;
     public long pd32_무한궤도_생산량;
     public static long perOneAutoMoney32;
     public long pd33_냉동식품_생산량;
@@ -224,22 +212,16 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney38;
     public long pd39_전자레인지_생산량;
     public static long perOneAutoMoney39;
-    public long pd40_트랜지스터플러스_생산량;
-    public static long perOneAutoMoney40;
     public long pd41_레이저포인트_생산량;
     public static long perOneAutoMoney41;
     public long pd42_아스피린_생산량;
     public static long perOneAutoMoney42;
-    public long pd43_하드드라이브_생산량;
-    public static long perOneAutoMoney43;
     public long pd44_카세트_생산량;
     public static long perOneAutoMoney44;
     public long pd45_LED_생산량;
     public static long perOneAutoMoney45;
     public long pd46_다이제팜_생산량;
     public static long perOneAutoMoney46;
-    public long pd47_RAM_생산량;
-    public static long perOneAutoMoney47;
     public long pd48_계산기_생산량;
     public static long perOneAutoMoney48;
     public long pd49_CPU_생산량;
@@ -250,12 +232,8 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney52;
     public long pd53_MRI_생산량;
     public static long perOneAutoMoney53;
-    public long pd54_휴대폰_생산량;
-    public static long perOneAutoMoney54;
     public long pd55_휴대용게임기_생산량;
-    public static long perOneAutoMoney55;
-    public long pd56_JAVA_생산량;
-    public static long perOneAutoMoney56; // 57번 제품 없음
+    public static long perOneAutoMoney55; // 57번 제품 없음
     public long pd58_WIFI_생산량;
     public static long perOneAutoMoney58;
     public long pd59_GPS_생산량;
@@ -266,14 +244,10 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney61;
     public long pd62_시험관_생산량;
     public static long perOneAutoMoney62;
-    public long pd63_GPU_생산량;
-    public static long perOneAutoMoney63;
     public long pd64_비트코인_생산량;
     public static long perOneAutoMoney64;
     public long pd65_딥러닝_생산량;
     public static long perOneAutoMoney65;
-    public long pd66_10G_생산량;
-    public static long perOneAutoMoney66;
     public long pd67_VR_생산량;
     public static long perOneAutoMoney67;
     public long pd68_AR_생산량;
@@ -282,6 +256,33 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney69;
     public long pd70_차원관문_생산량;
     public static long perOneAutoMoney70;
+
+    public long pd5_실린더_연구생산량;
+    public static long perOneAutoScience5;
+    public long pd9_볼타전지_연구생산량;
+    public static long perOneAutoScience9;
+    public long pd18_포노토그라프_연구생산량;
+    public static long perOneAutoScience18;
+    public long pd22_비행선_연구생산량;
+    public static long perOneAutoScience22;
+    public long pd24_라디오_연구생산량;
+    public static long perOneAutoScience24;
+    public long pd31_에니그마_연구생산량;
+    public static long perOneAutoScience31;
+    public long pd40_트랜지스터플러스_연구생산량;
+    public static long perOneAutoScience40;
+    public long pd43_하드드라이브_연구생산량;
+    public static long perOneAutoScience43;
+    public long pd47_RAM_연구생산량;
+    public static long perOneAutoScience47;
+    public long pd54_휴대폰_연구생산량;
+    public static long perOneAutoScience54;
+    public long pd56_JAVA_연구생산량;
+    public static long perOneAutoScience56;
+    public long pd63_GPU_연구생산량;
+    public static long perOneAutoScience63;
+    public long pd66_10G_연구생산량;
+    public static long perOneAutoScience66;
 
     //제품 레벨
     public int Prod_1_Level; // 2번 제품 없음
@@ -589,11 +590,11 @@ public class ProductManager : MonoBehaviour
         perOneAutoMoney1 = pd1_뉴커멘엔진_생산량;
         perOneAutoMoney3 = pd3_나는북_생산량;
         perOneAutoMoney4 = pd4_뮬방적기_생산량;
-        perOneAutoMoney5 = pd5_실린더_생산량;
+        perOneAutoScience5 = pd5_실린더_연구생산량;
         perOneAutoMoney6 = pd6_역직기_생산량;
         perOneAutoMoney7 = pd7_기구_생산량;
         perOneAutoMoney8 = pd8_개구리전지_생산량;
-        perOneAutoMoney9 = pd9_볼타전지_생산량;
+        perOneAutoScience9 = pd9_볼타전지_연구생산량;
         perOneAutoMoney10 = pd10_가스등_생산량;
         perOneAutoMoney11 = pd11_강철_생산량;
         perOneAutoMoney12 = pd12_냉장고_생산량;
@@ -601,20 +602,20 @@ public class ProductManager : MonoBehaviour
         perOneAutoMoney14 = pd14_내연기관_생산량;
         perOneAutoMoney15 = pd15_전신줄_생산량; // 16번 제품 없음
         perOneAutoMoney17 = pd17_다이너마이트_생산량;
-        perOneAutoMoney18 = pd18_포노토그라프_생산량;
+        perOneAutoScience18 = pd18_포노토그라프_연구생산량;
         perOneAutoMoney19 = pd19_전화기_생산량;
         perOneAutoMoney20 = pd20_백열등_생산량;
         perOneAutoMoney21 = pd21_무선전신_생산량;
-        perOneAutoMoney22 = pd22_비행선_생산량;
+        perOneAutoScience22 = pd22_비행선_연구생산량;
         perOneAutoMoney23 = pd23_총신크랭크_생산량;
-        perOneAutoMoney24 = pd24_라디오_생산량;
+        perOneAutoScience24 = pd24_라디오_연구생산량;
         perOneAutoMoney25 = pd25_룰러_생산량;
         perOneAutoMoney26 = pd26_에어컨_생산량;
         perOneAutoMoney27 = pd27_모스부호기_생산량;
         perOneAutoMoney28 = pd28_운송폭탄_생산량;
         perOneAutoMoney29 = pd29_자동차_생산량;
         perOneAutoMoney30 = pd30_독가스_생산량;
-        perOneAutoMoney31 = pd31_에니그마_생산량;
+        perOneAutoScience31 = pd31_에니그마_연구생산량;
         perOneAutoMoney32 = pd32_무한궤도_생산량;
         perOneAutoMoney33 = pd33_냉동식품_생산량;
         perOneAutoMoney34 = pd34_페니실린_생산량;
@@ -623,31 +624,31 @@ public class ProductManager : MonoBehaviour
         perOneAutoMoney37 = pd37_우라늄_생산량;
         perOneAutoMoney38 = pd38_컬러TV_생산량;
         perOneAutoMoney39 = pd39_전자레인지_생산량;
-        perOneAutoMoney40 = pd40_트랜지스터플러스_생산량;
+        perOneAutoScience40 = pd40_트랜지스터플러스_연구생산량;
         perOneAutoMoney41 = pd41_레이저포인트_생산량;
         perOneAutoMoney42 = pd42_아스피린_생산량;
-        perOneAutoMoney43 = pd43_하드드라이브_생산량;
+        perOneAutoScience43 = pd43_하드드라이브_연구생산량;
         perOneAutoMoney44 = pd44_카세트_생산량;
         perOneAutoMoney45 = pd45_LED_생산량;
         perOneAutoMoney46 = pd46_다이제팜_생산량;
-        perOneAutoMoney47 = pd47_RAM_생산량;
+        perOneAutoScience47 = pd47_RAM_연구생산량;
         perOneAutoMoney48 = pd48_계산기_생산량;
         perOneAutoMoney49 = pd49_CPU_생산량;
         perOneAutoMoney51 = pd51_LCD_생산량;
         perOneAutoMoney52 = pd52_랜선_생산량;
         perOneAutoMoney53 = pd53_MRI_생산량;
-        perOneAutoMoney54 = pd54_휴대폰_생산량;
+        perOneAutoScience54 = pd54_휴대폰_연구생산량;
         perOneAutoMoney55 = pd55_휴대용게임기_생산량;
-        perOneAutoMoney56 = pd56_JAVA_생산량;
+        perOneAutoScience56 = pd56_JAVA_연구생산량;
         perOneAutoMoney58 = pd58_WIFI_생산량;
         perOneAutoMoney59 = pd59_GPS_생산량;
         perOneAutoMoney60 = pd60_대왕감자_생산량;
         perOneAutoMoney61 = pd61_인터넷_생산량;
         perOneAutoMoney62 = pd62_시험관_생산량;
-        perOneAutoMoney63 = pd63_GPU_생산량;
+        perOneAutoScience63 = pd63_GPU_연구생산량;
         perOneAutoMoney64 = pd64_비트코인_생산량;
         perOneAutoMoney65 = pd65_딥러닝_생산량;
-        perOneAutoMoney66 = pd66_10G_생산량;
+        perOneAutoScience66 = pd66_10G_연구생산량;
         perOneAutoMoney67 = pd67_VR_생산량;
         perOneAutoMoney68 = pd68_AR_생산량;
         perOneAutoMoney69 = pd69_유전자칩_생산량;
@@ -659,6 +660,7 @@ public class ProductManager : MonoBehaviour
     {
         MainProdPanel.SetActive(false);
         StartCoroutine(AutoMoneyGo());
+        StartCoroutine(AutoScienceGo());
         SaveDataCheck_ProdUnlock();
     }
 
@@ -732,8 +734,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "증기기관과 내연기관의 주요한 부품입니다. 내부에서 피스톤을 압력에 의해 왕복 운동시킵니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon5;
             Level.text = Prod_5_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney5.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney5 * Prod_5_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience5.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience5 * Prod_5_Level).ToString("###,###") + paneltext2;
             if (Prod_5_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -808,8 +810,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "전류를 지속적으로 발생 할 수 있습니다. 아직은 미약합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon9;
             Level.text = Prod_9_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney9.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney9 * Prod_9_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience9.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience9 * Prod_9_Level).ToString("###,###") + paneltext2;
             if (Prod_9_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -960,8 +962,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "음의 진동을 음향 패턴의 형태로 볼 수 있습니다. 소리를 눈으로 볼 수 있는 제품입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon18;
             Level.text = Prod_18_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney18.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney18 * Prod_18_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience18.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience18 * Prod_18_Level).ToString("###,###") + paneltext2;
             if (Prod_18_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1036,8 +1038,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "하늘에서 원하는 방향으로 이동할 수 있는 도구입니다. 활동 반경이 넓어집니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon22;
             Level.text = Prod_22_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney22.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney22 * Prod_22_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience22.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience22 * Prod_22_Level).ToString("###,###") + paneltext2;
             if (Prod_22_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1074,8 +1076,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "주파수를 통해 방송합니다. 정보의 전파 속도가 더욱 빨라집니다. ";
             Icon.GetComponent<Image>().sprite = ProdIcon24;
             Level.text = Prod_24_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney24.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney24 * Prod_24_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience24.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience24 * Prod_24_Level).ToString("###,###") + paneltext2;
             if (Prod_24_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1207,8 +1209,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "전기적 암호 기계입니다. 정보를 숨길 수 있고, 기밀을 유지할 때 유용합니다";
             Icon.GetComponent<Image>().sprite = ProdIcon31;
             Level.text = Prod_31_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney31.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney31 * Prod_31_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience31.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience31 * Prod_31_Level).ToString("###,###") + paneltext2;
             if (Prod_31_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1378,8 +1380,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "전자 신호 및 전력을 증폭하거나 스위칭하는 데 사용되는 반도체소자입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon40;
             Level.text = Prod_40_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney40.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney40 * Prod_40_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience40.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience40 * Prod_40_Level).ToString("###,###") + paneltext2;
             if (Prod_40_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1435,8 +1437,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "자성을 이용하여 데이터를 저장합니다. 저장한 데이터를 다시 불러올 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon43;
             Level.text = Prod_43_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney43.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney43 * Prod_43_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience43.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience43 * Prod_43_Level).ToString("###,###") + paneltext2;
             if (Prod_43_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1511,8 +1513,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "원하는 데이터를 바로 찾을 수 있는 장치입니다. 주소를 기록하고 바로 일을 수행합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon47;
             Level.text = Prod_47_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney47.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney47 * Prod_47_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience47.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience47 * Prod_47_Level).ToString("###,###") + paneltext2;
             if (Prod_47_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1625,8 +1627,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "선이 없이 통화를 할 수 있는 장치입니다. 더 이상 정보의 전달은 공간과 시간에 구애받지 않습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon54;
             Level.text = Prod_54_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney54.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney54 * Prod_54_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience54.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience54 * Prod_54_Level).ToString("###,###") + paneltext2;
             if (Prod_54_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1663,8 +1665,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "컴퓨터와 대화할 수 있는 하나의 수단입니다. 일반 사람들도 이용할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon56;
             Level.text = Prod_56_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney56.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience56.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience56 * Prod_56_Level).ToString("###,###") + paneltext2;
             if (Prod_56_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1777,8 +1779,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "전자세계를 좀 더 현실에 가깝게 보이도록 도와주는 전자부품입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon63;
             Level.text = Prod_63_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney63.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney63 * Prod_63_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience63.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience63 * Prod_63_Level).ToString("###,###") + paneltext2;
             if (Prod_63_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1834,8 +1836,8 @@ public class ProductManager : MonoBehaviour
             exp.text = "가장 빠른 통신 기술입니다. 정보를 주고 받는 시간을 단축합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon66;
             Level.text = Prod_66_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney66.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney66 * Prod_66_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = perOneAutoScience66.ToString("###,###") + paneltext1;
+            TotalProdMoneyText.text = (perOneAutoScience66 * Prod_66_Level).ToString("###,###") + paneltext2;
             if (Prod_66_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
@@ -1961,7 +1963,7 @@ public class ProductManager : MonoBehaviour
             Pd5 = (long)((float)Pd5 * UpTimes);
 
             Level.text = Prod_5_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney5 * Prod_5_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience5 * Prod_5_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd5.ToString("###,###");
         }
         else if (PanelNum == 6)
@@ -2001,7 +2003,7 @@ public class ProductManager : MonoBehaviour
             Pd9 = (long)((float)Pd9 * UpTimes);
 
             Level.text = Prod_9_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney9 * Prod_9_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience9 * Prod_9_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd9.ToString("###,###");
         }
         else if (PanelNum == 10)
@@ -2081,7 +2083,7 @@ public class ProductManager : MonoBehaviour
             Pd18 = (long)((float)Pd18 * UpTimes);
 
             Level.text = Prod_18_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney18 * Prod_18_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience18 * Prod_18_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd18.ToString("###,###");
         }
         else if (PanelNum == 19)
@@ -2121,7 +2123,7 @@ public class ProductManager : MonoBehaviour
             Pd22 = (long)((float)Pd22 * UpTimes);
 
             Level.text = Prod_22_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney22 * Prod_22_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience22 * Prod_22_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd22.ToString("###,###");
         }
         else if (PanelNum == 23)
@@ -2141,7 +2143,7 @@ public class ProductManager : MonoBehaviour
             Pd24 = (long)((float)Pd24 * UpTimes);
 
             Level.text = Prod_24_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney24 * Prod_24_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience24 * Prod_24_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd24.ToString("###,###");
         }
         else if (PanelNum == 25)
@@ -2211,7 +2213,7 @@ public class ProductManager : MonoBehaviour
             Pd31 = (long)((float)Pd31 * UpTimes);
 
             Level.text = Prod_31_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney31 * Prod_31_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience31 * Prod_31_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd31.ToString("###,###");
         }
         else if (PanelNum == 32)
@@ -2301,7 +2303,7 @@ public class ProductManager : MonoBehaviour
             Pd40 = (long)((float)Pd40 * UpTimes);
 
             Level.text = Prod_40_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney40 * Prod_40_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience40 * Prod_40_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd40.ToString("###,###");
         }
         else if (PanelNum == 41)
@@ -2331,7 +2333,7 @@ public class ProductManager : MonoBehaviour
             Pd43 = (long)((float)Pd43 * UpTimes);
 
             Level.text = Prod_43_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney43 * Prod_43_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience43 * Prod_43_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd43.ToString("###,###");
         }
         else if (PanelNum == 44)
@@ -2371,7 +2373,7 @@ public class ProductManager : MonoBehaviour
             Pd47 = (long)((float)Pd47 * UpTimes);
 
             Level.text = Prod_47_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney47 * Prod_47_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience47 * Prod_47_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd47.ToString("###,###");
         }
         else if (PanelNum == 48)
@@ -2431,7 +2433,7 @@ public class ProductManager : MonoBehaviour
             Pd54 = (long)((float)Pd54 * UpTimes);
 
             Level.text = Prod_54_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney54 * Prod_54_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience54 * Prod_54_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd54.ToString("###,###");
         }
         else if (PanelNum == 55)
@@ -2451,7 +2453,7 @@ public class ProductManager : MonoBehaviour
             Pd56 = (long)((float)Pd56 * UpTimes);
 
             Level.text = Prod_56_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience56 * Prod_56_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd56.ToString("###,###");
         }
         else if (PanelNum == 58)
@@ -2511,7 +2513,7 @@ public class ProductManager : MonoBehaviour
             Pd63 = (long)((float)Pd63 * UpTimes);
 
             Level.text = Prod_63_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney63 * Prod_63_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience63 * Prod_63_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd63.ToString("###,###");
         }
         else if (PanelNum == 64)
@@ -2541,7 +2543,7 @@ public class ProductManager : MonoBehaviour
             Pd66 = (long)((float)Pd66 * UpTimes);
 
             Level.text = Prod_66_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney66 * Prod_66_Level).ToString("###,###") + paneltext2;
+            TotalProdMoneyText.text = (perOneAutoScience66 * Prod_66_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd66.ToString("###,###");
         }
         else if (PanelNum == 67)
@@ -3407,19 +3409,19 @@ public class ProductManager : MonoBehaviour
     {
         while(true)
         {
-            autoMoney = (perOneAutoMoney1 * Prod_1_Level) + (perOneAutoMoney3 * Prod_3_Level) + (perOneAutoMoney4 * Prod_4_Level) + (perOneAutoMoney5 * Prod_5_Level) + (perOneAutoMoney6 * Prod_6_Level) +
-                    (perOneAutoMoney7 * Prod_7_Level) + (perOneAutoMoney8 * Prod_8_Level) + (perOneAutoMoney9 * Prod_9_Level) + (perOneAutoMoney10 * Prod_10_Level) + (perOneAutoMoney11 * Prod_11_Level) +
+            autoMoney = (perOneAutoMoney1 * Prod_1_Level) + (perOneAutoMoney3 * Prod_3_Level) + (perOneAutoMoney4 * Prod_4_Level) + (perOneAutoMoney6 * Prod_6_Level) +
+                    (perOneAutoMoney7 * Prod_7_Level) + (perOneAutoMoney8 * Prod_8_Level) +  (perOneAutoMoney10 * Prod_10_Level) + (perOneAutoMoney11 * Prod_11_Level) +
                     (perOneAutoMoney12 * Prod_12_Level) + (perOneAutoMoney13 * Prod_13_Level) + (perOneAutoMoney14 * Prod_14_Level) + (perOneAutoMoney15 * Prod_15_Level) + (perOneAutoMoney17 * Prod_17_Level) +
-                    (perOneAutoMoney18 * Prod_18_Level) + (perOneAutoMoney19 * Prod_19_Level) + (perOneAutoMoney20 * Prod_20_Level) + (perOneAutoMoney21 * Prod_21_Level) + (perOneAutoMoney22 * Prod_22_Level) +
-                    (perOneAutoMoney23 * Prod_23_Level) + (perOneAutoMoney24 * Prod_24_Level) + (perOneAutoMoney25 * Prod_25_Level) + (perOneAutoMoney26 * Prod_26_Level) + (perOneAutoMoney27 * Prod_27_Level) +
-                    (perOneAutoMoney28 * Prod_28_Level) + (perOneAutoMoney29 * Prod_29_Level) + (perOneAutoMoney30 * Prod_30_Level) + (perOneAutoMoney31 * Prod_31_Level) + (perOneAutoMoney32 * Prod_32_Level) +
+                    (perOneAutoMoney19 * Prod_19_Level) + (perOneAutoMoney20 * Prod_20_Level) + (perOneAutoMoney21 * Prod_21_Level) +
+                    (perOneAutoMoney23 * Prod_23_Level) + (perOneAutoMoney25 * Prod_25_Level) + (perOneAutoMoney26 * Prod_26_Level) + (perOneAutoMoney27 * Prod_27_Level) +
+                    (perOneAutoMoney28 * Prod_28_Level) + (perOneAutoMoney29 * Prod_29_Level) + (perOneAutoMoney30 * Prod_30_Level) + (perOneAutoMoney32 * Prod_32_Level) +
                     (perOneAutoMoney33 * Prod_33_Level) + (perOneAutoMoney34 * Prod_34_Level) + (perOneAutoMoney35 * Prod_35_Level) + (perOneAutoMoney36 * Prod_36_Level) + (perOneAutoMoney37 * Prod_37_Level) +
-                    (perOneAutoMoney38 * Prod_38_Level) + (perOneAutoMoney39 * Prod_39_Level) + (perOneAutoMoney40 * Prod_40_Level) + (perOneAutoMoney41 * Prod_41_Level) + (perOneAutoMoney42 * Prod_42_Level) +
-                    (perOneAutoMoney43 * Prod_43_Level) + (perOneAutoMoney44 * Prod_44_Level) + (perOneAutoMoney45 * Prod_45_Level) + (perOneAutoMoney46 * Prod_46_Level) + (perOneAutoMoney47 * Prod_47_Level) +
+                    (perOneAutoMoney38 * Prod_38_Level) + (perOneAutoMoney39 * Prod_39_Level) + (perOneAutoMoney41 * Prod_41_Level) + (perOneAutoMoney42 * Prod_42_Level) +
+                    (perOneAutoMoney44 * Prod_44_Level) + (perOneAutoMoney45 * Prod_45_Level) + (perOneAutoMoney46 * Prod_46_Level) +
                     (perOneAutoMoney48 * Prod_48_Level) + (perOneAutoMoney49 * Prod_49_Level) + (perOneAutoMoney51 * Prod_51_Level) + (perOneAutoMoney52 * Prod_52_Level) + (perOneAutoMoney53 * Prod_53_Level) +
-                    (perOneAutoMoney54 * Prod_54_Level) + (perOneAutoMoney55 * Prod_55_Level) + (perOneAutoMoney56 * Prod_56_Level) + (perOneAutoMoney58 * Prod_58_Level) + (perOneAutoMoney59 * Prod_59_Level) +
-                    (perOneAutoMoney60 * Prod_60_Level) + (perOneAutoMoney61 * Prod_61_Level) + (perOneAutoMoney62 * Prod_62_Level) + (perOneAutoMoney63 * Prod_63_Level) + (perOneAutoMoney64 * Prod_64_Level) +
-                    (perOneAutoMoney65 * Prod_65_Level) + (perOneAutoMoney66 * Prod_66_Level) + (perOneAutoMoney67 * Prod_67_Level) + (perOneAutoMoney68 * Prod_68_Level) + (perOneAutoMoney69 * Prod_69_Level) +
+                    (perOneAutoMoney55 * Prod_55_Level) + (perOneAutoMoney58 * Prod_58_Level) + (perOneAutoMoney59 * Prod_59_Level) +
+                    (perOneAutoMoney60 * Prod_60_Level) + (perOneAutoMoney61 * Prod_61_Level) + (perOneAutoMoney62 * Prod_62_Level) + (perOneAutoMoney64 * Prod_64_Level) +
+                    (perOneAutoMoney65 * Prod_65_Level) + (perOneAutoMoney67 * Prod_67_Level) + (perOneAutoMoney68 * Prod_68_Level) + (perOneAutoMoney69 * Prod_69_Level) +
                     (perOneAutoMoney70 * Prod_70_Level);
             yield return new WaitForSeconds(0.3f);
         }
@@ -3429,7 +3431,10 @@ public class ProductManager : MonoBehaviour
     {
         while(true)
         {
-            
+            autoScience = (perOneAutoScience5 * Prod_5_Level) + (perOneAutoScience9 * Prod_9_Level) + (perOneAutoScience18 * Prod_18_Level) + (perOneAutoScience22 * Prod_22_Level) + (perOneAutoScience24 * Prod_24_Level) +
+                        (perOneAutoScience31 * Prod_31_Level) + (perOneAutoScience40 * Prod_40_Level) + (perOneAutoScience43 * Prod_43_Level) + (perOneAutoScience47 * Prod_47_Level) + (perOneAutoScience54 * Prod_54_Level) +
+                        (perOneAutoScience56 * Prod_56_Level) + (perOneAutoScience63 * Prod_63_Level) + (perOneAutoScience66 * Prod_66_Level);
+            yield return new WaitForSeconds(0.3f);
         }
     }
 }

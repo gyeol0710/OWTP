@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // StartCoroutine(save());
-        StartCoroutine(AtuoMoney());
+        StartCoroutine(AutoMoney());
+        StartCoroutine(AutoScience());
         StartCoroutine(RobotGoldUpMec());
         StartCoroutine(ScienceUpMec());
         if (RePlay == false)
@@ -662,7 +663,7 @@ public class GameManager : MonoBehaviour
         img4.raycastTarget = false;
     }
 
-    IEnumerator AtuoMoney()
+    IEnumerator AutoMoney()
     {
         while(true)
         {
@@ -671,6 +672,17 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
     }
+
+    IEnumerator AutoScience()
+    {
+        while (true)
+        {
+            science += (ProductManager.autoScience);
+
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+
     public void Noti_R_Off()
     {
         Noti_R.GetComponent<Image>().color = new Color(255, 255, 255, 0);
