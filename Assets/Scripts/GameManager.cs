@@ -416,7 +416,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 11 && robotLevel < 20)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv11_20_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv11_20_IND;
                 }
                 else if (robotLevel == 20)
                 {
@@ -424,7 +424,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 21 && robotLevel < 30)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv21_30_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv21_30_IND;
                 }
                 else if (robotLevel == 30)
                 {
@@ -432,7 +432,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 31 && robotLevel < 40)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv31_40_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv31_40_IND;
                 }
                 else if (robotLevel == 40)
                 {
@@ -440,7 +440,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 41 && robotLevel < 50)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv41_50_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv41_50_IND;
                 }
                 else if (robotLevel == 50)
                 {
@@ -448,7 +448,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 51 && robotLevel < 60)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv51_60_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv51_60_IND;
                 }
                 else if (robotLevel == 60)
                 {
@@ -456,7 +456,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 61 && robotLevel < 70)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv61_70_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv61_70_IND;
                 }
                 else if (robotLevel == 70)
                 {
@@ -464,7 +464,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 71 && robotLevel < 80)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv71_80_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv71_80_IND;
                 }
                 else if (robotLevel == 80)
                 {
@@ -472,7 +472,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 81 && robotLevel < 90)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv81_90_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv81_90_IND;
                 }
                 else if (robotLevel == 90)
                 {
@@ -480,7 +480,7 @@ public class GameManager : MonoBehaviour
                 }
                 else if (robotLevel >= 91 && robotLevel < 100)
                 {
-                    scienceIncreaseAmount = (robotLevel%10) * Science_Lv91_100_IND;
+                    scienceIncreaseAmount = (robotLevel) * Science_Lv91_100_IND;
                 }
                 else if (robotLevel == 100)
                 {

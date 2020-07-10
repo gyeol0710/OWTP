@@ -615,7 +615,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 24161729}
   m_OnClick:
     m_PersistentCalls:
@@ -816,7 +816,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 36762820}
   m_OnClick:
     m_PersistentCalls:
@@ -2322,7 +2322,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 143504000}
   m_OnClick:
     m_PersistentCalls:
@@ -3704,7 +3704,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 190125937}
   m_OnClick:
     m_PersistentCalls:
@@ -4433,7 +4433,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 209383802}
   m_OnClick:
     m_PersistentCalls:
@@ -4790,7 +4790,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 220982459}
   m_OnClick:
     m_PersistentCalls:
@@ -5020,8 +5020,8 @@ RectTransform:
   m_Father: {fileID: 607011402}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.61595994}
-  m_AnchorMax: {x: 1, y: 0.9199599}
+  m_AnchorMin: {x: 0, y: 0.348}
+  m_AnchorMax: {x: 1, y: 0.65199995}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5074,7 +5074,7 @@ GameObject:
   - component: {fileID: 242825985}
   - component: {fileID: 242825984}
   m_Layer: 5
-  m_Name: "\uBBF8\uB798\uC2DC\uB300 \uBC84\uD2BC (\uD604\uC7AC)"
+  m_Name: "\uD604\uB300\uC2DC\uB300 \uBC84\uD2BC (\uD604\uC7AC)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6145,7 +6145,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 286822265}
   m_OnClick:
     m_PersistentCalls:
@@ -6273,7 +6273,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 295670848}
   m_OnClick:
     m_PersistentCalls:
@@ -6401,7 +6401,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 295692149}
   m_OnClick:
     m_PersistentCalls:
@@ -6697,7 +6697,7 @@ GameObject:
   - component: {fileID: 325182959}
   - component: {fileID: 325182958}
   m_Layer: 5
-  m_Name: "\uBBF8\uB798\uC2DC\uB300 \uBC84\uD2BC"
+  m_Name: "\uD604\uB300\uC2DC\uB300 \uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6765,7 +6765,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 325182959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1026702897}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1937228762}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &325182959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7043,7 +7065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &356668667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7157,7 +7179,7 @@ GameObject:
   - component: {fileID: 361532029}
   - component: {fileID: 361532028}
   m_Layer: 5
-  m_Name: "\uBBF8\uB798\uC2DC\uB300 \uBC84\uD2BC"
+  m_Name: "\uD604\uB300\uC2DC\uB300 \uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7225,7 +7247,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 361532029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 600957892}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1937228762}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &361532029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7669,7 +7713,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 379017264}
   m_OnClick:
     m_PersistentCalls:
@@ -8987,7 +9031,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 419219447}
   m_OnClick:
     m_PersistentCalls:
@@ -11295,7 +11339,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 503395335}
   m_OnClick:
     m_PersistentCalls:
@@ -11423,7 +11467,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 504608880}
   m_OnClick:
     m_PersistentCalls:
@@ -11551,7 +11595,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 507751224}
   m_OnClick:
     m_PersistentCalls:
@@ -14756,7 +14800,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 610353528}
   m_OnClick:
     m_PersistentCalls:
@@ -15101,7 +15145,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 632555123}
   m_OnClick:
     m_PersistentCalls:
@@ -16157,7 +16201,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 672820760}
   m_OnClick:
     m_PersistentCalls:
@@ -16369,8 +16413,8 @@ RectTransform:
   m_Father: {fileID: 1965097467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.772}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0.386}
+  m_AnchorMax: {x: 1, y: 0.614}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -16600,7 +16644,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 691118071}
   m_OnClick:
     m_PersistentCalls:
@@ -19691,7 +19735,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 851249521}
   m_OnClick:
     m_PersistentCalls:
@@ -20239,7 +20283,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 873354678}
   m_OnClick:
     m_PersistentCalls:
@@ -21835,7 +21879,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 943003769}
   m_OnClick:
     m_PersistentCalls:
@@ -22596,7 +22640,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 969461597}
   m_OnClick:
     m_PersistentCalls:
@@ -22904,7 +22948,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 983045567}
   m_OnClick:
     m_PersistentCalls:
@@ -24389,52 +24433,52 @@ MonoBehaviour:
   "pd20_\uBC31\uC5F4\uB4F1_\uC5C5\uAE00\uBE44\uC6A9": 18000
   "pd21_\uBB34\uC120\uC804\uC2E0_\uC5C5\uAE00\uBE44\uC6A9": 19000
   "pd22_\uBE44\uD589\uC120_\uC5C5\uAE00\uBE44\uC6A9": 20000
-  "pd23_\uCD1D\uC2E0\uD06C\uB7AD\uD06C_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd24_\uB77C\uB514\uC624_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd25_\uB8F0\uB7EC_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd26_\uC5D0\uC5B4\uCEE8_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd27_\uBAA8\uC2A4\uBD80\uD638\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd28_\uC6B4\uC1A1\uD3ED\uD0C4_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd29_\uC790\uB3D9\uCC28_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd30_\uB3C5\uAC00\uC2A4_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd31_\uC5D0\uB2C8\uADF8\uB9C8_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd32_\uBB34\uD55C\uADA4\uB3C4_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd33_\uB0C9\uB3D9\uC2DD\uD488_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd34_\uD398\uB2C8\uC2E4\uB9B0_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd35_\uD130\uBCF4\uC81C\uD2B8_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd36_\uC2A4\uD0C0\uD0B9_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd37_\uC6B0\uB77C\uB284_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd38_\uCEEC\uB7ECTV_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd39_\uC804\uC790\uB808\uC778\uC9C0_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd40_\uD2B8\uB79C\uC9C0\uC2A4\uD130\uD50C\uB7EC\uC2A4_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd41_\uB808\uC774\uC800\uD3EC\uC778\uD2B8_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd42_\uC544\uC2A4\uD53C\uB9B0_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd43_\uD558\uB4DC\uB4DC\uB77C\uC774\uBE0C_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd44_\uCE74\uC138\uD2B8_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd45_LED_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd46_\uB2E4\uC774\uC81C\uD31C_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd47_RAM_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd48_\uACC4\uC0B0\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd49_CPU_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd51_LCD_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd52_\uB79C\uC120_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd53_MRI_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd54_\uD734\uB300\uD3F0_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd55_\uD734\uB300\uC6A9\uAC8C\uC784\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd56_JAVA_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd58_WIFI_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd59_GPS_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd60_\uB300\uC655\uAC10\uC790_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd61_\uC778\uD130\uB137_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd62_\uC2DC\uD5D8\uAD00_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd63_GPU_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd64_\uBE44\uD2B8\uCF54\uC778_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd65_\uB525\uB7EC\uB2DD_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd66_10G_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd67_VR_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd68_AR_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd69_\uC720\uC804\uC790\uCE69_\uC5C5\uAE00\uBE44\uC6A9": 0
-  "pd70_\uCC28\uC6D0\uAD00\uBB38_\uC5C5\uAE00\uBE44\uC6A9": 0
+  "pd23_\uCD1D\uC2E0\uD06C\uB7AD\uD06C_\uC5C5\uAE00\uBE44\uC6A9": 23000
+  "pd24_\uB77C\uB514\uC624_\uC5C5\uAE00\uBE44\uC6A9": 24000
+  "pd25_\uB8F0\uB7EC_\uC5C5\uAE00\uBE44\uC6A9": 25000
+  "pd26_\uC5D0\uC5B4\uCEE8_\uC5C5\uAE00\uBE44\uC6A9": 26000
+  "pd27_\uBAA8\uC2A4\uBD80\uD638\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 27000
+  "pd28_\uC6B4\uC1A1\uD3ED\uD0C4_\uC5C5\uAE00\uBE44\uC6A9": 28000
+  "pd29_\uC790\uB3D9\uCC28_\uC5C5\uAE00\uBE44\uC6A9": 29000
+  "pd30_\uB3C5\uAC00\uC2A4_\uC5C5\uAE00\uBE44\uC6A9": 30000
+  "pd31_\uC5D0\uB2C8\uADF8\uB9C8_\uC5C5\uAE00\uBE44\uC6A9": 31000
+  "pd32_\uBB34\uD55C\uADA4\uB3C4_\uC5C5\uAE00\uBE44\uC6A9": 32000
+  "pd33_\uB0C9\uB3D9\uC2DD\uD488_\uC5C5\uAE00\uBE44\uC6A9": 33000
+  "pd34_\uD398\uB2C8\uC2E4\uB9B0_\uC5C5\uAE00\uBE44\uC6A9": 34000
+  "pd35_\uD130\uBCF4\uC81C\uD2B8_\uC5C5\uAE00\uBE44\uC6A9": 35000
+  "pd36_\uC2A4\uD0C0\uD0B9_\uC5C5\uAE00\uBE44\uC6A9": 36000
+  "pd37_\uC6B0\uB77C\uB284_\uC5C5\uAE00\uBE44\uC6A9": 37000
+  "pd38_\uCEEC\uB7ECTV_\uC5C5\uAE00\uBE44\uC6A9": 38000
+  "pd39_\uC804\uC790\uB808\uC778\uC9C0_\uC5C5\uAE00\uBE44\uC6A9": 39000
+  "pd40_\uD2B8\uB79C\uC9C0\uC2A4\uD130\uD50C\uB7EC\uC2A4_\uC5C5\uAE00\uBE44\uC6A9": 40000
+  "pd41_\uB808\uC774\uC800\uD3EC\uC778\uD2B8_\uC5C5\uAE00\uBE44\uC6A9": 41000
+  "pd42_\uC544\uC2A4\uD53C\uB9B0_\uC5C5\uAE00\uBE44\uC6A9": 42000
+  "pd43_\uD558\uB4DC\uB4DC\uB77C\uC774\uBE0C_\uC5C5\uAE00\uBE44\uC6A9": 43000
+  "pd44_\uCE74\uC138\uD2B8_\uC5C5\uAE00\uBE44\uC6A9": 44000
+  "pd45_LED_\uC5C5\uAE00\uBE44\uC6A9": 45000
+  "pd46_\uB2E4\uC774\uC81C\uD31C_\uC5C5\uAE00\uBE44\uC6A9": 46000
+  "pd47_RAM_\uC5C5\uAE00\uBE44\uC6A9": 47000
+  "pd48_\uACC4\uC0B0\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 48000
+  "pd49_CPU_\uC5C5\uAE00\uBE44\uC6A9": 49000
+  "pd51_LCD_\uC5C5\uAE00\uBE44\uC6A9": 50000
+  "pd52_\uB79C\uC120_\uC5C5\uAE00\uBE44\uC6A9": 51000
+  "pd53_MRI_\uC5C5\uAE00\uBE44\uC6A9": 52000
+  "pd54_\uD734\uB300\uD3F0_\uC5C5\uAE00\uBE44\uC6A9": 54000
+  "pd55_\uD734\uB300\uC6A9\uAC8C\uC784\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 55000
+  "pd56_JAVA_\uC5C5\uAE00\uBE44\uC6A9": 56000
+  "pd58_WIFI_\uC5C5\uAE00\uBE44\uC6A9": 58000
+  "pd59_GPS_\uC5C5\uAE00\uBE44\uC6A9": 59000
+  "pd60_\uB300\uC655\uAC10\uC790_\uC5C5\uAE00\uBE44\uC6A9": 60000
+  "pd61_\uC778\uD130\uB137_\uC5C5\uAE00\uBE44\uC6A9": 61000
+  "pd62_\uC2DC\uD5D8\uAD00_\uC5C5\uAE00\uBE44\uC6A9": 62000
+  "pd63_GPU_\uC5C5\uAE00\uBE44\uC6A9": 63000
+  "pd64_\uBE44\uD2B8\uCF54\uC778_\uC5C5\uAE00\uBE44\uC6A9": 64000
+  "pd65_\uB525\uB7EC\uB2DD_\uC5C5\uAE00\uBE44\uC6A9": 65000
+  "pd66_10G_\uC5C5\uAE00\uBE44\uC6A9": 66000
+  "pd67_VR_\uC5C5\uAE00\uBE44\uC6A9": 67000
+  "pd68_AR_\uC5C5\uAE00\uBE44\uC6A9": 68000
+  "pd69_\uC720\uC804\uC790\uCE69_\uC5C5\uAE00\uBE44\uC6A9": 69000
+  "pd70_\uCC28\uC6D0\uAD00\uBB38_\uC5C5\uAE00\uBE44\uC6A9": 70000
   "pd1_\uB274\uCEE4\uBA58\uC5D4\uC9C4_\uC0DD\uC0B0\uB7C9": 100
   "pd3_\uB098\uB294\uBD81_\uC0DD\uC0B0\uB7C9": 200
   "pd4_\uBBAC\uBC29\uC801\uAE30_\uC0DD\uC0B0\uB7C9": 300
@@ -24455,52 +24499,52 @@ MonoBehaviour:
   "pd20_\uBC31\uC5F4\uB4F1_\uC0DD\uC0B0\uB7C9": 1800
   "pd21_\uBB34\uC120\uC804\uC2E0_\uC0DD\uC0B0\uB7C9": 1900
   "pd22_\uBE44\uD589\uC120_\uC0DD\uC0B0\uB7C9": 2000
-  "pd23_\uCD1D\uC2E0\uD06C\uB7AD\uD06C_\uC0DD\uC0B0\uB7C9": 0
-  "pd24_\uB77C\uB514\uC624_\uC0DD\uC0B0\uB7C9": 0
-  "pd25_\uB8F0\uB7EC_\uC0DD\uC0B0\uB7C9": 0
-  "pd26_\uC5D0\uC5B4\uCEE8_\uC0DD\uC0B0\uB7C9": 0
-  "pd27_\uBAA8\uC2A4\uBD80\uD638\uAE30_\uC0DD\uC0B0\uB7C9": 0
-  "pd28_\uC6B4\uC1A1\uD3ED\uD0C4_\uC0DD\uC0B0\uB7C9": 0
-  "pd29_\uC790\uB3D9\uCC28_\uC0DD\uC0B0\uB7C9": 0
-  "pd30_\uB3C5\uAC00\uC2A4_\uC0DD\uC0B0\uB7C9": 0
-  "pd31_\uC5D0\uB2C8\uADF8\uB9C8_\uC0DD\uC0B0\uB7C9": 0
-  "pd32_\uBB34\uD55C\uADA4\uB3C4_\uC0DD\uC0B0\uB7C9": 0
-  "pd33_\uB0C9\uB3D9\uC2DD\uD488_\uC0DD\uC0B0\uB7C9": 0
-  "pd34_\uD398\uB2C8\uC2E4\uB9B0_\uC0DD\uC0B0\uB7C9": 0
-  "pd35_\uD130\uBCF4\uC81C\uD2B8_\uC0DD\uC0B0\uB7C9": 0
-  "pd36_\uC2A4\uD0C0\uD0B9_\uC0DD\uC0B0\uB7C9": 0
-  "pd37_\uC6B0\uB77C\uB284_\uC0DD\uC0B0\uB7C9": 0
-  "pd38_\uCEEC\uB7ECTV_\uC0DD\uC0B0\uB7C9": 0
-  "pd39_\uC804\uC790\uB808\uC778\uC9C0_\uC0DD\uC0B0\uB7C9": 0
-  "pd40_\uD2B8\uB79C\uC9C0\uC2A4\uD130\uD50C\uB7EC\uC2A4_\uC0DD\uC0B0\uB7C9": 0
-  "pd41_\uB808\uC774\uC800\uD3EC\uC778\uD2B8_\uC0DD\uC0B0\uB7C9": 0
-  "pd42_\uC544\uC2A4\uD53C\uB9B0_\uC0DD\uC0B0\uB7C9": 0
-  "pd43_\uD558\uB4DC\uB4DC\uB77C\uC774\uBE0C_\uC0DD\uC0B0\uB7C9": 0
-  "pd44_\uCE74\uC138\uD2B8_\uC0DD\uC0B0\uB7C9": 0
-  "pd45_LED_\uC0DD\uC0B0\uB7C9": 0
-  "pd46_\uB2E4\uC774\uC81C\uD31C_\uC0DD\uC0B0\uB7C9": 0
-  "pd47_RAM_\uC0DD\uC0B0\uB7C9": 0
-  "pd48_\uACC4\uC0B0\uAE30_\uC0DD\uC0B0\uB7C9": 0
-  "pd49_CPU_\uC0DD\uC0B0\uB7C9": 0
-  "pd51_LCD_\uC0DD\uC0B0\uB7C9": 0
-  "pd52_\uB79C\uC120_\uC0DD\uC0B0\uB7C9": 0
-  "pd53_MRI_\uC0DD\uC0B0\uB7C9": 0
-  "pd54_\uD734\uB300\uD3F0_\uC0DD\uC0B0\uB7C9": 0
-  "pd55_\uD734\uB300\uC6A9\uAC8C\uC784\uAE30_\uC0DD\uC0B0\uB7C9": 0
-  "pd56_JAVA_\uC0DD\uC0B0\uB7C9": 0
-  "pd58_WIFI_\uC0DD\uC0B0\uB7C9": 0
-  "pd59_GPS_\uC0DD\uC0B0\uB7C9": 0
-  "pd60_\uB300\uC655\uAC10\uC790_\uC0DD\uC0B0\uB7C9": 0
-  "pd61_\uC778\uD130\uB137_\uC0DD\uC0B0\uB7C9": 0
-  "pd62_\uC2DC\uD5D8\uAD00_\uC0DD\uC0B0\uB7C9": 0
-  "pd63_GPU_\uC0DD\uC0B0\uB7C9": 0
-  "pd64_\uBE44\uD2B8\uCF54\uC778_\uC0DD\uC0B0\uB7C9": 0
-  "pd65_\uB525\uB7EC\uB2DD_\uC0DD\uC0B0\uB7C9": 0
-  "pd66_10G_\uC0DD\uC0B0\uB7C9": 0
-  "pd67_VR_\uC0DD\uC0B0\uB7C9": 0
-  "pd68_AR_\uC0DD\uC0B0\uB7C9": 0
-  "pd69_\uC720\uC804\uC790\uCE69_\uC0DD\uC0B0\uB7C9": 0
-  "pd70_\uCC28\uC6D0\uAD00\uBB38_\uC0DD\uC0B0\uB7C9": 0
+  "pd23_\uCD1D\uC2E0\uD06C\uB7AD\uD06C_\uC0DD\uC0B0\uB7C9": 2300
+  "pd24_\uB77C\uB514\uC624_\uC0DD\uC0B0\uB7C9": 2400
+  "pd25_\uB8F0\uB7EC_\uC0DD\uC0B0\uB7C9": 2500
+  "pd26_\uC5D0\uC5B4\uCEE8_\uC0DD\uC0B0\uB7C9": 2600
+  "pd27_\uBAA8\uC2A4\uBD80\uD638\uAE30_\uC0DD\uC0B0\uB7C9": 2700
+  "pd28_\uC6B4\uC1A1\uD3ED\uD0C4_\uC0DD\uC0B0\uB7C9": 2800
+  "pd29_\uC790\uB3D9\uCC28_\uC0DD\uC0B0\uB7C9": 2900
+  "pd30_\uB3C5\uAC00\uC2A4_\uC0DD\uC0B0\uB7C9": 3000
+  "pd31_\uC5D0\uB2C8\uADF8\uB9C8_\uC0DD\uC0B0\uB7C9": 3100
+  "pd32_\uBB34\uD55C\uADA4\uB3C4_\uC0DD\uC0B0\uB7C9": 3200
+  "pd33_\uB0C9\uB3D9\uC2DD\uD488_\uC0DD\uC0B0\uB7C9": 3300
+  "pd34_\uD398\uB2C8\uC2E4\uB9B0_\uC0DD\uC0B0\uB7C9": 3400
+  "pd35_\uD130\uBCF4\uC81C\uD2B8_\uC0DD\uC0B0\uB7C9": 3500
+  "pd36_\uC2A4\uD0C0\uD0B9_\uC0DD\uC0B0\uB7C9": 3600
+  "pd37_\uC6B0\uB77C\uB284_\uC0DD\uC0B0\uB7C9": 3700
+  "pd38_\uCEEC\uB7ECTV_\uC0DD\uC0B0\uB7C9": 3800
+  "pd39_\uC804\uC790\uB808\uC778\uC9C0_\uC0DD\uC0B0\uB7C9": 3900
+  "pd40_\uD2B8\uB79C\uC9C0\uC2A4\uD130\uD50C\uB7EC\uC2A4_\uC0DD\uC0B0\uB7C9": 4000
+  "pd41_\uB808\uC774\uC800\uD3EC\uC778\uD2B8_\uC0DD\uC0B0\uB7C9": 4100
+  "pd42_\uC544\uC2A4\uD53C\uB9B0_\uC0DD\uC0B0\uB7C9": 4200
+  "pd43_\uD558\uB4DC\uB4DC\uB77C\uC774\uBE0C_\uC0DD\uC0B0\uB7C9": 4300
+  "pd44_\uCE74\uC138\uD2B8_\uC0DD\uC0B0\uB7C9": 4400
+  "pd45_LED_\uC0DD\uC0B0\uB7C9": 4500
+  "pd46_\uB2E4\uC774\uC81C\uD31C_\uC0DD\uC0B0\uB7C9": 4600
+  "pd47_RAM_\uC0DD\uC0B0\uB7C9": 4700
+  "pd48_\uACC4\uC0B0\uAE30_\uC0DD\uC0B0\uB7C9": 4800
+  "pd49_CPU_\uC0DD\uC0B0\uB7C9": 4900
+  "pd51_LCD_\uC0DD\uC0B0\uB7C9": 5100
+  "pd52_\uB79C\uC120_\uC0DD\uC0B0\uB7C9": 5200
+  "pd53_MRI_\uC0DD\uC0B0\uB7C9": 5300
+  "pd54_\uD734\uB300\uD3F0_\uC0DD\uC0B0\uB7C9": 5400
+  "pd55_\uD734\uB300\uC6A9\uAC8C\uC784\uAE30_\uC0DD\uC0B0\uB7C9": 5500
+  "pd56_JAVA_\uC0DD\uC0B0\uB7C9": 5600
+  "pd58_WIFI_\uC0DD\uC0B0\uB7C9": 5800
+  "pd59_GPS_\uC0DD\uC0B0\uB7C9": 5900
+  "pd60_\uB300\uC655\uAC10\uC790_\uC0DD\uC0B0\uB7C9": 6000
+  "pd61_\uC778\uD130\uB137_\uC0DD\uC0B0\uB7C9": 6100
+  "pd62_\uC2DC\uD5D8\uAD00_\uC0DD\uC0B0\uB7C9": 6200
+  "pd63_GPU_\uC0DD\uC0B0\uB7C9": 6300
+  "pd64_\uBE44\uD2B8\uCF54\uC778_\uC0DD\uC0B0\uB7C9": 6400
+  "pd65_\uB525\uB7EC\uB2DD_\uC0DD\uC0B0\uB7C9": 6500
+  "pd66_10G_\uC0DD\uC0B0\uB7C9": 6600
+  "pd67_VR_\uC0DD\uC0B0\uB7C9": 6700
+  "pd68_AR_\uC0DD\uC0B0\uB7C9": 6800
+  "pd69_\uC720\uC804\uC790\uCE69_\uC0DD\uC0B0\uB7C9": 6900
+  "pd70_\uCC28\uC6D0\uAD00\uBB38_\uC0DD\uC0B0\uB7C9": 7000
   Prod_1_Level: 0
   Prod_3_Level: 0
   Prod_4_Level: 0
@@ -25766,7 +25810,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1080918943}
   m_OnClick:
     m_PersistentCalls:
@@ -26044,7 +26088,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1093523174}
   m_OnClick:
     m_PersistentCalls:
@@ -26818,7 +26862,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1124911497}
   m_OnClick:
     m_PersistentCalls:
@@ -27698,7 +27742,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1158783935}
   m_OnClick:
     m_PersistentCalls:
@@ -28176,7 +28220,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1179594423}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1149765329}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4450323}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1179594423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30536,7 +30602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1607.7596}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1196, y: 6000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347348709
@@ -30685,7 +30751,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1358495096}
   m_OnClick:
     m_PersistentCalls:
@@ -31650,7 +31716,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1385759420}
   m_OnClick:
     m_PersistentCalls:
@@ -31904,6 +31970,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398977890}
   m_CullTransparentMesh: 0
+--- !u!1 &1400767465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400767467}
+  - component: {fileID: 1400767466}
+  m_Layer: 0
+  m_Name: FuntionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400767466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400767465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a106721e8ed63e34982d1c22fee41301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Panel_ind_Tech: {fileID: 356668666}
+  Panel_war_Tech: {fileID: 1026702897}
+  Panel_elec_Tech: {fileID: 600957892}
+  Panel_modern_Tech: {fileID: 1937228762}
+  Panel_ind_Prod: {fileID: 1828216186}
+  Panel_war_Prod: {fileID: 1149765329}
+  Panel_elec_Prod: {fileID: 2020149546}
+  Panel_modern_Prod: {fileID: 4450323}
+--- !u!4 &1400767467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400767465}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405140126
 GameObject:
   m_ObjectHideFlags: 0
@@ -32057,7 +32174,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1407110663}
   m_OnClick:
     m_PersistentCalls:
@@ -32941,7 +33058,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1465572041}
   m_OnClick:
     m_PersistentCalls:
@@ -33660,7 +33777,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1485922591}
   m_OnClick:
     m_PersistentCalls:
@@ -34330,7 +34447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -3088}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1196, y: 8000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1509310723
@@ -35006,7 +35123,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1527694323}
   m_OnClick:
     m_PersistentCalls:
@@ -35071,7 +35188,7 @@ GameObject:
   - component: {fileID: 1532870112}
   - component: {fileID: 1532870111}
   m_Layer: 5
-  m_Name: "\uBBF8\uB798\uC2DC\uB300 \uBC84\uD2BC"
+  m_Name: "\uD604\uB300\uC2DC\uB300 \uBC84\uD2BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35139,7 +35256,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1532870112}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 356668666}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1937228762}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1532870112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36297,7 +36436,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1578308923}
   m_OnClick:
     m_PersistentCalls:
@@ -36415,39 +36554,39 @@ MonoBehaviour:
   "tc35_\uB098\uC77C\uB860_\uC5F0\uAD6C\uB825": 130000
   "tc36_\uC81C\uD2B8\uC5D4\uC9C4_\uC5F0\uAD6C\uB825": 160000
   "tc37_\uC6B0\uB77C\uB284_\uC5F0\uAD6C\uB825": 200000
-  "tc38_\uC0BC\uC6D0\uC0C9_\uC5F0\uAD6C\uB825": 0
-  "tc39_\uADF9\uCD08\uB2E8\uD30C_\uC5F0\uAD6C\uB825": 0
-  "tc40_\uC2E0\uD638\uBCC0\uD658_\uC5F0\uAD6C\uB825": 0
-  "tc41_\uB808\uC774\uC800_\uC5F0\uAD6C\uB825": 0
-  "tc42_\uD574\uC5F4\uC9C4\uD1B5\uC81C_\uC5F0\uAD6C\uB825": 0
-  "tc43_\uC790\uAE30\uC800\uC7A5\uC18C_\uC5F0\uAD6C\uB825": 0
-  "tc44_\uC18C\uB9AC\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 0
-  "tc45_\uBC1C\uAD11\uB2E4\uC774\uC624\uB4DC_\uC5F0\uAD6C\uB825": 0
-  "tc46_\uC2E0\uACBD\uC548\uC815\uC81C_\uC5F0\uAD6C\uB825": 0
-  "tc47_\uC800\uC7A5\uC18C\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 0
-  "tc48_\uB17C\uB9AC\uD68C\uB85C_\uC5F0\uAD6C\uB825": 0
-  "tc49_\uC804\uC790\uB450\uB1CC_\uC5F0\uAD6C\uB825": 0
-  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 0
-  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 0
-  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 0
-  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 0
-  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 0
-  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 0
-  "tc56_\uCEF4\uD4E8\uD130\uC5B8\uC5B4_\uC5F0\uAD6C\uB825": 0
-  "tc57_\uC720\uC804\uC790\uCE58\uB8CC_\uC5F0\uAD6C\uB825": 0
-  "tc58_\uADFC\uAC70\uB9AC\uD1B5\uC2E0\uB9DD_\uC5F0\uAD6C\uB825": 0
-  "tc59_\uD1B5\uC2E0\uC704\uC131_\uC5F0\uAD6C\uB825": 0
-  "tc60_\uC720\uC804\uC790\uBCC0\uD654_\uC5F0\uAD6C\uB825": 0
-  "tc61_\uC138\uACC4\uD1B5\uD569_\uC5F0\uAD6C\uB825": 0
-  "tc62_\uBCF5\uC81C_\uC5F0\uAD6C\uB825": 0
-  "tc63_\uCEF4\uD4E8\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 0
-  "tc64_\uBE14\uB85D\uCCB4\uC778_\uC5F0\uAD6C\uB825": 0
-  "tc65_AI_\uC5F0\uAD6C\uB825": 0
-  "tc66_\uACE0\uC18D\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 0
-  "tc67_\uAC00\uC0C1\uD604\uC2E4_\uC5F0\uAD6C\uB825": 0
-  "tc68_\uC99D\uAC15\uD604\uC2E4_\uC5F0\uAD6C\uB825": 0
-  "tc69_\uC81C\uD488\uD654_\uC5F0\uAD6C\uB825": 0
-  "tc70_\uC11C\uBC84\uBCC0\uACBD_\uC5F0\uAD6C\uB825": 0
+  "tc38_\uC0BC\uC6D0\uC0C9_\uC5F0\uAD6C\uB825": 250000
+  "tc39_\uADF9\uCD08\uB2E8\uD30C_\uC5F0\uAD6C\uB825": 300000
+  "tc40_\uC2E0\uD638\uBCC0\uD658_\uC5F0\uAD6C\uB825": 370000
+  "tc41_\uB808\uC774\uC800_\uC5F0\uAD6C\uB825": 460000
+  "tc42_\uD574\uC5F4\uC9C4\uD1B5\uC81C_\uC5F0\uAD6C\uB825": 570000
+  "tc43_\uC790\uAE30\uC800\uC7A5\uC18C_\uC5F0\uAD6C\uB825": 800000
+  "tc44_\uC18C\uB9AC\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 950000
+  "tc45_\uBC1C\uAD11\uB2E4\uC774\uC624\uB4DC_\uC5F0\uAD6C\uB825": 1150000
+  "tc46_\uC2E0\uACBD\uC548\uC815\uC81C_\uC5F0\uAD6C\uB825": 1400000
+  "tc47_\uC800\uC7A5\uC18C\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 1700000
+  "tc48_\uB17C\uB9AC\uD68C\uB85C_\uC5F0\uAD6C\uB825": 2000000
+  "tc49_\uC804\uC790\uB450\uB1CC_\uC5F0\uAD6C\uB825": 2400000
+  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 2900000
+  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 3500000
+  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 4200000
+  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 5000000
+  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 6000000
+  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 7200000
+  "tc56_\uCEF4\uD4E8\uD130\uC5B8\uC5B4_\uC5F0\uAD6C\uB825": 8500000
+  "tc57_\uC720\uC804\uC790\uCE58\uB8CC_\uC5F0\uAD6C\uB825": 10000000
+  "tc58_\uADFC\uAC70\uB9AC\uD1B5\uC2E0\uB9DD_\uC5F0\uAD6C\uB825": 12000000
+  "tc59_\uD1B5\uC2E0\uC704\uC131_\uC5F0\uAD6C\uB825": 15000000
+  "tc60_\uC720\uC804\uC790\uBCC0\uD654_\uC5F0\uAD6C\uB825": 19000000
+  "tc61_\uC138\uACC4\uD1B5\uD569_\uC5F0\uAD6C\uB825": 24000000
+  "tc62_\uBCF5\uC81C_\uC5F0\uAD6C\uB825": 30000000
+  "tc63_\uCEF4\uD4E8\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 38000000
+  "tc64_\uBE14\uB85D\uCCB4\uC778_\uC5F0\uAD6C\uB825": 47000000
+  "tc65_AI_\uC5F0\uAD6C\uB825": 58000000
+  "tc66_\uACE0\uC18D\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 80000000
+  "tc67_\uAC00\uC0C1\uD604\uC2E4_\uC5F0\uAD6C\uB825": 95000000
+  "tc68_\uC99D\uAC15\uD604\uC2E4_\uC5F0\uAD6C\uB825": 115000000
+  "tc69_\uC81C\uD488\uD654_\uC5F0\uAD6C\uB825": 140000000
+  "tc70_\uC11C\uBC84\uBCC0\uACBD_\uC5F0\uAD6C\uB825": 1010101010
   tYear1: 1
   tYear2: 1
   tYear3: 1
@@ -36822,12 +36961,6 @@ MonoBehaviour:
   ProdBtn68: {fileID: 1746335430}
   ProdBtn69: {fileID: 397607815}
   ProdBtn70: {fileID: 1240554898}
-  Btn_ind_war: {fileID: 0}
-  Btn_ind_elec: {fileID: 0}
-  Btn_ind_modern: {fileID: 0}
-  Btn_war_elec: {fileID: 0}
-  Btn_war_modern: {fileID: 0}
-  Btn_elec_modern: {fileID: 0}
   title: {fileID: 566038395}
   exp: {fileID: 1375113108}
   Icon: {fileID: 1892391450}
@@ -36835,10 +36968,18 @@ MonoBehaviour:
   TechUpBtn: {fileID: 166108468}
   TechUpPanel: {fileID: 1376615197}
   MainTechPanel: {fileID: 215168618}
+  Panel_ind_Tech: {fileID: 356668666}
+  Panel_war_Tech: {fileID: 1026702897}
+  Panel_elec_Tech: {fileID: 600957892}
+  Panel_modern_Tech: {fileID: 1937228762}
   ScrollBar_IND: {fileID: 1888462329}
   SBHandle_IND: {fileID: 679018213}
   ScrollBar_WAR: {fileID: 1600832333}
   SBHandle_WAR: {fileID: 541512811}
+  ScrollBar_ELEC: {fileID: 1875156128}
+  SBHandle_ELEC: {fileID: 237494198}
+  ScrollBar_MODERN: {fileID: 1245631815}
+  SBHandle_MODERN: {fileID: 8616319}
 --- !u!4 &1580650354
 Transform:
   m_ObjectHideFlags: 0
@@ -37821,7 +37962,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1605070108}
   m_OnClick:
     m_PersistentCalls:
@@ -38932,7 +39073,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1683341293}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1828216186}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4450323}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1683341293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39323,7 +39486,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1698252845}
   m_OnClick:
     m_PersistentCalls:
@@ -39451,7 +39614,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1706828241}
   m_OnClick:
     m_PersistentCalls:
@@ -39803,7 +39966,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1730145080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2020149546}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4450323}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1730145080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42972,7 +43157,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1859184803}
   m_OnClick:
     m_PersistentCalls:
@@ -43177,7 +43362,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1869097858}
   m_OnClick:
     m_PersistentCalls:
@@ -43346,7 +43531,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 237494200}
   m_HandleRect: {fileID: 237494199}
   m_Direction: 2
-  m_Value: 0.88499993
+  m_Value: 1
   m_Size: 0.304
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -43510,7 +43695,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 679018215}
   m_HandleRect: {fileID: 679018214}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.5
   m_Size: 0.228
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -44788,7 +44973,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1957697653}
   m_OnClick:
     m_PersistentCalls:
@@ -45098,7 +45283,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1984095442}
   m_OnClick:
     m_PersistentCalls:
@@ -45817,7 +46002,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2015684550}
   m_OnClick:
     m_PersistentCalls:
@@ -46771,7 +46956,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2077867145}
   m_OnClick:
     m_PersistentCalls:
@@ -46899,7 +47084,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2083954396}
   m_OnClick:
     m_PersistentCalls:
@@ -47745,7 +47930,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2116295825}
   m_OnClick:
     m_PersistentCalls:

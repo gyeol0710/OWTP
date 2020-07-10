@@ -675,13 +675,6 @@ public class TechManager : MonoBehaviour
     static public bool age_elec;
     static public bool age_modern;
 
-    public Button Btn_ind_war;
-    public Button Btn_ind_elec;
-    public Button Btn_ind_modern;
-    public Button Btn_war_elec;
-    public Button Btn_war_modern;
-    public Button Btn_elec_modern;
-
     // 연구아이콘 클릭 시 나오는 패널 관련
     public Text title;
     public Text exp;
@@ -693,23 +686,45 @@ public class TechManager : MonoBehaviour
     short PanelNum;
 
     public GameObject MainTechPanel;
+    public GameObject Panel_ind_Tech;
+    public GameObject Panel_war_Tech;
+    public GameObject Panel_elec_Tech;
+    public GameObject Panel_modern_Tech;
     public GameObject ScrollBar_IND;
     public GameObject SBHandle_IND;
     public GameObject ScrollBar_WAR;
     public GameObject SBHandle_WAR;
+    public GameObject ScrollBar_ELEC;
+    public GameObject SBHandle_ELEC;
+    public GameObject ScrollBar_MODERN;
+    public GameObject SBHandle_MODERN;
 
     Scrollbar SbTech_IND; // 스크롤바 import를 위한 변수 AutoHidingHandle() 관련
     float CurrentHandleValue_IND; // 스크롤바 커서 위치값 변수 AutoHidingHandle() 관련
     Scrollbar SbTech_WAR;
     float CurrentHandleValue_WAR;
+    Scrollbar SbTech_ELEC;
+    float CurrentHandleValue_ELEC;
+    Scrollbar SbTech_MODERN;
+    float CurrentHandleValue_MODERN;
+
 
     void Awake()
     {
         MainTechPanel.SetActive(true);
+        Panel_ind_Tech.SetActive(true);
+        Panel_war_Tech.SetActive(true);
+        Panel_elec_Tech.SetActive(true);
+        Panel_modern_Tech.SetActive(true);
+
         SbTech_IND = ScrollBar_IND.GetComponent<Scrollbar>();
         SbTech_IND.value = 1;
         SbTech_WAR = ScrollBar_WAR.GetComponent<Scrollbar>();
         SbTech_WAR.value = 1;
+        SbTech_ELEC = ScrollBar_ELEC.GetComponent<Scrollbar>();
+        SbTech_ELEC.value = 1;
+        SbTech_MODERN = ScrollBar_MODERN.GetComponent<Scrollbar>();
+        SbTech_MODERN.value = 1;
 
         Tech1 = tc1_증기기관_연구력;
         Tech2 = tc2_증기선_연구력;
@@ -785,7 +800,33 @@ public class TechManager : MonoBehaviour
 
     void Start()
     {
+        if (age_modern == true)
+        {
+            Panel_ind_Tech.SetActive(false);
+            Panel_war_Tech.SetActive(false);
+            Panel_elec_Tech.SetActive(false);
+        }
+        else if (age_elec == true)
+        {
+            Panel_ind_Tech.SetActive(false);
+            Panel_war_Tech.SetActive(false);
+            Panel_modern_Tech.SetActive(false);
+        }
+        else if (age_war == true)
+        {
+            Panel_ind_Tech.SetActive(false);
+            Panel_elec_Tech.SetActive(false);
+            Panel_modern_Tech.SetActive(false);
+        }
+        else
+        {
+            Panel_war_Tech.SetActive(false);
+            Panel_elec_Tech.SetActive(false);
+            Panel_modern_Tech.SetActive(false);
+        }
+
         MainTechPanel.SetActive(false);
+
         Noti.GetComponent<Image>().color = new Color32(255, 255, 255, 0);
     }
 
@@ -806,6 +847,8 @@ public class TechManager : MonoBehaviour
     {
         Image im1 = SBHandle_IND.GetComponent<Image>();
         Image im2 = SBHandle_WAR.GetComponent<Image>();
+        Image im3 = SBHandle_ELEC.GetComponent<Image>();
+        Image im4 = SBHandle_MODERN.GetComponent<Image>();
 
         im1.color = new Color(im1.color.r, im1.color.g, im1.color.b, im1.color.a - 0.02f);
         if (SbTech_IND.value != CurrentHandleValue_IND)
@@ -819,6 +862,20 @@ public class TechManager : MonoBehaviour
         {
             im2.color = new Color32(255, 255, 255, 255);
             CurrentHandleValue_WAR = SbTech_WAR.value;
+        }
+
+        im3.color = new Color(im3.color.r, im3.color.g, im3.color.b, im3.color.a - 0.02f);
+        if (SbTech_ELEC.value != CurrentHandleValue_ELEC)
+        {
+            im3.color = new Color32(255, 255, 255, 255);
+            CurrentHandleValue_ELEC = SbTech_ELEC.value;
+        }
+
+        im4.color = new Color(im4.color.r, im4.color.g, im4.color.b, im4.color.a - 0.02f);
+        if (SbTech_MODERN.value != CurrentHandleValue_MODERN)
+        {
+            im4.color = new Color32(255, 255, 255, 255);
+            CurrentHandleValue_MODERN = SbTech_MODERN.value;
         }
     }
 
@@ -888,7 +945,7 @@ public class TechManager : MonoBehaviour
         }
         else if (PanelNum == 16)
         {
-            UpTechLogic1x(Tech16, tYear16, ref Tech16Complete, ref TechIcon16, TechCplImg16, ref TechIcon16);
+            UpTechLogic1x(Tech16, tYear16, ref Tech16Complete, ref TechIcon16, TechCplImg16, ref TechIcon18);
         }
         else if (PanelNum == 17)
         {
