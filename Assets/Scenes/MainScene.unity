@@ -8033,7 +8033,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &392324106
 GameObject:
@@ -12260,6 +12260,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12344,6 +12345,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &519420033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &522077741
 GameObject:
   m_ObjectHideFlags: 0
@@ -15865,7 +15962,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1225608269}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17870,7 +17968,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749062647
 MonoBehaviour:
@@ -24412,7 +24510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994edda8cbe4f6f47b4b9a118d1d0fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\uC5C5\uAE00\uBE44\uC6A9\uBC30\uC218": 1.3
+  "\uC5C5\uAE00\uBE44\uC6A9\uBC30\uC218": 1.25
   "pd1_\uB274\uCEE4\uBA58\uC5D4\uC9C4_\uC5C5\uAE00\uBE44\uC6A9": 1500
   "pd3_\uB098\uB294\uBD81_\uC5C5\uAE00\uBE44\uC6A9": 3000
   "pd4_\uBBAC\uBC29\uC801\uAE30_\uC5C5\uAE00\uBE44\uC6A9": 7000
@@ -24474,10 +24572,10 @@ MonoBehaviour:
   "pd63_GPU_\uC5C5\uAE00\uBE44\uC6A9": 73102000000000000
   "pd64_\uBE44\uD2B8\uCF54\uC778_\uC5C5\uAE00\uBE44\uC6A9": 124180000000000000
   "pd65_\uB525\uB7EC\uB2DD_\uC5C5\uAE00\uBE44\uC6A9": 290980000000000000
-  "pd66_10G_\uC5C5\uAE00\uBE44\uC6A9": 581710000000000000
-  "pd67_VR_\uC5C5\uAE00\uBE44\uC6A9": 1099602000000000000
-  "pd68_AR_\uC5C5\uAE00\uBE44\uC6A9": 2107100000000000000
-  "pd69_\uC720\uC804\uC790\uCE69_\uC5C5\uAE00\uBE44\uC6A9": 2407100000000000000
+  "pd66_10G_\uC5C5\uAE00\uBE44\uC6A9": 330199000000000000
+  "pd67_VR_\uC5C5\uAE00\uBE44\uC6A9": 581710000000000000
+  "pd68_AR_\uC5C5\uAE00\uBE44\uC6A9": 1099602000000000000
+  "pd69_\uC720\uC804\uC790\uCE69_\uC5C5\uAE00\uBE44\uC6A9": 1307100000000000000
   "pd70_\uCC28\uC6D0\uAD00\uBB38_\uC5C5\uAE00\uBE44\uC6A9": 9223372036854775807
   "pd1_\uB274\uCEE4\uBA58\uC5D4\uC9C4_\uC0DD\uC0B0\uB7C9": 20
   "pd3_\uB098\uB294\uBD81_\uC0DD\uC0B0\uB7C9": 30
@@ -24518,33 +24616,33 @@ MonoBehaviour:
   "pd52_\uB79C\uC120_\uC0DD\uC0B0\uB7C9": 3067551336000
   "pd53_MRI_\uC0DD\uC0B0\uB7C9": 6052528240000
   "pd55_\uD734\uB300\uC6A9\uAC8C\uC784\uAE30_\uC0DD\uC0B0\uB7C9": 13487960000000
-  "pd56_JAVA_\uC0DD\uC0B0\uB7C9": 0
+  "pd56_JAVA_\uC0DD\uC0B0\uB7C9": 36736000000000
   "pd59_GPS_\uC0DD\uC0B0\uB7C9": 78858152000000
   "pd60_\uB300\uC655\uAC10\uC790_\uC0DD\uC0B0\uB7C9": 157361790000000
   "pd61_\uC778\uD130\uB137_\uC0DD\uC0B0\uB7C9": 302008800000000
-  "pd62_\uC2DC\uD5D8\uAD00_\uC0DD\uC0B0\uB7C9": 68180000000000000
-  "pd64_\uBE44\uD2B8\uCF54\uC778_\uC0DD\uC0B0\uB7C9": 124180000000000000
-  "pd65_\uB525\uB7EC\uB2DD_\uC0DD\uC0B0\uB7C9": 290980000000000000
-  "pd67_VR_\uC0DD\uC0B0\uB7C9": 581710000000000000
-  "pd68_AR_\uC0DD\uC0B0\uB7C9": 1099602000000000000
+  "pd62_\uC2DC\uD5D8\uAD00_\uC0DD\uC0B0\uB7C9": 604074800000001
+  "pd64_\uBE44\uD2B8\uCF54\uC778_\uC0DD\uC0B0\uB7C9": 1095267600000000
+  "pd65_\uB525\uB7EC\uB2DD_\uC0DD\uC0B0\uB7C9": 2560624000000000
+  "pd67_VR_\uC0DD\uC0B0\uB7C9": 5095779600000010
+  "pd68_AR_\uC0DD\uC0B0\uB7C9": 9610521480000020
   "pd70_\uCC28\uC6D0\uAD00\uBB38_\uC0DD\uC0B0\uB7C9": 0
   "pd5_\uC2E4\uB9B0\uB354_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 5
-  "pd9_\uBCFC\uD0C0\uC804\uC9C0_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 10
-  "pd13_\uC790\uC11D_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd18_\uD3EC\uB178\uD1A0\uADF8\uB77C\uD504_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 100
-  "pd22_\uBE44\uD589\uC120_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd24_\uB77C\uB514\uC624_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd27_\uBAA8\uC2A4\uBD80\uD638\uAE30_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd31_\uC5D0\uB2C8\uADF8\uB9C8_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd37_\uC6B0\uB77C\uB284_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd40_\uD2B8\uB79C\uC9C0\uC2A4\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd43_\uD558\uB4DC\uB4DC\uB77C\uC774\uBE0C_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd47_RAM_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd54_\uD734\uB300\uD3F0_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd58_WIFI_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd63_GPU_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd66_10G_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
-  "pd69_\uC720\uC804\uC790\uCE69_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 0
+  "pd9_\uBCFC\uD0C0\uC804\uC9C0_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 20
+  "pd13_\uC790\uC11D_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 50
+  "pd18_\uD3EC\uB178\uD1A0\uADF8\uB77C\uD504_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 80
+  "pd22_\uBE44\uD589\uC120_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 150
+  "pd24_\uB77C\uB514\uC624_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 300
+  "pd27_\uBAA8\uC2A4\uBD80\uD638\uAE30_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 500
+  "pd31_\uC5D0\uB2C8\uADF8\uB9C8_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 800
+  "pd37_\uC6B0\uB77C\uB284_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 1200
+  "pd40_\uD2B8\uB79C\uC9C0\uC2A4\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 2400
+  "pd43_\uD558\uB4DC\uB4DC\uB77C\uC774\uBE0C_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 4800
+  "pd47_RAM_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 9600
+  "pd54_\uD734\uB300\uD3F0_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 19200
+  "pd58_WIFI_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 38400
+  "pd63_GPU_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 76800
+  "pd66_10G_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 153600
+  "pd69_\uC720\uC804\uC790\uCE69_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 307200
   Prod_1_Level: 0
   Prod_3_Level: 0
   Prod_4_Level: 0
@@ -24770,7 +24868,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1039575952
 GameObject:
@@ -27108,7 +27206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1141517704
 GameObject:
@@ -27229,7 +27327,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1146489478
 GameObject:
@@ -28880,14 +28978,14 @@ MonoBehaviour:
   StandardConst_IND_Need: 10
   Need_Lv1_10_IND: 11
   Need_Lv11_20_IND: 23
-  Need_Lv21_30_IND: 37
-  Need_Lv31_40_IND: 59
-  Need_Lv41_50_IND: 83
-  Need_Lv51_60_IND: 113
-  Need_Lv61_70_IND: 149
-  Need_Lv71_80_IND: 191
-  Need_Lv81_90_IND: 251
-  Need_Lv91_100_IND: 331
+  Need_Lv21_30_IND: 59
+  Need_Lv31_40_IND: 113
+  Need_Lv41_50_IND: 191
+  Need_Lv51_60_IND: 331
+  Need_Lv61_70_IND: 991
+  Need_Lv71_80_IND: 2041
+  Need_Lv81_90_IND: 6411
+  Need_Lv91_100_IND: 0
   DisplayedMoney: 0
   moneyIncreaseAmount: 10
   scienceIncreaseAmount: 1
@@ -28921,12 +29019,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225608267}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 662185140}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228335482
 GameObject:
@@ -29039,7 +29137,7 @@ Transform:
   - {fileID: 538786713}
   - {fileID: 21180737}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1240554898
 GameObject:
@@ -32022,7 +32120,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405140126
 GameObject:
@@ -34975,7 +35073,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525938113
 GameObject:
@@ -36521,74 +36619,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "tc1_\uC99D\uAE30\uAE30\uAD00_\uC5F0\uAD6C\uB825": 1200
-  "tc2_\uC99D\uAE30\uC120_\uC5F0\uAD6C\uB825": 2000
-  "tc3_\uC218\uC9C1\uAE30_\uC5F0\uAD6C\uB825": 3000
-  "tc4_\uBC29\uC801\uAE30_\uC5F0\uAD6C\uB825": 5000
-  "tc5_\uC99D\uAE30\uAE30\uAD00\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 8000
-  "tc6_\uBC29\uC9C1\uAE30_\uC5F0\uAD6C\uB825": 12000
-  "tc7_\uAE30\uCCB4\uD654\uD559_\uC5F0\uAD6C\uB825": 20000
-  "tc8_\uB3D9\uBB3C\uC804\uAE30_\uC5F0\uAD6C\uB825": 30000
-  "tc9_\uB300\uAE30\uC804\uAE30_\uC5F0\uAD6C\uB825": 12000
-  "tc10_\uC11D\uD0C4_\uC5F0\uAD6C\uB825": 20000
-  "tc11_\uCCA0\uAC15\uC5C5_\uC5F0\uAD6C\uB825": 30000
-  "tc12_\uC99D\uAE30\uC555\uCD95_\uC5F0\uAD6C\uB825": 45000
-  "tc13_\uC790\uAE30\uB825_\uC5F0\uAD6C\uB825": 65000
-  "tc14_\uC5F4\uC5ED\uD559_\uC5F0\uAD6C\uB825": 90000
-  "tc15_\uC720\uC120\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 130000
-  "tc16_\uD0C4\uB3C4\uD559_\uC5F0\uAD6C\uB825": 180000
-  "tc17_\uB098\uC774\uD2B8\uB85C\uAE00\uB9AC\uC138\uB9B0_\uC5F0\uAD6C\uB825": 250000
-  "tc18_\uC18C\uB9AC_\uC5F0\uAD6C\uB825": 320000
-  "tc19_\uC804\uB958\uC9C4\uB3D9_\uC5F0\uAD6C\uB825": 400000
-  "tc20_\uD544\uB77C\uBA58\uD2B8_\uC5F0\uAD6C\uB825": 500000
-  "tc21_\uBB34\uC120\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 700000
-  "tc22_\uB3D9\uB825\uBE44\uD589_\uC5F0\uAD6C\uB825": 100000
-  "tc23_\uAC1C\uD2C0\uB9C1\uAC74_\uC5F0\uAD6C\uB825": 150000
-  "tc24_\uC9C4\uACF5_\uC5F0\uAD6C\uB825": 10000
-  "tc25_\uC624\uD504\uC14B\uC778\uC1C4_\uC5F0\uAD6C\uB825": 12000
-  "tc26_\uB0C9\uAC01\uC21C\uD658_\uC5F0\uAD6C\uB825": 15000
-  "tc27_\uC804\uC790\uAE30\uD30C_\uC5F0\uAD6C\uB825": 20000
-  "tc28_\uD3ED\uACA9\uAE30_\uC5F0\uAD6C\uB825": 25000
-  "tc29_4\uAE30\uD1B5\uC5D4\uC9C4_\uC5F0\uAD6C\uB825": 30000
-  "tc30_\uC554\uBAA8\uB2C8\uC544_\uC5F0\uAD6C\uB825": 40000
-  "tc31_\uC554\uD638\uD559_\uC5F0\uAD6C\uB825": 50000
-  "tc32_\uD0F1\uD06C_\uC5F0\uAD6C\uB825": 65000
-  "tc33_\uAE09\uC18D\uB3D9\uACB0_\uC5F0\uAD6C\uB825": 80000
-  "tc34_\uD56D\uC0DD\uC7AC_\uC5F0\uAD6C\uB825": 100000
-  "tc35_\uB098\uC77C\uB860_\uC5F0\uAD6C\uB825": 130000
-  "tc36_\uC81C\uD2B8\uC5D4\uC9C4_\uC5F0\uAD6C\uB825": 160000
-  "tc37_\uC6B0\uB77C\uB284_\uC5F0\uAD6C\uB825": 200000
-  "tc38_\uC0BC\uC6D0\uC0C9_\uC5F0\uAD6C\uB825": 250000
-  "tc39_\uADF9\uCD08\uB2E8\uD30C_\uC5F0\uAD6C\uB825": 300000
-  "tc40_\uC2E0\uD638\uBCC0\uD658_\uC5F0\uAD6C\uB825": 370000
-  "tc41_\uB808\uC774\uC800_\uC5F0\uAD6C\uB825": 460000
-  "tc42_\uD574\uC5F4\uC9C4\uD1B5\uC81C_\uC5F0\uAD6C\uB825": 570000
-  "tc43_\uC790\uAE30\uC800\uC7A5\uC18C_\uC5F0\uAD6C\uB825": 800000
-  "tc44_\uC18C\uB9AC\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 950000
-  "tc45_\uBC1C\uAD11\uB2E4\uC774\uC624\uB4DC_\uC5F0\uAD6C\uB825": 1150000
-  "tc46_\uC2E0\uACBD\uC548\uC815\uC81C_\uC5F0\uAD6C\uB825": 1400000
-  "tc47_\uC800\uC7A5\uC18C\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 1700000
-  "tc48_\uB17C\uB9AC\uD68C\uB85C_\uC5F0\uAD6C\uB825": 2000000
-  "tc49_\uC804\uC790\uB450\uB1CC_\uC5F0\uAD6C\uB825": 2400000
-  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 2900000
-  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 3500000
-  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 4200000
-  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 5000000
-  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 6000000
-  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 7200000
-  "tc56_\uCEF4\uD4E8\uD130\uC5B8\uC5B4_\uC5F0\uAD6C\uB825": 8500000
-  "tc57_\uC720\uC804\uC790\uCE58\uB8CC_\uC5F0\uAD6C\uB825": 10000000
-  "tc58_\uADFC\uAC70\uB9AC\uD1B5\uC2E0\uB9DD_\uC5F0\uAD6C\uB825": 12000000
-  "tc59_\uD1B5\uC2E0\uC704\uC131_\uC5F0\uAD6C\uB825": 15000000
-  "tc60_\uC720\uC804\uC790\uBCC0\uD654_\uC5F0\uAD6C\uB825": 19000000
-  "tc61_\uC138\uACC4\uD1B5\uD569_\uC5F0\uAD6C\uB825": 24000000
-  "tc62_\uBCF5\uC81C_\uC5F0\uAD6C\uB825": 30000000
-  "tc63_\uCEF4\uD4E8\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 38000000
-  "tc64_\uBE14\uB85D\uCCB4\uC778_\uC5F0\uAD6C\uB825": 47000000
-  "tc65_AI_\uC5F0\uAD6C\uB825": 58000000
-  "tc66_\uACE0\uC18D\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 80000000
-  "tc67_\uAC00\uC0C1\uD604\uC2E4_\uC5F0\uAD6C\uB825": 95000000
-  "tc68_\uC99D\uAC15\uD604\uC2E4_\uC5F0\uAD6C\uB825": 115000000
-  "tc69_\uC81C\uD488\uD654_\uC5F0\uAD6C\uB825": 140000000
+  "tc2_\uC99D\uAE30\uC120_\uC5F0\uAD6C\uB825": 3000
+  "tc3_\uC218\uC9C1\uAE30_\uC5F0\uAD6C\uB825": 5000
+  "tc4_\uBC29\uC801\uAE30_\uC5F0\uAD6C\uB825": 8000
+  "tc5_\uC99D\uAE30\uAE30\uAD00\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 10000
+  "tc6_\uBC29\uC9C1\uAE30_\uC5F0\uAD6C\uB825": 15000
+  "tc7_\uAE30\uCCB4\uD654\uD559_\uC5F0\uAD6C\uB825": 30000
+  "tc8_\uB3D9\uBB3C\uC804\uAE30_\uC5F0\uAD6C\uB825": 50000
+  "tc9_\uB300\uAE30\uC804\uAE30_\uC5F0\uAD6C\uB825": 75000
+  "tc10_\uC11D\uD0C4_\uC5F0\uAD6C\uB825": 100000
+  "tc11_\uCCA0\uAC15\uC5C5_\uC5F0\uAD6C\uB825": 150000
+  "tc12_\uC99D\uAE30\uC555\uCD95_\uC5F0\uAD6C\uB825": 200000
+  "tc13_\uC790\uAE30\uB825_\uC5F0\uAD6C\uB825": 250000
+  "tc14_\uC5F4\uC5ED\uD559_\uC5F0\uAD6C\uB825": 320000
+  "tc15_\uC720\uC120\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 400000
+  "tc16_\uD0C4\uB3C4\uD559_\uC5F0\uAD6C\uB825": 500000
+  "tc17_\uB098\uC774\uD2B8\uB85C\uAE00\uB9AC\uC138\uB9B0_\uC5F0\uAD6C\uB825": 600000
+  "tc18_\uC18C\uB9AC_\uC5F0\uAD6C\uB825": 700000
+  "tc19_\uC804\uB958\uC9C4\uB3D9_\uC5F0\uAD6C\uB825": 800000
+  "tc20_\uD544\uB77C\uBA58\uD2B8_\uC5F0\uAD6C\uB825": 920000
+  "tc21_\uBB34\uC120\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 1040000
+  "tc22_\uB3D9\uB825\uBE44\uD589_\uC5F0\uAD6C\uB825": 1160000
+  "tc23_\uAC1C\uD2C0\uB9C1\uAC74_\uC5F0\uAD6C\uB825": 1360000
+  "tc24_\uC9C4\uACF5_\uC5F0\uAD6C\uB825": 1560000
+  "tc25_\uC624\uD504\uC14B\uC778\uC1C4_\uC5F0\uAD6C\uB825": 1800000
+  "tc26_\uB0C9\uAC01\uC21C\uD658_\uC5F0\uAD6C\uB825": 2040000
+  "tc27_\uC804\uC790\uAE30\uD30C_\uC5F0\uAD6C\uB825": 2280000
+  "tc28_\uD3ED\uACA9\uAE30_\uC5F0\uAD6C\uB825": 2540000
+  "tc29_4\uAE30\uD1B5\uC5D4\uC9C4_\uC5F0\uAD6C\uB825": 2800000
+  "tc30_\uC554\uBAA8\uB2C8\uC544_\uC5F0\uAD6C\uB825": 3180000
+  "tc31_\uC554\uD638\uD559_\uC5F0\uAD6C\uB825": 3560000
+  "tc32_\uD0F1\uD06C_\uC5F0\uAD6C\uB825": 4000000
+  "tc33_\uAE09\uC18D\uB3D9\uACB0_\uC5F0\uAD6C\uB825": 4500000
+  "tc34_\uD56D\uC0DD\uC7AC_\uC5F0\uAD6C\uB825": 5000000
+  "tc35_\uB098\uC77C\uB860_\uC5F0\uAD6C\uB825": 5500000
+  "tc36_\uC81C\uD2B8\uC5D4\uC9C4_\uC5F0\uAD6C\uB825": 6300000
+  "tc37_\uC6B0\uB77C\uB284_\uC5F0\uAD6C\uB825": 7100000
+  "tc38_\uC0BC\uC6D0\uC0C9_\uC5F0\uAD6C\uB825": 8200000
+  "tc39_\uADF9\uCD08\uB2E8\uD30C_\uC5F0\uAD6C\uB825": 9300000
+  "tc40_\uC2E0\uD638\uBCC0\uD658_\uC5F0\uAD6C\uB825": 10400000
+  "tc41_\uB808\uC774\uC800_\uC5F0\uAD6C\uB825": 11500000
+  "tc42_\uD574\uC5F4\uC9C4\uD1B5\uC81C_\uC5F0\uAD6C\uB825": 13000000
+  "tc43_\uC790\uAE30\uC800\uC7A5\uC18C_\uC5F0\uAD6C\uB825": 14500000
+  "tc44_\uC18C\uB9AC\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 16000000
+  "tc45_\uBC1C\uAD11\uB2E4\uC774\uC624\uB4DC_\uC5F0\uAD6C\uB825": 17500000
+  "tc46_\uC2E0\uACBD\uC548\uC815\uC81C_\uC5F0\uAD6C\uB825": 19000000
+  "tc47_\uC800\uC7A5\uC18C\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 21000000
+  "tc48_\uB17C\uB9AC\uD68C\uB85C_\uC5F0\uAD6C\uB825": 23000000
+  "tc49_\uC804\uC790\uB450\uB1CC_\uC5F0\uAD6C\uB825": 25000000
+  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 28000000
+  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 31000000
+  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 34000000
+  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 37000000
+  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 40000000
+  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 44000000
+  "tc56_\uCEF4\uD4E8\uD130\uC5B8\uC5B4_\uC5F0\uAD6C\uB825": 48000000
+  "tc57_\uC720\uC804\uC790\uCE58\uB8CC_\uC5F0\uAD6C\uB825": 52000000
+  "tc58_\uADFC\uAC70\uB9AC\uD1B5\uC2E0\uB9DD_\uC5F0\uAD6C\uB825": 58000000
+  "tc59_\uD1B5\uC2E0\uC704\uC131_\uC5F0\uAD6C\uB825": 66000000
+  "tc60_\uC720\uC804\uC790\uBCC0\uD654_\uC5F0\uAD6C\uB825": 72000000
+  "tc61_\uC138\uACC4\uD1B5\uD569_\uC5F0\uAD6C\uB825": 80000000
+  "tc62_\uBCF5\uC81C_\uC5F0\uAD6C\uB825": 90000000
+  "tc63_\uCEF4\uD4E8\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 100000000
+  "tc64_\uBE14\uB85D\uCCB4\uC778_\uC5F0\uAD6C\uB825": 140000000
+  "tc65_AI_\uC5F0\uAD6C\uB825": 180000000
+  "tc66_\uACE0\uC18D\uD1B5\uC2E0_\uC5F0\uAD6C\uB825": 250000000
+  "tc67_\uAC00\uC0C1\uD604\uC2E4_\uC5F0\uAD6C\uB825": 320000000
+  "tc68_\uC99D\uAC15\uD604\uC2E4_\uC5F0\uAD6C\uB825": 450000000
+  "tc69_\uC81C\uD488\uD654_\uC5F0\uAD6C\uB825": 600000000
   "tc70_\uC11C\uBC84\uBCC0\uACBD_\uC5F0\uAD6C\uB825": 1010101010
   tYear1: 1
   tYear2: 1
@@ -36995,7 +37093,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583671740
 GameObject:
