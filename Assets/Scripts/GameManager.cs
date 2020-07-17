@@ -81,6 +81,12 @@ public class GameManager : MonoBehaviour
     public GameObject Noti_T;
     public GameObject Noti_O;
 
+    static public float SpaceshipGoldBonus;
+    static public float AdGoldBonus;
+    static public float CashGoldBonus;
+
+    static public float SpaceshipScienceBonus;
+
     void Awake()
     {
         /*
@@ -90,8 +96,12 @@ public class GameManager : MonoBehaviour
             Load();
         }
         */
+        SpaceshipGoldBonus = 1.1f;
+        AdGoldBonus = 1f;
+        CashGoldBonus = 1f;
+        SpaceshipScienceBonus = 1.1f;
     }
-    
+
     void Start()
     {
         // StartCoroutine(save());
@@ -164,7 +174,7 @@ public class GameManager : MonoBehaviour
 
     public void MoneyIncrease()
     {
-        money += moneyIncreaseAmount; // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
+        money += (long)(moneyIncreaseAmount * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
         Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
@@ -174,7 +184,7 @@ public class GameManager : MonoBehaviour
     {
         if(robotLevel >= 1)
         {
-            science += scienceIncreaseAmount; // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
+            science += (long)(scienceIncreaseAmount * SpaceshipScienceBonus); // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(prefabScience, mousePosition, Quaternion.identity);
         }
@@ -667,7 +677,7 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            money += (ProductManager.autoMoney)/10;
+            money += (long)(((ProductManager.autoMoney) * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus) /10);
 
             yield return new WaitForSeconds(0.1f);
         }
@@ -677,7 +687,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            science += (ProductManager.autoScience);
+            science += (long)(ProductManager.autoScience * SpaceshipScienceBonus);
 
             yield return new WaitForSeconds(1.0f);
         }

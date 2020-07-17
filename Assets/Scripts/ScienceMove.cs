@@ -14,7 +14,7 @@ public class ScienceMove : MonoBehaviour
         txt = transform.GetComponentInChildren<Text>();
 
         GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        txt.text = "+ " + gm.scienceIncreaseAmount.ToString("###,###");
+        txt.text = "+ " + ((long)(gm.scienceIncreaseAmount * GameManager.SpaceshipScienceBonus)).ToString("###,###");
 
         Destroy(this.gameObject, 12f);
     }

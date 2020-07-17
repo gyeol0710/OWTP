@@ -3413,7 +3413,7 @@ public class ProductManager : MonoBehaviour
     {
         while(true)
         {
-            autoMoney = (perOneAutoMoney1 * Prod_1_Level) + (perOneAutoMoney3 * Prod_3_Level) + (perOneAutoMoney4 * Prod_4_Level) + (perOneAutoMoney6 * Prod_6_Level) + (perOneAutoMoney7 * Prod_7_Level) +
+            autoMoney = ((perOneAutoMoney1 * Prod_1_Level) + (perOneAutoMoney3 * Prod_3_Level) + (perOneAutoMoney4 * Prod_4_Level) + (perOneAutoMoney6 * Prod_6_Level) + (perOneAutoMoney7 * Prod_7_Level) +
                     (perOneAutoMoney8 * Prod_8_Level) +  (perOneAutoMoney10 * Prod_10_Level) + (perOneAutoMoney11 * Prod_11_Level) + (perOneAutoMoney12 * Prod_12_Level) + (perOneAutoMoney14 * Prod_14_Level) +
                     (perOneAutoMoney15 * Prod_15_Level) + (perOneAutoMoney17 * Prod_17_Level) + (perOneAutoMoney19 * Prod_19_Level) + (perOneAutoMoney20 * Prod_20_Level) + (perOneAutoMoney21 * Prod_21_Level) +
                     (perOneAutoMoney23 * Prod_23_Level) + (perOneAutoMoney25 * Prod_25_Level) + (perOneAutoMoney26 * Prod_26_Level) + (perOneAutoMoney28 * Prod_28_Level) + (perOneAutoMoney29 * Prod_29_Level) +
@@ -3422,7 +3422,7 @@ public class ProductManager : MonoBehaviour
                     (perOneAutoMoney44 * Prod_44_Level) + (perOneAutoMoney45 * Prod_45_Level) + (perOneAutoMoney46 * Prod_46_Level) + (perOneAutoMoney48 * Prod_48_Level) + (perOneAutoMoney49 * Prod_49_Level) +
                     (perOneAutoMoney51 * Prod_51_Level) + (perOneAutoMoney52 * Prod_52_Level) + (perOneAutoMoney53 * Prod_53_Level) + (perOneAutoMoney55 * Prod_55_Level) + (perOneAutoMoney56 * Prod_56_Level) +
                     (perOneAutoMoney59 * Prod_59_Level) + (perOneAutoMoney60 * Prod_60_Level) + (perOneAutoMoney61 * Prod_61_Level) + (perOneAutoMoney62 * Prod_62_Level) + (perOneAutoMoney64 * Prod_64_Level) +
-                    (perOneAutoMoney65 * Prod_65_Level) + (perOneAutoMoney67 * Prod_67_Level) + (perOneAutoMoney68 * Prod_68_Level) + (perOneAutoMoney70 * Prod_70_Level);
+                    (perOneAutoMoney65 * Prod_65_Level) + (perOneAutoMoney67 * Prod_67_Level) + (perOneAutoMoney68 * Prod_68_Level) + (perOneAutoMoney70 * Prod_70_Level));
 
             yield return new WaitForSeconds(0.3f);
         }
