@@ -340,9 +340,9 @@ public class GameManager : MonoBehaviour
 
     void UpdateRobotPanelText()
     {
-            robotTierAndLevel.text = "Tier " + robotTier + "   Level " + robotLevel;
-            robotInfo1.text = "클릭시 골드 획득\n" + moneyIncreaseAmount.ToString("###,###");
-            robotInfo2.text = "클릭시 지식 획득\n" + scienceIncreaseAmount;
+            robotTierAndLevel.text = robotLevel + " 단계";
+            robotInfo1.text = "클릭 시       획득\n: " + moneyIncreaseAmount.ToString("###,###");
+            robotInfo2.text = "클릭 시       획득\n: " + scienceIncreaseAmount;
             robotInfo3.text = robotLevelUpPrice.ToString("###,###");
     }
 
