@@ -1300,8 +1300,8 @@ public class TechManager : MonoBehaviour
         TechAnimLogic0_5_0(ref Tech37AnimC, ref Tech37Complete, ref TechIcon37, ref L37_1, ref L37_2, ref L37_3, ref L37_35, ref L37_36);
 
         TechAnimLogic2_0_3(ref Tech38AnimC, ref Tech38Complete, ref TechIcon38, ref TechIcon39, ref TechIcon40, ref L39, ref L40, ref L40_39);
-        TechAnimLogic0_2_0(ref Tech39AnimC, ref Tech39Complete, ref TechIcon39, ref L40, ref L40_39);
-        TechAnimLogic3_2_5(ref Tech40AnimC, ref Tech40Complete, ref TechIcon40, ref TechIcon41, ref TechIcon42, ref TechIcon43, ref L40, ref L40_39, ref L21, ref L22_21, ref L22, ref L22, ref L22);
+        TechAnimLogic0_2_0(ref Tech39AnimC, ref Tech39Complete, ref TechIcon39, ref L39, ref L40_39);
+        TechAnimLogic3_2_6(ref Tech40AnimC, ref Tech40Complete, ref TechIcon40, ref TechIcon41, ref TechIcon42, ref TechIcon43, ref L40, ref L40_39, ref L41, ref L42, ref L43, ref L43_1, ref L43_2, ref L43_3);
         TechAnimLogic1_3_1(ref Tech41AnimC, ref Tech41Complete, ref TechIcon41, ref TechIcon44, ref L41, ref L43_1, ref L43_3, ref L44);
         TechAnimLogic1_3_1(ref Tech42AnimC, ref Tech42Complete, ref TechIcon42, ref TechIcon46, ref L42, ref L43_2, ref L43_3, ref L46);
         TechAnimLogic1_4_1(ref Tech43AnimC, ref Tech43Complete, ref TechIcon43, ref TechIcon45, ref L43, ref L43_1, ref L43_2, ref L43_3, ref L45);
@@ -1707,6 +1707,30 @@ public class TechManager : MonoBehaviour
             L__c.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             L__d.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             L__e.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            if (c.GetComponent<Image>().color.a > 2.7)
+            {
+                a = true;
+            }
+        }
+    }
+
+    void TechAnimLogic3_2_6(ref bool a, ref bool b, ref GameObject c, ref GameObject d, ref GameObject e, ref GameObject f, ref GameObject L__1, ref GameObject L__2, ref GameObject L__a, ref GameObject L__b, ref GameObject L__c, ref GameObject L__d, ref GameObject L__e, ref GameObject L__f)
+    //후행연구 3개, 선행라인 2개, 후행라인 6개
+    {
+        if (a == false && b == true)
+        {
+            c.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            d.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            e.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            f.GetComponent<Image>().color += new Color32(0, 0, 0, 2);
+            L__1.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__2.GetComponent<Image>().color += new Color32(4, 4, 4, 0);
+            L__a.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__b.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__c.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__d.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__e.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
+            L__f.GetComponent<Image>().color += new Color32(0, 0, 0, 4);
             if (c.GetComponent<Image>().color.a > 2.7)
             {
                 a = true;

@@ -87,6 +87,10 @@ public class GameManager : MonoBehaviour
 
     static public float SpaceshipScienceBonus;
 
+    static public int ClickCount_Fuel2;
+    static public bool Story_Fuel2_Complete;
+    static public float Fuel2GoldDebuff;
+
     void Awake()
     {
         /*
@@ -100,6 +104,7 @@ public class GameManager : MonoBehaviour
         AdGoldBonus = 1f;
         CashGoldBonus = 1f;
         SpaceshipScienceBonus = 1.1f;
+        Fuel2GoldDebuff = 1f;
     }
 
     void Start()
@@ -111,8 +116,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ScienceUpMec());
         if (RePlay == false)
         {
-            money = 0;
-            science = 0;
+            money = 100000000000;
+            science = 1000000000000;
             years = 1770;
             robotLevel = 0;
             robotTier = 1;
@@ -178,6 +183,15 @@ public class GameManager : MonoBehaviour
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
         Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
+        if (Story_Fuel2_Complete == false && SpaceshipManager.Fuel2_Complete == true)
+        {
+            ClickCount_Fuel2++;
+            if (ClickCount_Fuel2 >= 50)
+            {
+                Fuel2GoldDebuff = 1f;
+                Story_Fuel2_Complete = true;
+            }
+        }
     }
 
     public void ScienceIncrease()
@@ -677,7 +691,7 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            money += (long)(((ProductManager.autoMoney) * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus) /10);
+            money += (long)(((ProductManager.autoMoney) * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus * Fuel2GoldDebuff) /10);
 
             yield return new WaitForSeconds(0.1f);
         }

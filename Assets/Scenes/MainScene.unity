@@ -700,7 +700,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6954,7 +6954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &317297101
 AudioSource:
@@ -7081,6 +7081,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1ca38dcf208b04eb340f2eade54191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body1_Gold: 1
+  body2_Gold: 10
+  body3_Gold: 100
+  body4_Gold: 10000
+  fuel1_Gold: 100000
+  fuel2_Gold: 1000000
+  fuel3_Gold: 10000000
+  fuel4_Gold: 100000000
+  engine1_Gold: 1000000000
+  engine2_Gold: 10000000000
+  engine3_Gold: 100000000000
+  engine4_Gold: 1000000000000
+  cockpit1_Gold: 10000000000000
+  cockpit2_Gold: 100000000000000
+  cockpit3_Gold: 1000000000000000
+  cockpit4_Gold: 10000000000000000
   gauge1: {fileID: 1216998751}
   gauge2: {fileID: 1617618481}
   gauge3: {fileID: 1082618564}
@@ -7105,6 +7121,8 @@ MonoBehaviour:
   cockpit2: {fileID: 21300000, guid: f2725789a62379b48b3199ee8eb497c3, type: 3}
   cockpit3: {fileID: 21300000, guid: 724e5bef94982a742a7ab7df214fdea9, type: 3}
   cockpit4: {fileID: 21300000, guid: b1b3bd7223f0bba45ae7c65b84debc76, type: 3}
+  SpaceshipUp_Button: {fileID: 2115952224}
+  SpaceshipUpNeedGold_Text: {fileID: 1322274106}
 --- !u!4 &318665685
 Transform:
   m_ObjectHideFlags: 0
@@ -7117,7 +7135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &325182956
 GameObject:
@@ -8541,7 +8559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &392324106
 GameObject:
@@ -13672,7 +13690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538786712
 GameObject:
@@ -15343,7 +15361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &600957893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15461,7 +15479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &605202517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18737,7 +18755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749062647
 MonoBehaviour:
@@ -25790,72 +25808,6 @@ MonoBehaviour:
   "pd63_GPU_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 76800
   "pd66_10G_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 153600
   "pd69_\uC720\uC804\uC790\uCE69_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 307200
-  Prod_1_Level: 0
-  Prod_3_Level: 0
-  Prod_4_Level: 0
-  Prod_5_Level: 0
-  Prod_6_Level: 0
-  Prod_7_Level: 0
-  Prod_8_Level: 0
-  Prod_9_Level: 0
-  Prod_10_Level: 0
-  Prod_11_Level: 0
-  Prod_12_Level: 0
-  Prod_13_Level: 0
-  Prod_14_Level: 0
-  Prod_15_Level: 0
-  Prod_17_Level: 0
-  Prod_18_Level: 0
-  Prod_19_Level: 0
-  Prod_20_Level: 0
-  Prod_21_Level: 0
-  Prod_22_Level: 0
-  Prod_23_Level: 0
-  Prod_24_Level: 0
-  Prod_25_Level: 0
-  Prod_26_Level: 0
-  Prod_27_Level: 0
-  Prod_28_Level: 0
-  Prod_29_Level: 0
-  Prod_30_Level: 0
-  Prod_31_Level: 0
-  Prod_32_Level: 0
-  Prod_33_Level: 0
-  Prod_34_Level: 0
-  Prod_35_Level: 0
-  Prod_36_Level: 0
-  Prod_37_Level: 0
-  Prod_38_Level: 0
-  Prod_39_Level: 0
-  Prod_40_Level: 0
-  Prod_41_Level: 0
-  Prod_42_Level: 0
-  Prod_43_Level: 0
-  Prod_44_Level: 0
-  Prod_45_Level: 0
-  Prod_46_Level: 0
-  Prod_47_Level: 0
-  Prod_48_Level: 0
-  Prod_49_Level: 0
-  Prod_51_Level: 0
-  Prod_52_Level: 0
-  Prod_53_Level: 0
-  Prod_54_Level: 0
-  Prod_55_Level: 0
-  Prod_56_Level: 0
-  Prod_58_Level: 0
-  Prod_59_Level: 0
-  Prod_60_Level: 0
-  Prod_61_Level: 0
-  Prod_62_Level: 0
-  Prod_63_Level: 0
-  Prod_64_Level: 0
-  Prod_65_Level: 0
-  Prod_66_Level: 0
-  Prod_67_Level: 0
-  Prod_68_Level: 0
-  Prod_69_Level: 0
-  Prod_70_Level: 0
   title: {fileID: 707451413}
   exp: {fileID: 1447770553}
   Icon: {fileID: 1566826663}
@@ -26248,7 +26200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1044786810
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26860,7 +26812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1066032715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28660,7 +28612,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140283858
 GameObject:
@@ -28822,7 +28774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1149765329
 GameObject:
@@ -30588,7 +30540,7 @@ Transform:
   - {fileID: 538786713}
   - {fileID: 21180737}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1240554898
 GameObject:
@@ -33541,7 +33493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1405140126
 GameObject:
@@ -36560,6 +36512,7 @@ MonoBehaviour:
   - 
   - 
   - 
+  scrBar: {fileID: 861647877}
   TechMainPanel: {fileID: 215168618}
   TechIcon_1: {fileID: 1421114532}
   Noti_R: {fileID: 1041560107}
@@ -36578,7 +36531,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1525938113
 GameObject:
@@ -36938,7 +36891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1533145714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37309,7 +37262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1552341551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45311,7 +45264,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 237494200}
   m_HandleRect: {fileID: 237494199}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.5
   m_Size: 0.304
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -49847,7 +49800,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2115952225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 318665684}
+        m_MethodName: SpaceshipUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2115952225
 MonoBehaviour:
   m_ObjectHideFlags: 0

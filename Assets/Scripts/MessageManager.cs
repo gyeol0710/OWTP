@@ -17,6 +17,7 @@ public class MessageManager : MonoBehaviour
 
     public string[] SaveText = new string[20];
 
+    public Scrollbar scrBar;
     static public Scrollbar ScrBar;
 
     static public bool gomsg;
@@ -32,7 +33,7 @@ public class MessageManager : MonoBehaviour
 
     void Start()
     {
-        ScrBar = GameObject.Find("OfferScrollbar").GetComponent<Scrollbar>();
+        ScrBar = scrBar.GetComponent<Scrollbar>();
         StartCoroutine(Message1());
         StartCoroutine(Message2());
     }

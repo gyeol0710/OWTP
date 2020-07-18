@@ -286,72 +286,72 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoScience69;
 
     //제품 레벨
-    public int Prod_1_Level; // 2번 제품 없음
-    public int Prod_3_Level;
-    public int Prod_4_Level;
-    public int Prod_5_Level;
-    public int Prod_6_Level;
-    public int Prod_7_Level;
-    public int Prod_8_Level;
-    public int Prod_9_Level;
-    public int Prod_10_Level;
-    public int Prod_11_Level;
-    public int Prod_12_Level;
-    public int Prod_13_Level;
-    public int Prod_14_Level;
-    public int Prod_15_Level; // 16번 제품 없음
-    public int Prod_17_Level;
-    public int Prod_18_Level;
-    public int Prod_19_Level;
-    public int Prod_20_Level;
-    public int Prod_21_Level;
-    public int Prod_22_Level;
-    public int Prod_23_Level;
-    public int Prod_24_Level;
-    public int Prod_25_Level;
-    public int Prod_26_Level;
-    public int Prod_27_Level;
-    public int Prod_28_Level;
-    public int Prod_29_Level;
-    public int Prod_30_Level;
-    public int Prod_31_Level;
-    public int Prod_32_Level;
-    public int Prod_33_Level;
-    public int Prod_34_Level;
-    public int Prod_35_Level;
-    public int Prod_36_Level;
-    public int Prod_37_Level;
-    public int Prod_38_Level;
-    public int Prod_39_Level;
-    public int Prod_40_Level;
-    public int Prod_41_Level;
-    public int Prod_42_Level;
-    public int Prod_43_Level;
-    public int Prod_44_Level;
-    public int Prod_45_Level;
-    public int Prod_46_Level;
-    public int Prod_47_Level;
-    public int Prod_48_Level;
-    public int Prod_49_Level; // 50번 제품 없음
-    public int Prod_51_Level;
-    public int Prod_52_Level;
-    public int Prod_53_Level;
-    public int Prod_54_Level;
-    public int Prod_55_Level;
-    public int Prod_56_Level; // 57번 제품 없음
-    public int Prod_58_Level;
-    public int Prod_59_Level;
-    public int Prod_60_Level;
-    public int Prod_61_Level;
-    public int Prod_62_Level;
-    public int Prod_63_Level;
-    public int Prod_64_Level;
-    public int Prod_65_Level;
-    public int Prod_66_Level;
-    public int Prod_67_Level;
-    public int Prod_68_Level;
-    public int Prod_69_Level;
-    public int Prod_70_Level;
+    static public int Prod_1_Level; // 2번 제품 없음
+    static public int Prod_3_Level;
+    static public int Prod_4_Level;
+    static public int Prod_5_Level;
+    static public int Prod_6_Level;
+    static public int Prod_7_Level;
+    static public int Prod_8_Level;
+    static public int Prod_9_Level;
+    static public int Prod_10_Level;
+    static public int Prod_11_Level;
+    static public int Prod_12_Level;
+    static public int Prod_13_Level;
+    static public int Prod_14_Level;
+    static public int Prod_15_Level; // 16번 제품 없음
+    static public int Prod_17_Level;
+    static public int Prod_18_Level;
+    static public int Prod_19_Level;
+    static public int Prod_20_Level;
+    static public int Prod_21_Level;
+    static public int Prod_22_Level;
+    static public int Prod_23_Level;
+    static public int Prod_24_Level;
+    static public int Prod_25_Level;
+    static public int Prod_26_Level;
+    static public int Prod_27_Level;
+    static public int Prod_28_Level;
+    static public int Prod_29_Level;
+    static public int Prod_30_Level;
+    static public int Prod_31_Level;
+    static public int Prod_32_Level;
+    static public int Prod_33_Level;
+    static public int Prod_34_Level;
+    static public int Prod_35_Level;
+    static public int Prod_36_Level;
+    static public int Prod_37_Level;
+    static public int Prod_38_Level;
+    static public int Prod_39_Level;
+    static public int Prod_40_Level;
+    static public int Prod_41_Level;
+    static public int Prod_42_Level;
+    static public int Prod_43_Level;
+    static public int Prod_44_Level;
+    static public int Prod_45_Level;
+    static public int Prod_46_Level;
+    static public int Prod_47_Level;
+    static public int Prod_48_Level;
+    static public int Prod_49_Level; // 50번 제품 없음
+    static public int Prod_51_Level;
+    static public int Prod_52_Level;
+    static public int Prod_53_Level;
+    static public int Prod_54_Level;
+    static public int Prod_55_Level;
+    static public int Prod_56_Level; // 57번 제품 없음
+    static public int Prod_58_Level;
+    static public int Prod_59_Level;
+    static public int Prod_60_Level;
+    static public int Prod_61_Level;
+    static public int Prod_62_Level;
+    static public int Prod_63_Level;
+    static public int Prod_64_Level;
+    static public int Prod_65_Level;
+    static public int Prod_66_Level;
+    static public int Prod_67_Level;
+    static public int Prod_68_Level;
+    static public int Prod_69_Level;
+    static public int Prod_70_Level;
 
     //패널 부분
     public Text title;
