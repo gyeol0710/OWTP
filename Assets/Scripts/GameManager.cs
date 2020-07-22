@@ -116,8 +116,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ScienceUpMec());
         if (RePlay == false)
         {
-            money = 100000000000;
-            science = 1000000000000;
+            money = 0;
+            science = 0;
             years = 1770;
             robotLevel = 0;
             robotTier = 1;
