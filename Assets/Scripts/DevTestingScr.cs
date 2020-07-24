@@ -12,6 +12,9 @@ public class DevTestingScr : MonoBehaviour
     public Button Tech;
     public Button Offer;
 
+    public Text Dev_money_IF;
+    public Text Dev_science_IF;
+
     void Start()
     {
         
@@ -31,13 +34,15 @@ public class DevTestingScr : MonoBehaviour
         Offer.interactable = true;
     }
 
-    public void MoneyPlus1000000()
+    public void DevMoney()
     {
-        GameManager.money += 1000000;
+        string dev_money_IF = Dev_money_IF.GetComponent<Text>().text;
+        GameManager.money = long.Parse(dev_money_IF);
     }
 
-    public void SciencePlus10000()
+    public void DevScience()
     {
-        GameManager.science += 10000;
+        string dev_science_IF = Dev_science_IF.GetComponent<Text>().text;
+        GameManager.science = long.Parse(dev_science_IF);
     }
 }
