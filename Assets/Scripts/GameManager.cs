@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     public long DisplayedMoney; // 표시되는 돈
     public long moneyIncreaseAmount; // 클릭 시 돈 증가량
     static public long science; // 연구력
-    public long scienceIncreaseAmount; // 클릭 시 연구력 증가량
+    static public long scienceIncreaseAmount; // 클릭 시 연구력 증가량
 
     public long robotLevelUpPrice; // 로봇 레벨업 비용
     public long robotTierUpPrice; // 로봇 티어업 비용
@@ -80,6 +80,8 @@ public class GameManager : MonoBehaviour
     public GameObject Noti_P;
     public GameObject Noti_T;
     public GameObject Noti_O;
+
+    public GameObject panel_robot;
 
     static public float SpaceshipGoldBonus;
     static public float AdGoldBonus;
@@ -199,9 +201,9 @@ public class GameManager : MonoBehaviour
         if(robotLevel >= 1)
         {
             science += (long)(scienceIncreaseAmount * SpaceshipScienceBonus); // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Instantiate(prefabScience, mousePosition, Quaternion.identity);
+            Instantiate(prefabScience, panel_robot.transform);
         }
+        
     }
 
     void ShowInfo()

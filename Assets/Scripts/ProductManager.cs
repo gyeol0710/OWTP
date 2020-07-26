@@ -148,6 +148,14 @@ public class ProductManager : MonoBehaviour
     public long pd70_차원관문_업글비용;
     public static long Pd70;
 
+    public long pdS01_영화개구리_구매비용;
+    public static long PdS01;
+    public long pdS02_음식보급기_구매비용;
+    public static long PdS02;
+    public long pdS03_컴퓨터_구매비용;
+    public static long PdS03;
+    public long pdS04_황제감자_구매비용;
+    public static long PdS04;
 
     //제품 1개당 골드 생산량
     public long pd1_뉴커멘엔진_생산량;
@@ -196,6 +204,8 @@ public class ProductManager : MonoBehaviour
     public static long perOneAutoMoney35;
     public long pd36_스타킹_생산량;
     public static long perOneAutoMoney36;
+    public long pd37_우라늄_생산량;
+    public static long perOneAutoMoney37;
     public long pd38_컬러TV_생산량;
     public static long perOneAutoMoney38;
     public long pd39_전자레인지_생산량;
@@ -352,6 +362,10 @@ public class ProductManager : MonoBehaviour
     static public int Prod_68_Level;
     static public int Prod_69_Level;
     static public int Prod_70_Level;
+    static public int Prod_S01_Level;
+    static public int Prod_S02_Level;
+    static public int Prod_S03_Level;
+    static public int Prod_S04_Level;
 
     //패널 부분
     public Text title;
@@ -365,8 +379,16 @@ public class ProductManager : MonoBehaviour
     public Button UpgradeProdButton;
 
     public GameObject MainProdPanel; // 제품 메인 패널
-    public GameObject ScrollBar;
-    Scrollbar SbProd;
+
+    public GameObject ScrollBar_IND; // 제품 시대별 스크롤바
+    public GameObject ScrollBar_WAR;
+    public GameObject ScrollBar_ELEC;
+    public GameObject ScrollBar_MODERN;
+
+    public GameObject ProdPanel_IND; // 제품 시대별 패널
+    public GameObject ProdPanel_WAR;
+    public GameObject ProdPanel_ELEC;
+    public GameObject ProdPanel_MODERN;
 
     string paneltext1 = " 생산";
     string paneltext2 = " 생산 중";
@@ -443,6 +465,78 @@ public class ProductManager : MonoBehaviour
     public GameObject ProdBtn68;
     public GameObject ProdBtn69;
     public GameObject ProdBtn70;
+    public GameObject ProdBtnS01; // 혁신제품
+    public GameObject ProdBtnS02;
+    public GameObject ProdBtnS03;
+    public GameObject ProdBtnS04;
+
+    //제품탭 외부에 표시되는 제품 갯수(레벨)
+    public Text ProdLevel_01; // 2번 제품 없음
+    public Text ProdLevel_03;
+    public Text ProdLevel_04;
+    public Text ProdLevel_05;
+    public Text ProdLevel_06;
+    public Text ProdLevel_07;
+    public Text ProdLevel_08;
+    public Text ProdLevel_09;
+    public Text ProdLevel_10;
+    public Text ProdLevel_11;
+    public Text ProdLevel_12;
+    public Text ProdLevel_13;
+    public Text ProdLevel_14;
+    public Text ProdLevel_15; // 16번 제품 없음
+    public Text ProdLevel_17;
+    public Text ProdLevel_18;
+    public Text ProdLevel_19;
+    public Text ProdLevel_20;
+    public Text ProdLevel_21;
+    public Text ProdLevel_22;
+    public Text ProdLevel_23;
+    public Text ProdLevel_24;
+    public Text ProdLevel_25;
+    public Text ProdLevel_26;
+    public Text ProdLevel_27;
+    public Text ProdLevel_28;
+    public Text ProdLevel_29;
+    public Text ProdLevel_30;
+    public Text ProdLevel_31;
+    public Text ProdLevel_32;
+    public Text ProdLevel_33;
+    public Text ProdLevel_34;
+    public Text ProdLevel_35;
+    public Text ProdLevel_36;
+    public Text ProdLevel_37;
+    public Text ProdLevel_38;
+    public Text ProdLevel_39;
+    public Text ProdLevel_40;
+    public Text ProdLevel_41;
+    public Text ProdLevel_42;
+    public Text ProdLevel_43;
+    public Text ProdLevel_44;
+    public Text ProdLevel_45;
+    public Text ProdLevel_46;
+    public Text ProdLevel_47;
+    public Text ProdLevel_48;
+    public Text ProdLevel_49; // 50번 제품 없음
+    public Text ProdLevel_51;
+    public Text ProdLevel_52;
+    public Text ProdLevel_53;
+    public Text ProdLevel_54;
+    public Text ProdLevel_55;
+    public Text ProdLevel_56; // 57번 제품 없음
+    public Text ProdLevel_58;
+    public Text ProdLevel_59;
+    public Text ProdLevel_60;
+    public Text ProdLevel_61;
+    public Text ProdLevel_62;
+    public Text ProdLevel_63;
+    public Text ProdLevel_64;
+    public Text ProdLevel_65;
+    public Text ProdLevel_66;
+    public Text ProdLevel_67;
+    public Text ProdLevel_68;
+    public Text ProdLevel_69;
+    public Text ProdLevel_70;
 
     //제품 스프라이트
     public Sprite ProdIcon1; // 2번 제품 없음
@@ -511,16 +605,33 @@ public class ProductManager : MonoBehaviour
     public Sprite ProdIcon68;
     public Sprite ProdIcon69;
     public Sprite ProdIcon70;
+    public Sprite ProdIconS01;
+    public Sprite ProdIconS02;
+    public Sprite ProdIconS03;
+    public Sprite ProdIconS04;
+
+    //혁신제품 생산가능 판단변수
+    static public bool PdS01Complete;
+    static public bool PdS02Complete;
+    static public bool PdS03Complete;
+    static public bool PdS04Complete;
 
     public Image infoPanel_icon;
     public Sprite infoPanel_icon_Gold;
     public Sprite infoPanel_icon_Science;
+    public Sprite infoPanel_icon_Special;
 
     void Awake()
     {
         MainProdPanel.SetActive(true);
-        SbProd = ScrollBar.GetComponent<Scrollbar>();
-        SbProd.value = 1;
+        ProdPanel_IND.SetActive(true);
+        ProdPanel_WAR.SetActive(true);
+        ProdPanel_ELEC.SetActive(true);
+        ProdPanel_MODERN.SetActive(true);
+        ScrollBar_IND.GetComponent<Scrollbar>().value = 1;
+        ScrollBar_WAR.GetComponent<Scrollbar>().value = 1;
+        ScrollBar_ELEC.GetComponent<Scrollbar>().value = 1;
+        ScrollBar_MODERN.GetComponent<Scrollbar>().value = 1;
 
         if (GameManager.RePlay == false)
         {
@@ -590,6 +701,10 @@ public class ProductManager : MonoBehaviour
             Pd68 = pd68_AR_업글비용;
             Pd69 = pd69_유전자칩_업글비용;
             Pd70 = pd70_차원관문_업글비용;
+            PdS01 = pdS01_영화개구리_구매비용;
+            PdS02 = pdS02_음식보급기_구매비용;
+            PdS03 = pdS03_컴퓨터_구매비용;
+            PdS04 = pdS04_황제감자_구매비용;
         }
 
         perOneAutoMoney1 = pd1_뉴커멘엔진_생산량; // 2번 제품 없음
@@ -626,6 +741,7 @@ public class ProductManager : MonoBehaviour
         perOneAutoScience34 = pd34_페니실린_연구생산량;
         perOneAutoMoney35 = pd35_터보제트_생산량;
         perOneAutoMoney36 = pd36_스타킹_생산량;
+        perOneAutoMoney37 = pd37_우라늄_생산량;
         perOneAutoScience37 = pd37_우라늄_연구생산량;
         perOneAutoMoney38 = pd38_컬러TV_생산량;
         perOneAutoMoney39 = pd39_전자레인지_생산량;
@@ -664,14 +780,19 @@ public class ProductManager : MonoBehaviour
     void Start()
     {
         MainProdPanel.SetActive(false);
+        ProdPanel_WAR.SetActive(false);
+        ProdPanel_ELEC.SetActive(false);
+        ProdPanel_MODERN.SetActive(false);
         StartCoroutine(AutoMoneyGo());
         StartCoroutine(AutoScienceGo());
         SaveDataCheck_ProdUnlock();
+        StartCoroutine(ProdUpButtonCheck());
+        StartCoroutine(SpecialProductButtonCheck());
     }
 
     void Update()
     {
-        ProdUpButtonCheck();
+
     }
 
     public void Prod_1_Open() // 제품 아이콘 버튼에 대입
@@ -1280,7 +1401,7 @@ public class ProductManager : MonoBehaviour
         if (TechManager.Tech33Complete)
         {
             title.text = "냉동식품";
-            exp.text = "[★설명 잘못됨★] 해산물 등을 빠르게 얼릴 수 있는 냉동기계입니다. 음식을 더 오랜기간 보관합니다.";
+            exp.text = "조리 혹은 가공한 제품을 냉동시켜 보관하는 형태입니다. 더 오랜기간 제품을 보관할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon33;
             Level.text = Prod_33_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney33.ToString("###,###") + paneltext1;
@@ -1319,8 +1440,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech35Complete)
         {
-            title.text = "터보제트";
-            exp.text = "유입된 공기를 압축시켜 고온 고압의 압축공기를 이용하여 분사하는 강력한 엔진입니다.";
+            title.text = "스타킹";
+            exp.text = "발과 다리를 감싸는 긴 양말류입니다. 군사용 복장으로 강한 재질이 피부를 긁는 것을 막습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon35;
             Level.text = Prod_35_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney35.ToString("###,###") + paneltext1;
@@ -1339,8 +1460,8 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech36Complete)
         {
-            title.text = "스타킹";
-            exp.text = "발과 다리를 감싸는 긴 양말류입니다. 군사용 복장으로 강한 재질이 피부를 긁는 것을 막습니다.";
+            title.text = "터보제트";
+            exp.text = "유입된 공기를 압축시켜 고온 고압의 압축공기를 이용하여 분사하는 강력한 엔진입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon36;
             Level.text = Prod_36_Level.ToString();
             ProdMoneyText.text = perOneAutoMoney36.ToString("###,###") + paneltext1;
@@ -1995,6 +2116,26 @@ public class ProductManager : MonoBehaviour
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
         }
     }
+    public void Prod_S01_Oepn()
+    {
+        if (PdS01Complete == true)
+        {
+            title.text = "영화개구리";
+            exp.text = "개굴개굴 개구리 귀여워~";
+            Icon.GetComponent<Image>().sprite = ProdIconS01;
+            Level.text = Prod_S01_Level.ToString();
+            ProdMoneyText.text = "설명설명설명설명";
+            TotalProdMoneyText.text = "";
+            if (Prod_S01_Level == 0)
+            {
+                TotalProdMoneyText.text = "";
+            }
+            UpPriceText.text = PdS01.ToString("###,###");
+            PanelNum = 71;
+            ProdUpPanel.SetActive(true);
+            infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Special;
+        }
+    }
 
     public void UpProd() // 제품 업그레이드 버튼에 대입, 제품업글을 눌렀을 때 나오는 반응
     {
@@ -2007,6 +2148,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_1_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney1 * Prod_1_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd1.ToString("###,###");
+            ProdLevel_01.text = Prod_1_Level.ToString();
         }
         else if (PanelNum == 3)
         {
@@ -2017,6 +2159,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_3_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney3 * Prod_3_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd3.ToString("###,###");
+            ProdLevel_03.text = Prod_3_Level.ToString();
         }
         else if (PanelNum == 4)
         {
@@ -2027,6 +2170,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_4_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney4 * Prod_4_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd4.ToString("###,###");
+            ProdLevel_04.text = Prod_4_Level.ToString();
         }
         else if (PanelNum == 5)
         {
@@ -2037,6 +2181,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_5_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience5 * Prod_5_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd5.ToString("###,###");
+            ProdLevel_05.text = Prod_5_Level.ToString();
         }
         else if (PanelNum == 6)
         {
@@ -2047,6 +2192,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_6_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience6 * Prod_6_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd6.ToString("###,###");
+            ProdLevel_06.text = Prod_6_Level.ToString();
         }
         else if (PanelNum == 7)
         {
@@ -2057,6 +2203,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_7_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney7 * Prod_7_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd7.ToString("###,###");
+            ProdLevel_07.text = Prod_7_Level.ToString();
         }
         else if (PanelNum == 8)
         {
@@ -2067,6 +2214,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_8_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney8 * Prod_8_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd8.ToString("###,###");
+            ProdLevel_08.text = Prod_8_Level.ToString();
         }
         else if (PanelNum == 9)
         {
@@ -2077,6 +2225,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_9_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience9 * Prod_9_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd9.ToString("###,###");
+            ProdLevel_09.text = Prod_9_Level.ToString();
         }
         else if (PanelNum == 10)
         {
@@ -2087,6 +2236,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_10_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney10 * Prod_10_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd10.ToString("###,###");
+            ProdLevel_10.text = Prod_10_Level.ToString();
         }
         else if (PanelNum == 11)
         {
@@ -2097,6 +2247,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_11_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney11 * Prod_11_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd11.ToString("###,###");
+            ProdLevel_11.text = Prod_11_Level.ToString();
         }
         else if (PanelNum == 12)
         {
@@ -2107,6 +2258,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_12_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney12 * Prod_12_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd12.ToString("###,###");
+            ProdLevel_12.text = Prod_12_Level.ToString();
         }
         else if (PanelNum == 13)
         {
@@ -2117,6 +2269,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_13_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience13 * Prod_13_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd13.ToString("###,###");
+            ProdLevel_13.text = Prod_13_Level.ToString();
         }
         else if (PanelNum == 14)
         {
@@ -2127,6 +2280,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_14_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney14 * Prod_14_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd14.ToString("###,###");
+            ProdLevel_14.text = Prod_14_Level.ToString();
         }
         else if (PanelNum == 15)
         {
@@ -2137,6 +2291,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_15_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience15 * Prod_15_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd15.ToString("###,###");
+            ProdLevel_15.text = Prod_15_Level.ToString();
         }
         else if (PanelNum == 17)
         {
@@ -2147,6 +2302,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_17_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney17 * Prod_17_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd17.ToString("###,###");
+            ProdLevel_17.text = Prod_17_Level.ToString();
         }
         else if (PanelNum == 18)
         {
@@ -2157,6 +2313,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_18_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience18 * Prod_18_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd18.ToString("###,###");
+            ProdLevel_18.text = Prod_18_Level.ToString();
         }
         else if (PanelNum == 19)
         {
@@ -2167,6 +2324,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_19_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney19 * Prod_19_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd19.ToString("###,###");
+            ProdLevel_19.text = Prod_19_Level.ToString();
         }
         else if (PanelNum == 20)
         {
@@ -2177,6 +2335,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_20_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney20 * Prod_20_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd20.ToString("###,###");
+            ProdLevel_20.text = Prod_20_Level.ToString();
         }
         else if (PanelNum == 21)
         {
@@ -2187,6 +2346,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_21_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney21 * Prod_21_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd21.ToString("###,###");
+            ProdLevel_21.text = Prod_21_Level.ToString();
         }
         else if (PanelNum == 22)
         {
@@ -2197,6 +2357,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_22_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience22 * Prod_22_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd22.ToString("###,###");
+            ProdLevel_22.text = Prod_22_Level.ToString();
         }
         else if (PanelNum == 23)
         {
@@ -2207,6 +2368,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_23_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney23 * Prod_23_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd23.ToString("###,###");
+            ProdLevel_23.text = Prod_23_Level.ToString();
         }
         else if (PanelNum == 24)
         {
@@ -2217,6 +2379,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_24_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience24 * Prod_24_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd24.ToString("###,###");
+            ProdLevel_24.text = Prod_24_Level.ToString();
         }
         else if (PanelNum == 25)
         {
@@ -2227,6 +2390,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_25_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney25 * Prod_25_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd25.ToString("###,###");
+            ProdLevel_25.text = Prod_25_Level.ToString();
         }
         else if (PanelNum == 26)
         {
@@ -2237,6 +2401,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_26_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney26 * Prod_26_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd26.ToString("###,###");
+            ProdLevel_26.text = Prod_26_Level.ToString();
         }
         else if (PanelNum == 27)
         {
@@ -2247,6 +2412,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_27_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience27 * Prod_27_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd27.ToString("###,###");
+            ProdLevel_27.text = Prod_27_Level.ToString();
         }
         else if (PanelNum == 28)
         {
@@ -2257,6 +2423,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_28_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney28 * Prod_28_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd28.ToString("###,###");
+            ProdLevel_28.text = Prod_28_Level.ToString();
         }
         else if (PanelNum == 29)
         {
@@ -2267,6 +2434,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_29_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney29 * Prod_29_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd29.ToString("###,###");
+            ProdLevel_29.text = Prod_29_Level.ToString();
         }
         else if (PanelNum == 30)
         {
@@ -2277,6 +2445,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_30_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney30 * Prod_30_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd30.ToString("###,###");
+            ProdLevel_30.text = Prod_30_Level.ToString();
         }
         else if (PanelNum == 31)
         {
@@ -2287,6 +2456,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_31_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience31 * Prod_31_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd31.ToString("###,###");
+            ProdLevel_31.text = Prod_31_Level.ToString();
         }
         else if (PanelNum == 32)
         {
@@ -2297,6 +2467,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_32_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney32 * Prod_32_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd32.ToString("###,###");
+            ProdLevel_32.text = Prod_32_Level.ToString();
         }
         else if (PanelNum == 33)
         {
@@ -2307,6 +2478,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_33_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney33 * Prod_33_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd33.ToString("###,###");
+            ProdLevel_33.text = Prod_33_Level.ToString();
         }
         else if (PanelNum == 34)
         {
@@ -2317,6 +2489,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_34_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience34 * Prod_34_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd34.ToString("###,###");
+            ProdLevel_34.text = Prod_34_Level.ToString();
         }
         else if (PanelNum == 35)
         {
@@ -2327,6 +2500,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_35_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney35 * Prod_35_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd35.ToString("###,###");
+            ProdLevel_35.text = Prod_35_Level.ToString();
         }
         else if (PanelNum == 36)
         {
@@ -2337,6 +2511,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_36_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney36 * Prod_36_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd36.ToString("###,###");
+            ProdLevel_36.text = Prod_36_Level.ToString();
         }
         else if (PanelNum == 37)
         {
@@ -2347,6 +2522,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_37_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience37 * Prod_37_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd37.ToString("###,###");
+            ProdLevel_37.text = Prod_37_Level.ToString();
         }
         else if (PanelNum == 38)
         {
@@ -2357,6 +2533,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_38_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney38 * Prod_38_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd38.ToString("###,###");
+            ProdLevel_38.text = Prod_38_Level.ToString();
         }
         else if (PanelNum == 39)
         {
@@ -2367,6 +2544,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_39_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney39 * Prod_39_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd39.ToString("###,###");
+            ProdLevel_39.text = Prod_39_Level.ToString();
         }
         else if (PanelNum == 40)
         {
@@ -2377,6 +2555,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_40_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience40 * Prod_40_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd40.ToString("###,###");
+            ProdLevel_40.text = Prod_40_Level.ToString();
         }
         else if (PanelNum == 41)
         {
@@ -2387,6 +2566,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_41_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney41 * Prod_41_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd41.ToString("###,###");
+            ProdLevel_41.text = Prod_41_Level.ToString();
         }
         else if (PanelNum == 42)
         {
@@ -2397,6 +2577,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_42_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney42 * Prod_42_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd42.ToString("###,###");
+            ProdLevel_42.text = Prod_42_Level.ToString();
         }
         else if (PanelNum == 43)
         {
@@ -2407,6 +2588,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_43_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience43 * Prod_43_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd43.ToString("###,###");
+            ProdLevel_43.text = Prod_43_Level.ToString();
         }
         else if (PanelNum == 44)
         {
@@ -2417,6 +2599,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_44_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney44 * Prod_44_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd44.ToString("###,###");
+            ProdLevel_44.text = Prod_44_Level.ToString();
         }
         else if (PanelNum == 45)
         {
@@ -2427,6 +2610,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_45_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney45 * Prod_45_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd45.ToString("###,###");
+            ProdLevel_45.text = Prod_45_Level.ToString();
         }
         else if (PanelNum == 46)
         {
@@ -2437,6 +2621,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_46_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney46 * Prod_46_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd46.ToString("###,###");
+            ProdLevel_46.text = Prod_46_Level.ToString();
         }
         else if (PanelNum == 47)
         {
@@ -2447,6 +2632,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_47_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience47 * Prod_47_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd47.ToString("###,###");
+            ProdLevel_47.text = Prod_47_Level.ToString();
         }
         else if (PanelNum == 48)
         {
@@ -2457,6 +2643,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_48_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney48 * Prod_48_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd48.ToString("###,###");
+            ProdLevel_48.text = Prod_48_Level.ToString();
         }
         else if (PanelNum == 49)
         {
@@ -2467,6 +2654,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_49_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience49 * Prod_49_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd49.ToString("###,###");
+            ProdLevel_49.text = Prod_49_Level.ToString();
         }
         else if (PanelNum == 51)
         {
@@ -2477,6 +2665,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_51_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney51 * Prod_51_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd51.ToString("###,###");
+            ProdLevel_51.text = Prod_51_Level.ToString();
         }
         else if (PanelNum == 52)
         {
@@ -2487,6 +2676,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_52_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience52 * Prod_52_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd52.ToString("###,###");
+            ProdLevel_52.text = Prod_52_Level.ToString();
         }
         else if (PanelNum == 53)
         {
@@ -2497,6 +2687,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_53_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney53 * Prod_53_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd53.ToString("###,###");
+            ProdLevel_53.text = Prod_53_Level.ToString();
         }
         else if (PanelNum == 54)
         {
@@ -2507,6 +2698,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_54_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience54 * Prod_54_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd54.ToString("###,###");
+            ProdLevel_54.text = Prod_54_Level.ToString();
         }
         else if (PanelNum == 55)
         {
@@ -2517,6 +2709,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_55_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney55 * Prod_55_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd55.ToString("###,###");
+            ProdLevel_55.text = Prod_55_Level.ToString();
         }
         else if (PanelNum == 56)
         {
@@ -2527,6 +2720,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_56_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd56.ToString("###,###");
+            ProdLevel_56.text = Prod_56_Level.ToString();
         }
         else if (PanelNum == 58)
         {
@@ -2537,6 +2731,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_58_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience58 * Prod_58_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd58.ToString("###,###");
+            ProdLevel_58.text = Prod_58_Level.ToString();
         }
         else if (PanelNum == 59)
         {
@@ -2547,6 +2742,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_59_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney59 * Prod_59_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd59.ToString("###,###");
+            ProdLevel_59.text = Prod_59_Level.ToString();
         }
         else if (PanelNum == 60)
         {
@@ -2557,6 +2753,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_60_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience60 * Prod_60_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd60.ToString("###,###");
+            ProdLevel_60.text = Prod_60_Level.ToString();
         }
         else if (PanelNum == 61)
         {
@@ -2567,6 +2764,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_61_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney61 * Prod_61_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd61.ToString("###,###");
+            ProdLevel_61.text = Prod_61_Level.ToString();
         }
         else if (PanelNum == 62)
         {
@@ -2577,6 +2775,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_62_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney62 * Prod_62_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd62.ToString("###,###");
+            ProdLevel_62.text = Prod_62_Level.ToString();
         }
         else if (PanelNum == 63)
         {
@@ -2587,6 +2786,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_63_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience63 * Prod_63_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd63.ToString("###,###");
+            ProdLevel_63.text = Prod_63_Level.ToString();
         }
         else if (PanelNum == 64)
         {
@@ -2597,6 +2797,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_64_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney64 * Prod_64_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd64.ToString("###,###");
+            ProdLevel_64.text = Prod_64_Level.ToString();
         }
         else if (PanelNum == 65)
         {
@@ -2607,6 +2808,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_65_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney65 * Prod_65_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd65.ToString("###,###");
+            ProdLevel_65.text = Prod_65_Level.ToString();
         }
         else if (PanelNum == 66)
         {
@@ -2617,6 +2819,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_66_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience66 * Prod_66_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd66.ToString("###,###");
+            ProdLevel_66.text = Prod_66_Level.ToString();
         }
         else if (PanelNum == 67)
         {
@@ -2627,6 +2830,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_67_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney67 * Prod_67_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd67.ToString("###,###");
+            ProdLevel_67.text = Prod_67_Level.ToString();
         }
         else if (PanelNum == 68)
         {
@@ -2637,6 +2841,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_68_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney68 * Prod_68_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd68.ToString("###,###");
+            ProdLevel_68.text = Prod_68_Level.ToString();
         }
         else if (PanelNum == 69)
         {
@@ -2647,6 +2852,7 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_69_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoScience69 * Prod_69_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd69.ToString("###,###");
+            ProdLevel_69.text = Prod_69_Level.ToString();
         }
         else if (PanelNum == 70)
         {
@@ -2657,740 +2863,766 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_70_Level.ToString();
             TotalProdMoneyText.text = (perOneAutoMoney70 * Prod_70_Level).ToString("###,###") + paneltext2;
             UpPriceText.text = Pd70.ToString("###,###");
+            ProdLevel_70.text = Prod_70_Level.ToString();
+        }
+        else if (PanelNum == 71)
+        {
+            GameManager.money -= PdS01;
+            Prod_S01_Level++;
+            UpPriceText.text = "기능 적용 중";
         }
     }
 
-    void ProdUpButtonCheck() // 업데이트 함수에 대입, 제품업글 버튼 활성화 여부 실시간으로 체크
+    IEnumerator ProdUpButtonCheck() // 코루틴 반복함수, 제품업글 버튼 활성화 여부 0.2초 단위로 체크
     {
-        if(PanelNum == 1)
-        {
-            if(GameManager.money >= Pd1)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if(PanelNum == 3)
-        {
-            if (GameManager.money >= Pd3)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 4)
-        {
-            if (GameManager.money >= Pd4)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 5)
-        {
-            if (GameManager.money >= Pd5)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 6)
-        {
-            if (GameManager.money >= Pd6)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 7)
-        {
-            if (GameManager.money >= Pd7)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 8)
-        {
-            if (GameManager.money >= Pd8)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 9)
-        {
-            if (GameManager.money >= Pd9)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 10)
-        {
-            if (GameManager.money >= Pd10)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 11)
-        {
-            if (GameManager.money >= Pd11)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 12)
-        {
-            if (GameManager.money >= Pd12)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 13)
-        {
-            if (GameManager.money >= Pd13)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 14)
-        {
-            if (GameManager.money >= Pd14)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 15)
-        {
-            if (GameManager.money >= Pd15)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 17)
-        {
-            if (GameManager.money >= Pd17)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 18)
-        {
-            if (GameManager.money >= Pd18)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 19)
-        {
-            if (GameManager.money >= Pd19)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 20)
-        {
-            if (GameManager.money >= Pd20)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 21)
-        {
-            if (GameManager.money >= Pd21)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 22)
-        {
-            if (GameManager.money >= Pd22)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 23)
-        {
-            if (GameManager.money >= Pd23)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 24)
-        {
-            if (GameManager.money >= Pd24)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 25)
-        {
-            if (GameManager.money >= Pd25)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 26)
-        {
-            if (GameManager.money >= Pd26)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 27)
-        {
-            if (GameManager.money >= Pd27)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 28)
-        {
-            if (GameManager.money >= Pd28)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 29)
-        {
-            if (GameManager.money >= Pd29)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 30)
-        {
-            if (GameManager.money >= Pd30)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 31)
-        {
-            if (GameManager.money >= Pd31)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 32)
-        {
-            if (GameManager.money >= Pd32)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 33)
-        {
-            if (GameManager.money >= Pd33)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 34)
-        {
-            if (GameManager.money >= Pd34)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 35)
-        {
-            if (GameManager.money >= Pd35)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 36)
-        {
-            if (GameManager.money >= Pd36)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 37)
-        {
-            if (GameManager.money >= Pd37)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 38)
-        {
-            if (GameManager.money >= Pd38)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 39)
-        {
-            if (GameManager.money >= Pd39)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 40)
-        {
-            if (GameManager.money >= Pd40)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 41)
-        {
-            if (GameManager.money >= Pd41)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 42)
-        {
-            if (GameManager.money >= Pd42)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 43)
-        {
-            if (GameManager.money >= Pd43)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 44)
-        {
-            if (GameManager.money >= Pd44)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 45)
-        {
-            if (GameManager.money >= Pd45)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 46)
-        {
-            if (GameManager.money >= Pd46)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 47)
-        {
-            if (GameManager.money >= Pd47)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 48)
-        {
-            if (GameManager.money >= Pd48)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 49)
-        {
-            if (GameManager.money >= Pd49)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 51)
-        {
-            if (GameManager.money >= Pd51)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 52)
-        {
-            if (GameManager.money >= Pd52)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 53)
-        {
-            if (GameManager.money >= Pd53)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 54)
-        {
-            if (GameManager.money >= Pd54)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 55)
-        {
-            if (GameManager.money >= Pd55)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 56)
-        {
-            if (GameManager.money >= Pd56)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 58)
-        {
-            if (GameManager.money >= Pd58)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 59)
-        {
-            if (GameManager.money >= Pd59)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 60)
-        {
-            if (GameManager.money >= Pd60)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 61)
-        {
-            if (GameManager.money >= Pd61)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 62)
-        {
-            if (GameManager.money >= Pd62)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 63)
-        {
-            if (GameManager.money >= Pd63)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 64)
-        {
-            if (GameManager.money >= Pd64)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 65)
-        {
-            if (GameManager.money >= Pd65)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 66)
-        {
-            if (GameManager.money >= Pd66)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 67)
-        {
-            if (GameManager.money >= Pd67)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 68)
-        {
-            if (GameManager.money >= Pd68)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 69)
-        {
-            if (GameManager.money >= Pd69)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else if (PanelNum == 70)
-        {
-            if (GameManager.money >= Pd70)
-            {
-                UpgradeProdButton.interactable = true;
-            }
-            else
-            {
-                UpgradeProdButton.interactable = false;
-            }
-        }
-        else
-        {
-            UpgradeProdButton.interactable = false;
+        while(true)
+        {
+            if (PanelNum == 1)
+            {
+                if (GameManager.money >= Pd1 && Prod_1_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 3)
+            {
+                if (GameManager.money >= Pd3 && Prod_3_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 4)
+            {
+                if (GameManager.money >= Pd4 && Prod_4_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 5)
+            {
+                if (GameManager.money >= Pd5 && Prod_5_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 6)
+            {
+                if (GameManager.money >= Pd6 && Prod_6_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 7)
+            {
+                if (GameManager.money >= Pd7 && Prod_7_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 8)
+            {
+                if (GameManager.money >= Pd8 && Prod_8_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 9)
+            {
+                if (GameManager.money >= Pd9 && Prod_9_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 10)
+            {
+                if (GameManager.money >= Pd10 && Prod_10_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 11)
+            {
+                if (GameManager.money >= Pd11 && Prod_11_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 12)
+            {
+                if (GameManager.money >= Pd12 && Prod_12_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 13)
+            {
+                if (GameManager.money >= Pd13 && Prod_13_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 14)
+            {
+                if (GameManager.money >= Pd14 && Prod_14_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 15)
+            {
+                if (GameManager.money >= Pd15 && Prod_15_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 17)
+            {
+                if (GameManager.money >= Pd17 && Prod_17_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 18)
+            {
+                if (GameManager.money >= Pd18 && Prod_18_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 19)
+            {
+                if (GameManager.money >= Pd19 && Prod_19_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 20)
+            {
+                if (GameManager.money >= Pd20 && Prod_20_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 21)
+            {
+                if (GameManager.money >= Pd21 && Prod_21_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 22)
+            {
+                if (GameManager.money >= Pd22 && Prod_22_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 23)
+            {
+                if (GameManager.money >= Pd23 && Prod_23_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 24)
+            {
+                if (GameManager.money >= Pd24 && Prod_24_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 25)
+            {
+                if (GameManager.money >= Pd25 && Prod_25_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 26)
+            {
+                if (GameManager.money >= Pd26 && Prod_26_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 27)
+            {
+                if (GameManager.money >= Pd27 && Prod_27_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 28)
+            {
+                if (GameManager.money >= Pd28 && Prod_28_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 29)
+            {
+                if (GameManager.money >= Pd29 && Prod_29_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 30)
+            {
+                if (GameManager.money >= Pd30 && Prod_30_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 31)
+            {
+                if (GameManager.money >= Pd31 && Prod_31_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 32)
+            {
+                if (GameManager.money >= Pd32 && Prod_32_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 33)
+            {
+                if (GameManager.money >= Pd33 && Prod_33_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 34)
+            {
+                if (GameManager.money >= Pd34 && Prod_34_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 35)
+            {
+                if (GameManager.money >= Pd35 && Prod_35_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 36)
+            {
+                if (GameManager.money >= Pd36 && Prod_36_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 37)
+            {
+                if (GameManager.money >= Pd37 && Prod_37_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 38)
+            {
+                if (GameManager.money >= Pd38 && Prod_38_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 39)
+            {
+                if (GameManager.money >= Pd39 && Prod_39_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 40)
+            {
+                if (GameManager.money >= Pd40 && Prod_40_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 41)
+            {
+                if (GameManager.money >= Pd41 && Prod_41_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 42)
+            {
+                if (GameManager.money >= Pd42 && Prod_42_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 43)
+            {
+                if (GameManager.money >= Pd43 && Prod_43_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 44)
+            {
+                if (GameManager.money >= Pd44 && Prod_44_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 45)
+            {
+                if (GameManager.money >= Pd45 && Prod_45_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 46)
+            {
+                if (GameManager.money >= Pd46 && Prod_46_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 47)
+            {
+                if (GameManager.money >= Pd47 && Prod_47_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 48)
+            {
+                if (GameManager.money >= Pd48 && Prod_48_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 49)
+            {
+                if (GameManager.money >= Pd49 && Prod_49_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 51)
+            {
+                if (GameManager.money >= Pd51 && Prod_51_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 52)
+            {
+                if (GameManager.money >= Pd52 && Prod_52_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 53)
+            {
+                if (GameManager.money >= Pd53 && Prod_53_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 54)
+            {
+                if (GameManager.money >= Pd54 && Prod_54_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 55)
+            {
+                if (GameManager.money >= Pd55 && Prod_55_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 56)
+            {
+                if (GameManager.money >= Pd56 && Prod_56_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 58)
+            {
+                if (GameManager.money >= Pd58 && Prod_58_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 59)
+            {
+                if (GameManager.money >= Pd59 && Prod_59_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 60)
+            {
+                if (GameManager.money >= Pd60 && Prod_60_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 61)
+            {
+                if (GameManager.money >= Pd61 && Prod_61_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 62)
+            {
+                if (GameManager.money >= Pd62 && Prod_62_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 63)
+            {
+                if (GameManager.money >= Pd63 && Prod_63_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 64)
+            {
+                if (GameManager.money >= Pd64 && Prod_64_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 65)
+            {
+                if (GameManager.money >= Pd65 && Prod_65_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 66)
+            {
+                if (GameManager.money >= Pd66 && Prod_66_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 67)
+            {
+                if (GameManager.money >= Pd67 && Prod_67_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 68)
+            {
+                if (GameManager.money >= Pd68 && Prod_68_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 69)
+            {
+                if (GameManager.money >= Pd69 && Prod_69_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 70)
+            {
+                if (GameManager.money >= Pd70 && Prod_70_Level < 99)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else
+            {
+                UpgradeProdButton.interactable = false;
+            }
+
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    IEnumerator SpecialProductButtonCheck()
+    {
+        while(true)
+        {
+            if (PdS01Complete == false && Prod_20_Level > 0 && Prod_18_Level > 0 && Prod_11_Level > 0 && Prod_9_Level > 0 && Prod_8_Level > 0 && Prod_6_Level > 0)
+            {
+                PdS01Complete = true;
+                ProdBtnS01.SetActive(true);
+            } // 다음 혁신제품 else if로 절대 하면안됨!!!! (완료 시 주석 지우기)
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -3485,7 +3717,7 @@ public class ProductManager : MonoBehaviour
                     (perOneAutoMoney10 * Prod_10_Level) + (perOneAutoMoney11 * Prod_11_Level) + (perOneAutoMoney12 * Prod_12_Level) + (perOneAutoMoney14 * Prod_14_Level) + (perOneAutoMoney17 * Prod_17_Level) +
                     (perOneAutoMoney19 * Prod_19_Level) + (perOneAutoMoney20 * Prod_20_Level) + (perOneAutoMoney21 * Prod_21_Level) + (perOneAutoMoney23 * Prod_23_Level) + (perOneAutoMoney25 * Prod_25_Level) +
                     (perOneAutoMoney26 * Prod_26_Level) + (perOneAutoMoney28 * Prod_28_Level) + (perOneAutoMoney29 * Prod_29_Level) + (perOneAutoMoney30 * Prod_30_Level) + (perOneAutoMoney32 * Prod_32_Level) +
-                    (perOneAutoMoney33 * Prod_33_Level) + (perOneAutoMoney35 * Prod_35_Level) + (perOneAutoMoney36 * Prod_36_Level) + (perOneAutoMoney38 * Prod_38_Level) + (perOneAutoMoney39 * Prod_39_Level) +
+                    (perOneAutoMoney33 * Prod_33_Level) + (perOneAutoMoney35 * Prod_35_Level) + (perOneAutoMoney36 * Prod_36_Level) + (perOneAutoMoney37 * Prod_37_Level) + (perOneAutoMoney38 * Prod_38_Level) + (perOneAutoMoney39 * Prod_39_Level) +
                     (perOneAutoMoney41 * Prod_41_Level) + (perOneAutoMoney42 * Prod_42_Level) + (perOneAutoMoney44 * Prod_44_Level) + (perOneAutoMoney45 * Prod_45_Level) + (perOneAutoMoney46 * Prod_46_Level) +
                     (perOneAutoMoney48 * Prod_48_Level) + (perOneAutoMoney51 * Prod_51_Level) + (perOneAutoMoney53 * Prod_53_Level) + (perOneAutoMoney55 * Prod_55_Level) + (perOneAutoMoney56 * Prod_56_Level) +
                     (perOneAutoMoney59 * Prod_59_Level) + (perOneAutoMoney61 * Prod_61_Level) + (perOneAutoMoney62 * Prod_62_Level) + (perOneAutoMoney64 * Prod_64_Level) + (perOneAutoMoney65 * Prod_65_Level) +
