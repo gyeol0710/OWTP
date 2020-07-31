@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.UNetWeaver;
 
 public class DevTestingScr : MonoBehaviour
 {
@@ -44,5 +45,12 @@ public class DevTestingScr : MonoBehaviour
     {
         string dev_science_IF = Dev_science_IF.GetComponent<Text>().text;
         GameManager.science = long.Parse(dev_science_IF);
+    }
+
+    public void WantLog()
+    {
+        Debug.Log(ProductManager.JumpINDpossible);
+        Debug.Log(ProductManager.Prod_S01_Level);
+        
     }
 }

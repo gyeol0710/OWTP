@@ -12,6 +12,7 @@ public class UIanimManager : MonoBehaviour
     public GameObject TechUI;
     RectTransform TechUI_Pos;
     RectTransform ProdUI_Pos;
+    public GameObject JokeButton;
 
 
     void Awake()
@@ -42,6 +43,8 @@ public class UIanimManager : MonoBehaviour
             }
             StartCoroutine(TechUIMoveOut());
         }
+
+        JokeButtonOff();
     }
 
     public void ProdUIClick()
@@ -61,6 +64,13 @@ public class UIanimManager : MonoBehaviour
             }
             StartCoroutine(ProdUIMoveOut());
         }
+
+        JokeButtonOff();
+    }
+
+    public void JokeButtonOff()
+    {
+        JokeButton.SetActive(false);
     }
 
     IEnumerator TechUIMoveIn()

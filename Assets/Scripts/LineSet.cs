@@ -36,6 +36,6 @@ public class LineSet : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             n++;
         }
-        StopCoroutine(LineAnim());
+        yield break;
     }
 }

@@ -610,6 +610,17 @@ public class ProductManager : MonoBehaviour
     public Sprite ProdIconS03;
     public Sprite ProdIconS04;
 
+    public GameObject Product_Reward01_06;
+    public GameObject Product_Reward02_07;
+    public GameObject Product_Reward04_18;
+    public GameObject Product_Reward05_24;
+    public GameObject Product_Reward06_33;
+    public GameObject Product_Reward08_37;
+    public GameObject Product_Reward09_42;
+    public GameObject Product_Reward10_44;
+    public GameObject Product_Reward12_S03;
+    public GameObject Product_Reward14_60;
+
     //혁신제품 생산가능 판단변수
     static public bool PdS01Complete;
     static public bool PdS02Complete;
@@ -620,6 +631,11 @@ public class ProductManager : MonoBehaviour
     public Sprite infoPanel_icon_Gold;
     public Sprite infoPanel_icon_Science;
     public Sprite infoPanel_icon_Special;
+
+    static public bool JumpINDpossible;
+    static public bool JumpWARpossible;
+    static public bool JumpELECpossible;
+    static public bool JumpMODERNpossible;
 
     void Awake()
     {
@@ -776,6 +792,17 @@ public class ProductManager : MonoBehaviour
         perOneAutoMoney70 = pd70_차원관문_생산량;
 
         UpTimes = 업글비용배수;
+
+        Product_Reward01_06.SetActive(false);
+        Product_Reward02_07.SetActive(false);
+        Product_Reward04_18.SetActive(false);
+        Product_Reward05_24.SetActive(false);
+        Product_Reward06_33.SetActive(false);
+        Product_Reward08_37.SetActive(false);
+        Product_Reward09_42.SetActive(false);
+        Product_Reward10_44.SetActive(false);
+        Product_Reward12_S03.SetActive(false);
+        Product_Reward14_60.SetActive(false);
     }
     void Start()
     {
@@ -787,12 +814,45 @@ public class ProductManager : MonoBehaviour
         StartCoroutine(AutoScienceGo());
         SaveDataCheck_ProdUnlock();
         StartCoroutine(ProdUpButtonCheck());
-        StartCoroutine(SpecialProductButtonCheck());
+        StartCoroutine(SpecialProductIconCheck());
+        StartCoroutine(NextERApossible());
     }
 
     void Update()
     {
 
+    }
+
+    IEnumerator NextERApossible() // 우주선4번째 업글 판단을 위한 파서블변수
+    {
+        while(true)
+        {
+            if (JumpINDpossible == false && Prod_1_Level > 0 && Prod_3_Level > 0 && Prod_4_Level > 0 && Prod_5_Level > 0 && Prod_6_Level > 0 && Prod_7_Level > 0 && Prod_8_Level > 0 && Prod_9_Level > 0 && Prod_10_Level > 0 && Prod_11_Level > 0
+                && Prod_12_Level > 0 && Prod_13_Level > 0 && Prod_14_Level > 0 && Prod_15_Level > 0 && Prod_17_Level > 0 && Prod_18_Level > 0 && Prod_19_Level > 0 && Prod_20_Level > 0 && Prod_21_Level > 0 && Prod_22_Level > 0 && Prod_S01_Level > 0)
+            {
+                JumpINDpossible = true;
+            }
+
+            if (JumpWARpossible == false && Prod_23_Level > 0 && Prod_24_Level > 0 && Prod_25_Level > 0 && Prod_26_Level > 0 && Prod_27_Level > 0 && Prod_28_Level > 0 && Prod_29_Level > 0 && Prod_30_Level > 0 && Prod_31_Level > 0
+                && Prod_32_Level > 0 && Prod_33_Level > 0 && Prod_34_Level > 0 && Prod_35_Level > 0 && Prod_36_Level > 0 && Prod_37_Level > 0 && Prod_S02_Level > 0)
+            {
+                JumpWARpossible = true;
+            }
+
+            if (JumpELECpossible == false && Prod_38_Level > 0 && Prod_39_Level > 0 && Prod_40_Level > 0 && Prod_41_Level > 0 && Prod_42_Level > 0 && Prod_43_Level > 0 && Prod_44_Level > 0 && Prod_45_Level > 0 && Prod_46_Level > 0
+                && Prod_47_Level > 0 && Prod_48_Level > 0 && Prod_49_Level > 0 && Prod_51_Level > 0 && Prod_52_Level > 0 && Prod_53_Level > 0 && Prod_54_Level > 0 && Prod_55_Level > 0 && Prod_S03_Level > 0)
+            {
+                JumpELECpossible = true;
+            }
+
+            if (JumpMODERNpossible == false && Prod_56_Level > 0 && Prod_58_Level > 0 && Prod_59_Level > 0 && Prod_60_Level > 0 && Prod_61_Level > 0 && Prod_62_Level > 0 && Prod_63_Level > 0 && Prod_64_Level > 0 && Prod_65_Level > 0
+                && Prod_66_Level > 0 && Prod_67_Level > 0 && Prod_68_Level > 0 && Prod_69_Level > 0 && Prod_70_Level > 0 && Prod_S04_Level > 0)
+            {
+                JumpMODERNpossible = true;
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     public void Prod_1_Open() // 제품 아이콘 버튼에 대입
@@ -803,13 +863,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "영국과 유럽 전역에서 주로 새로운 광산 엔진이 광산에서 물을 펌핑하는 데 사용되었습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon1;
             Level.text = Prod_1_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney1.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney1 * Prod_1_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney1) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney1 * Prod_1_Level) + paneltext2;
             if(Prod_1_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd1.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd1);
             PanelNum = 1;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -823,13 +883,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "기존 수직기의 능률을 크게 향상시킨 제품입니다. 북이 좌우로 흔들리며 섬유를 재단합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon3;
             Level.text = Prod_3_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney3.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney3 * Prod_3_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney3) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney3 * Prod_3_Level) + paneltext2;
             if (Prod_3_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd3.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd3);
             PanelNum = 3;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -843,13 +903,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "이전의 모든 방적기를 뛰어넘는 방적기 입니다. 빠른 속도로 실을 뽑아냅니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon4;
             Level.text = Prod_4_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney4.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney4 * Prod_4_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney4) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney4 * Prod_4_Level) + paneltext2;
             if (Prod_4_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd4.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd4);
             PanelNum = 4;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -864,13 +924,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "증기기관과 내연기관의 주요한 부품입니다. 내부에서 피스톤을 압력에 의해 왕복 운동시킵니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon5;
             Level.text = Prod_5_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience5.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience5 * Prod_5_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience5) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience5 * Prod_5_Level) + paneltext2;
             if (Prod_5_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd5.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd5);
             PanelNum = 5;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -890,7 +950,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd6.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd6);
             PanelNum = 6;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -910,7 +970,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd7.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd7);
             PanelNum = 7;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -930,7 +990,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd8.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd8);
             PanelNum = 8;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -950,7 +1010,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd9.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd9);
             PanelNum = 9;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -970,7 +1030,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd10.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd10);
             PanelNum = 10;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -990,7 +1050,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd11.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd11);
             PanelNum = 11;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1010,7 +1070,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd12.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd12);
             PanelNum = 12;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1030,7 +1090,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd13.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd13);
             PanelNum = 13;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1050,7 +1110,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd14.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd14);
             PanelNum = 14;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1070,7 +1130,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd15.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd15);
             PanelNum = 15;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1090,7 +1150,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd17.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd17);
             PanelNum = 17;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1110,7 +1170,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd18.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd18);
             PanelNum = 18;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1130,7 +1190,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd19.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd19);
             PanelNum = 19;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1150,7 +1210,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd20.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd20);
             PanelNum = 20;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1170,7 +1230,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd21.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd21);
             PanelNum = 21;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1190,7 +1250,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd22.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd22);
             PanelNum = 22;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1210,7 +1270,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd23.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd23);
             PanelNum = 23;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1230,7 +1290,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd24.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd24);
             PanelNum = 24;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1250,7 +1310,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd25.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd25);
             PanelNum = 25;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1270,7 +1330,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd26.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd26);
             PanelNum = 26;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1290,7 +1350,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd27.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd27);
             PanelNum = 27;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1310,7 +1370,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd28.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd28);
             PanelNum = 28;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1330,7 +1390,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd29.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd29);
             PanelNum = 29;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1350,7 +1410,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd30.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd30);
             PanelNum = 30;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1370,7 +1430,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd31.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd31);
             PanelNum = 31;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1390,7 +1450,7 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd32.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd32);
             PanelNum = 32;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1404,13 +1464,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "조리 혹은 가공한 제품을 냉동시켜 보관하는 형태입니다. 더 오랜기간 제품을 보관할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon33;
             Level.text = Prod_33_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney33.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney33 * Prod_33_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney33) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney33 * Prod_33_Level) + paneltext2;
             if (Prod_33_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd33.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd33);
             PanelNum = 33;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1424,13 +1484,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "세균과 강제적으로 결합하여 세균의 기능을 상실시킵니다. 세균의 증식을 억제합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon34;
             Level.text = Prod_34_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience34.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience34 * Prod_34_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience34) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience34 * Prod_34_Level) + paneltext2;
             if (Prod_34_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd34.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd34);
             PanelNum = 34;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1444,13 +1504,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "발과 다리를 감싸는 긴 양말류입니다. 군사용 복장으로 강한 재질이 피부를 긁는 것을 막습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon35;
             Level.text = Prod_35_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney35.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney35 * Prod_35_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney35) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney35 * Prod_35_Level) + paneltext2;
             if (Prod_35_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd35.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd35);
             PanelNum = 35;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1464,13 +1524,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "유입된 공기를 압축시켜 고온 고압의 압축공기를 이용하여 분사하는 강력한 엔진입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon36;
             Level.text = Prod_36_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney36.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney36 * Prod_36_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney36) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney36 * Prod_36_Level) + paneltext2;
             if (Prod_36_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd36.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd36);
             PanelNum = 36;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1484,13 +1544,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "핵분열이 가능한 원자입니다. 자연계에서 드물게 발견되며 핵무기를 만들 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon37;
             Level.text = Prod_37_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience37.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience37 * Prod_37_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience37) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
             if (Prod_37_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd37.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd37);
             PanelNum = 37;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1504,13 +1564,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "통신을 통해서 카메라를 통해 찍은 영상을 보여줄 수 있는 장치입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon38;
             Level.text = Prod_38_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney38.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney38 * Prod_38_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney38) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney38 * Prod_38_Level) + paneltext2;
             if (Prod_38_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd38.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd38);
             PanelNum = 38;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1524,13 +1584,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "수분을 통해 음식을 빠르게 데우는 장치입니다. 고주파를 이용하여 전자를 빠르게 진동시킵니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon39;
             Level.text = Prod_39_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney39.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney39 * Prod_39_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney39) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney39 * Prod_39_Level) + paneltext2;
             if (Prod_39_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd39.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd39);
             PanelNum = 39;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1544,13 +1604,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "전자 신호 및 전력을 증폭하거나 스위칭하는 데 사용되는 반도체소자입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon40;
             Level.text = Prod_40_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience40.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience40 * Prod_40_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience40) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience40 * Prod_40_Level) + paneltext2;
             if (Prod_40_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd40.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd40);
             PanelNum = 40;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1564,13 +1624,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "눈에 보이는 가시광선을 통해 물체를 지목할 수 있습니다. 눈에 안좋은 영향을 미칩니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon41;
             Level.text = Prod_41_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney41.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney41 * Prod_41_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney41) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney41 * Prod_41_Level) + paneltext2;
             if (Prod_41_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd41.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd41);
             PanelNum = 41;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1584,13 +1644,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "진통제, 해열제로 사용되는 약품입니다. 인류의 생명을 증가시킵니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon42;
             Level.text = Prod_42_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney42.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney42 * Prod_42_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney42) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney42 * Prod_42_Level) + paneltext2;
             if (Prod_42_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd42.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd42);
             PanelNum = 42;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1604,13 +1664,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "자성을 이용하여 데이터를 저장합니다. 저장한 데이터를 다시 불러올 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon43;
             Level.text = Prod_43_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience43.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience43 * Prod_43_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience43) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience43 * Prod_43_Level) + paneltext2;
             if (Prod_43_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd43.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd43);
             PanelNum = 43;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1624,13 +1684,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "소리를 녹음시키고 재생할 수 있는 장치입니다. 소리를 상태 그대로 저장할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon44;
             Level.text = Prod_44_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney44.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney44 * Prod_44_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney44) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney44 * Prod_44_Level) + paneltext2;
             if (Prod_44_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd44.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd44);
             PanelNum = 44;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1644,13 +1704,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "전기에너지를 빛에너지로 변환시켜주는 광반도체입니다. 더 효율적인 밝은 빛을 쓸 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon45;
             Level.text = Prod_45_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney45.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney45 * Prod_45_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney45) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney45 * Prod_45_Level) + paneltext2;
             if (Prod_45_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd45.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd45);
             PanelNum = 45;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1664,13 +1724,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "정신적인 장애나 경련 발작등을 치료할 수 있는 약품입니다. 인간의 건강을 늘려줍니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon46;
             Level.text = Prod_46_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney46.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney46 * Prod_46_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney46) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney46 * Prod_46_Level) + paneltext2;
             if (Prod_46_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd46.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd46);
             PanelNum = 46;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1684,13 +1744,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "원하는 데이터를 바로 찾을 수 있는 장치입니다. 주소를 기록하고 바로 일을 수행합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon47;
             Level.text = Prod_47_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience47.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience47 * Prod_47_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience47) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience47 * Prod_47_Level) + paneltext2;
             if (Prod_47_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd47.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd47);
             PanelNum = 47;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1704,13 +1764,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "간단한 수학적 계산을 할 수 있는 장치입니다. 휴대가 가능할 정도로 크기가 작아졌습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon48;
             Level.text = Prod_48_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney48.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney48 * Prod_48_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney48) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney48 * Prod_48_Level) + paneltext2;
             if (Prod_48_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd48.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd48);
             PanelNum = 48;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1724,13 +1784,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "기계가 작업을 수행할 수 있게 하는 두뇌입니다. 명령을 해석하고 연산 가능한 총체적인 장치입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon49;
             Level.text = Prod_49_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience49.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience49 * Prod_49_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience49) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience49 * Prod_49_Level) + paneltext2;
             if (Prod_49_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd49.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd49);
             PanelNum = 49;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1744,13 +1804,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "액정을 핵심 소재로 한 평판 디스플레이입니다. 전기 자극의 조절을 통해 실용화 가능합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon51;
             Level.text = Prod_51_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney51.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney51 * Prod_51_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney51) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney51 * Prod_51_Level) + paneltext2;
             if (Prod_51_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd51.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd51);
             PanelNum = 51;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1764,13 +1824,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "전자세계에 연결할 수 있도록 돕는 연결선입니다. 이 선 하나로 전세계와 만날 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon52;
             Level.text = Prod_52_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience52.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience52 * Prod_52_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience52) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience52 * Prod_52_Level) + paneltext2;
             if (Prod_52_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd52.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd52);
             PanelNum = 52;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1784,13 +1844,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "자기공명장치 입니다. 기계의 자기장을 통해 물체의 내부 겹 단위로 볼 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon53;
             Level.text = Prod_53_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney53.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney53 * Prod_53_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney53) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney53 * Prod_53_Level) + paneltext2;
             if (Prod_53_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd53.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd53);
             PanelNum = 53;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1804,13 +1864,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "선이 없이 통화를 할 수 있는 장치입니다. 더 이상 정보의 전달은 공간과 시간에 구애받지 않습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon54;
             Level.text = Prod_54_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience54.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience54 * Prod_54_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience54) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience54 * Prod_54_Level) + paneltext2;
             if (Prod_54_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd54.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd54);
             PanelNum = 54;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1824,13 +1884,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "데이터 조각들을 모아 유기적으로 움직이는 게임기입니다. 사람들은 이것에 열광합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon55;
             Level.text = Prod_55_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney55.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney55 * Prod_55_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney55) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney55 * Prod_55_Level) + paneltext2;
             if (Prod_55_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd55.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd55);
             PanelNum = 55;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1844,13 +1904,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "컴퓨터와 대화할 수 있는 하나의 수단입니다. 일반 사람들도 이용할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon56;
             Level.text = Prod_56_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney56.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney56) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney56 * Prod_56_Level) + paneltext2;
             if (Prod_56_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd56.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd56);
             PanelNum = 56;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1864,13 +1924,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "다른 사람과 서버를 무선으로 공유할 수 있습니다. 어디서든 전자세계를 이용할 수 있습니다";
             Icon.GetComponent<Image>().sprite = ProdIcon58;
             Level.text = Prod_58_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience58.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience58 * Prod_58_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience58) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience58 * Prod_58_Level) + paneltext2;
             if (Prod_58_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd58.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd58);
             PanelNum = 58;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1884,13 +1944,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "위치를 추적할 수 있습니다. 현실세계의 모든 조작이 전자세계에서 추적이 가능합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon59;
             Level.text = Prod_59_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney59.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney59 * Prod_59_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney59) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney59 * Prod_59_Level) + paneltext2;
             if (Prod_59_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd59.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd59);
             PanelNum = 59;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1904,13 +1964,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "정말 큰 감자입니다. 정말 큽니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon60;
             Level.text = Prod_60_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience60.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience60 * Prod_60_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience60) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience60 * Prod_60_Level) + paneltext2;
             if (Prod_60_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd60.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd60);
             PanelNum = 60;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1924,13 +1984,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "모든 정보와 의견이 존재하는 공간입니다. 인터넷을 할 수 있는 3평의 공간이면, 공간은 의미없어집니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon61;
             Level.text = Prod_61_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney61.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney61 * Prod_61_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney61) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney61 * Prod_61_Level) + paneltext2;
             if (Prod_61_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd61.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd61);
             PanelNum = 61;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1944,13 +2004,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "출산을 돕는 기구입니다. 고도의 기술이 들어가지만, 인구수를 증가시킬 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon62;
             Level.text = Prod_62_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney62.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney62 * Prod_62_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney62) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney62 * Prod_62_Level) + paneltext2;
             if (Prod_62_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd62.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd62);
             PanelNum = 62;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1964,13 +2024,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "전자세계를 좀 더 현실에 가깝게 보이도록 도와주는 전자부품입니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon63;
             Level.text = Prod_63_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience63.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience63 * Prod_63_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience63) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience63 * Prod_63_Level) + paneltext2;
             if (Prod_63_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd63.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd63);
             PanelNum = 63;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1984,13 +2044,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "아무도 수정, 대체 불가능한 가상화폐입니다. 종이와 같은 현물을 대체할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon64;
             Level.text = Prod_64_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney64.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney64 * Prod_64_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney64) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney64 * Prod_64_Level) + paneltext2;
             if (Prod_64_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd64.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd64);
             PanelNum = 64;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2004,14 +2064,14 @@ public class ProductManager : MonoBehaviour
             exp.text = "AI가 스스로 학습합니다. 인터넷을 통해 수많은 정보를 받아드리고 인간의 생각을 복사합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon65;
             Level.text = Prod_65_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney65.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney65 * Prod_65_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney65) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney65 * Prod_65_Level) + paneltext2;
             if (Prod_65_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd66.ToString("###,###");
-            PanelNum = 66;
+            UpPriceText.text = UnitTransform(Pd65);
+            PanelNum = 65;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
         }
@@ -2024,13 +2084,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "가장 빠른 통신 기술입니다. 정보를 주고 받는 시간을 단축합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon66;
             Level.text = Prod_66_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience66.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience66 * Prod_66_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience66) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience66 * Prod_66_Level) + paneltext2;
             if (Prod_66_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd66.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd66);
             PanelNum = 66;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2044,13 +2104,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "실제와 유사하게 꾸민 인공환경입니다. 오감을 사용할 수 있게 합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon67;
             Level.text = Prod_67_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney67.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney67 * Prod_67_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney67) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney67 * Prod_67_Level) + paneltext2;
             if (Prod_67_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd67.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd67);
             PanelNum = 67;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2064,13 +2124,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "현실에 전자의 세계를 도입하여 확장시킵니다. 현실세계와 가상세계과 합쳐집니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon68;
             Level.text = Prod_68_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney68.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney68 * Prod_68_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney68) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney68 * Prod_68_Level) + paneltext2;
             if (Prod_68_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd68.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd68);
             PanelNum = 68;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2084,13 +2144,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "생물의 몸 속에 심어놓습니다. 질병을 처리함은 물론 전자세계의 일들은 본인의 신체에서 해결 가능합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon69;
             Level.text = Prod_69_Level.ToString();
-            ProdMoneyText.text = perOneAutoScience69.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoScience69 * Prod_69_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoScience69) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience69 * Prod_69_Level) + paneltext2;
             if (Prod_69_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd69.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd69);
             PanelNum = 69;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2104,13 +2164,13 @@ public class ProductManager : MonoBehaviour
             exp.text = "차원을 이동하는 관문입니다. 공간을 무시합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon70;
             Level.text = Prod_70_Level.ToString();
-            ProdMoneyText.text = perOneAutoMoney70.ToString("###,###") + paneltext1;
-            TotalProdMoneyText.text = (perOneAutoMoney70 * Prod_70_Level).ToString("###,###") + paneltext2;
+            ProdMoneyText.text = UnitTransform(perOneAutoMoney70) + paneltext1;
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney70 * Prod_70_Level) + paneltext2;
             if (Prod_70_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
             }
-            UpPriceText.text = Pd70.ToString("###,###");
+            UpPriceText.text = UnitTransform(Pd70);
             PanelNum = 70;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2124,753 +2184,873 @@ public class ProductManager : MonoBehaviour
             exp.text = "개굴개굴 개구리 귀여워~";
             Icon.GetComponent<Image>().sprite = ProdIconS01;
             Level.text = Prod_S01_Level.ToString();
-            ProdMoneyText.text = "설명설명설명설명";
+            ProdMoneyText.text = "오프라인 상태일 때에도 6시간 자원 비축기능 지원";
             TotalProdMoneyText.text = "";
-            if (Prod_S01_Level == 0)
+            UpPriceText.text = UnitTransform(PdS01);
+            if (Prod_S01_Level > 0)
             {
-                TotalProdMoneyText.text = "";
+                UpPriceText.text = "기능 적용 중";
             }
-            UpPriceText.text = PdS01.ToString("###,###");
             PanelNum = 71;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Special;
         }
     }
+    public void Prod_S02_Oepn()
+    {
+        if (PdS02Complete == true)
+        {
+            title.text = "음식보급기";
+            exp.text = "라면 보급도 가능한가요?";
+            Icon.GetComponent<Image>().sprite = ProdIconS02;
+            Level.text = Prod_S02_Level.ToString();
+            ProdMoneyText.text = "광고의 효과가 1분 더 지속";
+            TotalProdMoneyText.text = "";
+            UpPriceText.text = UnitTransform(PdS02);
+            if (Prod_S02_Level > 0)
+            {
+                UpPriceText.text = "기능 적용 중";
+            }
+            PanelNum = 72;
+            ProdUpPanel.SetActive(true);
+            infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Special;
+        }
+    }
+    public void Prod_S03_Oepn()
+    {
+        if (PdS03Complete == true)
+        {
+            title.text = "컴퓨터";
+            exp.text = "컴퓨터는 역시 삼성...";
+            Icon.GetComponent<Image>().sprite = ProdIconS03;
+            Level.text = Prod_S03_Level.ToString();
+            ProdMoneyText.text = "클리커 버튼을 클릭할 시 모든 제품이 주는 생산량 120%(1.2배) 증가.";
+            TotalProdMoneyText.text = "";
+            UpPriceText.text = UnitTransform(PdS03);
+            if (Prod_S03_Level > 0)
+            {
+                UpPriceText.text = "기능 적용 중";
+            }
+            PanelNum = 73;
+            ProdUpPanel.SetActive(true);
+            infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Special;
+        }
+    }
+    public void Prod_S04_Oepn()
+    {
+        if (PdS04Complete == true)
+        {
+            title.text = "황제감자";
+            exp.text = "감자의 신 미만 잡...";
+            Icon.GetComponent<Image>().sprite = ProdIconS04;
+            Level.text = Prod_S04_Level.ToString();
+            ProdMoneyText.text = "클리커 버튼을 클릭할 시 모든 제품이 주는 생산량 150%(1.5배) 증가.";
+            TotalProdMoneyText.text = "";
+            UpPriceText.text = UnitTransform(PdS04);
+            if (Prod_S04_Level > 0)
+            {
+                UpPriceText.text = "기능 적용 중";
+            }
+            PanelNum = 74;
+            ProdUpPanel.SetActive(true);
+            infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Special;
+        }
+    }
+
+    string UnitTransform(long a)
+    {
+        long b;
+        string c = "";
+        if (a <= 999999999)
+        {
+            c = a.ToString("###,###");
+        }
+        else if (a <= 999999999999)
+        {
+            b = a / 1000;
+            c = b.ToString("###,###") + " k";
+        }
+        else if (a <= 999999999999999)
+        {
+            b = a / 1000000;
+            c = b.ToString("###,###") + " m";
+        }
+        else if (a <= 999999999999999999)
+        {
+            b = a / 1000000000;
+            c = b.ToString("###,###") + " b";
+        }
+        else if (a <= 9223372036854775807)
+        {
+            b = a / 1000000000000;
+            c = b.ToString("###,###") + " t";
+        }
+        return c;
+    }
 
     public void UpProd() // 제품 업그레이드 버튼에 대입, 제품업글을 눌렀을 때 나오는 반응
     {
-        if(PanelNum == 1)
+        if (PanelNum == 1 && GameManager.money >= Pd1 && Prod_1_Level < 99)
         {
             GameManager.money -= Pd1;
             Prod_1_Level++;
             Pd1 = (long)((float)Pd1 * UpTimes);
 
             Level.text = Prod_1_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney1 * Prod_1_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd1.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney1 * Prod_1_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd1);
             ProdLevel_01.text = Prod_1_Level.ToString();
         }
-        else if (PanelNum == 3)
+        else if (PanelNum == 3 && GameManager.money >= Pd3 && Prod_3_Level < 99)
         {
             GameManager.money -= Pd3;
             Prod_3_Level++;
             Pd3 = (long)((float)Pd3 * UpTimes);
 
             Level.text = Prod_3_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney3 * Prod_3_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd3.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney3 * Prod_3_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd3);
             ProdLevel_03.text = Prod_3_Level.ToString();
         }
-        else if (PanelNum == 4)
+        else if (PanelNum == 4 && GameManager.money >= Pd4 && Prod_4_Level < 99)
         {
             GameManager.money -= Pd4;
             Prod_4_Level++;
             Pd4 = (long)((float)Pd4 * UpTimes);
 
             Level.text = Prod_4_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney4 * Prod_4_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd4.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney4 * Prod_4_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd4);
             ProdLevel_04.text = Prod_4_Level.ToString();
         }
-        else if (PanelNum == 5)
+        else if (PanelNum == 5 && GameManager.money >= Pd5 && Prod_5_Level < 99)
         {
             GameManager.money -= Pd5;
             Prod_5_Level++;
             Pd5 = (long)((float)Pd5 * UpTimes);
 
             Level.text = Prod_5_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience5 * Prod_5_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd5.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience5 * Prod_5_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd5);
             ProdLevel_05.text = Prod_5_Level.ToString();
         }
-        else if (PanelNum == 6)
+        else if (PanelNum == 6 && GameManager.money >= Pd6 && Prod_6_Level < 99)
         {
             GameManager.money -= Pd6;
             Prod_6_Level++;
             Pd6 = (long)((float)Pd6 * UpTimes);
 
             Level.text = Prod_6_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience6 * Prod_6_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd6.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience6 * Prod_6_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd6);
             ProdLevel_06.text = Prod_6_Level.ToString();
+            Product_Reward01_06.SetActive(true);
         }
-        else if (PanelNum == 7)
+        else if (PanelNum == 7 && GameManager.money >= Pd7 && Prod_7_Level < 99)
         {
             GameManager.money -= Pd7;
             Prod_7_Level++;
             Pd7 = (long)((float)Pd7 * UpTimes);
 
             Level.text = Prod_7_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney7 * Prod_7_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd7.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney7 * Prod_7_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd7);
             ProdLevel_07.text = Prod_7_Level.ToString();
+            Product_Reward02_07.SetActive(true);
         }
-        else if (PanelNum == 8)
+        else if (PanelNum == 8 && GameManager.money >= Pd8 && Prod_8_Level < 99)
         {
             GameManager.money -= Pd8;
             Prod_8_Level++;
             Pd8 = (long)((float)Pd8 * UpTimes);
 
             Level.text = Prod_8_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney8 * Prod_8_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd8.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney8 * Prod_8_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd8);
             ProdLevel_08.text = Prod_8_Level.ToString();
         }
-        else if (PanelNum == 9)
+        else if (PanelNum == 9 && GameManager.money >= Pd9 && Prod_9_Level < 99)
         {
             GameManager.money -= Pd9;
             Prod_9_Level++;
             Pd9 = (long)((float)Pd9 * UpTimes);
 
             Level.text = Prod_9_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience9 * Prod_9_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd9.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience9 * Prod_9_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd9);
             ProdLevel_09.text = Prod_9_Level.ToString();
         }
-        else if (PanelNum == 10)
+        else if (PanelNum == 10 && GameManager.money >= Pd10 && Prod_10_Level < 99)
         {
             GameManager.money -= Pd10;
             Prod_10_Level++;
             Pd10 = (long)((float)Pd10 * UpTimes);
 
             Level.text = Prod_10_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney10 * Prod_10_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd10.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney10 * Prod_10_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd10);
             ProdLevel_10.text = Prod_10_Level.ToString();
         }
-        else if (PanelNum == 11)
+        else if (PanelNum == 11 && GameManager.money >= Pd11 && Prod_11_Level < 99)
         {
             GameManager.money -= Pd11;
             Prod_11_Level++;
             Pd11 = (long)((float)Pd11 * UpTimes);
 
             Level.text = Prod_11_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney11 * Prod_11_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd11.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney11 * Prod_11_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd11);
             ProdLevel_11.text = Prod_11_Level.ToString();
         }
-        else if (PanelNum == 12)
+        else if (PanelNum == 12 && GameManager.money >= Pd12 && Prod_12_Level < 99)
         {
             GameManager.money -= Pd12;
             Prod_12_Level++;
             Pd12 = (long)((float)Pd12 * UpTimes);
 
             Level.text = Prod_12_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney12 * Prod_12_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd12.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney12 * Prod_12_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd12);
             ProdLevel_12.text = Prod_12_Level.ToString();
         }
-        else if (PanelNum == 13)
+        else if (PanelNum == 13 && GameManager.money >= Pd13 && Prod_13_Level < 99)
         {
             GameManager.money -= Pd13;
             Prod_13_Level++;
             Pd13 = (long)((float)Pd13 * UpTimes);
 
             Level.text = Prod_13_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience13 * Prod_13_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd13.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience13 * Prod_13_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd13);
             ProdLevel_13.text = Prod_13_Level.ToString();
         }
-        else if (PanelNum == 14)
+        else if (PanelNum == 14 && GameManager.money >= Pd14 && Prod_14_Level < 99)
         {
             GameManager.money -= Pd14;
             Prod_14_Level++;
             Pd14 = (long)((float)Pd14 * UpTimes);
 
             Level.text = Prod_14_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney14 * Prod_14_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd14.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney14 * Prod_14_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd14);
             ProdLevel_14.text = Prod_14_Level.ToString();
         }
-        else if (PanelNum == 15)
+        else if (PanelNum == 15 && GameManager.money >= Pd15 && Prod_15_Level < 99)
         {
             GameManager.money -= Pd15;
             Prod_15_Level++;
             Pd15 = (long)((float)Pd15 * UpTimes);
 
             Level.text = Prod_15_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience15 * Prod_15_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd15.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience15 * Prod_15_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd15);
             ProdLevel_15.text = Prod_15_Level.ToString();
         }
-        else if (PanelNum == 17)
+        else if (PanelNum == 17 && GameManager.money >= Pd17 && Prod_17_Level < 99)
         {
             GameManager.money -= Pd17;
             Prod_17_Level++;
             Pd17 = (long)((float)Pd17 * UpTimes);
 
             Level.text = Prod_17_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney17 * Prod_17_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd17.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney17 * Prod_17_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd17);
             ProdLevel_17.text = Prod_17_Level.ToString();
         }
-        else if (PanelNum == 18)
+        else if (PanelNum == 18 && GameManager.money >= Pd18 && Prod_18_Level < 99)
         {
             GameManager.money -= Pd18;
             Prod_18_Level++;
             Pd18 = (long)((float)Pd18 * UpTimes);
 
             Level.text = Prod_18_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience18 * Prod_18_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd18.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience18 * Prod_18_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd18);
             ProdLevel_18.text = Prod_18_Level.ToString();
+            Product_Reward04_18.SetActive(true);
         }
-        else if (PanelNum == 19)
+        else if (PanelNum == 19 && GameManager.money >= Pd19 && Prod_19_Level < 99)
         {
             GameManager.money -= Pd19;
             Prod_19_Level++;
             Pd19 = (long)((float)Pd19 * UpTimes);
 
             Level.text = Prod_19_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney19 * Prod_19_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd19.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney19 * Prod_19_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd19);
             ProdLevel_19.text = Prod_19_Level.ToString();
         }
-        else if (PanelNum == 20)
+        else if (PanelNum == 20 && GameManager.money >= Pd20 && Prod_20_Level < 99)
         {
             GameManager.money -= Pd20;
             Prod_20_Level++;
             Pd20 = (long)((float)Pd20 * UpTimes);
 
             Level.text = Prod_20_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney20 * Prod_20_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd20.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney20 * Prod_20_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd20);
             ProdLevel_20.text = Prod_20_Level.ToString();
         }
-        else if (PanelNum == 21)
+        else if (PanelNum == 21 && GameManager.money >= Pd21 && Prod_21_Level < 99)
         {
             GameManager.money -= Pd21;
             Prod_21_Level++;
             Pd21 = (long)((float)Pd21 * UpTimes);
 
             Level.text = Prod_21_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney21 * Prod_21_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd21.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney21 * Prod_21_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd21);
             ProdLevel_21.text = Prod_21_Level.ToString();
         }
-        else if (PanelNum == 22)
+        else if (PanelNum == 22 && GameManager.money >= Pd22 && Prod_22_Level < 99)
         {
             GameManager.money -= Pd22;
             Prod_22_Level++;
             Pd22 = (long)((float)Pd22 * UpTimes);
 
             Level.text = Prod_22_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience22 * Prod_22_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd22.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience22 * Prod_22_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd22);
             ProdLevel_22.text = Prod_22_Level.ToString();
         }
-        else if (PanelNum == 23)
+        else if (PanelNum == 23 && GameManager.money >= Pd23 && Prod_23_Level < 99)
         {
             GameManager.money -= Pd23;
             Prod_23_Level++;
             Pd23 = (long)((float)Pd23 * UpTimes);
 
             Level.text = Prod_23_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney23 * Prod_23_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd23.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney23 * Prod_23_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd23);
             ProdLevel_23.text = Prod_23_Level.ToString();
         }
-        else if (PanelNum == 24)
+        else if (PanelNum == 24 && GameManager.money >= Pd24 && Prod_24_Level < 99)
         {
             GameManager.money -= Pd24;
             Prod_24_Level++;
             Pd24 = (long)((float)Pd24 * UpTimes);
 
             Level.text = Prod_24_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience24 * Prod_24_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd24.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience24 * Prod_24_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd24);
             ProdLevel_24.text = Prod_24_Level.ToString();
+            Product_Reward05_24.SetActive(true);
         }
-        else if (PanelNum == 25)
+        else if (PanelNum == 25 && GameManager.money >= Pd25 && Prod_25_Level < 99)
         {
             GameManager.money -= Pd25;
             Prod_25_Level++;
             Pd25 = (long)((float)Pd25 * UpTimes);
 
             Level.text = Prod_25_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney25 * Prod_25_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd25.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney25 * Prod_25_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd25);
             ProdLevel_25.text = Prod_25_Level.ToString();
         }
-        else if (PanelNum == 26)
+        else if (PanelNum == 26 && GameManager.money >= Pd26 && Prod_26_Level < 99)
         {
             GameManager.money -= Pd26;
             Prod_26_Level++;
             Pd26 = (long)((float)Pd26 * UpTimes);
 
             Level.text = Prod_26_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney26 * Prod_26_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd26.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney26 * Prod_26_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd26);
             ProdLevel_26.text = Prod_26_Level.ToString();
         }
-        else if (PanelNum == 27)
+        else if (PanelNum == 27 && GameManager.money >= Pd27 && Prod_27_Level < 99)
         {
             GameManager.money -= Pd27;
             Prod_27_Level++;
             Pd27 = (long)((float)Pd27 * UpTimes);
 
             Level.text = Prod_27_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience27 * Prod_27_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd27.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience27 * Prod_27_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd27);
             ProdLevel_27.text = Prod_27_Level.ToString();
         }
-        else if (PanelNum == 28)
+        else if (PanelNum == 28 && GameManager.money >= Pd28 && Prod_28_Level < 99)
         {
             GameManager.money -= Pd28;
             Prod_28_Level++;
             Pd28 = (long)((float)Pd28 * UpTimes);
 
             Level.text = Prod_28_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney28 * Prod_28_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd28.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney28 * Prod_28_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd28);
             ProdLevel_28.text = Prod_28_Level.ToString();
         }
-        else if (PanelNum == 29)
+        else if (PanelNum == 29 && GameManager.money >= Pd29 && Prod_29_Level < 99)
         {
             GameManager.money -= Pd29;
             Prod_29_Level++;
             Pd29 = (long)((float)Pd29 * UpTimes);
 
             Level.text = Prod_29_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney29 * Prod_29_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd29.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney29 * Prod_29_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd29);
             ProdLevel_29.text = Prod_29_Level.ToString();
         }
-        else if (PanelNum == 30)
+        else if (PanelNum == 30 && GameManager.money >= Pd30 && Prod_30_Level < 99)
         {
             GameManager.money -= Pd30;
             Prod_30_Level++;
             Pd30 = (long)((float)Pd30 * UpTimes);
 
             Level.text = Prod_30_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney30 * Prod_30_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd30.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney30 * Prod_30_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd30);
             ProdLevel_30.text = Prod_30_Level.ToString();
         }
-        else if (PanelNum == 31)
+        else if (PanelNum == 31 && GameManager.money >= Pd31 && Prod_31_Level < 99)
         {
             GameManager.money -= Pd31;
             Prod_31_Level++;
             Pd31 = (long)((float)Pd31 * UpTimes);
 
             Level.text = Prod_31_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience31 * Prod_31_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd31.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience31 * Prod_31_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd31);
             ProdLevel_31.text = Prod_31_Level.ToString();
         }
-        else if (PanelNum == 32)
+        else if (PanelNum == 32 && GameManager.money >= Pd32 && Prod_32_Level < 99)
         {
             GameManager.money -= Pd32;
             Prod_32_Level++;
             Pd32 = (long)((float)Pd32 * UpTimes);
 
             Level.text = Prod_32_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney32 * Prod_32_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd32.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney32 * Prod_32_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd32);
             ProdLevel_32.text = Prod_32_Level.ToString();
         }
-        else if (PanelNum == 33)
+        else if (PanelNum == 33 && GameManager.money >= Pd33 && Prod_33_Level < 99)
         {
             GameManager.money -= Pd33;
             Prod_33_Level++;
             Pd33 = (long)((float)Pd33 * UpTimes);
 
             Level.text = Prod_33_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney33 * Prod_33_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd33.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney33 * Prod_33_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd33);
             ProdLevel_33.text = Prod_33_Level.ToString();
+            Product_Reward06_33.SetActive(true);
         }
-        else if (PanelNum == 34)
+        else if (PanelNum == 34 && GameManager.money >= Pd34 && Prod_34_Level < 99)
         {
             GameManager.money -= Pd34;
             Prod_34_Level++;
             Pd34 = (long)((float)Pd34 * UpTimes);
 
             Level.text = Prod_34_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience34 * Prod_34_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd34.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience34 * Prod_34_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd34);
             ProdLevel_34.text = Prod_34_Level.ToString();
         }
-        else if (PanelNum == 35)
+        else if (PanelNum == 35 && GameManager.money >= Pd35 && Prod_35_Level < 99)
         {
             GameManager.money -= Pd35;
             Prod_35_Level++;
             Pd35 = (long)((float)Pd35 * UpTimes);
 
             Level.text = Prod_35_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney35 * Prod_35_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd35.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney35 * Prod_35_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd35);
             ProdLevel_35.text = Prod_35_Level.ToString();
         }
-        else if (PanelNum == 36)
+        else if (PanelNum == 36 && GameManager.money >= Pd36 && Prod_36_Level < 99)
         {
             GameManager.money -= Pd36;
             Prod_36_Level++;
             Pd36 = (long)((float)Pd36 * UpTimes);
 
             Level.text = Prod_36_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney36 * Prod_36_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd36.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney36 * Prod_36_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd36);
             ProdLevel_36.text = Prod_36_Level.ToString();
         }
-        else if (PanelNum == 37)
+        else if (PanelNum == 37 && GameManager.money >= Pd37 && Prod_37_Level < 99)
         {
             GameManager.money -= Pd37;
             Prod_37_Level++;
             Pd37 = (long)((float)Pd37 * UpTimes);
 
             Level.text = Prod_37_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience37 * Prod_37_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd37.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney37 * Prod_37_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd37);
             ProdLevel_37.text = Prod_37_Level.ToString();
+            Product_Reward08_37.SetActive(true);
         }
-        else if (PanelNum == 38)
+        else if (PanelNum == 38 && GameManager.money >= Pd38 && Prod_38_Level < 99)
         {
             GameManager.money -= Pd38;
             Prod_38_Level++;
             Pd38 = (long)((float)Pd38 * UpTimes);
 
             Level.text = Prod_38_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney38 * Prod_38_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd38.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney38 * Prod_38_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd38);
             ProdLevel_38.text = Prod_38_Level.ToString();
         }
-        else if (PanelNum == 39)
+        else if (PanelNum == 39 && GameManager.money >= Pd39 && Prod_39_Level < 99)
         {
             GameManager.money -= Pd39;
             Prod_39_Level++;
             Pd39 = (long)((float)Pd39 * UpTimes);
 
             Level.text = Prod_39_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney39 * Prod_39_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd39.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney39 * Prod_39_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd39);
             ProdLevel_39.text = Prod_39_Level.ToString();
         }
-        else if (PanelNum == 40)
+        else if (PanelNum == 40 && GameManager.money >= Pd40 && Prod_40_Level < 99)
         {
             GameManager.money -= Pd40;
             Prod_40_Level++;
             Pd40 = (long)((float)Pd40 * UpTimes);
 
             Level.text = Prod_40_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience40 * Prod_40_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd40.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience40 * Prod_40_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd40);
             ProdLevel_40.text = Prod_40_Level.ToString();
         }
-        else if (PanelNum == 41)
+        else if (PanelNum == 41 && GameManager.money >= Pd41 && Prod_41_Level < 99)
         {
             GameManager.money -= Pd41;
             Prod_41_Level++;
             Pd41 = (long)((float)Pd41 * UpTimes);
 
             Level.text = Prod_41_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney41 * Prod_41_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd41.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney41 * Prod_41_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd41);
             ProdLevel_41.text = Prod_41_Level.ToString();
         }
-        else if (PanelNum == 42)
+        else if (PanelNum == 42 && GameManager.money >= Pd42 && Prod_42_Level < 99)
         {
             GameManager.money -= Pd42;
             Prod_42_Level++;
             Pd42 = (long)((float)Pd42 * UpTimes);
 
             Level.text = Prod_42_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney42 * Prod_42_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd42.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney42 * Prod_42_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd42);
             ProdLevel_42.text = Prod_42_Level.ToString();
+            Product_Reward09_42.SetActive(true);
         }
-        else if (PanelNum == 43)
+        else if (PanelNum == 43 && GameManager.money >= Pd43 && Prod_43_Level < 99)
         {
             GameManager.money -= Pd43;
             Prod_43_Level++;
             Pd43 = (long)((float)Pd43 * UpTimes);
 
             Level.text = Prod_43_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience43 * Prod_43_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd43.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience43 * Prod_43_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd43);
             ProdLevel_43.text = Prod_43_Level.ToString();
         }
-        else if (PanelNum == 44)
+        else if (PanelNum == 44 && GameManager.money >= Pd44 && Prod_44_Level < 99)
         {
             GameManager.money -= Pd44;
             Prod_44_Level++;
             Pd44 = (long)((float)Pd44 * UpTimes);
 
             Level.text = Prod_44_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney44 * Prod_44_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd44.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney44 * Prod_44_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd44);
             ProdLevel_44.text = Prod_44_Level.ToString();
+            Product_Reward10_44.SetActive(true);
         }
-        else if (PanelNum == 45)
+        else if (PanelNum == 45 && GameManager.money >= Pd45 && Prod_45_Level < 99)
         {
             GameManager.money -= Pd45;
             Prod_45_Level++;
             Pd45 = (long)((float)Pd45 * UpTimes);
 
             Level.text = Prod_45_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney45 * Prod_45_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd45.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney45 * Prod_45_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd45);
             ProdLevel_45.text = Prod_45_Level.ToString();
         }
-        else if (PanelNum == 46)
+        else if (PanelNum == 46 && GameManager.money >= Pd46 && Prod_46_Level < 99)
         {
             GameManager.money -= Pd46;
             Prod_46_Level++;
             Pd46 = (long)((float)Pd46 * UpTimes);
 
             Level.text = Prod_46_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney46 * Prod_46_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd46.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney46 * Prod_46_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd46);
             ProdLevel_46.text = Prod_46_Level.ToString();
         }
-        else if (PanelNum == 47)
+        else if (PanelNum == 47 && GameManager.money >= Pd47 && Prod_47_Level < 99)
         {
             GameManager.money -= Pd47;
             Prod_47_Level++;
             Pd47 = (long)((float)Pd47 * UpTimes);
 
             Level.text = Prod_47_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience47 * Prod_47_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd47.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience47 * Prod_47_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd47);
             ProdLevel_47.text = Prod_47_Level.ToString();
         }
-        else if (PanelNum == 48)
+        else if (PanelNum == 48 && GameManager.money >= Pd48 && Prod_48_Level < 99)
         {
             GameManager.money -= Pd48;
             Prod_48_Level++;
             Pd48 = (long)((float)Pd48 * UpTimes);
 
             Level.text = Prod_48_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney48 * Prod_48_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd48.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney48 * Prod_48_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd48);
             ProdLevel_48.text = Prod_48_Level.ToString();
         }
-        else if (PanelNum == 49)
+        else if (PanelNum == 49 && GameManager.money >= Pd49 && Prod_49_Level < 99)
         {
             GameManager.money -= Pd49;
             Prod_49_Level++;
             Pd49 = (long)((float)Pd49 * UpTimes);
 
             Level.text = Prod_49_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience49 * Prod_49_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd49.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience49 * Prod_49_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd49);
             ProdLevel_49.text = Prod_49_Level.ToString();
         }
-        else if (PanelNum == 51)
+        else if (PanelNum == 51 && GameManager.money >= Pd51 && Prod_51_Level < 99)
         {
             GameManager.money -= Pd51;
             Prod_51_Level++;
             Pd51 = (long)((float)Pd51 * UpTimes);
 
             Level.text = Prod_51_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney51 * Prod_51_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd51.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney51 * Prod_51_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd51);
             ProdLevel_51.text = Prod_51_Level.ToString();
         }
-        else if (PanelNum == 52)
+        else if (PanelNum == 52 && GameManager.money >= Pd52 && Prod_52_Level < 99)
         {
             GameManager.money -= Pd52;
             Prod_52_Level++;
             Pd52 = (long)((float)Pd52 * UpTimes);
 
             Level.text = Prod_52_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience52 * Prod_52_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd52.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience52 * Prod_52_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd52);
             ProdLevel_52.text = Prod_52_Level.ToString();
         }
-        else if (PanelNum == 53)
+        else if (PanelNum == 53 && GameManager.money >= Pd53 && Prod_53_Level < 99)
         {
             GameManager.money -= Pd53;
             Prod_53_Level++;
             Pd53 = (long)((float)Pd53 * UpTimes);
 
             Level.text = Prod_53_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney53 * Prod_53_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd53.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney53 * Prod_53_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd53);
             ProdLevel_53.text = Prod_53_Level.ToString();
         }
-        else if (PanelNum == 54)
+        else if (PanelNum == 54 && GameManager.money >= Pd54 && Prod_54_Level < 99)
         {
             GameManager.money -= Pd54;
             Prod_54_Level++;
             Pd54 = (long)((float)Pd54 * UpTimes);
 
             Level.text = Prod_54_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience54 * Prod_54_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd54.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience54 * Prod_54_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd54);
             ProdLevel_54.text = Prod_54_Level.ToString();
         }
-        else if (PanelNum == 55)
+        else if (PanelNum == 55 && GameManager.money >= Pd55 && Prod_55_Level < 99)
         {
             GameManager.money -= Pd55;
             Prod_55_Level++;
             Pd55 = (long)((float)Pd55 * UpTimes);
 
             Level.text = Prod_55_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney55 * Prod_55_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd55.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney55 * Prod_55_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd55);
             ProdLevel_55.text = Prod_55_Level.ToString();
         }
-        else if (PanelNum == 56)
+        else if (PanelNum == 56 && GameManager.money >= Pd56 && Prod_56_Level < 99)
         {
             GameManager.money -= Pd56;
             Prod_56_Level++;
             Pd56 = (long)((float)Pd56 * UpTimes);
 
             Level.text = Prod_56_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney56 * Prod_56_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd56.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney56 * Prod_56_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd56);
             ProdLevel_56.text = Prod_56_Level.ToString();
         }
-        else if (PanelNum == 58)
+        else if (PanelNum == 58 && GameManager.money >= Pd58 && Prod_58_Level < 99)
         {
             GameManager.money -= Pd58;
             Prod_58_Level++;
             Pd58 = (long)((float)Pd58 * UpTimes);
 
             Level.text = Prod_58_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience58 * Prod_58_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd58.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience58 * Prod_58_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd58);
             ProdLevel_58.text = Prod_58_Level.ToString();
         }
-        else if (PanelNum == 59)
+        else if (PanelNum == 59 && GameManager.money >= Pd59 && Prod_59_Level < 99)
         {
             GameManager.money -= Pd59;
             Prod_59_Level++;
             Pd59 = (long)((float)Pd59 * UpTimes);
 
             Level.text = Prod_59_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney59 * Prod_59_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd59.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney59 * Prod_59_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd59);
             ProdLevel_59.text = Prod_59_Level.ToString();
         }
-        else if (PanelNum == 60)
+        else if (PanelNum == 60 && GameManager.money >= Pd60 && Prod_60_Level < 99)
         {
             GameManager.money -= Pd60;
             Prod_60_Level++;
             Pd60 = (long)((float)Pd60 * UpTimes);
 
             Level.text = Prod_60_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience60 * Prod_60_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd60.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience60 * Prod_60_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd60);
             ProdLevel_60.text = Prod_60_Level.ToString();
+            Product_Reward14_60.SetActive(true);
         }
-        else if (PanelNum == 61)
+        else if (PanelNum == 61 && GameManager.money >= Pd61 && Prod_61_Level < 99)
         {
             GameManager.money -= Pd61;
             Prod_61_Level++;
             Pd61 = (long)((float)Pd61 * UpTimes);
 
             Level.text = Prod_61_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney61 * Prod_61_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd61.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney61 * Prod_61_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd61);
             ProdLevel_61.text = Prod_61_Level.ToString();
         }
-        else if (PanelNum == 62)
+        else if (PanelNum == 62 && GameManager.money >= Pd62 && Prod_62_Level < 99)
         {
             GameManager.money -= Pd62;
             Prod_62_Level++;
             Pd62 = (long)((float)Pd62 * UpTimes);
 
             Level.text = Prod_62_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney62 * Prod_62_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd62.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney62 * Prod_62_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd62);
             ProdLevel_62.text = Prod_62_Level.ToString();
         }
-        else if (PanelNum == 63)
+        else if (PanelNum == 63 && GameManager.money >= Pd63 && Prod_63_Level < 99)
         {
             GameManager.money -= Pd63;
             Prod_63_Level++;
             Pd63 = (long)((float)Pd63 * UpTimes);
 
             Level.text = Prod_63_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience63 * Prod_63_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd63.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience63 * Prod_63_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd63);
             ProdLevel_63.text = Prod_63_Level.ToString();
         }
-        else if (PanelNum == 64)
+        else if (PanelNum == 64 && GameManager.money >= Pd64 && Prod_64_Level < 99)
         {
             GameManager.money -= Pd64;
             Prod_64_Level++;
             Pd64 = (long)((float)Pd64 * UpTimes);
 
             Level.text = Prod_64_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney64 * Prod_64_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd64.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney64 * Prod_64_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd64);
             ProdLevel_64.text = Prod_64_Level.ToString();
         }
-        else if (PanelNum == 65)
+        else if (PanelNum == 65 && GameManager.money >= Pd65 && Prod_65_Level < 99)
         {
             GameManager.money -= Pd65;
             Prod_65_Level++;
             Pd65 = (long)((float)Pd65 * UpTimes);
 
             Level.text = Prod_65_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney65 * Prod_65_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd65.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney65 * Prod_65_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd65);
             ProdLevel_65.text = Prod_65_Level.ToString();
         }
-        else if (PanelNum == 66)
+        else if (PanelNum == 66 && GameManager.money >= Pd66 && Prod_66_Level < 99)
         {
             GameManager.money -= Pd66;
             Prod_66_Level++;
             Pd66 = (long)((float)Pd66 * UpTimes);
 
             Level.text = Prod_66_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience66 * Prod_66_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd66.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience66 * Prod_66_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd66);
             ProdLevel_66.text = Prod_66_Level.ToString();
         }
-        else if (PanelNum == 67)
+        else if (PanelNum == 67 && GameManager.money >= Pd67 && Prod_67_Level < 99)
         {
             GameManager.money -= Pd67;
             Prod_67_Level++;
             Pd67 = (long)((float)Pd67 * UpTimes);
 
             Level.text = Prod_67_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney67 * Prod_67_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd67.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney67 * Prod_67_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd67);
             ProdLevel_67.text = Prod_67_Level.ToString();
         }
-        else if (PanelNum == 68)
+        else if (PanelNum == 68 && GameManager.money >= Pd68 && Prod_68_Level < 99)
         {
             GameManager.money -= Pd68;
             Prod_68_Level++;
             Pd68 = (long)((float)Pd68 * UpTimes);
 
             Level.text = Prod_68_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney68 * Prod_68_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd68.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney68 * Prod_68_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd68);
             ProdLevel_68.text = Prod_68_Level.ToString();
         }
-        else if (PanelNum == 69)
+        else if (PanelNum == 69 && GameManager.money >= Pd69 && Prod_69_Level < 99)
         {
             GameManager.money -= Pd69;
             Prod_69_Level++;
             Pd69 = (long)((float)Pd69 * UpTimes);
 
             Level.text = Prod_69_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoScience69 * Prod_69_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd69.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoScience69 * Prod_69_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd69);
             ProdLevel_69.text = Prod_69_Level.ToString();
         }
-        else if (PanelNum == 70)
+        else if (PanelNum == 70 && GameManager.money >= Pd70 && Prod_70_Level < 99)
         {
             GameManager.money -= Pd70;
             Prod_70_Level++;
             Pd70 = (long)((float)Pd70 * UpTimes);
 
             Level.text = Prod_70_Level.ToString();
-            TotalProdMoneyText.text = (perOneAutoMoney70 * Prod_70_Level).ToString("###,###") + paneltext2;
-            UpPriceText.text = Pd70.ToString("###,###");
+            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney70 * Prod_70_Level) + paneltext2;
+            UpPriceText.text = UnitTransform(Pd70);
             ProdLevel_70.text = Prod_70_Level.ToString();
         }
-        else if (PanelNum == 71)
+        else if (PanelNum == 71 && GameManager.money >= PdS01 && Prod_S01_Level < 1)
         {
             GameManager.money -= PdS01;
             Prod_S01_Level++;
             UpPriceText.text = "기능 적용 중";
         }
+        else if (PanelNum == 72 && GameManager.money >= PdS02 && Prod_S02_Level < 1)
+        {
+            GameManager.money -= PdS02;
+            Prod_S02_Level++;
+            UpPriceText.text = "기능 적용 중";
+        }
+        else if (PanelNum == 73 && GameManager.money >= PdS03 && Prod_S03_Level < 1)
+        {
+            GameManager.money -= PdS03;
+            Prod_S03_Level++;
+            UpPriceText.text = "기능 적용 중";
+            Product_Reward12_S03.SetActive(true);
+        }
+        else if (PanelNum == 74 && GameManager.money >= PdS04 && Prod_S04_Level < 1)
+        {
+            GameManager.money -= PdS04;
+            Prod_S04_Level++;
+            UpPriceText.text = "기능 적용 중";
+        }
+
     }
 
     IEnumerator ProdUpButtonCheck() // 코루틴 반복함수, 제품업글 버튼 활성화 여부 0.2초 단위로 체크
@@ -3603,6 +3783,50 @@ public class ProductManager : MonoBehaviour
                     UpgradeProdButton.interactable = false;
                 }
             }
+            else if (PanelNum == 71)
+            {
+                if (GameManager.money >= PdS01 && Prod_S01_Level < 1)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 72)
+            {
+                if (GameManager.money >= PdS02 && Prod_S02_Level < 1)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 73)
+            {
+                if (GameManager.money >= PdS03 && Prod_S03_Level < 1)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
+            else if (PanelNum == 74)
+            {
+                if (GameManager.money >= PdS04 && Prod_S04_Level < 1)
+                {
+                    UpgradeProdButton.interactable = true;
+                }
+                else
+                {
+                    UpgradeProdButton.interactable = false;
+                }
+            }
             else
             {
                 UpgradeProdButton.interactable = false;
@@ -3612,7 +3836,7 @@ public class ProductManager : MonoBehaviour
         }
     }
 
-    IEnumerator SpecialProductButtonCheck()
+    IEnumerator SpecialProductIconCheck()
     {
         while(true)
         {
@@ -3620,13 +3844,36 @@ public class ProductManager : MonoBehaviour
             {
                 PdS01Complete = true;
                 ProdBtnS01.SetActive(true);
-            } // 다음 혁신제품 else if로 절대 하면안됨!!!! (완료 시 주석 지우기)
+            }
+
+            if (PdS02Complete == false && Prod_35_Level > 0 && Prod_26_Level > 0 && Prod_28_Level > 0 && Prod_29_Level > 0 && Prod_32_Level > 0 && Prod_33_Level > 0 && Prod_24_Level > 0)
+            {
+                PdS02Complete = true;
+                ProdBtnS02.SetActive(true);
+            }
+
+            if (PdS03Complete == false && Prod_49_Level > 0 && Prod_40_Level > 0 && Prod_43_Level > 0 && Prod_47_Level > 0 && Prod_48_Level > 0 && Prod_38_Level > 0)
+            {
+                PdS03Complete = true;
+                ProdBtnS03.SetActive(true);
+            }
+
+            if (PdS04Complete == false && Prod_65_Level > 0 && Prod_59_Level > 0 && Prod_60_Level > 0 && Prod_61_Level > 0 && Prod_58_Level > 0)
+            {
+                PdS04Complete = true;
+                ProdBtnS04.SetActive(true);
+            }
+
+            if (PdS04Complete == true && PdS03Complete == true && PdS02Complete == true && PdS01Complete == true)
+            {
+                yield break;
+            }
 
             yield return new WaitForSeconds(0.5f);
         }
     }
 
-    void SaveDataCheck_ProdUnlock()
+    void SaveDataCheck_ProdUnlock() // 세이브로드 관련
     {
         if (TechManager.Tech1Complete == true)
         {

@@ -56,7 +56,7 @@ public class ScienceMove : MonoBehaviour
                 sii_image.color = new Color32(255, 255, 255, 255);
                 sii_text.color = new Color32(95, 161, 222, 255);
 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
 
                 while (true)
                 {

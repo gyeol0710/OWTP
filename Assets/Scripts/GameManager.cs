@@ -44,10 +44,14 @@ public class GameManager : MonoBehaviour
     static public bool RePlay;
 
     static public long money; // 돈
+    public long ConvertedMoney; // 변환된 돈
     public long DisplayedMoney; // 표시되는 돈
     public long moneyIncreaseAmount; // 클릭 시 돈 증가량
     static public long science; // 연구력
+    public long ConvertedScience; // 변환된 연구력
     static public long scienceIncreaseAmount; // 클릭 시 연구력 증가량
+    public string MoneyUnitSize; // 돈 변환 단위
+    public string ScienceUnitSize; // 돈 변환 단위
 
     public long robotLevelUpPrice; // 로봇 레벨업 비용
     public long robotTierUpPrice; // 로봇 티어업 비용
@@ -73,6 +77,7 @@ public class GameManager : MonoBehaviour
     public GameObject Offer02;
     public GameObject Offer03;
     public ScrollRect ScR; // 제안창 스크롤렉트 코루틴 강제 진행을 위해 스프라이트 이미지 컬러 접근을 위한 변수
+    public GameObject JokeButton;
 
     static public bool gomsg;
 
@@ -81,8 +86,13 @@ public class GameManager : MonoBehaviour
     public GameObject Noti_T;
     public GameObject Noti_O;
 
-    public GameObject panel_robot;
+    public Image Click_Button;
+    public Sprite Button_normal;
+    public Sprite Button_normal_pushed;
 
+    public GameObject panel_robot;
+    
+    //-----------------------------------------
     static public float SpaceshipGoldBonus;
     static public float AdGoldBonus;
     static public float CashGoldBonus;
@@ -92,6 +102,10 @@ public class GameManager : MonoBehaviour
     static public int ClickCount_Fuel2;
     static public bool Story_Fuel2_Complete;
     static public float Fuel2GoldDebuff;
+
+    static public float FinalGoldBonus;
+    static public float FinalScienceBonus;
+    //-----------------------------------------
 
     void Awake()
     {
@@ -107,15 +121,27 @@ public class GameManager : MonoBehaviour
         CashGoldBonus = 1f;
         SpaceshipScienceBonus = 1.1f;
         Fuel2GoldDebuff = 1f;
+        FinalGoldBonus = 1f;
+        FinalScienceBonus = 1f;
     }
 
     void Start()
     {
+        if (robotLevel == 0)
+        {
+            robotLevelUpPrice = StandardConst_IND_Need;
+        }
         // StartCoroutine(save());
         StartCoroutine(AutoMoney());
         StartCoroutine(AutoScience());
         StartCoroutine(RobotGoldUpMec());
         StartCoroutine(ScienceUpMec());
+        StartCoroutine(MoneyTransform());
+        StartCoroutine(ScienceTransform());
+        StartCoroutine(ShowInfo());
+        StartCoroutine(UpdateRobotPanelText());
+        StartCoroutine(RobotLevelUpButtonActiveCheck());
+        StartCoroutine(FinalBonus());
         if (RePlay == false)
         {
             money = 0;
@@ -129,10 +155,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        ShowInfo();
-        UpdateRobotPanelText();
-        RobotLevelUpButtonActiveCheck();
-        RobotGoldUpNeedMec();
+
     }
 
     private void OnApplicationQuit()
@@ -142,7 +165,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator save()
     {
-        while(true)
+        while (true)
         {
             Save();
             yield return new WaitForSeconds(0.5f);
@@ -181,7 +204,7 @@ public class GameManager : MonoBehaviour
 
     public void MoneyIncrease()
     {
-        money += (long)(moneyIncreaseAmount * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
+        money += (long)(moneyIncreaseAmount * FinalGoldBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
         Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
@@ -198,178 +221,327 @@ public class GameManager : MonoBehaviour
 
     public void ScienceIncrease()
     {
-        if(robotLevel >= 1)
+        if (robotLevel >= 1)
         {
-            science += (long)(scienceIncreaseAmount * SpaceshipScienceBonus); // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
+            science += (long)(scienceIncreaseAmount * FinalScienceBonus); // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
             Instantiate(prefabScience, panel_robot.transform);
         }
-        
+
     }
 
-    void ShowInfo()
+    IEnumerator FinalBonus()
     {
-        if (DisplayedMoney != money)
+        while(true)
         {
-            if (DisplayedMoney < money)
-            {
-                long DIF = money - DisplayedMoney;
+            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus * Fuel2GoldDebuff;
+            FinalScienceBonus = 1 * SpaceshipScienceBonus;
 
-                /*
-                for(int n=10; n < 0; n--)
-                {
-                    int val = 1;
-                    for(int m = 0; n<=m; m++)
-                    {
-                        val = val * 10;
-                    }
-                    if (DIF > val)
-                    {
-                        DisplayedMoney = DisplayedMoney + val;
-                        val = 1;
-                    }
-                }
-                */ //반복문 안먹음 일단 서렌 ㄱ
-
-                if (DIF > 11111111111110)
-                {
-                    DisplayedMoney += 10000000000000;
-                }
-                if (DIF > 1111111111110)
-                {
-                    DisplayedMoney += 1000000000000;
-                }
-                if (DIF > 111111111110)
-                {
-                    DisplayedMoney += 100000000000;
-                }
-                if (DIF > 11111111110)
-                {
-                    DisplayedMoney += 10000000000;
-                }
-                if (DIF > 1111111110)
-                {
-                    DisplayedMoney += 1000000000;
-                }
-                if (DIF > 111111110)
-                {
-                    DisplayedMoney += 100000000;
-                }
-                if (DIF > 11111110)
-                {
-                    DisplayedMoney += 10000000;
-                }
-                if (DIF > 1111110)
-                {
-                    DisplayedMoney += 1000000;
-                }
-                if (DIF > 111110)
-                {
-                    DisplayedMoney += 100000;
-                }
-                if (DIF > 11110)
-                {
-                    DisplayedMoney += 10000;
-                }
-                if (DIF > 1110)
-                {
-                    DisplayedMoney += 1000;
-                }
-                if (DIF > 110)
-                {
-                    DisplayedMoney += 100;
-                }
-                if (DIF > 10)
-                {
-                    DisplayedMoney += 10;
-                }
-                if (DIF > 0)
-                {
-                    DisplayedMoney += 1;
-                }
-            }
-
-            else if (DisplayedMoney > money)
-            {
-                long DIF = DisplayedMoney - money;
-
-                if (DIF > 11111111111110)
-                {
-                    DisplayedMoney -= 10000000000000;
-                }
-                if (DIF > 1111111111110)
-                {
-                    DisplayedMoney -= 1000000000000;
-                }
-                if (DIF > 111111111110)
-                {
-                    DisplayedMoney -= 100000000000;
-                }
-                if (DIF > 11111111110)
-                {
-                    DisplayedMoney -= 10000000000;
-                }
-                if (DIF > 1111111110)
-                {
-                    DisplayedMoney -= 1000000000;
-                }
-                if (DIF > 111111110)
-                {
-                    DisplayedMoney -= 100000000;
-                }
-                if (DIF > 11111110)
-                {
-                    DisplayedMoney -= 10000000;
-                }
-                if (DIF > 1111110)
-                {
-                    DisplayedMoney -= 1000000;
-                }
-                if (DIF > 111110)
-                {
-                    DisplayedMoney -= 100000;
-                }
-                if (DIF > 11110)
-                {
-                    DisplayedMoney -= 10000;
-                }
-                if (DIF > 1110)
-                {
-                    DisplayedMoney -= 1000;
-                }
-                if (DIF > 110)
-                {
-                    DisplayedMoney -= 100;
-                }
-                if (DIF > 10)
-                {
-                    DisplayedMoney -= 10;
-                }
-                if (DIF > 0)
-                {
-                    DisplayedMoney -= 1;
-                }
-            }
+            yield return new WaitForSeconds(0.5f);
         }
-
-        if (money == 0)
-            textMoney.text = "0";
-        else
-            textMoney.text = DisplayedMoney.ToString("###,###");
-
-        if (science == 0)
-            textScience.text = "0";
-        else
-            textScience.text = science.ToString("###,###");
-
-        textYears.text = years.ToString("####" + "년");
     }
 
-    void UpdateRobotPanelText()
+    public void pushButton()
     {
+        StartCoroutine(PushButton());
+    }
+
+    IEnumerator PushButton()
+    {
+        Click_Button.sprite = Button_normal_pushed;
+
+        yield return new WaitForSeconds(0.05f);
+
+        Click_Button.sprite = Button_normal;
+
+        yield break;
+    }
+
+    IEnumerator MoneyTransform()
+    {
+        while(true)
+        {
+            if (money <= 999999999)
+            {
+                ConvertedMoney = money;
+                MoneyUnitSize = "";
+            }
+            else if (money <= 9999999999)
+            {
+                ConvertedMoney = money / 1000;
+                MoneyUnitSize = " k";
+            }
+            else if (money <= 99999999999)
+            {
+                ConvertedMoney = money / 1000;
+                MoneyUnitSize = " k";
+            }
+            else if (money <= 999999999999)
+            {
+                ConvertedMoney = money / 1000;
+                MoneyUnitSize = " k";
+            }
+            else if (money <= 9999999999999)
+            {
+                ConvertedMoney = money / 1000000;
+                MoneyUnitSize = " m";
+            }
+            else if (money <= 99999999999999)
+            {
+                ConvertedMoney = money / 1000000;
+                MoneyUnitSize = " m";
+            }
+            else if (money <= 999999999999999)
+            {
+                ConvertedMoney = money / 1000000;
+                MoneyUnitSize = " m";
+            }
+            else if (money <= 9999999999999999)
+            {
+                ConvertedMoney = money / 1000000000;
+                MoneyUnitSize = " b";
+            }
+            else if (money <= 99999999999999999)
+            {
+                ConvertedMoney = money / 1000000000;
+                MoneyUnitSize = " b";
+            }
+            else if (money <= 999999999999999999)
+            {
+                ConvertedMoney = money / 1000000000;
+                MoneyUnitSize = " b";
+            }
+            else if (money <= 9223372036854775807)
+            {
+                ConvertedMoney = money / 1000000000000;
+                MoneyUnitSize = " t";
+            }
+
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    IEnumerator ScienceTransform()
+    {
+        while (true)
+        {
+            if (science <= 999999999)
+            {
+                ConvertedScience = science;
+                ScienceUnitSize = "";
+            }
+            else if (science <= 9999999999)
+            {
+                ConvertedScience = science / 1000;
+                ScienceUnitSize = " k";
+            }
+            else if (science <= 99999999999)
+            {
+                ConvertedScience = science / 1000;
+                ScienceUnitSize = " k";
+            }
+            else if (science <= 999999999999)
+            {
+                ConvertedScience = science / 1000;
+                ScienceUnitSize = " k";
+            }
+            else if (science <= 9999999999999)
+            {
+                ConvertedScience = science / 1000000;
+                ScienceUnitSize = " m";
+            }
+            else if (science <= 99999999999999)
+            {
+                ConvertedScience = science / 1000000;
+                ScienceUnitSize = " m";
+            }
+            else if (science <= 999999999999999)
+            {
+                ConvertedScience = science / 1000000;
+                ScienceUnitSize = " m";
+            }
+            else if (science <= 9999999999999999)
+            {
+                ConvertedScience = science / 1000000000;
+                ScienceUnitSize = " b";
+            }
+            else if (science <= 99999999999999999)
+            {
+                ConvertedScience = science / 1000000000;
+                ScienceUnitSize = " b";
+            }
+            else if (science <= 999999999999999999)
+            {
+                ConvertedScience = science / 1000000000;
+                ScienceUnitSize = " b";
+            }
+            else if (science <= 9223372036854775807)
+            {
+                ConvertedScience = science / 1000000000000;
+                ScienceUnitSize = " t";
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator ShowInfo()
+    {
+        while(true)
+        {
+            if (DisplayedMoney != ConvertedMoney)
+            {
+                if (DisplayedMoney < ConvertedMoney)
+                {
+                    long DIF = ConvertedMoney - DisplayedMoney;
+
+                    if (DIF > 11111111111110)
+                    {
+                        DisplayedMoney += 10000000000000;
+                    }
+                    if (DIF > 1111111111110)
+                    {
+                        DisplayedMoney += 1000000000000;
+                    }
+                    if (DIF > 111111111110)
+                    {
+                        DisplayedMoney += 100000000000;
+                    }
+                    if (DIF > 11111111110)
+                    {
+                        DisplayedMoney += 10000000000;
+                    }
+                    if (DIF > 1111111110)
+                    {
+                        DisplayedMoney += 1000000000;
+                    }
+                    if (DIF > 111111110)
+                    {
+                        DisplayedMoney += 100000000;
+                    }
+                    if (DIF > 11111110)
+                    {
+                        DisplayedMoney += 10000000;
+                    }
+                    if (DIF > 1111110)
+                    {
+                        DisplayedMoney += 1000000;
+                    }
+                    if (DIF > 111110)
+                    {
+                        DisplayedMoney += 100000;
+                    }
+                    if (DIF > 11110)
+                    {
+                        DisplayedMoney += 10000;
+                    }
+                    if (DIF > 1110)
+                    {
+                        DisplayedMoney += 1000;
+                    }
+                    if (DIF > 110)
+                    {
+                        DisplayedMoney += 100;
+                    }
+                    if (DIF > 10)
+                    {
+                        DisplayedMoney += 10;
+                    }
+                    if (DIF > 0)
+                    {
+                        DisplayedMoney += 1;
+                    }
+                }
+
+                else if (DisplayedMoney > ConvertedMoney)
+                {
+                    long DIF = DisplayedMoney - ConvertedMoney;
+
+                    if (DIF > 11111111111110)
+                    {
+                        DisplayedMoney -= 10000000000000;
+                    }
+                    if (DIF > 1111111111110)
+                    {
+                        DisplayedMoney -= 1000000000000;
+                    }
+                    if (DIF > 111111111110)
+                    {
+                        DisplayedMoney -= 100000000000;
+                    }
+                    if (DIF > 11111111110)
+                    {
+                        DisplayedMoney -= 10000000000;
+                    }
+                    if (DIF > 1111111110)
+                    {
+                        DisplayedMoney -= 1000000000;
+                    }
+                    if (DIF > 111111110)
+                    {
+                        DisplayedMoney -= 100000000;
+                    }
+                    if (DIF > 11111110)
+                    {
+                        DisplayedMoney -= 10000000;
+                    }
+                    if (DIF > 1111110)
+                    {
+                        DisplayedMoney -= 1000000;
+                    }
+                    if (DIF > 111110)
+                    {
+                        DisplayedMoney -= 100000;
+                    }
+                    if (DIF > 11110)
+                    {
+                        DisplayedMoney -= 10000;
+                    }
+                    if (DIF > 1110)
+                    {
+                        DisplayedMoney -= 1000;
+                    }
+                    if (DIF > 110)
+                    {
+                        DisplayedMoney -= 100;
+                    }
+                    if (DIF > 10)
+                    {
+                        DisplayedMoney -= 10;
+                    }
+                    if (DIF > 0)
+                    {
+                        DisplayedMoney -= 1;
+                    }
+                }
+            }
+
+            if (money == 0)
+                textMoney.text = "0";
+            else
+                textMoney.text = DisplayedMoney.ToString("###,###") + MoneyUnitSize;
+
+            if (science == 0)
+                textScience.text = "0";
+            else
+                textScience.text = ConvertedScience.ToString("###,###") + ScienceUnitSize;
+
+            textYears.text = years.ToString("####" + "년");
+
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    IEnumerator UpdateRobotPanelText()
+    {
+        while(true)
+        {
             robotTierAndLevel.text = robotLevel + " 단계";
-            robotInfo1.text = "클릭 시       획득\n: " + moneyIncreaseAmount.ToString("###,###");
-            robotInfo2.text = "클릭 시       획득\n: " + scienceIncreaseAmount;
+            robotInfo1.text = "클릭 시       획득\n: " + ((long)(moneyIncreaseAmount * FinalGoldBonus)).ToString("###,###");
+            robotInfo2.text = "클릭 시       획득\n: " + ((long)(scienceIncreaseAmount * FinalScienceBonus)).ToString("###,###");
             robotInfo3.text = robotLevelUpPrice.ToString("###,###");
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     IEnumerator RobotGoldUpMec()
@@ -423,7 +595,7 @@ public class GameManager : MonoBehaviour
                     moneyIncreaseAmount = (long)((double)robotLevel * StandardConst_IND_GoldUp * (double)GoldUp_Lv91_100_IND);
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -514,19 +686,18 @@ public class GameManager : MonoBehaviour
                     scienceIncreaseAmount = robotLevel * Science_Lv91_100_IND;
                 }
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
-    void RobotGoldUpNeedMec()
+    public void RobotLevelUp()
     {
-        if (robotTier == 1)
+        if (robotLevel < 100 && money >= robotLevelUpPrice)
         {
-            if (robotLevel == 0)
-            {
-                robotLevelUpPrice = StandardConst_IND_Need;
-            }
-            else if (robotLevel >= 1 && robotLevel <= 10)
+            money -= robotLevelUpPrice;
+            robotLevel += 1;
+
+            if (robotLevel >= 1 && robotLevel <= 10)
             {
                 robotLevelUpPrice = (long)((double)robotLevel * StandardConst_IND_Need * (double)Need_Lv1_10_IND);
             }
@@ -569,57 +740,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RobotLevelUp()
+    IEnumerator RobotLevelUpButtonActiveCheck()
     {
-        if (robotLevel < 100)
+        while(true)
         {
-            if (robotTier == 1)
+            if (robotLevel < 100 && money >= robotLevelUpPrice)
             {
-                money -= robotLevelUpPrice;
-                robotLevel += 1;
+                robotLevelUpButton.interactable = true;
             }
-        }
-    }
-
-    public void RobotTierUp()
-    {
-        {
-            if (money >= robotTierUpPrice)
-            {
-                money -= robotTierUpPrice;
-                robotTier += 1;
-                robotLevel = 1;
-                scienceIncreaseAmount += 9;
-            }
-        }
-    }
-
-    void RobotLevelUpButtonActiveCheck()
-    {
-        if (robotLevel < 100 && money >= robotLevelUpPrice)
-        {
-            robotLevelUpButton.interactable = true;
-        }
-        else
-            robotLevelUpButton.interactable = false;
-    }
-
-    void RobotTierUpButtonActiveCheck()
-    {
-        if (robotLevel == 50)
-        {
-            if (money >= robotTierUpPrice)
-                robotTierUpButton.interactable = true;
             else
-                robotTierUpButton.interactable = false;
+                robotLevelUpButton.interactable = false;
+
+            yield return new WaitForSeconds(0.1f);
         }
-        else
-            robotTierUpButton.interactable = false;
-    }
-    
-    IEnumerable RobotFade()
-    {
-        yield return null;
     }
 
     public void StoryON()
@@ -656,6 +789,8 @@ public class GameManager : MonoBehaviour
             img2.raycastTarget = true;
             img3.raycastTarget = true;
             img4.raycastTarget = true;
+
+            JokeButton.SetActive(true);
         }
         else if (img2.color == new Color32(255, 255, 255, 220))
         {
@@ -667,8 +802,11 @@ public class GameManager : MonoBehaviour
             img2.raycastTarget = false;
             img3.raycastTarget = false;
             img4.raycastTarget = false;
+
+            JokeButton.SetActive(false);
+
         }
-        
+
     }
 
     public void StoryOFF()
@@ -693,7 +831,7 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            money += (long)(((ProductManager.autoMoney) * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus * Fuel2GoldDebuff) /10);
+            money += (long)(((ProductManager.autoMoney) * FinalGoldBonus) /10);
 
             yield return new WaitForSeconds(0.1f);
         }
@@ -703,7 +841,7 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            science += (long)(ProductManager.autoScience * SpaceshipScienceBonus);
+            science += (long)(ProductManager.autoScience * FinalScienceBonus);
 
             yield return new WaitForSeconds(1.0f);
         }

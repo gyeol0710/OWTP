@@ -31,6 +31,10 @@ public class TutorialManager : MonoBehaviour
     static public bool T06c;
     static public bool T07;
     static public bool T07c;
+
+    static public bool P04;
+    static public bool P04c;
+
     static public bool T08;
     static public bool T08c;
     static public bool TutoAllClear; // 튜토리얼 최종 완료 변수
@@ -94,6 +98,7 @@ public class TutorialManager : MonoBehaviour
         if (GameManager.robotLevel > 4)
         {
             T05 = true;
+            Tech.interactable = true;
         }
 
         if (GameManager.science >= TechManager.Tech1)
@@ -103,7 +108,6 @@ public class TutorialManager : MonoBehaviour
 
         if (P02c == true)
         {
-            Tech.interactable = true;
             P03 = true;
         }
 
@@ -116,6 +120,11 @@ public class TutorialManager : MonoBehaviour
         {
             T07 = true;
             Product.interactable = true; // 추후 튜토리얼 수정시 삭제 요망
+        }
+
+        if (T07c == true)
+        {
+            P04 = true;
         }
     }
 }

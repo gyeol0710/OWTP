@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class SoundManager : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class SoundManager : MonoBehaviour
     public AudioClip TechComplete_effectSound; // 연구완료 버튼 효과음
     public AudioClip ProdBuy_effectSound; // 제품구입 버튼 효과음
 
+    public Slider BGM_meter;
+    public Slider SFX_meter;
+
     void Awake()
     {
         BGM_audioSource = this.GetComponent<AudioSource>();
@@ -24,6 +29,8 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(PlayBGM());
+        StartCoroutine(Volume_BGM());
+        StartCoroutine(Volume_SFX());
     }
 
     void Update()
@@ -42,6 +49,24 @@ public class SoundManager : MonoBehaviour
             }
                 
             yield return new WaitForSeconds(1.0f);
+        }
+    }
+
+    IEnumerator Volume_BGM()
+    {
+        while(true)
+        {
+            BGM_audioSource.volume = BGM_meter.value;
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    IEnumerator Volume_SFX()
+    {
+        while (true)
+        {
+            EffectSource.volume = SFX_meter.value;
+            yield return new WaitForSeconds(0.3f);
         }
     }
 

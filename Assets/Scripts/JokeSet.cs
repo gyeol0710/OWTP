@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class TextSet : MonoBehaviour
+public class JokeSet : MonoBehaviour
 {
     void Start()
     {
@@ -14,14 +14,14 @@ public class TextSet : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     IEnumerator TextAnim()
     {
         Text text = GetComponent<Text>();
         Scrollbar scrbar = MessageManager.ScrBar.GetComponent<Scrollbar>();
-        string subtext = MessageManager.MSGtext;
+        string subtext = MessageManager.JOKEtext;
         int n;
         int Length = subtext.Length;
         for (n = 0; n < Length; n++)
@@ -32,7 +32,7 @@ public class TextSet : MonoBehaviour
             yield return new WaitForSeconds(0.03f);
         }
         yield return new WaitForSeconds(0.5f);
-        MessageManager.gomsg = true;
+        MessageManager.gojokemsg2 = false;
 
         yield break;
     }

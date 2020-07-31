@@ -89,7 +89,7 @@ public class SpaceshipManager : MonoBehaviour
             body.GetComponent<Image>().sprite = body4;
             GameManager.SpaceshipGoldBonus = 1.1f;
         }
-        else if (SSupNum == 4 && (GameManager.money >= body4_Gold) && ProductManager.Prod_5_Level > 0 && ProductManager.Prod_6_Level > 0 && ProductManager.Prod_12_Level > 0 && ProductManager.Prod_18_Level > 0 && ProductManager.Prod_19_Level > 0 && ProductManager.Prod_21_Level > 0 && ProductManager.Prod_22_Level > 0)
+        else if (SSupNum == 4 && (GameManager.money >= body4_Gold) && ProductManager.JumpINDpossible == true)
         {
             GameManager.money -= body4_Gold;
             SSupNum++;
@@ -119,10 +119,11 @@ public class SpaceshipManager : MonoBehaviour
             fuel.GetComponent<Image>().sprite = fuel4;
             GameManager.SpaceshipGoldBonus = 1.2f;
         }
-        else if (SSupNum == 8 && (GameManager.money >= fuel4_Gold) && ProductManager.Prod_37_Level > 0)
+        else if (SSupNum == 8 && (GameManager.money >= fuel4_Gold) && ProductManager.JumpWARpossible == true)
         {
             GameManager.money -= fuel4_Gold;
             SSupNum++;
+            TechManager.age_elec = true;
             GameManager.SpaceshipScienceBonus = 1.2f;
             fuel.SetActive(false);
             engine.SetActive(true);
@@ -146,10 +147,11 @@ public class SpaceshipManager : MonoBehaviour
             engine.GetComponent<Image>().sprite = engine4;
             GameManager.SpaceshipGoldBonus = 1.3f;
         }
-        else if (SSupNum == 12 && (GameManager.money >= engine4_Gold) && ProductManager.Prod_39_Level > 0 && ProductManager.Prod_44_Level > 0 && ProductManager.Prod_46_Level > 0 && ProductManager.Prod_49_Level > 0 && ProductManager.Prod_51_Level > 0 && ProductManager.Prod_54_Level > 0 && ProductManager.Prod_55_Level > 0)
+        else if (SSupNum == 12 && (GameManager.money >= engine4_Gold) && ProductManager.JumpELECpossible == true)
         {
             GameManager.money -= engine4_Gold;
             SSupNum++;
+            TechManager.age_modern = true;
             GameManager.SpaceshipScienceBonus = 1.3f;
             engine.SetActive(false);
             cockpit.SetActive(true);
@@ -173,7 +175,7 @@ public class SpaceshipManager : MonoBehaviour
             cockpit.GetComponent<Image>().sprite = cockpit4;
             GameManager.SpaceshipGoldBonus = 1.4f;
         }
-        else if (SSupNum == 16 && (GameManager.money >= cockpit4_Gold))
+        else if (SSupNum == 16 && (GameManager.money >= cockpit4_Gold) && ProductManager.JumpMODERNpossible == true)
         {
             GameManager.money -= cockpit4_Gold;
         }
@@ -222,7 +224,7 @@ public class SpaceshipManager : MonoBehaviour
             else if (SSupNum == 4)
             {
                 SpaceshipUpNeedGold_Text.text = body4_Gold.ToString("###,###");
-                if (GameManager.money >= body4_Gold && ProductManager.Prod_5_Level > 0 && ProductManager.Prod_6_Level > 0 && ProductManager.Prod_12_Level > 0 && ProductManager.Prod_18_Level > 0 && ProductManager.Prod_19_Level > 0 && ProductManager.Prod_21_Level > 0 && ProductManager.Prod_22_Level > 0)
+                if (GameManager.money >= body4_Gold && ProductManager.JumpINDpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
                 }
