@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
             Load();
         }
         */
+        Offer01.SetActive(true);
         SpaceshipGoldBonus = 1.1f;
         AdGoldBonus = 1f;
         CashGoldBonus = 1f;
