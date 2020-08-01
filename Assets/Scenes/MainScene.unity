@@ -8859,8 +8859,6 @@ MonoBehaviour:
   TechComplete_effectSound: {fileID: 8300000, guid: 0b8c8b9ec5d3c0843bf5f3e4f0b4104e,
     type: 3}
   ProdBuy_effectSound: {fileID: 8300000, guid: 4c1be7502d5ff784881246f15e57253e, type: 3}
-  ClickButton_TestEffectSound: {fileID: 8300000, guid: 7a6e36115350c084c9a76df89ba517ee,
-    type: 3}
   BGM_meter: {fileID: 928849451}
   SFX_meter: {fileID: 176536642}
 --- !u!4 &317297100

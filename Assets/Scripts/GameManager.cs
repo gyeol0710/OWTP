@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
         }
         // StartCoroutine(save());
         StartCoroutine(AutoMoney());
+        StartCoroutine(AutoMoneyDigit());
         StartCoroutine(AutoScience());
         StartCoroutine(RobotGoldUpMec());
         StartCoroutine(ScienceUpMec());
@@ -863,9 +864,17 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            money += (long)(((ProductManager.autoMoney) * FinalGoldBonus) /10);
-
+            money += (long)(((ProductManager.autoMoney) * FinalGoldBonus) / 10);
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator AutoMoneyDigit()
+    {
+        while (true)
+        {
+            money += (long)(((ProductManager.autoMoney) * FinalGoldBonus) % 10);
+            yield return new WaitForSeconds(1f);
         }
     }
 
