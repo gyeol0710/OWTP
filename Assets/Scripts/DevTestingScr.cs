@@ -49,7 +49,7 @@ public class DevTestingScr : MonoBehaviour
 
     public void WantLog()
     {
-        Debug.Log(ProductManager.JumpINDpossible);
+        Debug.Log(ProductManager.PdS04Complete);
         Debug.Log(ProductManager.Prod_S01_Level);
         
     }

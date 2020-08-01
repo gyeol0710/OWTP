@@ -187,7 +187,7 @@ public class SpaceshipManager : MonoBehaviour
         {
             if (SSupNum == 1)
             {
-                SpaceshipUpNeedGold_Text.text = body1_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(body1_Gold);
                 if (GameManager.money >= body1_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -199,7 +199,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 2)
             {
-                SpaceshipUpNeedGold_Text.text = body2_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(body2_Gold);
                 if (GameManager.money >= body2_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -211,7 +211,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 3)
             {
-                SpaceshipUpNeedGold_Text.text = body3_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(body3_Gold);
                 if (GameManager.money >= body3_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -223,7 +223,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 4)
             {
-                SpaceshipUpNeedGold_Text.text = body4_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(body4_Gold);
                 if (GameManager.money >= body4_Gold && ProductManager.JumpINDpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -235,7 +235,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 5)
             {
-                SpaceshipUpNeedGold_Text.text = fuel1_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(fuel1_Gold);
                 if (GameManager.money >= fuel1_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -247,7 +247,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 6)
             {
-                SpaceshipUpNeedGold_Text.text = fuel2_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(fuel2_Gold);
                 if (GameManager.money >= fuel2_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -259,7 +259,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 7)
             {
-                SpaceshipUpNeedGold_Text.text = fuel3_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(fuel3_Gold);
                 if (GameManager.money >= fuel3_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -271,8 +271,8 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 8)
             {
-                SpaceshipUpNeedGold_Text.text = fuel4_Gold.ToString("###,###");
-                if (GameManager.money >= fuel4_Gold && ProductManager.Prod_37_Level > 0)
+                SpaceshipUpNeedGold_Text.text = UnitTransform(fuel4_Gold);
+                if (GameManager.money >= fuel4_Gold && ProductManager.JumpWARpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
                 }
@@ -283,7 +283,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 9)
             {
-                SpaceshipUpNeedGold_Text.text = engine1_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(engine1_Gold);
                 if (GameManager.money >= engine1_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -295,7 +295,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 10)
             {
-                SpaceshipUpNeedGold_Text.text = engine2_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(engine2_Gold);
                 if (GameManager.money >= engine2_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -307,7 +307,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 11)
             {
-                SpaceshipUpNeedGold_Text.text = engine3_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(engine3_Gold);
                 if (GameManager.money >= engine3_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -319,8 +319,8 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 12)
             {
-                SpaceshipUpNeedGold_Text.text = engine4_Gold.ToString("###,###");
-                if (GameManager.money >= engine4_Gold && ProductManager.Prod_39_Level > 0 && ProductManager.Prod_44_Level > 0 && ProductManager.Prod_46_Level > 0 && ProductManager.Prod_49_Level > 0 && ProductManager.Prod_51_Level > 0 && ProductManager.Prod_54_Level > 0 && ProductManager.Prod_55_Level > 0)
+                SpaceshipUpNeedGold_Text.text = UnitTransform(engine4_Gold);
+                if (GameManager.money >= engine4_Gold && ProductManager.JumpELECpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
                 }
@@ -331,7 +331,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 13)
             {
-                SpaceshipUpNeedGold_Text.text = cockpit1_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit1_Gold);
                 if (GameManager.money >= cockpit1_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -343,7 +343,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 14)
             {
-                SpaceshipUpNeedGold_Text.text = cockpit2_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit2_Gold);
                 if (GameManager.money >= cockpit2_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -355,7 +355,7 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 15)
             {
-                SpaceshipUpNeedGold_Text.text = cockpit3_Gold.ToString("###,###");
+                SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit3_Gold);
                 if (GameManager.money >= cockpit3_Gold)
                 {
                     SpaceshipUp_Button.interactable = true;
@@ -367,8 +367,8 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 16)
             {
-                SpaceshipUpNeedGold_Text.text = cockpit4_Gold.ToString("###,###");
-                if (GameManager.money >= cockpit4_Gold)
+                SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit4_Gold);
+                if (GameManager.money >= cockpit4_Gold && ProductManager.JumpMODERNpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
                 }
@@ -383,5 +383,36 @@ public class SpaceshipManager : MonoBehaviour
             }
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    string UnitTransform(long a)
+    {
+        long b;
+        string c = "";
+        if (a <= 999999999)
+        {
+            c = a.ToString("###,###");
+        }
+        else if (a <= 999999999999)
+        {
+            b = a / 1000;
+            c = b.ToString("###,###") + " k";
+        }
+        else if (a <= 999999999999999)
+        {
+            b = a / 1000000;
+            c = b.ToString("###,###") + " m";
+        }
+        else if (a <= 999999999999999999)
+        {
+            b = a / 1000000000;
+            c = b.ToString("###,###") + " b";
+        }
+        else if (a <= 9223372036854775807)
+        {
+            b = a / 1000000000000;
+            c = b.ToString("###,###") + " t";
+        }
+        return c;
     }
 }

@@ -537,12 +537,43 @@ public class GameManager : MonoBehaviour
         while(true)
         {
             robotTierAndLevel.text = robotLevel + " 단계";
-            robotInfo1.text = "클릭 시       획득\n: " + ((long)(moneyIncreaseAmount * FinalGoldBonus)).ToString("###,###");
-            robotInfo2.text = "클릭 시       획득\n: " + ((long)(scienceIncreaseAmount * FinalScienceBonus)).ToString("###,###");
-            robotInfo3.text = robotLevelUpPrice.ToString("###,###");
+            robotInfo1.text = "클릭 시       획득\n: " + UnitTransform((long)(moneyIncreaseAmount * FinalGoldBonus));
+            robotInfo2.text = "클릭 시       획득\n: " + UnitTransform((long)(scienceIncreaseAmount * FinalScienceBonus));
+            robotInfo3.text = UnitTransform(robotLevelUpPrice);
 
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    string UnitTransform(long a)
+    {
+        long b;
+        string c = "";
+        if (a <= 999999999)
+        {
+            c = a.ToString("###,###");
+        }
+        else if (a <= 999999999999)
+        {
+            b = a / 1000;
+            c = b.ToString("###,###") + " k";
+        }
+        else if (a <= 999999999999999)
+        {
+            b = a / 1000000;
+            c = b.ToString("###,###") + " m";
+        }
+        else if (a <= 999999999999999999)
+        {
+            b = a / 1000000000;
+            c = b.ToString("###,###") + " b";
+        }
+        else if (a <= 9223372036854775807)
+        {
+            b = a / 1000000000000;
+            c = b.ToString("###,###") + " t";
+        }
+        return c;
     }
 
     IEnumerator RobotGoldUpMec()

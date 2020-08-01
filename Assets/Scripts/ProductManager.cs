@@ -2181,7 +2181,7 @@ public class ProductManager : MonoBehaviour
         if (PdS01Complete == true)
         {
             title.text = "영화개구리";
-            exp.text = "개굴개굴 개구리 귀여워~";
+            exp.text = "산업시대의 기술을 총 집약한 개구리형 바이탈스코프입니다. 영화를 상영하는 기능 외에도 여러가지 기능이 장착되어 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIconS01;
             Level.text = Prod_S01_Level.ToString();
             ProdMoneyText.text = "오프라인 상태일 때에도 6시간 자원 비축기능 지원";
@@ -2201,7 +2201,7 @@ public class ProductManager : MonoBehaviour
         if (PdS02Complete == true)
         {
             title.text = "음식보급기";
-            exp.text = "라면 보급도 가능한가요?";
+            exp.text = "전쟁 중에 요긴하게 식량을 보급할 수 있는 탱크입니다. 동료에겐 냉동식품을 적에게는 뜨거운 포격을 선사할 수 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIconS02;
             Level.text = Prod_S02_Level.ToString();
             ProdMoneyText.text = "광고의 효과가 1분 더 지속";
@@ -2221,10 +2221,10 @@ public class ProductManager : MonoBehaviour
         if (PdS03Complete == true)
         {
             title.text = "컴퓨터";
-            exp.text = "컴퓨터는 역시 삼성...";
+            exp.text = "전자시대를 대표하는 제품입니다. 이 제품으로 인해 미래가 어떻게 바뀔지는 아무도 예상하지 못합니다.";
             Icon.GetComponent<Image>().sprite = ProdIconS03;
             Level.text = Prod_S03_Level.ToString();
-            ProdMoneyText.text = "클리커 버튼을 클릭할 시 모든 제품이 주는 생산량 120%(1.2배) 증가.";
+            ProdMoneyText.text = "[!] 버튼 클릭 시 모든 제품 생산량 1.2배 증가";
             TotalProdMoneyText.text = "";
             UpPriceText.text = UnitTransform(PdS03);
             if (Prod_S03_Level > 0)
@@ -2241,10 +2241,10 @@ public class ProductManager : MonoBehaviour
         if (PdS04Complete == true)
         {
             title.text = "황제감자";
-            exp.text = "감자의 신 미만 잡...";
+            exp.text = "최신 AI기능을 탑재한 감자입니다. 사용자가 먹지만 않는다면 모든 의사결정을 도와줄 것입니다.";
             Icon.GetComponent<Image>().sprite = ProdIconS04;
             Level.text = Prod_S04_Level.ToString();
-            ProdMoneyText.text = "클리커 버튼을 클릭할 시 모든 제품이 주는 생산량 150%(1.5배) 증가.";
+            ProdMoneyText.text = "[!] 버튼 클릭 시 모든 제품 생산량 1.5배 증가";
             TotalProdMoneyText.text = "";
             UpPriceText.text = UnitTransform(PdS04);
             if (Prod_S04_Level > 0)
