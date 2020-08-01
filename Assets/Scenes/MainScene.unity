@@ -8848,17 +8848,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 966d9f3661f7ad043bd5f4152bd96e4f, type: 3}
   - {fileID: 8300000, guid: d9a0dd9f47f3d7441a02832294ae82be, type: 3}
   EffectSource: {fileID: 532853047}
-  ClickButton_effectSound: {fileID: 8300000, guid: 48eb5c16bc64d364c8631aa73fe7ded4,
+  ClickButton_effectSound: {fileID: 8300000, guid: 3b19006776640114c89906038665e0ab,
     type: 3}
-  TechProdButton_effectSound: {fileID: 8300000, guid: e730f8a441856ca478257a7ff1e6ff63,
+  TechProdButton_effectSound: {fileID: 8300000, guid: fb9b545a543637d43a116325a94f35db,
     type: 3}
-  Setting_effectSound: {fileID: 8300000, guid: 82abd8a236ee95640b392b420013df3b, type: 3}
-  RobotUp_effectSound: {fileID: 8300000, guid: 5b6eefab9915bb349920a411459385d0, type: 3}
+  Setting_effectSound: {fileID: 8300000, guid: 3bdbc88096bc873418b287b8030f0853, type: 3}
+  RobotUp_effectSound: {fileID: 8300000, guid: e2e32302e62a8cb48869b95b8768c923, type: 3}
   OfferChat_effectSound: {fileID: 8300000, guid: 905f3c8c047e9f540ab0fda7461c100f,
     type: 3}
   TechComplete_effectSound: {fileID: 8300000, guid: 0b8c8b9ec5d3c0843bf5f3e4f0b4104e,
     type: 3}
   ProdBuy_effectSound: {fileID: 8300000, guid: 4c1be7502d5ff784881246f15e57253e, type: 3}
+  ClickButton_TestEffectSound: {fileID: 8300000, guid: 7a6e36115350c084c9a76df89ba517ee,
+    type: 3}
   BGM_meter: {fileID: 928849451}
   SFX_meter: {fileID: 176536642}
 --- !u!4 &317297100
@@ -10220,7 +10222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &371020179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13992,8 +13994,8 @@ RectTransform:
   m_Father: {fileID: 907068705}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.14444444}
+  m_AnchorMax: {x: 1, y: 0.85555553}
   m_AnchoredPosition: {x: 989, y: -22}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -40460,7 +40462,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 1040}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1290959409
 MonoBehaviour:
@@ -59575,7 +59577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1919879873
 RectTransform:
   m_ObjectHideFlags: 0
