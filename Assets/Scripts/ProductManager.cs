@@ -378,6 +378,20 @@ public class ProductManager : MonoBehaviour
     public GameObject ProdUpPanel; // 업그레이드 하는 패널
     public Button UpgradeProdButton;
 
+
+
+    /* 우라늄 전용 패널 */
+    public Text ProdMoneyText_U;
+    public Text ProdScienceText_U;
+    public Text TotalProdMoneyText_U;
+    public Text UpPriceText_U;
+    public Text Level_U;
+    public GameObject ProdUpPanel_U; // 업그레이드 하는 패널
+    public Button UpgradeProdButton_U;
+    /* 우라늄 전용 패널 */
+
+
+
     public GameObject MainProdPanel; // 제품 메인 패널
 
     public GameObject ScrollBar_IND; // 제품 시대별 스크롤바
@@ -1540,20 +1554,17 @@ public class ProductManager : MonoBehaviour
     {
         if (TechManager.Tech37Complete)
         {
-            title.text = "우라늄";
-            exp.text = "핵분열이 가능한 원자입니다. 자연계에서 드물게 발견되며 핵무기를 만들 수 있습니다.";
-            Icon.GetComponent<Image>().sprite = ProdIcon37;
-            Level.text = Prod_37_Level.ToString();
-            ProdMoneyText.text = UnitTransform(perOneAutoScience37) + paneltext1;
-            TotalProdMoneyText.text = UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
+            Level_U.text = Prod_37_Level.ToString();
+            ProdMoneyText_U.text = UnitTransform(perOneAutoMoney37) + paneltext1;
+            ProdScienceText_U.text = UnitTransform(perOneAutoScience37) + paneltext1;
+            TotalProdMoneyText_U.text = UnitTransform(perOneAutoScience37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
             if (Prod_37_Level == 0)
             {
-                TotalProdMoneyText.text = paneltext3;
+                TotalProdMoneyText_U.text = paneltext3;
             }
-            UpPriceText.text = UnitTransform(Pd37);
+            UpPriceText_U.text = UnitTransform(Pd37);
             PanelNum = 37;
-            ProdUpPanel.SetActive(true);
-            infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
+            ProdUpPanel_U.SetActive(true);
         }
     }
     public void Prod_38_Oepn()
