@@ -97,6 +97,8 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.SpaceshipScienceBonus = 1.1f;
             body.SetActive(false);
             fuel.SetActive(true);
+
+            RobotManager.Robot_anim.SetBool("Age_War", true);
         }
         else if (SSupNum == 5 && (GameManager.money >= fuel1_Gold))
         {
@@ -127,6 +129,8 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.SpaceshipScienceBonus = 1.2f;
             fuel.SetActive(false);
             engine.SetActive(true);
+
+            RobotManager.Robot_anim.SetBool("Age_Elec", true);
         }
         else if (SSupNum == 9 && (GameManager.money >= engine1_Gold))
         {
@@ -155,6 +159,8 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.SpaceshipScienceBonus = 1.3f;
             engine.SetActive(false);
             cockpit.SetActive(true);
+
+            RobotManager.Robot_anim.SetBool("Age_Modern", true);
         }
         else if (SSupNum == 13 && (GameManager.money >= cockpit1_Gold))
         {

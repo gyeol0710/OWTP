@@ -1103,7 +1103,7 @@ public class MessageManager : MonoBehaviour
             StartCoroutine(GoJoke(JokeMessage[i, j]));
             yield return new WaitForSeconds(1f);
         }
-
+        Instantiate(prefabLine).transform.SetParent(par.transform, false);
         gojokemsg = false;
 
         yield break;

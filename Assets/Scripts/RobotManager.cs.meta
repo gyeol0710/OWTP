@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: bc16511c2d027d94b91504f5196c1d2b
+guid: 8e2a8143b1d04814ba3561537f9807a5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - INDRobot01L: {fileID: 21300000, guid: 3c5eebdb71fd092478639b205e1567a2, type: 3}
+  - INDRobot01R: {fileID: 21300000, guid: f0ac3c0a6ef3edb4c932ee3090ba9393, type: 3}
+  - INDRobot02L: {fileID: 21300000, guid: 93ed86ec2ba19214bb83e0dbea836607, type: 3}
+  - INDRobot02R: {fileID: 21300000, guid: 51c2192a24d95f648b94ba753a41330a, type: 3}
+  - INDRobot03L: {fileID: 21300000, guid: c26945c3c6b3474409daf0d37adc65ab, type: 3}
+  - INDRobot03R: {fileID: 21300000, guid: 40d2546cff505f24a8480f8b7a11d2c0, type: 3}
+  - INDRobot04L: {fileID: 21300000, guid: f039644c7d4abac47938f28ab976ceee, type: 3}
+  - INDRobot04R: {fileID: 21300000, guid: 69322ae3c985a0b4580b6eb89ce71e15, type: 3}
+  - INDRobot05L: {fileID: 21300000, guid: 3230a82b6d93fa648a5d8ec8fddd18e0, type: 3}
+  - INDRobot05R: {fileID: 21300000, guid: fdc39e120ebdeee458cc0ad5bb09c0b9, type: 3}
+  - INDRobot06L: {fileID: 21300000, guid: 27ef992ad49c2c54fb8b62d8a21eea15, type: 3}
+  - INDRobot06R: {fileID: 21300000, guid: 658155045ba94b84899f5e3a29f4464f, type: 3}
+  - INDRobot07L: {fileID: 21300000, guid: 84d21ff1a161f4246b20acf73f88e26d, type: 3}
+  - INDRobot07R: {fileID: 21300000, guid: b58f35a0b3852c74ea1ab8c29415456c, type: 3}
+  - INDRobot08L: {fileID: 21300000, guid: 41281aa609bd3ea45b91145efd26e719, type: 3}
+  - INDRobot08R: {fileID: 21300000, guid: 5f0cda17a0395f44f92679c9963deb05, type: 3}
+  - INDRobot09L: {fileID: 21300000, guid: 75f41a8334188a548838fab4ffc221d8, type: 3}
+  - INDRobot09R: {fileID: 21300000, guid: c778f3e59bc53dd4f8fd93b37a4989ed, type: 3}
+  - INDRobot10L: {fileID: 21300000, guid: 8bd233a14fd1b1e4db38bbafed1c771b, type: 3}
+  - INDRobot10R: {fileID: 21300000, guid: b1b6c8fd656360045a53060a804f2f22, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
