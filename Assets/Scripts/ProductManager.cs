@@ -4,6 +4,7 @@ using static System.Math;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Data.Common;
 
 public class ProductManager : MonoBehaviour
 {
@@ -635,6 +636,12 @@ public class ProductManager : MonoBehaviour
     public GameObject Product_Reward12_S03;
     public GameObject Product_Reward14_60;
 
+    public Button Product_Reward_라디오;
+    public Button Product_Reward_카세트;
+    public Button Product_Reward_컴퓨터;
+
+    Transform tr_airship;
+
     //혁신제품 생산가능 판단변수
     static public bool PdS01Complete;
     static public bool PdS02Complete;
@@ -817,6 +824,8 @@ public class ProductManager : MonoBehaviour
         Product_Reward10_44.SetActive(false);
         Product_Reward12_S03.SetActive(false);
         Product_Reward14_60.SetActive(false);
+
+        tr_airship = Product_Reward02_07.GetComponent<Transform>();
     }
     void Start()
     {
@@ -830,6 +839,7 @@ public class ProductManager : MonoBehaviour
         StartCoroutine(ProdUpButtonCheck());
         StartCoroutine(SpecialProductIconCheck());
         StartCoroutine(NextERApossible());
+        StartCoroutine(Airship_moving());
     }
 
     void Update()
@@ -2686,9 +2696,9 @@ public class ProductManager : MonoBehaviour
             Prod_37_Level++;
             Pd37 = (long)((float)Pd37 * UpTimes);
 
-            Level.text = Prod_37_Level.ToString();
-            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney37 * Prod_37_Level) + paneltext2;
-            UpPriceText.text = UnitTransform(Pd37);
+            Level_U.text = Prod_37_Level.ToString();
+            TotalProdMoneyText_U.text = UnitTransform(perOneAutoScience37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
+            UpPriceText_U.text = UnitTransform(Pd37);
             ProdLevel_37.text = Prod_37_Level.ToString();
             Product_Reward08_37.SetActive(true);
         }
@@ -3995,6 +4005,47 @@ public class ProductManager : MonoBehaviour
                         (perOneAutoScience49 * Prod_49_Level) + (perOneAutoScience52 * Prod_52_Level) + (perOneAutoScience54 * Prod_54_Level) + (perOneAutoScience58 * Prod_58_Level) + (perOneAutoScience60 * Prod_60_Level) +
                         (perOneAutoScience63 * Prod_63_Level) + (perOneAutoScience66 * Prod_66_Level) + (perOneAutoScience69 * Prod_69_Level);
             yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+
+    /* 제품변화요소 애니메이션 */
+    IEnumerator Airship_moving()
+    {
+        bool DownOn = false;
+        int i = 0;
+
+        while (true)
+        {
+            tr_airship.Translate(Vector3.right * 0.01f);
+
+            if (DownOn == false)
+            {
+                tr_airship.Translate(Vector3.up * 0.006f);
+                i++;
+                if (i > 250)
+                {
+                    i = 0;
+                    DownOn = true;
+                }
+            }
+            else if (DownOn == true)
+            {
+                tr_airship.Translate(Vector3.down * 0.006f);
+                i++;
+                if (i > 250)
+                {
+                    i = 0;
+                    DownOn = false;
+                }
+            }
+
+            if(tr_airship.position.x > 3.2)
+            {
+                tr_airship.Translate(-6.5f, 0, 0);
+            }
+
+            yield return new WaitForSeconds(0.04f);
         }
     }
 }

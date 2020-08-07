@@ -211,14 +211,17 @@ public class GameManager : MonoBehaviour
     
     //-----------------------------------------
     static public float SpaceshipGoldBonus;
-    static public float AdGoldBonus;
-    static public float CashGoldBonus;
+
+    static public float AdBonus;
+    static public float CashBonus;
+    static public float ClickBonus;
 
     static public float SpaceshipScienceBonus;
 
+
     static public int ClickCount_Fuel2;
     static public bool Story_Fuel2_Complete;
-    static public float Fuel2GoldDebuff;
+    static public float Fuel2Debuff;
 
     static public float FinalGoldBonus;
     static public float FinalScienceBonus;
@@ -231,6 +234,8 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer Robot06;
     public SpriteRenderer Robot07;
     public SpriteRenderer Robot08;
+    //-----------------------------------------
+    int click_gauge;
 
     void Awake()
     {
@@ -243,12 +248,14 @@ public class GameManager : MonoBehaviour
         */
         Offer01.SetActive(true);
         SpaceshipGoldBonus = 1.1f;
-        AdGoldBonus = 1f;
-        CashGoldBonus = 1f;
-        SpaceshipScienceBonus = 1.1f;
-        Fuel2GoldDebuff = 1f;
+        AdBonus = 1f;
+        CashBonus = 1f;
+        ClickBonus = 1f;
+        SpaceshipScienceBonus = 1f;
+        Fuel2Debuff = 1f;
         FinalGoldBonus = 1f;
         FinalScienceBonus = 1f;
+        click_gauge = 0; // 클릭게이지 0으로 초기화
     }
 
     void Start()
@@ -269,6 +276,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(UpdateRobotPanelText());
         StartCoroutine(RobotLevelUpButtonActiveCheck());
         StartCoroutine(FinalBonus());
+        if (ProductManager.Prod_S03_Level > 0 || ProductManager.Prod_S04_Level > 0)
+        {
+            StartCoroutine(ClickGaugeControll());
+        }
+
         if (RePlay == false)
         {
             money = 0;
@@ -339,10 +351,11 @@ public class GameManager : MonoBehaviour
             ClickCount_Fuel2++;
             if (ClickCount_Fuel2 >= 50)
             {
-                Fuel2GoldDebuff = 1f;
+                Fuel2Debuff = 1f;
                 Story_Fuel2_Complete = true;
             }
         }
+        click_gauge = 23;
     }
 
     public void ScienceIncrease()
@@ -359,8 +372,8 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdGoldBonus * CashGoldBonus * Fuel2GoldDebuff;
-            FinalScienceBonus = 1 * SpaceshipScienceBonus;
+            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff;
+            FinalScienceBonus = 1 * SpaceshipScienceBonus * ClickBonus;
 
             yield return new WaitForSeconds(0.5f);
         }
@@ -1496,5 +1509,31 @@ public class GameManager : MonoBehaviour
     public void Noti_O_Off()
     {
         Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 0);
+    }
+
+    IEnumerator ClickGaugeControll() // 클릭게이지 컨트롤
+    {
+        while(true)
+        {
+            if (click_gauge <= 0)
+            {
+                ClickBonus = 1f;
+            }
+            else if (click_gauge > 0)
+            {
+                if (ProductManager.Prod_S04_Level > 0)
+                {
+                    ClickBonus = 1.5f;
+                }
+                else if (ProductManager.Prod_S03_Level > 0)
+                {
+                    ClickBonus = 1.2f;
+                }
+
+                click_gauge--;
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }
