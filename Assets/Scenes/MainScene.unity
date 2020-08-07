@@ -33469,12 +33469,12 @@ MonoBehaviour:
   "pd47_RAM_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 350000
   "pd49_CPU_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 1500000
   "pd52_\uB79C\uC120_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 4000000
-  "pd54_\uD734\uB300\uD3F0_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 11000000
-  "pd58_WIFI_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 30000000
-  "pd60_\uB300\uC655\uAC10\uC790_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 80000000
-  "pd63_GPU_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 200000000
-  "pd66_10G_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 990000000
-  "pd69_\uC720\uC804\uC790\uCE69_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 2780000000
+  "pd54_\uD734\uB300\uD3F0_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 15000000
+  "pd58_WIFI_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 45000000
+  "pd60_\uB300\uC655\uAC10\uC790_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 135000000
+  "pd63_GPU_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 405000000
+  "pd66_10G_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 1215000000
+  "pd69_\uC720\uC804\uC790\uCE69_\uC5F0\uAD6C\uC0DD\uC0B0\uB7C9": 4860000000
   title: {fileID: 707451413}
   exp: {fileID: 1447770553}
   Icon: {fileID: 1566826663}
@@ -39704,57 +39704,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StandardConst_GoldUp: 0
   GoldUp_Lv1_10: 1
-  GoldUp_Lv11_20: 1.55
-  GoldUp_Lv21_30: 2.05
-  GoldUp_Lv31_40: 2.55
-  GoldUp_Lv41_50: 3.05
-  GoldUp_Lv51_60: 4.05
-  GoldUp_Lv61_70: 4.55
-  GoldUp_Lv71_80: 5.05
-  GoldUp_Lv81_90: 5.55
-  GoldUp_Lv91_100: 6.05
-  GoldUp_Lv101_110: 0
-  GoldUp_Lv111_120: 0
-  GoldUp_Lv121_130: 0
-  GoldUp_Lv131_140: 0
-  GoldUp_Lv141_150: 0
-  GoldUp_Lv151_160: 0
-  GoldUp_Lv161_170: 0
-  GoldUp_Lv171_180: 0
-  GoldUp_Lv181_190: 0
-  GoldUp_Lv191_200: 0
-  GoldUp_Lv201_210: 0
-  GoldUp_Lv211_220: 0
-  GoldUp_Lv221_230: 0
-  GoldUp_Lv231_240: 0
-  GoldUp_Lv241_250: 0
-  GoldUp_Lv251_260: 0
-  GoldUp_Lv261_270: 0
-  GoldUp_Lv271_280: 0
-  GoldUp_Lv281_290: 0
-  GoldUp_Lv291_300: 0
-  GoldUp_Lv301_310: 0
-  GoldUp_Lv311_320: 0
-  GoldUp_Lv321_330: 0
-  GoldUp_Lv331_340: 0
-  GoldUp_Lv341_350: 0
-  GoldUp_Lv351_360: 0
-  GoldUp_Lv361_370: 0
-  GoldUp_Lv371_380: 0
-  GoldUp_Lv381_390: 0
-  GoldUp_Lv391_400: 0
-  GoldUp_Lv401_410: 0
-  GoldUp_Lv411_420: 0
-  GoldUp_Lv421_430: 0
-  GoldUp_Lv431_440: 0
-  GoldUp_Lv441_450: 0
-  GoldUp_Lv451_460: 0
-  GoldUp_Lv461_470: 0
-  GoldUp_Lv471_480: 0
-  GoldUp_Lv481_490: 0
-  GoldUp_Lv491_500: 0
-  Science_Lv1_10: 0
-  Science_Lv11_20: 2
+  GoldUp_Lv11_20: 1
+  GoldUp_Lv21_30: 2
+  GoldUp_Lv31_40: 3
+  GoldUp_Lv41_50: 4
+  GoldUp_Lv51_60: 5
+  GoldUp_Lv61_70: 6
+  GoldUp_Lv71_80: 7
+  GoldUp_Lv81_90: 8
+  GoldUp_Lv91_100: 9
+  GoldUp_Lv101_110: 10
+  GoldUp_Lv111_120: 11
+  GoldUp_Lv121_130: 12
+  GoldUp_Lv131_140: 13
+  GoldUp_Lv141_150: 14
+  GoldUp_Lv151_160: 15
+  GoldUp_Lv161_170: 16
+  GoldUp_Lv171_180: 17
+  GoldUp_Lv181_190: 18
+  GoldUp_Lv191_200: 19
+  GoldUp_Lv201_210: 20
+  GoldUp_Lv211_220: 21
+  GoldUp_Lv221_230: 22
+  GoldUp_Lv231_240: 23
+  GoldUp_Lv241_250: 24
+  GoldUp_Lv251_260: 25
+  GoldUp_Lv261_270: 26
+  GoldUp_Lv271_280: 27
+  GoldUp_Lv281_290: 28
+  GoldUp_Lv291_300: 29
+  GoldUp_Lv301_310: 30
+  GoldUp_Lv311_320: 31
+  GoldUp_Lv321_330: 32
+  GoldUp_Lv331_340: 33
+  GoldUp_Lv341_350: 34
+  GoldUp_Lv351_360: 35
+  GoldUp_Lv361_370: 36
+  GoldUp_Lv371_380: 37
+  GoldUp_Lv381_390: 38
+  GoldUp_Lv391_400: 39
+  GoldUp_Lv401_410: 40
+  GoldUp_Lv411_420: 41
+  GoldUp_Lv421_430: 42
+  GoldUp_Lv431_440: 43
+  GoldUp_Lv441_450: 44
+  GoldUp_Lv451_460: 45
+  GoldUp_Lv461_470: 46
+  GoldUp_Lv471_480: 47
+  GoldUp_Lv481_490: 48
+  GoldUp_Lv491_500: 49
+  Science_Lv1_10: 1
+  Science_Lv11_20: 1
   Science_Lv21_30: 1
   Science_Lv31_40: 1
   Science_Lv41_50: 1
@@ -39763,47 +39763,47 @@ MonoBehaviour:
   Science_Lv71_80: 1
   Science_Lv81_90: 1
   Science_Lv91_100: 1
-  Science_Lv101_110: 0
-  Science_Lv111_120: 0
-  Science_Lv121_130: 0
-  Science_Lv131_140: 0
-  Science_Lv141_150: 0
-  Science_Lv151_160: 0
-  Science_Lv161_170: 0
-  Science_Lv171_180: 0
-  Science_Lv181_190: 0
-  Science_Lv191_200: 0
-  Science_Lv201_210: 0
-  Science_Lv211_220: 0
-  Science_Lv221_230: 0
-  Science_Lv231_240: 0
-  Science_Lv241_250: 0
-  Science_Lv251_260: 0
-  Science_Lv261_270: 0
-  Science_Lv271_280: 0
-  Science_Lv281_290: 0
-  Science_Lv291_300: 0
-  Science_Lv301_310: 0
-  Science_Lv311_320: 0
-  Science_Lv321_330: 0
-  Science_Lv331_340: 0
-  Science_Lv341_350: 0
-  Science_Lv351_360: 0
-  Science_Lv361_370: 0
-  Science_Lv371_380: 0
-  Science_Lv381_390: 0
-  Science_Lv391_400: 0
-  Science_Lv401_410: 0
-  Science_Lv411_420: 0
-  Science_Lv421_430: 0
-  Science_Lv431_440: 0
-  Science_Lv441_450: 0
-  Science_Lv451_460: 0
-  Science_Lv461_470: 0
-  Science_Lv471_480: 0
-  Science_Lv481_490: 0
-  Science_Lv491_500: 0
-  StandardConst_Need: 0
+  Science_Lv101_110: 2
+  Science_Lv111_120: 2
+  Science_Lv121_130: 2
+  Science_Lv131_140: 2
+  Science_Lv141_150: 2
+  Science_Lv151_160: 2
+  Science_Lv161_170: 2
+  Science_Lv171_180: 2
+  Science_Lv181_190: 2
+  Science_Lv191_200: 2
+  Science_Lv201_210: 3
+  Science_Lv211_220: 3
+  Science_Lv221_230: 3
+  Science_Lv231_240: 3
+  Science_Lv241_250: 3
+  Science_Lv251_260: 3
+  Science_Lv261_270: 3
+  Science_Lv271_280: 3
+  Science_Lv281_290: 3
+  Science_Lv291_300: 3
+  Science_Lv301_310: 4
+  Science_Lv311_320: 4
+  Science_Lv321_330: 4
+  Science_Lv331_340: 4
+  Science_Lv341_350: 4
+  Science_Lv351_360: 4
+  Science_Lv361_370: 4
+  Science_Lv371_380: 4
+  Science_Lv381_390: 4
+  Science_Lv391_400: 4
+  Science_Lv401_410: 5
+  Science_Lv411_420: 6
+  Science_Lv421_430: 7
+  Science_Lv431_440: 8
+  Science_Lv441_450: 9
+  Science_Lv451_460: 10
+  Science_Lv461_470: 11
+  Science_Lv471_480: 12
+  Science_Lv481_490: 13
+  Science_Lv491_500: 14
+  StandardConst_Need: 10
   Need_Lv1_10: 1
   Need_Lv11_20: 40
   Need_Lv21_30: 120
@@ -39814,46 +39814,46 @@ MonoBehaviour:
   Need_Lv71_80: 29160
   Need_Lv81_90: 87480
   Need_Lv91_100: 262440
-  Need_Lv101_110: 0
-  Need_Lv111_120: 0
-  Need_Lv121_130: 0
-  Need_Lv131_140: 0
-  Need_Lv141_150: 0
-  Need_Lv151_160: 0
-  Need_Lv161_170: 0
-  Need_Lv171_180: 0
-  Need_Lv181_190: 0
-  Need_Lv191_200: 0
-  Need_Lv201_210: 0
-  Need_Lv211_220: 0
-  Need_Lv221_230: 0
-  Need_Lv231_240: 0
-  Need_Lv241_250: 0
-  Need_Lv251_260: 0
-  Need_Lv261_270: 0
-  Need_Lv271_280: 0
-  Need_Lv281_290: 0
-  Need_Lv291_300: 0
-  Need_Lv301_310: 0
-  Need_Lv311_320: 0
-  Need_Lv321_330: 0
-  Need_Lv331_340: 0
-  Need_Lv341_350: 0
-  Need_Lv351_360: 0
-  Need_Lv361_370: 0
-  Need_Lv371_380: 0
-  Need_Lv381_390: 0
-  Need_Lv391_400: 0
-  Need_Lv401_410: 0
-  Need_Lv411_420: 0
-  Need_Lv421_430: 0
-  Need_Lv431_440: 0
-  Need_Lv441_450: 0
-  Need_Lv451_460: 0
-  Need_Lv461_470: 0
-  Need_Lv471_480: 0
-  Need_Lv481_490: 0
-  Need_Lv491_500: 0
+  Need_Lv101_110: 787320
+  Need_Lv111_120: 2361960
+  Need_Lv121_130: 7085880
+  Need_Lv131_140: 14171760
+  Need_Lv141_150: 28343520
+  Need_Lv151_160: 56687040
+  Need_Lv161_170: 113374080
+  Need_Lv171_180: 226748160
+  Need_Lv181_190: 453496320
+  Need_Lv191_200: 906992640
+  Need_Lv201_210: 1813985280
+  Need_Lv211_220: 3627970560
+  Need_Lv221_230: 7255941120
+  Need_Lv231_240: 14511882240
+  Need_Lv241_250: 29023764480
+  Need_Lv251_260: 58047528960
+  Need_Lv261_270: 116095057920
+  Need_Lv271_280: 232190115840
+  Need_Lv281_290: 464380231680
+  Need_Lv291_300: 928760463360
+  Need_Lv301_310: 1857520926720
+  Need_Lv311_320: 3715041853440
+  Need_Lv321_330: 7430083706880
+  Need_Lv331_340: 14860167413760
+  Need_Lv341_350: 29720334827520
+  Need_Lv351_360: 59440669655040
+  Need_Lv361_370: 118881339310080
+  Need_Lv371_380: 237762678620160
+  Need_Lv381_390: 475525357240320
+  Need_Lv391_400: 951050714480640
+  Need_Lv401_410: 1902101428961280
+  Need_Lv411_420: 3804202857922560
+  Need_Lv421_430: 7608405715845120
+  Need_Lv431_440: 15216811431690200
+  Need_Lv441_450: 30433622863380500
+  Need_Lv451_460: 60867245726761000
+  Need_Lv461_470: 1.21734491453522e+17
+  Need_Lv471_480: 2.43468982907044e+17
+  Need_Lv481_490: 4.86937965814088e+17
+  Need_Lv491_500: 4.86937965814088e+17
   ConvertedMoney: 0
   DisplayedMoney: 0
   moneyIncreaseAmount: 10
@@ -50740,19 +50740,19 @@ MonoBehaviour:
   "tc47_\uC800\uC7A5\uC18C\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 12000000000
   "tc48_\uB17C\uB9AC\uD68C\uB85C_\uC5F0\uAD6C\uB825": 18000000000
   "tc49_\uC804\uC790\uB450\uB1CC_\uC5F0\uAD6C\uB825": 22000000000
-  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 30000000000
-  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 40000000000
-  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 50000000000
-  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 60000000000
-  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 80000000000
-  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 120000000000
-  "tc56_\uCEF4\uD4E8\uD130\uC5B8\uC5B4_\uC5F0\uAD6C\uB825": 150000000000
-  "tc57_\uC720\uC804\uC790\uCE58\uB8CC_\uC5F0\uAD6C\uB825": 200000000000
+  "tc50_\uBCF4\uC774\uC800\uACC4\uD68D_\uC5F0\uAD6C\uB825": 35000000000
+  "tc51_\uCF5C\uB808\uC2A4\uD14C\uB9AD_\uC5F0\uAD6C\uB825": 50000000000
+  "tc52_\uC774\uB354\uB137_\uC5F0\uAD6C\uB825": 65000000000
+  "tc53_\uC591\uC131\uC790\uBC18\uC751_\uC5F0\uAD6C\uB825": 80000000000
+  "tc54_\uC804\uC1A1_\uC5F0\uAD6C\uB825": 120000000000
+  "tc55_\uC804\uC790\uC624\uB77D_\uC5F0\uAD6C\uB825": 200000000000
+  "tc56_\uCEF4\uD4E8\uD130\uC5B8\uC5B4_\uC5F0\uAD6C\uB825": 250000000000
+  "tc57_\uC720\uC804\uC790\uCE58\uB8CC_\uC5F0\uAD6C\uB825": 300000000000
   "tc58_\uADFC\uAC70\uB9AC\uD1B5\uC2E0\uB9DD_\uC5F0\uAD6C\uB825": 400000000000
-  "tc59_\uD1B5\uC2E0\uC704\uC131_\uC5F0\uAD6C\uB825": 800000000000
-  "tc60_\uC720\uC804\uC790\uBCC0\uD654_\uC5F0\uAD6C\uB825": 1000000000000
-  "tc61_\uC138\uACC4\uD1B5\uD569_\uC5F0\uAD6C\uB825": 1200000000000
-  "tc62_\uBCF5\uC81C_\uC5F0\uAD6C\uB825": 1600000000000
+  "tc59_\uD1B5\uC2E0\uC704\uC131_\uC5F0\uAD6C\uB825": 550000000000
+  "tc60_\uC720\uC804\uC790\uBCC0\uD654_\uC5F0\uAD6C\uB825": 700000000000
+  "tc61_\uC138\uACC4\uD1B5\uD569_\uC5F0\uAD6C\uB825": 1000000000000
+  "tc62_\uBCF5\uC81C_\uC5F0\uAD6C\uB825": 1500000000000
   "tc63_\uCEF4\uD4E8\uD130\uD50C\uB7EC\uC2A4_\uC5F0\uAD6C\uB825": 2000000000000
   "tc64_\uBE14\uB85D\uCCB4\uC778_\uC5F0\uAD6C\uB825": 3000000000000
   "tc65_AI_\uC5F0\uAD6C\uB825": 4000000000000
