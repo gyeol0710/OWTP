@@ -22,7 +22,7 @@ public class RobotManager : MonoBehaviour
         Robot_anim = GetComponent<Animator>();
         LoadAge();
         StartCoroutine(RobotMoving());
-        StartCoroutine(Robot_Modern_Ymoving());
+        // StartCoroutine(Robot_Modern_Ymoving());
         StartCoroutine(Robot_Age());
 
         MaxY = tr.position.y + 0.05;
