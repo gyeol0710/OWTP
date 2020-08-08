@@ -237,6 +237,7 @@ public class GameManager : MonoBehaviour
     //-----------------------------------------
     int click_gauge;
 
+
     void Awake()
     {
         /*

@@ -55,6 +55,10 @@ public class SpaceshipManager : MonoBehaviour
     public Button SpaceshipUp_Button; // 우주선 업글 버튼
     public Text SpaceshipUpNeedGold_Text; // 우주선 업글 비용 표시 텍스트
 
+    public GameObject Age_pannel;
+    public Image Age_banner;
+    public Image AgeBlack;
+
     int SSupNum;
 
     void Start()
@@ -97,6 +101,8 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.SpaceshipScienceBonus = 1.1f;
             body.SetActive(false);
             fuel.SetActive(true);
+
+            StartCoroutine(Age_Anim());
         }
         else if (SSupNum == 5 && (GameManager.money >= fuel1_Gold))
         {
@@ -414,5 +420,50 @@ public class SpaceshipManager : MonoBehaviour
             c = b.ToString("###,###") + " t";
         }
         return c;
+    }
+
+    IEnumerator Age_Anim()
+    {
+        Age_pannel.SetActive(true);
+        Age_banner.color = new Color32(255, 255, 255, 255);
+        AgeBlack.color = new Color32(255, 255, 255, 0);
+        Age_banner.fillAmount = 0f;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while (true)
+        {
+            
+
+            
+            if(i < 30)
+            {
+                AgeBlack.color += new Color32(0, 0, 0, 5);
+            }
+            else if(i >= 150)
+            {
+                while(true)
+                {
+                    AgeBlack.color -= new Color32(0, 0, 0, 5);
+                    Age_banner.color -= new Color32(0, 0, 0, 10);
+                    k++;
+                    if(k > 30)
+                    {
+                        Age_pannel.SetActive(false);
+                        yield break;
+                    }
+                    yield return new WaitForSeconds(0.02f);
+                }
+            }
+
+            if (j < 20)
+            {
+                Age_banner.fillAmount += 0.05f;
+            }
+            i++;
+            j++;
+            
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 }
