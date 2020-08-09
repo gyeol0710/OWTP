@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class TechManager : MonoBehaviour
 {
@@ -714,6 +715,22 @@ public class TechManager : MonoBehaviour
     float CurrentHandleValue_MODERN;
 
 
+    /* 연구탭 시대버튼 관련 */
+    public Button indTap_WarButton;
+    public Button indTap_ElecButton;
+    public Button indTap_ModernButton;
+    public Text indTap_WarText;
+    public Text indTap_ElecText;
+    public Text indTap_ModernText;
+
+    public Button warTap_ElecButton;
+    public Button warTap_ModernButton;
+    public Text warTap_ElecText;
+    public Text warTap_ModernText;
+
+    public Button elecTap_ModernButton;
+    public Text elecTap_ModernText;
+
     void Awake()
     {
         MainTechPanel.SetActive(true);
@@ -813,6 +830,7 @@ public class TechManager : MonoBehaviour
     {
         StartCoroutine(AutoHidingHandle());
         StartCoroutine(TechUpButtonCheck());
+        StartCoroutine(TechAgeTapCheck());
 
         if (age_modern == true)
         {
@@ -3363,6 +3381,62 @@ public class TechManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(0.15f);
+        }
+    }
+
+    IEnumerator TechAgeTapCheck()
+    {
+        bool war = false;
+        bool elec = false;
+        bool modern = false;
+
+        while(true)
+        {
+            if (age_modern == true && modern == false)
+            {
+                indTap_ModernButton.interactable = true;
+                indTap_ModernText.text = "현대";
+                indTap_ModernText.color = new Color32(79, 140, 196, 255);
+
+                warTap_ModernButton.interactable = true;
+                warTap_ModernText.text = "현대";
+                warTap_ModernText.color = new Color32(79, 140, 196, 255);
+
+                elecTap_ModernButton.interactable = true;
+                elecTap_ModernText.text = "현대";
+                elecTap_ModernText.color = new Color32(79, 140, 196, 255);
+
+                modern = true;
+            }
+
+            if (age_elec == true && elec == false)
+            {
+                indTap_ElecButton.interactable = true;
+                indTap_ElecText.text = "전자";
+                indTap_ElecText.color = new Color32(79, 140, 196, 255);
+
+                warTap_ElecButton.interactable = true;
+                warTap_ElecText.text = "전자";
+                warTap_ElecText.color = new Color32(79, 140, 196, 255);
+
+                elec = true;
+            }
+
+            if (age_war == true && war == false)
+            {
+                indTap_WarButton.interactable = true;
+                indTap_WarText.text = "전쟁";
+                indTap_WarText.color = new Color32(79, 140, 196, 255);
+
+                war = true;
+            }
+
+            if (modern == true && elec == true && war == true)
+            {
+                yield break;
+            }
+
+            yield return new WaitForSeconds(2f);
         }
     }
 

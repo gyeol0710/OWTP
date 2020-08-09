@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class FrogControll : MonoBehaviour
 {
@@ -44,7 +45,10 @@ public class FrogControll : MonoBehaviour
 
     void OnMouseDown()
     {
-        Frog_Effect.Play();
+        if(EventSystem.current.IsPointerOverGameObject() == false)
+        {
+            Frog_Effect.Play();
+        }
     }
 
     IEnumerator Frog_Jump()
