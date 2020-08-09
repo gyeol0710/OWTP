@@ -18,6 +18,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip TechComplete_effectSound; // 연구완료 버튼 효과음
     public AudioClip ProdBuy_effectSound; // 제품구입 버튼 효과음
 
+    public AudioSource TextEffect;
+    public AudioSource JokeEffect;
+    public AudioSource FrogEffect;
+
     public Slider BGM_meter;
     public Slider SFX_meter;
 
@@ -65,6 +69,9 @@ public class SoundManager : MonoBehaviour
     {
         while (true)
         {
+            TextEffect.volume = SFX_meter.value;
+            JokeEffect.volume = SFX_meter.value;
+            FrogEffect.volume = SFX_meter.value;
             EffectSource.volume = SFX_meter.value;
             yield return new WaitForSeconds(0.3f);
         }
