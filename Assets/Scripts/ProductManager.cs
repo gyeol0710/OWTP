@@ -408,6 +408,8 @@ public class ProductManager : MonoBehaviour
     string paneltext1 = " 생산";
     string paneltext2 = " 생산 중";
     string paneltext3 = "0 생산 중";
+    string paneltext4 = "최대 레벨";
+
 
 
 
@@ -625,6 +627,7 @@ public class ProductManager : MonoBehaviour
     public Sprite ProdIconS03;
     public Sprite ProdIconS04;
 
+    /* 제품 변화 요소 관련 */
     public GameObject Product_Reward01_06;
     public GameObject Product_Reward02_07;
     public GameObject Product_Reward04_18;
@@ -636,13 +639,15 @@ public class ProductManager : MonoBehaviour
     public GameObject Product_Reward12_S03;
     public GameObject Product_Reward14_60;
 
-    public Button Product_Reward_라디오;
-    public Button Product_Reward_카세트;
-    public Button Product_Reward_컴퓨터;
+    public GameObject Product_Reward_라디오;
+    public GameObject Product_Reward_카세트;
+    public GameObject Product_Reward_컴퓨터;
 
     Transform tr_airship;
+    // ------------------
 
-    //혁신제품 생산가능 판단변수
+
+    /* 혁신제품 생산가능 판단변수 */
     static public bool PdS01Complete;
     static public bool PdS02Complete;
     static public bool PdS03Complete;
@@ -657,6 +662,37 @@ public class ProductManager : MonoBehaviour
     static public bool JumpWARpossible;
     static public bool JumpELECpossible;
     static public bool JumpMODERNpossible;
+    // -----------------------------------
+
+
+    /* 제품탭 시대버튼 관련 */
+    public Button indTap_WarButton;
+    public Button indTap_ElecButton;
+    public Button indTap_ModernButton;
+    public Text indTap_WarText;
+    public Text indTap_ElecText;
+    public Text indTap_ModernText;
+    public Image indTap_WarImage;
+    public Image indTap_ElecImage;
+    public Image indTap_ModernImage;
+
+    public Button warTap_ElecButton;
+    public Button warTap_ModernButton;
+    public Text warTap_ElecText;
+    public Text warTap_ModernText;
+    public Image warTap_ElecImage;
+    public Image warTap_ModernImage;
+
+    public Button elecTap_ModernButton;
+    public Text elecTap_ModernText;
+    public Image elecTap_ModernImage;
+
+    public Sprite ProductTap_unlockTap;
+    // --------------------------------
+
+    public long MaxPrice;
+
+
 
     void Awake()
     {
@@ -840,6 +876,7 @@ public class ProductManager : MonoBehaviour
         StartCoroutine(SpecialProductIconCheck());
         StartCoroutine(NextERApossible());
         StartCoroutine(Airship_moving());
+        StartCoroutine(ProductAgeTapCheck());
     }
 
     void Update()
@@ -1567,7 +1604,7 @@ public class ProductManager : MonoBehaviour
             Level_U.text = Prod_37_Level.ToString();
             ProdMoneyText_U.text = UnitTransform(perOneAutoMoney37) + paneltext1;
             ProdScienceText_U.text = UnitTransform(perOneAutoScience37) + paneltext1;
-            TotalProdMoneyText_U.text = UnitTransform(perOneAutoScience37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
+            TotalProdMoneyText_U.text = UnitTransform(perOneAutoMoney37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
             if (Prod_37_Level == 0)
             {
                 TotalProdMoneyText_U.text = paneltext3;
@@ -1592,6 +1629,11 @@ public class ProductManager : MonoBehaviour
                 TotalProdMoneyText.text = paneltext3;
             }
             UpPriceText.text = UnitTransform(Pd38);
+            if (Pd38 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             PanelNum = 38;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1610,6 +1652,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_39_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd39 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd39);
             PanelNum = 39;
@@ -1631,6 +1678,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd40 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd40);
             PanelNum = 40;
             ProdUpPanel.SetActive(true);
@@ -1650,6 +1702,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_41_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd41 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd41);
             PanelNum = 41;
@@ -1671,6 +1728,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd42 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd42);
             PanelNum = 42;
             ProdUpPanel.SetActive(true);
@@ -1690,6 +1752,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_43_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd43 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd43);
             PanelNum = 43;
@@ -1711,6 +1778,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd44 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd44);
             PanelNum = 44;
             ProdUpPanel.SetActive(true);
@@ -1730,6 +1802,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_45_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd45 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd45);
             PanelNum = 45;
@@ -1751,6 +1828,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd46 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd46);
             PanelNum = 46;
             ProdUpPanel.SetActive(true);
@@ -1770,6 +1852,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_47_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd47 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd47);
             PanelNum = 47;
@@ -1791,6 +1878,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd48 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd48);
             PanelNum = 48;
             ProdUpPanel.SetActive(true);
@@ -1810,6 +1902,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_49_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd49 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd49);
             PanelNum = 49;
@@ -1831,6 +1928,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd51 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd51);
             PanelNum = 51;
             ProdUpPanel.SetActive(true);
@@ -1850,6 +1952,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_52_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd52 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd52);
             PanelNum = 52;
@@ -1871,6 +1978,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd53 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd53);
             PanelNum = 53;
             ProdUpPanel.SetActive(true);
@@ -1890,6 +2002,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_54_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd54 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd54);
             PanelNum = 54;
@@ -1911,6 +2028,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd55 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd55);
             PanelNum = 55;
             ProdUpPanel.SetActive(true);
@@ -1930,6 +2052,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_56_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd56 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd56);
             PanelNum = 56;
@@ -1951,6 +2078,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd58 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd58);
             PanelNum = 58;
             ProdUpPanel.SetActive(true);
@@ -1970,6 +2102,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_59_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd59 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd59);
             PanelNum = 59;
@@ -1991,6 +2128,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd60 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd60);
             PanelNum = 60;
             ProdUpPanel.SetActive(true);
@@ -2010,6 +2152,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_61_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd61 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd61);
             PanelNum = 61;
@@ -2031,6 +2178,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd62 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd62);
             PanelNum = 62;
             ProdUpPanel.SetActive(true);
@@ -2050,6 +2202,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_63_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd63 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd63);
             PanelNum = 63;
@@ -2071,6 +2228,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd64 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd64);
             PanelNum = 64;
             ProdUpPanel.SetActive(true);
@@ -2090,6 +2252,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_65_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd65 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd65);
             PanelNum = 65;
@@ -2111,6 +2278,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd66 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd66);
             PanelNum = 66;
             ProdUpPanel.SetActive(true);
@@ -2130,6 +2302,11 @@ public class ProductManager : MonoBehaviour
             if (Prod_67_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Pd67 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd67);
             PanelNum = 67;
@@ -2151,6 +2328,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd68 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd68);
             PanelNum = 68;
             ProdUpPanel.SetActive(true);
@@ -2171,6 +2353,11 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Pd69 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             UpPriceText.text = UnitTransform(Pd69);
             PanelNum = 69;
             ProdUpPanel.SetActive(true);
@@ -2185,11 +2372,12 @@ public class ProductManager : MonoBehaviour
             exp.text = "차원을 이동하는 관문입니다. 공간을 무시합니다.";
             Icon.GetComponent<Image>().sprite = ProdIcon70;
             Level.text = Prod_70_Level.ToString();
-            ProdMoneyText.text = UnitTransform(perOneAutoMoney70) + paneltext1;
-            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney70 * Prod_70_Level) + paneltext2;
-            if (Prod_70_Level == 0)
+            ProdMoneyText.text = "";
+            TotalProdMoneyText.text = "";
+            if (Prod_70_Level > 0)
             {
-                TotalProdMoneyText.text = paneltext3;
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
             }
             UpPriceText.text = UnitTransform(Pd70);
             PanelNum = 70;
@@ -2211,6 +2399,7 @@ public class ProductManager : MonoBehaviour
             if (Prod_S01_Level > 0)
             {
                 UpPriceText.text = "기능 적용 중";
+                UpgradeProdButton.interactable = false;
             }
             PanelNum = 71;
             ProdUpPanel.SetActive(true);
@@ -2231,6 +2420,7 @@ public class ProductManager : MonoBehaviour
             if (Prod_S02_Level > 0)
             {
                 UpPriceText.text = "기능 적용 중";
+                UpgradeProdButton.interactable = false;
             }
             PanelNum = 72;
             ProdUpPanel.SetActive(true);
@@ -2251,6 +2441,7 @@ public class ProductManager : MonoBehaviour
             if (Prod_S03_Level > 0)
             {
                 UpPriceText.text = "기능 적용 중";
+                UpgradeProdButton.interactable = false;
             }
             PanelNum = 73;
             ProdUpPanel.SetActive(true);
@@ -2271,6 +2462,7 @@ public class ProductManager : MonoBehaviour
             if (Prod_S04_Level > 0)
             {
                 UpPriceText.text = "기능 적용 중";
+                UpgradeProdButton.interactable = false;
             }
             PanelNum = 74;
             ProdUpPanel.SetActive(true);
@@ -2697,7 +2889,7 @@ public class ProductManager : MonoBehaviour
             Pd37 = (long)((float)Pd37 * UpTimes);
 
             Level_U.text = Prod_37_Level.ToString();
-            TotalProdMoneyText_U.text = UnitTransform(perOneAutoScience37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
+            TotalProdMoneyText_U.text = UnitTransform(perOneAutoMoney37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
             UpPriceText_U.text = UnitTransform(Pd37);
             ProdLevel_37.text = Prod_37_Level.ToString();
             Product_Reward08_37.SetActive(true);
@@ -2711,6 +2903,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_38_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney38 * Prod_38_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd38);
+            if (Pd38 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_38.text = Prod_38_Level.ToString();
         }
         else if (PanelNum == 39 && GameManager.money >= Pd39 && Prod_39_Level < 99)
@@ -2722,6 +2919,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_39_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney39 * Prod_39_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd39);
+            if (Pd39 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_39.text = Prod_39_Level.ToString();
         }
         else if (PanelNum == 40 && GameManager.money >= Pd40 && Prod_40_Level < 99)
@@ -2733,6 +2935,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_40_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience40 * Prod_40_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd40);
+            if (Pd40 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_40.text = Prod_40_Level.ToString();
         }
         else if (PanelNum == 41 && GameManager.money >= Pd41 && Prod_41_Level < 99)
@@ -2744,6 +2951,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_41_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney41 * Prod_41_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd41);
+            if (Pd41 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_41.text = Prod_41_Level.ToString();
         }
         else if (PanelNum == 42 && GameManager.money >= Pd42 && Prod_42_Level < 99)
@@ -2755,6 +2967,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_42_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney42 * Prod_42_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd42);
+            if (Pd42 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_42.text = Prod_42_Level.ToString();
             Product_Reward09_42.SetActive(true);
         }
@@ -2767,6 +2984,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_43_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience43 * Prod_43_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd43);
+            if (Pd43 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_43.text = Prod_43_Level.ToString();
         }
         else if (PanelNum == 44 && GameManager.money >= Pd44 && Prod_44_Level < 99)
@@ -2778,6 +3000,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_44_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney44 * Prod_44_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd44);
+            if (Pd44 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_44.text = Prod_44_Level.ToString();
             Product_Reward10_44.SetActive(true);
         }
@@ -2790,6 +3017,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_45_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney45 * Prod_45_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd45);
+            if (Pd45 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_45.text = Prod_45_Level.ToString();
         }
         else if (PanelNum == 46 && GameManager.money >= Pd46 && Prod_46_Level < 99)
@@ -2801,6 +3033,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_46_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney46 * Prod_46_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd46);
+            if (Pd46 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_46.text = Prod_46_Level.ToString();
         }
         else if (PanelNum == 47 && GameManager.money >= Pd47 && Prod_47_Level < 99)
@@ -2812,6 +3049,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_47_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience47 * Prod_47_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd47);
+            if (Pd47 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_47.text = Prod_47_Level.ToString();
         }
         else if (PanelNum == 48 && GameManager.money >= Pd48 && Prod_48_Level < 99)
@@ -2823,6 +3065,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_48_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney48 * Prod_48_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd48);
+            if (Pd48 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_48.text = Prod_48_Level.ToString();
         }
         else if (PanelNum == 49 && GameManager.money >= Pd49 && Prod_49_Level < 99)
@@ -2834,6 +3081,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_49_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience49 * Prod_49_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd49);
+            if (Pd49 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_49.text = Prod_49_Level.ToString();
         }
         else if (PanelNum == 51 && GameManager.money >= Pd51 && Prod_51_Level < 99)
@@ -2845,6 +3097,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_51_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney51 * Prod_51_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd51);
+            if (Pd51 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_51.text = Prod_51_Level.ToString();
         }
         else if (PanelNum == 52 && GameManager.money >= Pd52 && Prod_52_Level < 99)
@@ -2856,6 +3113,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_52_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience52 * Prod_52_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd52);
+            if (Pd52 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_52.text = Prod_52_Level.ToString();
         }
         else if (PanelNum == 53 && GameManager.money >= Pd53 && Prod_53_Level < 99)
@@ -2867,6 +3129,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_53_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney53 * Prod_53_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd53);
+            if (Pd53 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_53.text = Prod_53_Level.ToString();
         }
         else if (PanelNum == 54 && GameManager.money >= Pd54 && Prod_54_Level < 99)
@@ -2878,6 +3145,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_54_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience54 * Prod_54_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd54);
+            if (Pd54 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_54.text = Prod_54_Level.ToString();
         }
         else if (PanelNum == 55 && GameManager.money >= Pd55 && Prod_55_Level < 99)
@@ -2889,6 +3161,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_55_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney55 * Prod_55_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd55);
+            if (Pd55 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_55.text = Prod_55_Level.ToString();
         }
         else if (PanelNum == 56 && GameManager.money >= Pd56 && Prod_56_Level < 99)
@@ -2900,6 +3177,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_56_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney56 * Prod_56_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd56);
+            if (Pd56 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_56.text = Prod_56_Level.ToString();
         }
         else if (PanelNum == 58 && GameManager.money >= Pd58 && Prod_58_Level < 99)
@@ -2911,6 +3193,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_58_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience58 * Prod_58_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd58);
+            if (Pd58 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_58.text = Prod_58_Level.ToString();
         }
         else if (PanelNum == 59 && GameManager.money >= Pd59 && Prod_59_Level < 99)
@@ -2922,6 +3209,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_59_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney59 * Prod_59_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd59);
+            if (Pd59 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_59.text = Prod_59_Level.ToString();
         }
         else if (PanelNum == 60 && GameManager.money >= Pd60 && Prod_60_Level < 99)
@@ -2933,6 +3225,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_60_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience60 * Prod_60_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd60);
+            if (Pd60 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_60.text = Prod_60_Level.ToString();
             Product_Reward14_60.SetActive(true);
         }
@@ -2945,6 +3242,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_61_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney61 * Prod_61_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd61);
+            if (Pd61 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_61.text = Prod_61_Level.ToString();
         }
         else if (PanelNum == 62 && GameManager.money >= Pd62 && Prod_62_Level < 99)
@@ -2956,6 +3258,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_62_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney62 * Prod_62_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd62);
+            if (Pd62 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_62.text = Prod_62_Level.ToString();
         }
         else if (PanelNum == 63 && GameManager.money >= Pd63 && Prod_63_Level < 99)
@@ -2967,6 +3274,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_63_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience63 * Prod_63_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd63);
+            if (Pd63 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_63.text = Prod_63_Level.ToString();
         }
         else if (PanelNum == 64 && GameManager.money >= Pd64 && Prod_64_Level < 99)
@@ -2978,6 +3290,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_64_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney64 * Prod_64_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd64);
+            if (Pd64 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_64.text = Prod_64_Level.ToString();
         }
         else if (PanelNum == 65 && GameManager.money >= Pd65 && Prod_65_Level < 99)
@@ -2989,6 +3306,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_65_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney65 * Prod_65_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd65);
+            if (Pd65 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_65.text = Prod_65_Level.ToString();
         }
         else if (PanelNum == 66 && GameManager.money >= Pd66 && Prod_66_Level < 99)
@@ -3000,6 +3322,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_66_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience66 * Prod_66_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd66);
+            if (Pd66 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_66.text = Prod_66_Level.ToString();
         }
         else if (PanelNum == 67 && GameManager.money >= Pd67 && Prod_67_Level < 99)
@@ -3011,6 +3338,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_67_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney67 * Prod_67_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd67);
+            if (Pd67 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_67.text = Prod_67_Level.ToString();
         }
         else if (PanelNum == 68 && GameManager.money >= Pd68 && Prod_68_Level < 99)
@@ -3022,6 +3354,11 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_68_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney68 * Prod_68_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd68);
+            if (Pd68 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_68.text = Prod_68_Level.ToString();
         }
         else if (PanelNum == 69 && GameManager.money >= Pd69 && Prod_69_Level < 99)
@@ -3033,43 +3370,60 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_69_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience69 * Prod_69_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd69);
+            if (Pd69 > MaxPrice)
+            {
+                UpPriceText.text = paneltext4;
+                UpgradeProdButton.interactable = false;
+            }
             ProdLevel_69.text = Prod_69_Level.ToString();
         }
-        else if (PanelNum == 70 && GameManager.money >= Pd70 && Prod_70_Level < 99)
+        else if (PanelNum == 70 && GameManager.money >= Pd70 && Prod_70_Level < 1)
         {
             GameManager.money -= Pd70;
             Prod_70_Level++;
-            Pd70 = (long)((float)Pd70 * UpTimes);
 
             Level.text = Prod_70_Level.ToString();
-            TotalProdMoneyText.text = UnitTransform(perOneAutoMoney70 * Prod_70_Level) + paneltext2;
-            UpPriceText.text = UnitTransform(Pd70);
+            UpPriceText.text = paneltext4;
             ProdLevel_70.text = Prod_70_Level.ToString();
+
+            UpgradeProdButton.interactable = false;
         }
         else if (PanelNum == 71 && GameManager.money >= PdS01 && Prod_S01_Level < 1)
         {
             GameManager.money -= PdS01;
             Prod_S01_Level++;
+            Level.text = Prod_S01_Level.ToString();
             UpPriceText.text = "기능 적용 중";
+
+            UpgradeProdButton.interactable = false;
         }
         else if (PanelNum == 72 && GameManager.money >= PdS02 && Prod_S02_Level < 1)
         {
             GameManager.money -= PdS02;
             Prod_S02_Level++;
+            Level.text = Prod_S02_Level.ToString();
             UpPriceText.text = "기능 적용 중";
+
+            UpgradeProdButton.interactable = false;
         }
         else if (PanelNum == 73 && GameManager.money >= PdS03 && Prod_S03_Level < 1)
         {
             GameManager.money -= PdS03;
             Prod_S03_Level++;
+            Level.text = Prod_S03_Level.ToString();
             UpPriceText.text = "기능 적용 중";
             Product_Reward12_S03.SetActive(true);
+
+            UpgradeProdButton.interactable = false;
         }
         else if (PanelNum == 74 && GameManager.money >= PdS04 && Prod_S04_Level < 1)
         {
             GameManager.money -= PdS04;
             Prod_S04_Level++;
+            Level.text = Prod_S04_Level.ToString();
             UpPriceText.text = "기능 적용 중";
+
+            UpgradeProdButton.interactable = false;
         }
 
     }
@@ -3465,7 +3819,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 38)
             {
-                if (GameManager.money >= Pd38 && Prod_38_Level < 99)
+                if (GameManager.money >= Pd38 && Prod_38_Level < 99 && (Pd38 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3476,7 +3830,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 39)
             {
-                if (GameManager.money >= Pd39 && Prod_39_Level < 99)
+                if (GameManager.money >= Pd39 && Prod_39_Level < 99 && (Pd39 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3487,7 +3841,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 40)
             {
-                if (GameManager.money >= Pd40 && Prod_40_Level < 99)
+                if (GameManager.money >= Pd40 && Prod_40_Level < 99 && (Pd40 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3498,7 +3852,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 41)
             {
-                if (GameManager.money >= Pd41 && Prod_41_Level < 99)
+                if (GameManager.money >= Pd41 && Prod_41_Level < 99 && (Pd41 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3509,7 +3863,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 42)
             {
-                if (GameManager.money >= Pd42 && Prod_42_Level < 99)
+                if (GameManager.money >= Pd42 && Prod_42_Level < 99 && (Pd42 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3520,7 +3874,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 43)
             {
-                if (GameManager.money >= Pd43 && Prod_43_Level < 99)
+                if (GameManager.money >= Pd43 && Prod_43_Level < 99 && (Pd43 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3531,7 +3885,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 44)
             {
-                if (GameManager.money >= Pd44 && Prod_44_Level < 99)
+                if (GameManager.money >= Pd44 && Prod_44_Level < 99 && (Pd44 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3542,7 +3896,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 45)
             {
-                if (GameManager.money >= Pd45 && Prod_45_Level < 99)
+                if (GameManager.money >= Pd45 && Prod_45_Level < 99 && (Pd45 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3553,7 +3907,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 46)
             {
-                if (GameManager.money >= Pd46 && Prod_46_Level < 99)
+                if (GameManager.money >= Pd46 && Prod_46_Level < 99 && (Pd46 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3564,7 +3918,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 47)
             {
-                if (GameManager.money >= Pd47 && Prod_47_Level < 99)
+                if (GameManager.money >= Pd47 && Prod_47_Level < 99 && (Pd47 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3575,7 +3929,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 48)
             {
-                if (GameManager.money >= Pd48 && Prod_48_Level < 99)
+                if (GameManager.money >= Pd48 && Prod_48_Level < 99 && (Pd48 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3586,7 +3940,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 49)
             {
-                if (GameManager.money >= Pd49 && Prod_49_Level < 99)
+                if (GameManager.money >= Pd49 && Prod_49_Level < 99 && (Pd49 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3597,7 +3951,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 51)
             {
-                if (GameManager.money >= Pd51 && Prod_51_Level < 99)
+                if (GameManager.money >= Pd51 && Prod_51_Level < 99 && (Pd51 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3608,7 +3962,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 52)
             {
-                if (GameManager.money >= Pd52 && Prod_52_Level < 99)
+                if (GameManager.money >= Pd52 && Prod_52_Level < 99 && (Pd52 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3619,7 +3973,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 53)
             {
-                if (GameManager.money >= Pd53 && Prod_53_Level < 99)
+                if (GameManager.money >= Pd53 && Prod_53_Level < 99 && (Pd53 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3630,7 +3984,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 54)
             {
-                if (GameManager.money >= Pd54 && Prod_54_Level < 99)
+                if (GameManager.money >= Pd54 && Prod_54_Level < 99 && (Pd54 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3641,7 +3995,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 55)
             {
-                if (GameManager.money >= Pd55 && Prod_55_Level < 99)
+                if (GameManager.money >= Pd55 && Prod_55_Level < 99 && (Pd55 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3652,7 +4006,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 56)
             {
-                if (GameManager.money >= Pd56 && Prod_56_Level < 99)
+                if (GameManager.money >= Pd56 && Prod_56_Level < 99 && (Pd56 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3663,7 +4017,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 58)
             {
-                if (GameManager.money >= Pd58 && Prod_58_Level < 99)
+                if (GameManager.money >= Pd58 && Prod_58_Level < 99 && (Pd58 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3674,7 +4028,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 59)
             {
-                if (GameManager.money >= Pd59 && Prod_59_Level < 99)
+                if (GameManager.money >= Pd59 && Prod_59_Level < 99 && (Pd59 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3685,7 +4039,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 60)
             {
-                if (GameManager.money >= Pd60 && Prod_60_Level < 99)
+                if (GameManager.money >= Pd60 && Prod_60_Level < 99 && (Pd60 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3696,7 +4050,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 61)
             {
-                if (GameManager.money >= Pd61 && Prod_61_Level < 99)
+                if (GameManager.money >= Pd61 && Prod_61_Level < 99 && (Pd61 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3707,7 +4061,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 62)
             {
-                if (GameManager.money >= Pd62 && Prod_62_Level < 99)
+                if (GameManager.money >= Pd62 && Prod_62_Level < 99 && (Pd62 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3718,7 +4072,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 63)
             {
-                if (GameManager.money >= Pd63 && Prod_63_Level < 99)
+                if (GameManager.money >= Pd63 && Prod_63_Level < 99 && (Pd63 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3729,7 +4083,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 64)
             {
-                if (GameManager.money >= Pd64 && Prod_64_Level < 99)
+                if (GameManager.money >= Pd64 && Prod_64_Level < 99 && (Pd64 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3740,7 +4094,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 65)
             {
-                if (GameManager.money >= Pd65 && Prod_65_Level < 99)
+                if (GameManager.money >= Pd65 && Prod_65_Level < 99 && (Pd65 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3751,7 +4105,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 66)
             {
-                if (GameManager.money >= Pd66 && Prod_66_Level < 99)
+                if (GameManager.money >= Pd66 && Prod_66_Level < 99 && (Pd66 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3762,7 +4116,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 67)
             {
-                if (GameManager.money >= Pd67 && Prod_67_Level < 99)
+                if (GameManager.money >= Pd67 && Prod_67_Level < 99 && (Pd67 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3773,7 +4127,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 68)
             {
-                if (GameManager.money >= Pd68 && Prod_68_Level < 99)
+                if (GameManager.money >= Pd68 && Prod_68_Level < 99 && (Pd68 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3784,7 +4138,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 69)
             {
-                if (GameManager.money >= Pd69 && Prod_69_Level < 99)
+                if (GameManager.money >= Pd69 && Prod_69_Level < 99 && (Pd69 > MaxPrice == false))
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -3795,7 +4149,7 @@ public class ProductManager : MonoBehaviour
             }
             else if (PanelNum == 70)
             {
-                if (GameManager.money >= Pd70 && Prod_70_Level < 99)
+                if (GameManager.money >= Pd70 && Prod_70_Level < 1)
                 {
                     UpgradeProdButton.interactable = true;
                 }
@@ -4008,6 +4362,61 @@ public class ProductManager : MonoBehaviour
         }
     }
 
+    IEnumerator ProductAgeTapCheck()
+    {
+        bool war = false;
+        bool elec = false;
+        bool modern = false;
+
+        while (true)
+        {
+            if (TechManager.age_modern == true && modern == false)
+            {
+                indTap_ModernButton.interactable = true;
+                indTap_ModernText.text = "현대";
+                indTap_ModernImage.sprite = ProductTap_unlockTap;
+
+                warTap_ModernButton.interactable = true;
+                warTap_ModernText.text = "현대";
+                warTap_ModernImage.sprite = ProductTap_unlockTap;
+
+                elecTap_ModernButton.interactable = true;
+                elecTap_ModernText.text = "현대";
+                elecTap_ModernImage.sprite = ProductTap_unlockTap;
+
+                modern = true;
+            }
+
+            if (TechManager.age_elec == true && elec == false)
+            {
+                indTap_ElecButton.interactable = true;
+                indTap_ElecText.text = "전자";
+                indTap_ElecImage.sprite = ProductTap_unlockTap;
+
+                warTap_ElecButton.interactable = true;
+                warTap_ElecText.text = "전자";
+                warTap_ElecImage.sprite = ProductTap_unlockTap;
+
+                elec = true;
+            }
+
+            if (TechManager.age_war == true && war == false)
+            {
+                indTap_WarButton.interactable = true;
+                indTap_WarText.text = "전쟁";
+                indTap_WarImage.sprite = ProductTap_unlockTap;
+
+                war = true;
+            }
+
+            if (modern == true && elec == true && war == true)
+            {
+                yield break;
+            }
+
+            yield return new WaitForSeconds(2f);
+        }
+    }
 
     /* 제품변화요소 애니메이션 */
     IEnumerator Airship_moving()

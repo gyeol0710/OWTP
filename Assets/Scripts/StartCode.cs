@@ -6,14 +6,7 @@ public class StartCode : MonoBehaviour
 {
     void Start()
     {
-        if (GameManager.RePlay == false)
-        {
-            LoadingManager.LoadScene("Intro");
-        }
-        else
-        {
-            LoadingManager.LoadScene("MainScene");
-        }
+        LoadingManager.LoadScene("OWTPScene");
     }
 
     void Update()

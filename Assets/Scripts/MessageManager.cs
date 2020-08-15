@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class MessageManager : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class MessageManager : MonoBehaviour
     static public bool gomsg;
     bool gotechmsg;
     bool gojokemsg;
+    bool goetcmsg;
     static public bool gojokemsg2;
 
     bool message01c;
@@ -37,11 +39,18 @@ public class MessageManager : MonoBehaviour
     public GameObject Noti_O;
 
     bool[] techMessage = new bool[71];
+    bool[] etcMessage = new bool[21];
     bool ageMessage_WAR;
     bool ageMessage_ELEC;
     bool ageMessage_MODERN;
 
     string[,] JokeMessage = new string[17,5];
+
+    /* 엔진 2번째 관련*/
+    public Image Click_Button;
+    public Sprite Button_Bomb;
+    // -----------------------
+
 
     void Start()
     {
@@ -49,7 +58,10 @@ public class MessageManager : MonoBehaviour
         StartCoroutine(Message1());
         StartCoroutine(Message2());
         StartCoroutine(TechMessage());
+        StartCoroutine(EtcMessage());
         
+
+
         JokeMessage[0,0] = "지속적으로 게임 도중 탈주하는 플레이어는 제제를 받습니다.";
         JokeMessage[0,1] = "아 이 게임이 아니군요 죄송합니다.";
         JokeMessage[1,0] = "공룡 장난감은 석유로 만들죠.";
@@ -107,11 +119,34 @@ public class MessageManager : MonoBehaviour
             gomsg = true;
             yield return StartCoroutine(GoMessage("........."));
             yield return StartCoroutine(GoMessage("........."));
-            yield return StartCoroutine(GoMessage("언어설정완료."));
-            yield return StartCoroutine(GoMessage("지역스캔완료."));
-            yield return StartCoroutine(GoMessage("환경성 검토 완료"));
-            yield return StartCoroutine(GoMessage("정신차리세요."));
-            yield return StartCoroutine(GoMessage("일단 우주선에 남은 연료가 적어서 불시착했습니다."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("..........................."));
+            yield return StartCoroutine(GoMessage("언어설정 완료."));
+            yield return StartCoroutine(GoMessage("지역 스캔 완료."));
+            yield return StartCoroutine(GoMessage("환경성 검토 완료."));
+            yield return StartCoroutine(GoMessage("반갑습니다. 저는 당신의 여행 도우미 GKS-A096 입니다. 연료"));
+            yield return StartCoroutine(GoMessage("효율을 위해 장시간 수면 상태에 있다가 돌발상황이 감지되어"));
+            yield return StartCoroutine(GoMessage("기상했습니다."));
+            yield return StartCoroutine(GoMessage("기본 데이터를 불러오는 중입니다..."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage(".........로그 불러오는 중........."));
+            yield return StartCoroutine(GoMessage("........."));
+            yield return StartCoroutine(GoMessage("당신은 우주 진미인 \"최상우주 감자\"를 고향에 계신 부모님께"));
+            yield return StartCoroutine(GoMessage("드리기 위해 항해하던 중이었군요."));
+            yield return StartCoroutine(GoMessage("우주선이 해적단을 만나 습격을 받았고 우주선의 많은 부분이 "));
+            yield return StartCoroutine(GoMessage("손상되어서 가까운 이 행성에 불시착했습니다."));
+            yield return StartCoroutine(GoMessage("이렇게 된 이상, 이 행성에 터를 잡고 우주선을 수리해서 다시"));
+            yield return StartCoroutine(GoMessage("고향으로 무사히 돌아갑시다. 제가 에너지를 모으는 것을 비롯"));
+            yield return StartCoroutine(GoMessage("한 모든 것을 보조해드리겠습니다."));
+            yield return StartCoroutine(GoMessage("혼자서 에너지를 모으는 것은 너무 오래 걸립니다. 이 행성을"));
+            yield return StartCoroutine(GoMessage("발전시켜서 생성된 에너지와 자원을 사용하는 게 좋겠어요."));
             yield return StartCoroutine(GoLine());
         }
         TutorialManager.T01c = true;
@@ -124,10 +159,11 @@ public class MessageManager : MonoBehaviour
         {
             gomsg = true;
             yield return StartCoroutine(GoMessage("흥미로운 별입니다."));
-            yield return StartCoroutine(GoMessage("1000만종 가까운 생물들이 존재합니다."));
-            yield return StartCoroutine(GoMessage("그 중에서도 사람이라는 생물의 면적이 가장 넓군요."));
-            yield return StartCoroutine(GoMessage("게다가 우주에서 도착한 많은 존재들이 거주중입니다."));
-            yield return StartCoroutine(GoMessage("일단 모을 수 있는 에너지를 찾아봅시다."));
+            yield return StartCoroutine(GoMessage("1,000만 종 가까운 생물들이 존재합니다."));
+            yield return StartCoroutine(GoMessage("그중에서도 인간이라는 생물의 면적이 가장 넓군요."));
+            yield return StartCoroutine(GoMessage("게다가 우주에서 도착한 많은 존재가 거주 중입니다."));
+            yield return StartCoroutine(GoMessage("일단, 이 행성에 있는 자원을 발전시키기 위하여 우주선 내부"));
+            yield return StartCoroutine(GoMessage("의 \"클리커 버튼\"을 통해서 자원을 생성해봅시다."));
             yield return StartCoroutine(GoLine());
         }
         TutorialManager.T02c = true;
@@ -140,10 +176,11 @@ public class MessageManager : MonoBehaviour
         {
             gomsg = true;
             yield return StartCoroutine(GoMessage("좋아요."));
-            yield return StartCoroutine(GoMessage("우주선에 필요한 모든 부품을"));
-            yield return StartCoroutine(GoMessage("우리가 캘 순 없으니 사람들이 이 행성에 있는"));
-            yield return StartCoroutine(GoMessage("모든 요소들을 발견하게 만들면 되겠어요."));
-            yield return StartCoroutine(GoMessage("자금을 만들어봅시다."));
+            yield return StartCoroutine(GoMessage("계속 눌러서 금화를 생성해보세요."));
+            yield return StartCoroutine(GoMessage("금화를 만들어봅시다."));
+            yield return StartCoroutine(GoMessage("금화를 생성해서 우주선의 효율을 향상시켜봅시다. 직원들이"));
+            yield return StartCoroutine(GoMessage("많아질수록 클리커 버튼이 주는 연구력과 자금력이 향상합니"));
+            yield return StartCoroutine(GoMessage("다."));
             yield return StartCoroutine(GoLine());
         }
         TutorialManager.T03c = true;
@@ -166,7 +203,7 @@ public class MessageManager : MonoBehaviour
         if (TutorialManager.T04c == false) // 대화창 4
         {
             gomsg = true;
-            yield return StartCoroutine(GoMessage("좋아요,"));
+            yield return StartCoroutine(GoMessage("[스토리 수정 체크포인트]"));
             yield return StartCoroutine(GoMessage("기존에 있던 부품들로"));
             yield return StartCoroutine(GoMessage("직원들을 좀 만들어 봅시다."));
             yield return StartCoroutine(GoLine());
@@ -544,7 +581,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 techMessage[22] = true;
             }
-            if (ageMessage_WAR == false && TechManager.age_war) // 전쟁시대 돌입
+            if (ageMessage_WAR == false && TechManager.age_war && etcMessage[1] == true) // 전쟁시대 돌입
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("상황이 좋지않습니다."));
@@ -970,10 +1007,201 @@ public class MessageManager : MonoBehaviour
         }
     }
 
+
+    IEnumerator EtcMessage()
+    {
+        while (true)
+        {
+            if (etcMessage[1] == false && SpaceshipManager.SScomplete[1] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("처음으로 우주선을 수리하셨군요!"));
+                yield return StartCoroutine(GoMessage("우주선의 부품을 수리해야만 더 높은 에너지를 저장할 수"));
+                yield return StartCoroutine(GoMessage("있습니다. 고향 행성으로 돌아가기 위해서는 반드시 우주선을"));
+                yield return StartCoroutine(GoMessage("수리해야 합니다. 우주선을 업그레이드하면 좋은 기능들이"));
+                yield return StartCoroutine(GoMessage("많이 추가되므로 가능할 때마다 업그레이드해 주시길 바랍니"));
+                yield return StartCoroutine(GoMessage("다. 시대가 진행될수록 직원들의 성능도 향상하기 때문에 더"));
+                yield return StartCoroutine(GoMessage("빠른 발전이 가능합니다."));
+                yield return StartCoroutine(GoMessage("우주선을 수리했기 때문에 이제 1시간 동안은 접속해 있지 않"));
+                yield return StartCoroutine(GoMessage("아도 금화나 연구력을 자동으로 획득합니다."));
+                yield return StartCoroutine(GoMessage("얼른 수리하여 이 행성을 탈출합시다!"));
+                yield return StartCoroutine(GoLine());
+                etcMessage[1] = true;
+            }
+            else if (etcMessage[2] == false && SpaceshipManager.SScomplete[2] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선을 두 번째로 수리하였습니다."));
+                yield return StartCoroutine(GoMessage("2시간 동안은 접속해 있지 않아도 금화나 연구력을 자동으로"));
+                yield return StartCoroutine(GoMessage("획득합니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[2] = true;
+            }
+            else if (etcMessage[3] == false && SpaceshipManager.SScomplete[3] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선을 세 번째로 수리하였습니다."));
+                yield return StartCoroutine(GoMessage("우주선에 기능이 추가되었습니다. 금화 생산량이 10% 향상"));
+                yield return StartCoroutine(GoMessage("됩니다"));
+                yield return StartCoroutine(GoLine());
+                etcMessage[3] = true;
+            }
+            else if (etcMessage[4] == false && SpaceshipManager.SScomplete[4] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선의 외부를 최종 수리하였습니다."));
+                yield return StartCoroutine(GoMessage("우주선에 기능이 추가되었습니다. 연구력 생산량이 10% 향"));
+                yield return StartCoroutine(GoMessage("상 됩니다."));
+                yield return StartCoroutine(GoMessage("우주선의 외견은 모두 수리했습니다. 다음 시대로 넘어가서"));
+                yield return StartCoroutine(GoMessage("엔진을 수리합시다!"));
+                yield return StartCoroutine(GoLine());
+                etcMessage[4] = true;
+            }
+            else if (etcMessage[5] == false && SpaceshipManager.SScomplete[5] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("추진발사 연료가 수리되었습니다."));
+                yield return StartCoroutine(GoMessage("앞으로 100초 동안 클리커 버튼이 생성하는 돈이 50배가 됩니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[5] = true;
+            }
+            else if (etcMessage[6] == false && SpaceshipManager.SScomplete[6] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("연료통이 수리되었습니다....만"));
+                yield return StartCoroutine(GoMessage("......"));
+                yield return StartCoroutine(GoMessage("......"));
+                yield return StartCoroutine(GoMessage("문제가 생겼습니다."));
+                yield return StartCoroutine(GoMessage("저희 우주선 외부에서는 인간들끼리 치고받고 싸우고 있습니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoMessage("저희와는 상관없는 일이기 때문에 지금까지는 신경 쓰지 않았"));
+                yield return StartCoroutine(GoMessage("습니다. 인간들의 싸움 과정에서 조준이 잘못된 것인지 저희"));
+                yield return StartCoroutine(GoMessage("기지에도 폭격의 피해가 있었습니다."));
+                yield return StartCoroutine(GoMessage("그 피해 때문에 물품을 생산하는 데에 차질을 빚게 되었습니"));
+                yield return StartCoroutine(GoMessage("다. 일단 생산설비를 복구하고 방어할만한 장치를 만들어야"));
+                yield return StartCoroutine(GoMessage("합니다."));
+                yield return StartCoroutine(GoMessage("인간들에게 본때를 보여줘야겠군요."));
+                yield return StartCoroutine(GoMessage("클리커 버튼의 용도를 잠시 변경했습니다. 클리커 버튼을 누"));
+                GameManager.eventOn = true;
+                GameManager.Fuel2Debuff = 0.03f;
+                etcMessage[6] = true;
+                Click_Button.sprite = Button_Bomb;
+                yield return StartCoroutine(GoMessage("르면 무작위로 포격합니다. 주변 지대가 안전해질 때까지 클"));
+                yield return StartCoroutine(GoMessage("리커 버튼을 계속 눌러주세요."));
+                yield return StartCoroutine(GoLine());
+            }
+            else if (etcMessage[7] == false && SpaceshipManager.SScomplete[7] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선의 연료를 세 번째로 정비하였습니다."));
+                yield return StartCoroutine(GoMessage("연료의 효율이 향상합니다. 금화 생산량이 10% 향상됩니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[7] = true;
+            }
+            else if (etcMessage[8] == false && SpaceshipManager.SScomplete[8] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선의 연료를 최종 정비하였습니다."));
+                yield return StartCoroutine(GoMessage("연료의 효율이 향상합니다. 연구력 생산량이 10% 향상됩니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[8] = true;
+            }
+            else if (etcMessage[9] == false && SpaceshipManager.SScomplete[9] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선의 엔진이 수리되었습니다."));
+                yield return StartCoroutine(GoMessage("앞으로 100초 동안 클리커 버튼이 생성하는 돈이 100배가 됩"));
+                yield return StartCoroutine(GoMessage("니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[9] = true;
+            }
+            else if (etcMessage[10] == false && SpaceshipManager.SScomplete[10] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("우주선의 엔진을 두 번째로 수리했습니다."));
+                yield return StartCoroutine(GoMessage("이제 더 높은 기술 출력을 사용할 수 있습니다."));
+                yield return StartCoroutine(GoMessage("지구의 전력과 자원을 우리 기지와 연결해서 공급을 받을 수"));
+                yield return StartCoroutine(GoMessage("있습니다. 외부에 연결하기 위하여 잠시 우주선을 중지했습"));
+                yield return StartCoroutine(GoMessage("니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[10] = true;
+            }
+            else if (etcMessage[11] == false && SpaceshipManager.SScomplete[11] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("엔진을 세 번째로 업그레이드했습니다."));
+                yield return StartCoroutine(GoMessage("엔진의 효율이 향상됩니다. 금화 생산량이 10% 향상됩니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[11] = true;
+            }
+            else if (etcMessage[12] == false && SpaceshipManager.SScomplete[12] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("엔진을 최종 업그레이드했습니다."));
+                yield return StartCoroutine(GoMessage("엔진의 효율이 향상됩니다. 연구력 생산량이 10% 향상됩니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[12] = true;
+            }
+            else if (etcMessage[13] == false && SpaceshipManager.SScomplete[13] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("조종판을 제작했습니다."));
+                yield return StartCoroutine(GoMessage("이제 이 행성을 떠날 날이 얼마 남지 않았습니다. 조금만 더"));
+                yield return StartCoroutine(GoMessage("힘냅시다. 고향이 눈앞에 보이는 것만 같아요."));
+                yield return StartCoroutine(GoMessage("앞으로 100초 동안 클리커 버튼이 생성하는 돈이 500배가 됩"));
+                yield return StartCoroutine(GoMessage("니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[13] = true;
+            }
+            else if (etcMessage[14] == false && SpaceshipManager.SScomplete[14] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoLine());
+                etcMessage[14] = true;
+            }
+            else if (etcMessage[15] == false && SpaceshipManager.SScomplete[15] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("조종판의 기능이 추가되었습니다."));
+                yield return StartCoroutine(GoMessage("우주선의 기능이 추가됩니다. 모든 생산량이 10% 향상됩니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[15] = true;
+            }
+            else if (etcMessage[16] == false && SpaceshipManager.SScomplete[16] == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("고향으로 돌아가기 위한 모든 준비는 끝났습니다."));
+                yield return StartCoroutine(GoMessage("이제 드디어 탈출이군요..."));
+                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoLine());
+                etcMessage[16] = true;
+            }
+
+            yield return new WaitForSeconds(1f);
+            goetcmsg = false;
+        }
+    }
+
     void TechMessageCommonFN()
     {
         gomsg = true;
         gotechmsg = true;
+        Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+    }
+
+    void EtcMessageCommonFN()
+    {
+        gomsg = true;
+        goetcmsg = true;
         Noti_O.GetComponent<Image>().color = new Color(255, 255, 255, 255);
     }
 
@@ -1076,7 +1304,7 @@ public class MessageManager : MonoBehaviour
 
     public void JokeButton()
     {
-        if (gojokemsg == false && gotechmsg == false)
+        if (gojokemsg == false && gotechmsg == false && goetcmsg == false)
         {
             StartCoroutine(JokeManager());
         }

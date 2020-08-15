@@ -206,6 +206,8 @@ public class GameManager : MonoBehaviour
     public Image Click_Button;
     public Sprite Button_normal;
     public Sprite Button_normal_pushed;
+    public Sprite Button_Bomb;
+    public Sprite Button_Bomb_pushed;
 
     public GameObject panel_robot;
     
@@ -218,7 +220,7 @@ public class GameManager : MonoBehaviour
 
     static public float SpaceshipScienceBonus;
 
-
+    static public bool eventOn;
     static public int ClickCount_Fuel2;
     static public bool Story_Fuel2_Complete;
     static public float Fuel2Debuff;
@@ -236,6 +238,9 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer Robot08;
     //-----------------------------------------
     int click_gauge;
+    //-----------------------------------------
+    public Text GoldMultipleInfo;
+    public Text ScienceMultipleInfo;
 
 
     void Awake()
@@ -248,7 +253,7 @@ public class GameManager : MonoBehaviour
         }
         */
         Offer01.SetActive(true);
-        SpaceshipGoldBonus = 1.1f;
+        SpaceshipGoldBonus = 1f;
         AdBonus = 1f;
         CashBonus = 1f;
         ClickBonus = 1f;
@@ -277,10 +282,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(UpdateRobotPanelText());
         StartCoroutine(RobotLevelUpButtonActiveCheck());
         StartCoroutine(FinalBonus());
-        if (ProductManager.Prod_S03_Level > 0 || ProductManager.Prod_S04_Level > 0)
-        {
-            StartCoroutine(ClickGaugeControll());
-        }
+        StartCoroutine(MultipleInfo());
+        StartCoroutine(ClickGaugeControll());
 
         if (RePlay == false)
         {
@@ -294,7 +297,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
+        if(money >= 9000000000000000000 || money <= -8000000000000000000)
+        {
+            money = 9000000000000000000;
+        }
     }
 
     private void OnApplicationQuit()
@@ -347,14 +353,9 @@ public class GameManager : MonoBehaviour
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
         Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
-        if (Story_Fuel2_Complete == false && SpaceshipManager.Fuel2_Complete == true)
+        if(eventOn == true)
         {
-            ClickCount_Fuel2++;
-            if (ClickCount_Fuel2 >= 50)
-            {
-                Fuel2Debuff = 1f;
-                Story_Fuel2_Complete = true;
-            }
+            EventOn();
         }
         click_gauge = 23;
     }
@@ -369,25 +370,53 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void EventOn()
+    {
+        if (Story_Fuel2_Complete == false && SpaceshipManager.SScomplete[6] == true)
+        {
+            ClickCount_Fuel2++;
+            if (ClickCount_Fuel2 >= 50)
+            {
+                Fuel2Debuff = 1f;
+                Story_Fuel2_Complete = true;
+                Click_Button.sprite = Button_normal;
+            }
+        }
+    }
+
     IEnumerator FinalBonus()
     {
         while(true)
         {
             FinalGoldBonus = 1 * SpaceshipGoldBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff;
-            FinalScienceBonus = 1 * SpaceshipScienceBonus * ClickBonus;
+            FinalScienceBonus = 1 * SpaceshipScienceBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff;
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
     public void Button_Down()
     {
-        Click_Button.sprite = Button_normal_pushed;
+        if(eventOn == true && Story_Fuel2_Complete == false && SpaceshipManager.SScomplete[6] == true)
+        {
+            Click_Button.sprite = Button_Bomb_pushed;
+        }
+        else
+        {
+            Click_Button.sprite = Button_normal_pushed;
+        }
     }
 
     public void Button_Up()
     {
-        Click_Button.sprite = Button_normal;
+        if (eventOn == true && Story_Fuel2_Complete == false && SpaceshipManager.SScomplete[6] == true)
+        {
+            Click_Button.sprite = Button_Bomb;
+        }
+        else
+        {
+            Click_Button.sprite = Button_normal;
+        }
     }
 
     IEnumerator MoneyTransform()
@@ -1467,6 +1496,17 @@ public class GameManager : MonoBehaviour
         img4.raycastTarget = false;
     }
 
+    IEnumerator MultipleInfo()
+    {
+        while(true)
+        {
+            GoldMultipleInfo.text = "골드 배율 : " + FinalGoldBonus + "배";
+            ScienceMultipleInfo.text = "연구력 배율 : " + FinalScienceBonus + "배";
+
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
     IEnumerator AutoMoney()
     {
         while(true)
@@ -1514,6 +1554,15 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ClickGaugeControll() // 클릭게이지 컨트롤
     {
+        while(true)
+        {
+            if (ProductManager.Prod_S03_Level > 0 || ProductManager.Prod_S04_Level > 0)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(2f);
+        }
+
         while(true)
         {
             if (click_gauge <= 0)

@@ -23,10 +23,7 @@ public class SpaceshipManager : MonoBehaviour
     public long cockpit3_Gold;
     public long cockpit4_Gold;
 
-    public GameObject gauge1; // 우주선 업글 게이지
-    public GameObject gauge2;
-    public GameObject gauge3;
-    public GameObject gauge4;
+    public Image gauge; // 우주선 업글 게이지
 
     public GameObject body; // 우주선 이미지 오브젝트
     public GameObject fuel;
@@ -50,14 +47,29 @@ public class SpaceshipManager : MonoBehaviour
     public Sprite cockpit3;
     public Sprite cockpit4;
 
-    static public bool Fuel2_Complete;
-
     public Button SpaceshipUp_Button; // 우주선 업글 버튼
     public Text SpaceshipUpNeedGold_Text; // 우주선 업글 비용 표시 텍스트
 
+
+    /* 시대 변화 애니메이션 */
     public GameObject Age_pannel;
     public Image Age_banner;
     public Image AgeBlack;
+
+    public Sprite WarAge_banner;
+    public Sprite ElecAge_banner;
+    public Sprite ModernAge_banner;
+    // ----------------------------
+
+
+    /* 우주선 완료 판단 변수 */
+    static public bool[] SScomplete = new bool[21];
+    // ----------------------------
+
+    /* 패널 텍스트 */
+    string paneltext1 = "모든 제품 미보유";
+    // ----------------------------
+
 
     int SSupNum;
 
@@ -65,6 +77,7 @@ public class SpaceshipManager : MonoBehaviour
     {
         SSupNum = 1;
         StartCoroutine(SpaceshipUpdate());
+        StartCoroutine(IndAgeAnim());
     }
 
     void Update()
@@ -79,12 +92,16 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.money -= body1_Gold;
             SSupNum++;
             body.GetComponent<Image>().sprite = body2; // 오프라인 수입 보류
+            SScomplete[1] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 2 && (GameManager.money >= body2_Gold))
         {
             GameManager.money -= body2_Gold;
             SSupNum++;
             body.GetComponent<Image>().sprite = body3; // 오프라인 수입 보류
+            SScomplete[2] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 3 && (GameManager.money >= body3_Gold))
         {
@@ -92,6 +109,8 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             body.GetComponent<Image>().sprite = body4;
             GameManager.SpaceshipGoldBonus = 1.1f;
+            SScomplete[3] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 4 && (GameManager.money >= body4_Gold) && ProductManager.JumpINDpossible == true)
         {
@@ -102,28 +121,35 @@ public class SpaceshipManager : MonoBehaviour
             body.SetActive(false);
             fuel.SetActive(true);
 
+            Age_banner.sprite = WarAge_banner;
             StartCoroutine(Age_Anim());
+            SScomplete[4] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 5 && (GameManager.money >= fuel1_Gold))
         {
             GameManager.money -= fuel1_Gold;
             SSupNum++;
             fuel.GetComponent<Image>().sprite = fuel2; // 100초 동안 클릭 골드 증가 일단 보류
+            SScomplete[5] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 6 && (GameManager.money >= fuel2_Gold))
         {
             GameManager.money -= fuel2_Gold;
             SSupNum++;
             fuel.GetComponent<Image>().sprite = fuel3;
-            Fuel2_Complete = true;
-            GameManager.Fuel2Debuff = 0.03f;
+            SScomplete[6] = true;
+            SSCommonFn();
         }
-        else if (SSupNum == 7 && (GameManager.money >= fuel3_Gold))
+        else if (SSupNum == 7 && (GameManager.money >= fuel3_Gold) && GameManager.Story_Fuel2_Complete == true)
         {
             GameManager.money -= fuel3_Gold;
             SSupNum++;
             fuel.GetComponent<Image>().sprite = fuel4;
             GameManager.SpaceshipGoldBonus = 1.2f;
+            SScomplete[7] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 8 && (GameManager.money >= fuel4_Gold) && ProductManager.JumpWARpossible == true)
         {
@@ -133,18 +159,27 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.SpaceshipScienceBonus = 1.2f;
             fuel.SetActive(false);
             engine.SetActive(true);
+
+            Age_banner.sprite = ElecAge_banner;
+            StartCoroutine(Age_Anim());
+            SScomplete[8] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 9 && (GameManager.money >= engine1_Gold))
         {
             GameManager.money -= engine1_Gold;
             SSupNum++;
             engine.GetComponent<Image>().sprite = engine2;
+            SScomplete[9] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 10 && (GameManager.money >= engine2_Gold))
         {
             GameManager.money -= engine2_Gold;
             SSupNum++;
             engine.GetComponent<Image>().sprite = engine3;
+            SScomplete[10] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 11 && (GameManager.money >= engine3_Gold))
         {
@@ -152,6 +187,8 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             engine.GetComponent<Image>().sprite = engine4;
             GameManager.SpaceshipGoldBonus = 1.3f;
+            SScomplete[11] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 12 && (GameManager.money >= engine4_Gold) && ProductManager.JumpELECpossible == true)
         {
@@ -161,18 +198,27 @@ public class SpaceshipManager : MonoBehaviour
             GameManager.SpaceshipScienceBonus = 1.3f;
             engine.SetActive(false);
             cockpit.SetActive(true);
+
+            Age_banner.sprite = ModernAge_banner;
+            StartCoroutine(Age_Anim());
+            SScomplete[12] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 13 && (GameManager.money >= cockpit1_Gold))
         {
             GameManager.money -= cockpit1_Gold;
             SSupNum++;
             cockpit.GetComponent<Image>().sprite = cockpit2;
+            SScomplete[13] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 14 && (GameManager.money >= cockpit2_Gold))
         {
             GameManager.money -= cockpit2_Gold;
             SSupNum++;
             cockpit.GetComponent<Image>().sprite = cockpit3;
+            SScomplete[14] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 15 && (GameManager.money >= cockpit3_Gold))
         {
@@ -180,11 +226,20 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             cockpit.GetComponent<Image>().sprite = cockpit4;
             GameManager.SpaceshipGoldBonus = 1.4f;
+            SScomplete[15] = true;
+            SSCommonFn();
         }
         else if (SSupNum == 16 && (GameManager.money >= cockpit4_Gold) && ProductManager.JumpMODERNpossible == true)
         {
             GameManager.money -= cockpit4_Gold;
+            SScomplete[16] = true;
+            SSCommonFn();
         }
+    }
+
+    void SSCommonFn()
+    {
+        gauge.fillAmount += 0.0625f;
     }
 
     IEnumerator SpaceshipUpdate() // 실시간 골드텍스트 대입 및 버튼 접근 체크
@@ -229,10 +284,15 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 4)
             {
-                SpaceshipUpNeedGold_Text.text = UnitTransform(body4_Gold);
+                SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= body4_Gold && ProductManager.JumpINDpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
+                }
+                else if (ProductManager.JumpINDpossible == true)
+                {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(body4_Gold);
+                    SpaceshipUp_Button.interactable = false;
                 }
                 else
                 {
@@ -266,7 +326,7 @@ public class SpaceshipManager : MonoBehaviour
             else if (SSupNum == 7)
             {
                 SpaceshipUpNeedGold_Text.text = UnitTransform(fuel3_Gold);
-                if (GameManager.money >= fuel3_Gold)
+                if (GameManager.money >= fuel3_Gold && GameManager.Story_Fuel2_Complete == true)
                 {
                     SpaceshipUp_Button.interactable = true;
                 }
@@ -277,10 +337,15 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 8)
             {
-                SpaceshipUpNeedGold_Text.text = UnitTransform(fuel4_Gold);
+                SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= fuel4_Gold && ProductManager.JumpWARpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
+                }
+                else if (ProductManager.JumpWARpossible == true)
+                {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(fuel4_Gold);
+                    SpaceshipUp_Button.interactable = false;
                 }
                 else
                 {
@@ -325,10 +390,15 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 12)
             {
-                SpaceshipUpNeedGold_Text.text = UnitTransform(engine4_Gold);
+                SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= engine4_Gold && ProductManager.JumpELECpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
+                }
+                else if (ProductManager.JumpELECpossible == true)
+                {
+                SpaceshipUpNeedGold_Text.text = UnitTransform(engine4_Gold);
+                SpaceshipUp_Button.interactable = false;
                 }
                 else
                 {
@@ -373,10 +443,15 @@ public class SpaceshipManager : MonoBehaviour
             }
             else if (SSupNum == 16)
             {
-                SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit4_Gold);
+                SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= cockpit4_Gold && ProductManager.JumpMODERNpossible == true)
                 {
                     SpaceshipUp_Button.interactable = true;
+                }
+                else if (ProductManager.JumpMODERNpossible == true)
+                {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit4_Gold);
+                    SpaceshipUp_Button.interactable = false;
                 }
                 else
                 {
@@ -464,6 +539,26 @@ public class SpaceshipManager : MonoBehaviour
             j++;
             
             yield return new WaitForSeconds(0.02f);
+        }
+    }
+
+    IEnumerator IndAgeAnim()
+    {
+        if (TechManager.Tech1Complete == true)
+        {
+            yield break;
+        }
+
+        while(true)
+        {
+            if (TechManager.Tech1Complete == true)
+            {
+                StartCoroutine(Age_Anim());
+
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

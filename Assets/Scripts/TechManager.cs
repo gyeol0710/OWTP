@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class TechManager : MonoBehaviour
 {
@@ -39,7 +38,7 @@ public class TechManager : MonoBehaviour
     public static long Tech15;
     public long tc16_탄도학_연구력;
     public static long Tech16;
-    public long tc17_나이트로글리세린_연구력;
+    public long tc17_폭발성물질_연구력;
     public static long Tech17;
     public long tc18_소리_연구력;
     public static long Tech18;
@@ -699,10 +698,10 @@ public class TechManager : MonoBehaviour
     public GameObject SBHandle_ELEC;
     public GameObject ScrollBar_MODERN;
     public GameObject SBHandle_MODERN;
-    public Image im1;
-    public Image im2;
-    public Image im3;
-    public Image im4;
+    Image im1;
+    Image im2;
+    Image im3;
+    Image im4;
 
 
     Scrollbar SbTech_IND; // 스크롤바 import를 위한 변수 AutoHidingHandle() 관련
@@ -722,14 +721,23 @@ public class TechManager : MonoBehaviour
     public Text indTap_WarText;
     public Text indTap_ElecText;
     public Text indTap_ModernText;
+    public Image indTap_WarImage;
+    public Image indTap_ElecImage;
+    public Image indTap_ModernImage;
 
     public Button warTap_ElecButton;
     public Button warTap_ModernButton;
     public Text warTap_ElecText;
     public Text warTap_ModernText;
+    public Image warTap_ElecImage;
+    public Image warTap_ModernImage;
 
     public Button elecTap_ModernButton;
     public Text elecTap_ModernText;
+    public Image elecTap_ModernImage;
+
+    public Sprite TechTap_unlockTap;
+    // ----------------------------
 
     void Awake()
     {
@@ -764,7 +772,7 @@ public class TechManager : MonoBehaviour
         Tech14 = tc14_열역학_연구력;
         Tech15 = tc15_유선통신_연구력;
         Tech16 = tc16_탄도학_연구력;
-        Tech17 = tc17_나이트로글리세린_연구력;
+        Tech17 = tc17_폭발성물질_연구력;
         Tech18 = tc18_소리_연구력;
         Tech19 = tc19_전류진동_연구력;
         Tech20 = tc20_필라멘트_연구력;
@@ -1957,7 +1965,7 @@ public class TechManager : MonoBehaviour
 
     public void Tech_17_Oepn()
     {
-        title.text = "나이트로글리세린";
+        title.text = "폭발성물질";
         exp.text = "폭발성과 유독성을 가진 투명 무색의 액체입니다. 매우 불안정합니다.";
         Icon.GetComponent<Image>().sprite = TechCplImg17;
         UnitTransform(Tech17);
@@ -3444,7 +3452,7 @@ public class TechManager : MonoBehaviour
 
     void ExceptionRule() // 예외규칙. 업데이트 함수에 대입
     {
-        if (Tech15Complete == true && Tech17Complete == true && Tech19Complete == false) // 유선통신(15) + 나이트로글리세린(17) -> 전류진동(19)
+        if (Tech15Complete == true && Tech17Complete == true && Tech19Complete == false) // 유선통신(15) + 폭발성물질(17) -> 전류진동(19)
         {
             TechIcon19.GetComponent<Button>().interactable = true;
             if (TechIcon19.GetComponent<Image>().color.a < 2.7)
