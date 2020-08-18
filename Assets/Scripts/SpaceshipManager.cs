@@ -287,6 +287,7 @@ public class SpaceshipManager : MonoBehaviour
                 SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= body4_Gold && ProductManager.JumpINDpossible == true)
                 {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(body4_Gold);
                     SpaceshipUp_Button.interactable = true;
                 }
                 else if (ProductManager.JumpINDpossible == true)
@@ -340,6 +341,7 @@ public class SpaceshipManager : MonoBehaviour
                 SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= fuel4_Gold && ProductManager.JumpWARpossible == true)
                 {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(fuel4_Gold);
                     SpaceshipUp_Button.interactable = true;
                 }
                 else if (ProductManager.JumpWARpossible == true)
@@ -393,6 +395,7 @@ public class SpaceshipManager : MonoBehaviour
                 SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= engine4_Gold && ProductManager.JumpELECpossible == true)
                 {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(engine4_Gold);
                     SpaceshipUp_Button.interactable = true;
                 }
                 else if (ProductManager.JumpELECpossible == true)
@@ -446,6 +449,7 @@ public class SpaceshipManager : MonoBehaviour
                 SpaceshipUpNeedGold_Text.text = paneltext1;
                 if (GameManager.money >= cockpit4_Gold && ProductManager.JumpMODERNpossible == true)
                 {
+                    SpaceshipUpNeedGold_Text.text = UnitTransform(cockpit4_Gold);
                     SpaceshipUp_Button.interactable = true;
                 }
                 else if (ProductManager.JumpMODERNpossible == true)

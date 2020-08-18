@@ -9331,7 +9331,7 @@ MonoBehaviour:
   cockpit2_Gold: 5000000000000000
   cockpit3_Gold: 10000000000000000
   cockpit4_Gold: 85200000000000000
-  gauge: {fileID: 0}
+  gauge: {fileID: 1216998753}
   body: {fileID: 1077854782}
   fuel: {fileID: 1044786809}
   engine: {fileID: 1066032714}
@@ -9357,9 +9357,9 @@ MonoBehaviour:
   Age_pannel: {fileID: 1701601731}
   Age_banner: {fileID: 1993126486}
   AgeBlack: {fileID: 1366013728}
-  WarAge_banner: {fileID: 0}
-  ElecAge_banner: {fileID: 0}
-  ModernAge_banner: {fileID: 0}
+  WarAge_banner: {fileID: 21300000, guid: 2e70bb56d2db29b409a0d2c1dc4ad1b2, type: 3}
+  ElecAge_banner: {fileID: 21300000, guid: d36ec0b9a30eac5478ac298781cd24cf, type: 3}
+  ModernAge_banner: {fileID: 21300000, guid: f3cecfbb35225e74997111ea4c2ce441, type: 3}
 --- !u!4 &318665685
 Transform:
   m_ObjectHideFlags: 0
@@ -33989,9 +33989,9 @@ MonoBehaviour:
   Product_Reward10_44: {fileID: 248357578}
   Product_Reward12_S03: {fileID: 564782179}
   Product_Reward14_60: {fileID: 1170921463}
-  "Product_Reward_\uB77C\uB514\uC624": {fileID: 0}
-  "Product_Reward_\uCE74\uC138\uD2B8": {fileID: 0}
-  "Product_Reward_\uCEF4\uD4E8\uD130": {fileID: 0}
+  "Product_Reward_\uB77C\uB514\uC624": {fileID: 1152598309}
+  "Product_Reward_\uCE74\uC138\uD2B8": {fileID: 248357578}
+  "Product_Reward_\uCEF4\uD4E8\uD130": {fileID: 564782179}
   infoPanel_icon: {fileID: 1654217995}
   infoPanel_icon_Gold: {fileID: 21300000, guid: 9b4ca31900c8934469c2de4a9bce995b,
     type: 3}
@@ -33999,25 +33999,26 @@ MonoBehaviour:
     type: 3}
   infoPanel_icon_Special: {fileID: 21300000, guid: 480182b15c6249c4e8abc2cb32a3581e,
     type: 3}
-  indTap_WarButton: {fileID: 0}
-  indTap_ElecButton: {fileID: 0}
-  indTap_ModernButton: {fileID: 0}
-  indTap_WarText: {fileID: 0}
-  indTap_ElecText: {fileID: 0}
-  indTap_ModernText: {fileID: 0}
-  indTap_WarImage: {fileID: 0}
-  indTap_ElecImage: {fileID: 0}
-  indTap_ModernImage: {fileID: 0}
-  warTap_ElecButton: {fileID: 0}
-  warTap_ModernButton: {fileID: 0}
-  warTap_ElecText: {fileID: 0}
-  warTap_ModernText: {fileID: 0}
-  warTap_ElecImage: {fileID: 0}
-  warTap_ModernImage: {fileID: 0}
-  elecTap_ModernButton: {fileID: 0}
-  elecTap_ModernText: {fileID: 0}
-  elecTap_ModernImage: {fileID: 0}
-  ProductTap_unlockTap: {fileID: 0}
+  indTap_WarButton: {fileID: 621351305}
+  indTap_ElecButton: {fileID: 525194920}
+  indTap_ModernButton: {fileID: 1683341292}
+  indTap_WarText: {fileID: 1992771538}
+  indTap_ElecText: {fileID: 243353474}
+  indTap_ModernText: {fileID: 643293720}
+  indTap_WarImage: {fileID: 621351306}
+  indTap_ElecImage: {fileID: 525194921}
+  indTap_ModernImage: {fileID: 1683341293}
+  warTap_ElecButton: {fileID: 954175730}
+  warTap_ModernButton: {fileID: 1179594422}
+  warTap_ElecText: {fileID: 1848349981}
+  warTap_ModernText: {fileID: 186344930}
+  warTap_ElecImage: {fileID: 954175731}
+  warTap_ModernImage: {fileID: 1179594423}
+  elecTap_ModernButton: {fileID: 1730145079}
+  elecTap_ModernText: {fileID: 173006131}
+  elecTap_ModernImage: {fileID: 1730145080}
+  ProductTap_unlockTap: {fileID: 21300000, guid: 1e59b9bc42a4d5c458591482e269b54d,
+    type: 3}
   MaxPrice: 0
 --- !u!4 &1039000333
 Transform:
@@ -40106,8 +40107,8 @@ MonoBehaviour:
   Button_normal: {fileID: 21300000, guid: 6f30d0b17dc3a0b449508077a3870523, type: 3}
   Button_normal_pushed: {fileID: 21300000, guid: f71f5e0c14754d149be7cb49272bdcc9,
     type: 3}
-  Button_Bomb: {fileID: 0}
-  Button_Bomb_pushed: {fileID: 0}
+  Button_Bomb: {fileID: 21300000, guid: 4eb27f82344b14f45818782e9b518fc0, type: 3}
+  Button_Bomb_pushed: {fileID: 21300000, guid: 34b166857733efd43b07412ed5c3989d, type: 3}
   panel_robot: {fileID: 1100343649}
   Robot01: {fileID: 761666232}
   Robot02: {fileID: 1647371739}
@@ -40117,8 +40118,8 @@ MonoBehaviour:
   Robot06: {fileID: 927201519}
   Robot07: {fileID: 688683301}
   Robot08: {fileID: 1124987857}
-  GoldMultipleInfo: {fileID: 0}
-  ScienceMultipleInfo: {fileID: 0}
+  GoldMultipleInfo: {fileID: 1338214108}
+  ScienceMultipleInfo: {fileID: 1307022629}
 --- !u!4 &1225608269
 Transform:
   m_ObjectHideFlags: 0
@@ -49249,8 +49250,8 @@ MonoBehaviour:
   Noti_P: {fileID: 138604530}
   Noti_T: {fileID: 470261035}
   Noti_O: {fileID: 406353789}
-  Click_Button: {fileID: 0}
-  Button_Bomb: {fileID: 0}
+  Click_Button: {fileID: 1658265886}
+  Button_Bomb: {fileID: 21300000, guid: 4eb27f82344b14f45818782e9b518fc0, type: 3}
 --- !u!4 &1519617175
 Transform:
   m_ObjectHideFlags: 0
@@ -51782,19 +51783,19 @@ MonoBehaviour:
   indTap_WarText: {fileID: 1951946017}
   indTap_ElecText: {fileID: 2045786444}
   indTap_ModernText: {fileID: 900953267}
-  indTap_WarImage: {fileID: 0}
-  indTap_ElecImage: {fileID: 0}
-  indTap_ModernImage: {fileID: 0}
+  indTap_WarImage: {fileID: 1834707052}
+  indTap_ElecImage: {fileID: 487369436}
+  indTap_ModernImage: {fileID: 1532870112}
   warTap_ElecButton: {fileID: 159121932}
   warTap_ModernButton: {fileID: 325182958}
   warTap_ElecText: {fileID: 629029853}
   warTap_ModernText: {fileID: 573354873}
-  warTap_ElecImage: {fileID: 0}
-  warTap_ModernImage: {fileID: 0}
+  warTap_ElecImage: {fileID: 159121933}
+  warTap_ModernImage: {fileID: 325182959}
   elecTap_ModernButton: {fileID: 361532028}
   elecTap_ModernText: {fileID: 1886538444}
-  elecTap_ModernImage: {fileID: 0}
-  TechTap_unlockTap: {fileID: 0}
+  elecTap_ModernImage: {fileID: 361532029}
+  TechTap_unlockTap: {fileID: 21300000, guid: 1e59b9bc42a4d5c458591482e269b54d, type: 3}
 --- !u!4 &1580650354
 Transform:
   m_ObjectHideFlags: 0
