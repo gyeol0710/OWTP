@@ -51,7 +51,17 @@ public class MessageManager : MonoBehaviour
     public Image Click_Button;
     public Sprite Button_Bomb;
     // -----------------------
+    public Button Button_Robot;
+    public Button Button_Prod;
+    public Button Button_Tech;
+    public Button Button_Click;
+    public Button Button_Offer;
 
+    public GameObject Offer01;
+    public GameObject Offer02;
+    public GameObject Offer03;
+    public ScrollRect ScR; // 제안창 스크롤렉트 코루틴 강제 진행을 위해 스프라이트 이미지 컬러 접근을 위한 변수
+    public GameObject jokeButton;
 
     void Start()
     {
@@ -439,7 +449,7 @@ public class MessageManager : MonoBehaviour
             yield return StartCoroutine(GoLine());
         }
         TutorialManager.T09c = true;
-
+        TutorialManager.TutoAllClear = true;
         yield return new WaitForSeconds(0.1f);
 
         yield break;
@@ -1709,7 +1719,30 @@ public class MessageManager : MonoBehaviour
                 EtcMessageCommonFN();
                 yield return StartCoroutine(GoMessage("고향으로 돌아가기 위한 모든 준비는 끝났습니다."));
                 yield return StartCoroutine(GoMessage("이제 드디어 탈출이군요..."));
-                yield return StartCoroutine(GoMessage(""));
+
+                Button_Click.interactable = false;
+                Button_Robot.interactable = false;
+                Button_Prod.interactable = false;
+                Button_Tech.interactable = false;
+                Button_Offer.interactable = false;
+                Image img1 = ScR.GetComponent<Image>();
+                Image img2 = Offer01.GetComponent<Image>();
+                Image img3 = Offer02.GetComponent<Image>();
+                Image img4 = Offer03.GetComponent<Image>();
+                img1.color = new Color32(255, 255, 255, 1);
+                img2.color = new Color32(255, 255, 255, 255);
+                img1.raycastTarget = true;
+                img2.raycastTarget = true;
+                img3.raycastTarget = true;
+                img4.raycastTarget = true;
+                jokeButton.SetActive(false);
+
+                yield return StartCoroutine(GoMessage("그동안 고생이 많았습니다."));
+                yield return StartCoroutine(GoMessage("이제 우리는 이 행성을 떠나 고향으로 돌아갈 수 있습니다."));
+                yield return StartCoroutine(GoMessage("사람들은 많이 발전했지만, 우리를 막을 수는 없을 겁니다."));
+                yield return StartCoroutine(GoMessage("출발합시다."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
                 yield return StartCoroutine(GoLine());
                 etcMessage[16] = true;
             }

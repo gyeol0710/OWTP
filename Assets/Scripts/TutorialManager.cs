@@ -63,8 +63,6 @@ public class TutorialManager : MonoBehaviour
             Tech.interactable = false;
             Offer.interactable = false;
 
-
-
             T01 = true;
         }
 
@@ -156,7 +154,7 @@ public class TutorialManager : MonoBehaviour
         while(true)
         {
             Tutorial01();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
