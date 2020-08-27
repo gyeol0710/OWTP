@@ -714,10 +714,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 1623f349-c93d-480e-84ca-065a8bf7ffde
+  cloudProjectId: b49c0c58-24fa-4e8b-9b0c-98d8baf2e51c
   framebufferDepthMemorylessMode: 0
-  projectName: OWTP First Game
-  organizationId: airgyeol0710
+  projectName: "\uBD88\uC2DC\uCC29"
+  organizationId: owtp
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

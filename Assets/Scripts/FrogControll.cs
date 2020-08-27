@@ -31,7 +31,11 @@ public class FrogControll : MonoBehaviour
         MinX = -2.7f;
         MaxY = 0.2f;
         MinY = -3f;
-
+        if (ProductManager.Prod_8_Level > 0)
+        {
+            Frog_sr.enabled = true;
+            Frog_bc2d.enabled = true;
+        }
         StartCoroutine(Frog_Jump());
         StartCoroutine(Frog_Z());
         //StartCoroutine(Frog_Scale());
@@ -44,7 +48,15 @@ public class FrogControll : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(EventSystem.current.IsPointerOverGameObject() == false)
+        int j = 0;
+        for (int i = -1; i < 7; i++)
+        {
+            if (EventSystem.current.IsPointerOverGameObject(i) == false)
+            {
+                j++;
+            }
+        }
+        if (j >= 8)
         {
             Frog_Effect.Play();
         }
@@ -57,6 +69,12 @@ public class FrogControll : MonoBehaviour
             Frog_Anim.SetTrigger("Jump");
 
             StartCoroutine(Frog_Move());
+
+            if (ProductManager.Prod_8_Level > 0)
+            {
+                Frog_sr.enabled = true;
+                Frog_bc2d.enabled = true;
+            }
 
             yield return new WaitForSeconds(2f);
         }

@@ -10,6 +10,15 @@ public class LogoManager : MonoBehaviour
     void Start()
     {
         Logo.color = new Color32(255, 255, 255, 0);
+
+        SaveData saveData = new SaveData();
+        string path = Application.persistentDataPath + "/save.xml";
+        if (System.IO.File.Exists(path))
+        {
+            saveData = XmlManager.XmlLoad<SaveData>(path);
+            GameManager.RePlay = saveData.RePlay;
+        }
+
         StartCoroutine(Logo_Fade());
     }
 

@@ -25,6 +25,9 @@ public class SoundManager : MonoBehaviour
     public Slider BGM_meter;
     public Slider SFX_meter;
 
+    static public float BGM_Meter;
+    static public float SFX_Meter;
+
     void Awake()
     {
         BGM_audioSource = this.GetComponent<AudioSource>();
@@ -32,6 +35,9 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
+        BGM_meter.value = BGM_Meter;
+        SFX_meter.value = SFX_Meter;
+
         StartCoroutine(PlayBGM());
         StartCoroutine(Volume_BGM());
         StartCoroutine(Volume_SFX());
@@ -61,6 +67,7 @@ public class SoundManager : MonoBehaviour
         while(true)
         {
             BGM_audioSource.volume = BGM_meter.value;
+            BGM_Meter = BGM_meter.value;
             yield return new WaitForSeconds(0.3f);
         }
     }
@@ -73,6 +80,7 @@ public class SoundManager : MonoBehaviour
             JokeEffect.volume = SFX_meter.value;
             FrogEffect.volume = SFX_meter.value;
             EffectSource.volume = SFX_meter.value;
+            SFX_Meter = SFX_meter.value;
             yield return new WaitForSeconds(0.3f);
         }
     }

@@ -23,14 +23,17 @@ public class LineSet : MonoBehaviour
 
     IEnumerator LineAnim()
     {
-        Scrollbar scrbar = MessageManager.ScrBar.GetComponent<Scrollbar>();
         while (true)
         {
-            if(n == 150)
+            if(n >= 150)
             {
                 break;
             }
-            scrbar.value = 0;
+
+            if(n == 4)
+            {
+                MessageManager.ScrBar.value = 0;
+            }
 
             image.color = new Color(image.color.r, image.color.g, image.color.b, image.color.a + 0.01f);
             yield return new WaitForSeconds(0.01f);

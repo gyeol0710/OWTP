@@ -71,11 +71,12 @@ public class SpaceshipManager : MonoBehaviour
     // ----------------------------
 
 
-    int SSupNum;
+    static public int SSupNum;
+    static public float SSgauge;
 
     void Start()
     {
-        SSupNum = 1;
+        passiveLoad();
         StartCoroutine(SpaceshipUpdate());
         StartCoroutine(IndAgeAnim());
     }
@@ -83,6 +84,98 @@ public class SpaceshipManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void passiveLoad()
+    {
+        if (GameManager.RePlay == false)
+        {
+            SSupNum = 1;
+        }
+
+        gauge.fillAmount = SSgauge;
+
+        if (SSupNum == 16)
+        {
+            body.SetActive(false);
+            cockpit.SetActive(true);
+            cockpit.GetComponent<Image>().sprite = cockpit4;
+        }
+        else if (SSupNum == 15)
+        {
+            body.SetActive(false);
+            cockpit.SetActive(true);
+            cockpit.GetComponent<Image>().sprite = cockpit3;
+        }
+        else if (SSupNum == 14)
+        {
+            body.SetActive(false);
+            cockpit.SetActive(true);
+            cockpit.GetComponent<Image>().sprite = cockpit2;
+        }
+        else if (SSupNum == 13)
+        {
+            body.SetActive(false);
+            cockpit.SetActive(true);
+        }
+        else if (SSupNum == 12)
+        {
+            body.SetActive(false);
+            engine.SetActive(true);
+            engine.GetComponent<Image>().sprite = engine4;
+        }
+        else if (SSupNum == 11)
+        {
+            body.SetActive(false);
+            engine.SetActive(true);
+            engine.GetComponent<Image>().sprite = engine3;
+        }
+        else if (SSupNum == 10)
+        {
+            body.SetActive(false);
+            engine.SetActive(true);
+            engine.GetComponent<Image>().sprite = engine2;
+        }
+        else if (SSupNum == 9)
+        {
+            body.SetActive(false);
+            engine.SetActive(true);
+        }
+        else if (SSupNum == 8)
+        {
+            body.SetActive(false);
+            fuel.SetActive(true);
+            fuel.GetComponent<Image>().sprite = fuel4;
+        }
+        else if (SSupNum == 7)
+        {
+            body.SetActive(false);
+            fuel.SetActive(true);
+            fuel.GetComponent<Image>().sprite = fuel3;
+        }
+        else if (SSupNum == 6)
+        {
+            body.SetActive(false);
+            fuel.SetActive(true);
+            fuel.GetComponent<Image>().sprite = fuel2;
+        }
+        else if (SSupNum == 5)
+        {
+            body.SetActive(false);
+            fuel.SetActive(true);
+        }
+        else if (SSupNum == 4)
+        {
+            body.GetComponent<Image>().sprite = body4;
+        }
+        else if (SSupNum == 3)
+        {
+            body.GetComponent<Image>().sprite = body3;
+        }
+        else if (SSupNum == 2)
+        {
+            body.GetComponent<Image>().sprite = body2;
+        }
     }
 
     public void SpaceshipUpgrade()
@@ -240,6 +333,7 @@ public class SpaceshipManager : MonoBehaviour
     void SSCommonFn()
     {
         gauge.fillAmount += 0.0625f;
+        SSgauge = gauge.fillAmount;
     }
 
     IEnumerator SpaceshipUpdate() // 실시간 골드텍스트 대입 및 버튼 접근 체크
@@ -512,9 +606,6 @@ public class SpaceshipManager : MonoBehaviour
         int k = 0;
         while (true)
         {
-            
-
-            
             if(i < 30)
             {
                 AgeBlack.color += new Color32(0, 0, 0, 5);

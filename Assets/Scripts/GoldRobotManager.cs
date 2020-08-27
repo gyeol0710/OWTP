@@ -17,8 +17,14 @@ public class GoldRobotManager : MonoBehaviour
     double MaxY;
     double MinY;
 
+    private const string android_game_id = "3791486";
+    private const string ios_game_id = "3791487";
+    private const string rewarded_video_id = "rewardedVideo";
+
     void Start()
     {
+        Initialize();
+
         tr = GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
         Robot_anim = GetComponent<Animator>();
@@ -29,6 +35,15 @@ public class GoldRobotManager : MonoBehaviour
 
         MaxY = tr.position.y + 0.05;
         MinY = tr.position.y - 0.05;
+    }
+
+    private void Initialize()
+    {
+#if UNITY_ANDROID
+        Advertisement.Initialize(android_game_id);
+#elif UNITY_IOS
+        Advertisement.Initialize(ios_game_id);
+#endif
     }
 
     void OnMouseDown()
@@ -60,10 +75,10 @@ public class GoldRobotManager : MonoBehaviour
 
     public void ShowRewarded()
     {
-        if (Advertisement.IsReady())
+        if (Advertisement.IsReady(rewarded_video_id))
         {
             var options = new ShowOptions { resultCallback = HandleShowResult };
-            Advertisement.Show("rewardedVideo", options);
+            Advertisement.Show(rewarded_video_id, options);
         }
         else
         {

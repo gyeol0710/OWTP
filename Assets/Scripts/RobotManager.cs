@@ -35,11 +35,11 @@ public class RobotManager : MonoBehaviour
         {
             Robot_anim.SetBool("Age_Modern", true);
         }
-        else if (TechManager.age_elec == true)
+        if (TechManager.age_elec == true)
         {
             Robot_anim.SetBool("Age_Elec", true);
         }
-        else if (TechManager.age_war == true)
+        if (TechManager.age_war == true)
         {
             Robot_anim.SetBool("Age_War", true);
         }

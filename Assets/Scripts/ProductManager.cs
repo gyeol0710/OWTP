@@ -861,17 +861,36 @@ public class ProductManager : MonoBehaviour
         Product_Reward12_S03.SetActive(false);
         Product_Reward14_60.SetActive(false);
 
+        ProdPanel_IND.SetActive(false);
+        ProdPanel_WAR.SetActive(false);
+        ProdPanel_ELEC.SetActive(false);
+        ProdPanel_MODERN.SetActive(false);
+
         tr_airship = Product_Reward02_07.GetComponent<Transform>();
     }
     void Start()
     {
+        if (TechManager.age_modern == true)
+        {
+            ProdPanel_MODERN.SetActive(true);
+        }
+        else if (TechManager.age_elec == true)
+        {
+            ProdPanel_ELEC.SetActive(true);
+        }
+        else if (TechManager.age_war == true)
+        {
+            ProdPanel_WAR.SetActive(true);
+        }
+        else
+        {
+            ProdPanel_IND.SetActive(true);
+        }
         MainProdPanel.SetActive(false);
-        ProdPanel_WAR.SetActive(false);
-        ProdPanel_ELEC.SetActive(false);
-        ProdPanel_MODERN.SetActive(false);
+
+        passiveLoad();
         StartCoroutine(AutoMoneyGo());
         StartCoroutine(AutoScienceGo());
-        SaveDataCheck_ProdUnlock();
         StartCoroutine(ProdUpButtonCheck());
         StartCoroutine(SpecialProductIconCheck());
         StartCoroutine(NextERApossible());
@@ -884,30 +903,165 @@ public class ProductManager : MonoBehaviour
 
     }
 
+    void passiveLoad()
+    {
+        if (Prod_6_Level > 0)
+        {
+            Product_Reward01_06.SetActive(true);
+        }
+        if (Prod_7_Level > 0)
+        {
+            Product_Reward02_07.SetActive(true);
+        }
+        if (Prod_18_Level > 0)
+        {
+            Product_Reward04_18.SetActive(true);
+        }
+        if (Prod_24_Level > 0)
+        {
+            Product_Reward05_24.SetActive(true);
+        }
+        if (Prod_33_Level > 0)
+        {
+            Product_Reward06_33.SetActive(true);
+        }
+        if (Prod_37_Level > 0)
+        {
+            Product_Reward08_37.SetActive(true);
+        }
+        if (Prod_42_Level > 0)
+        {
+            Product_Reward09_42.SetActive(true);
+        }
+        if (Prod_44_Level > 0)
+        {
+            Product_Reward10_44.SetActive(true);
+        }
+        if (Prod_S03_Level > 0)
+        {
+            Product_Reward12_S03.SetActive(true);
+        }
+        if (Prod_60_Level > 0)
+        {
+            Product_Reward14_60.SetActive(true);
+        }
+
+        ProdLevel_01.text = Prod_1_Level.ToString();
+        ProdLevel_03.text = Prod_3_Level.ToString();
+        ProdLevel_04.text = Prod_4_Level.ToString();
+        ProdLevel_05.text = Prod_5_Level.ToString();
+        ProdLevel_06.text = Prod_6_Level.ToString();
+        ProdLevel_07.text = Prod_7_Level.ToString();
+        ProdLevel_08.text = Prod_8_Level.ToString();
+        ProdLevel_09.text = Prod_9_Level.ToString();
+        ProdLevel_10.text = Prod_10_Level.ToString();
+        ProdLevel_11.text = Prod_11_Level.ToString();
+        ProdLevel_12.text = Prod_12_Level.ToString();
+        ProdLevel_13.text = Prod_13_Level.ToString();
+        ProdLevel_14.text = Prod_14_Level.ToString();
+        ProdLevel_15.text = Prod_15_Level.ToString();
+        ProdLevel_17.text = Prod_17_Level.ToString();
+        ProdLevel_18.text = Prod_18_Level.ToString();
+        ProdLevel_19.text = Prod_19_Level.ToString();
+        ProdLevel_20.text = Prod_20_Level.ToString();
+        ProdLevel_21.text = Prod_21_Level.ToString();
+        ProdLevel_22.text = Prod_22_Level.ToString();
+        ProdLevel_23.text = Prod_23_Level.ToString();
+        ProdLevel_24.text = Prod_24_Level.ToString();
+        ProdLevel_25.text = Prod_25_Level.ToString();
+        ProdLevel_26.text = Prod_26_Level.ToString();
+        ProdLevel_27.text = Prod_27_Level.ToString();
+        ProdLevel_28.text = Prod_28_Level.ToString();
+        ProdLevel_29.text = Prod_29_Level.ToString();
+        ProdLevel_30.text = Prod_30_Level.ToString();
+        ProdLevel_31.text = Prod_31_Level.ToString();
+        ProdLevel_32.text = Prod_32_Level.ToString();
+        ProdLevel_33.text = Prod_33_Level.ToString();
+        ProdLevel_34.text = Prod_34_Level.ToString();
+        ProdLevel_35.text = Prod_35_Level.ToString();
+        ProdLevel_36.text = Prod_36_Level.ToString();
+        ProdLevel_37.text = Prod_37_Level.ToString();
+        ProdLevel_38.text = Prod_38_Level.ToString();
+        ProdLevel_39.text = Prod_39_Level.ToString();
+        ProdLevel_40.text = Prod_40_Level.ToString();
+        ProdLevel_41.text = Prod_41_Level.ToString();
+        ProdLevel_42.text = Prod_42_Level.ToString();
+        ProdLevel_43.text = Prod_43_Level.ToString();
+        ProdLevel_44.text = Prod_44_Level.ToString();
+        ProdLevel_45.text = Prod_45_Level.ToString();
+        ProdLevel_46.text = Prod_46_Level.ToString();
+        ProdLevel_47.text = Prod_47_Level.ToString();
+        ProdLevel_48.text = Prod_48_Level.ToString();
+        ProdLevel_49.text = Prod_49_Level.ToString();
+        ProdLevel_51.text = Prod_51_Level.ToString();
+        ProdLevel_52.text = Prod_52_Level.ToString();
+        ProdLevel_53.text = Prod_53_Level.ToString();
+        ProdLevel_54.text = Prod_54_Level.ToString();
+        ProdLevel_55.text = Prod_55_Level.ToString();
+        ProdLevel_56.text = Prod_56_Level.ToString();
+        ProdLevel_58.text = Prod_58_Level.ToString();
+        ProdLevel_59.text = Prod_59_Level.ToString();
+        ProdLevel_60.text = Prod_60_Level.ToString();
+        ProdLevel_61.text = Prod_61_Level.ToString();
+        ProdLevel_62.text = Prod_62_Level.ToString();
+        ProdLevel_63.text = Prod_63_Level.ToString();
+        ProdLevel_64.text = Prod_64_Level.ToString();
+        ProdLevel_65.text = Prod_65_Level.ToString();
+        ProdLevel_66.text = Prod_66_Level.ToString();
+        ProdLevel_67.text = Prod_67_Level.ToString();
+        ProdLevel_68.text = Prod_68_Level.ToString();
+        ProdLevel_69.text = Prod_69_Level.ToString();
+        ProdLevel_70.text = Prod_70_Level.ToString();
+
+        if (Prod_20_Level > 0 && Prod_18_Level > 0 && Prod_11_Level > 0 && Prod_9_Level > 0 && Prod_8_Level > 0 && Prod_6_Level > 0)
+        {
+            PdS01Complete = true;
+            ProdBtnS01.SetActive(true);
+        }
+
+        if (Prod_35_Level > 0 && Prod_26_Level > 0 && Prod_28_Level > 0 && Prod_29_Level > 0 && Prod_32_Level > 0 && Prod_33_Level > 0 && Prod_24_Level > 0)
+        {
+            PdS02Complete = true;
+            ProdBtnS02.SetActive(true);
+        }
+
+        if (Prod_49_Level > 0 && Prod_40_Level > 0 && Prod_43_Level > 0 && Prod_47_Level > 0 && Prod_48_Level > 0 && Prod_38_Level > 0)
+        {
+            PdS03Complete = true;
+            ProdBtnS03.SetActive(true);
+        }
+
+        if (Prod_65_Level > 0 && Prod_59_Level > 0 && Prod_60_Level > 0 && Prod_61_Level > 0 && Prod_58_Level > 0)
+        {
+            PdS04Complete = true;
+            ProdBtnS04.SetActive(true);
+        }
+    }
+
     IEnumerator NextERApossible() // 우주선4번째 업글 판단을 위한 파서블변수
     {
         while(true)
         {
-            if (JumpINDpossible == false && Prod_1_Level > 0 && Prod_3_Level > 0 && Prod_4_Level > 0 && Prod_5_Level > 0 && Prod_6_Level > 0 && Prod_7_Level > 0 && Prod_8_Level > 0 && Prod_9_Level > 0 && Prod_10_Level > 0 && Prod_11_Level > 0
-                && Prod_12_Level > 0 && Prod_13_Level > 0 && Prod_14_Level > 0 && Prod_15_Level > 0 && Prod_17_Level > 0 && Prod_18_Level > 0 && Prod_19_Level > 0 && Prod_20_Level > 0 && Prod_21_Level > 0 && Prod_22_Level > 0 && Prod_S01_Level > 0)
+            if (JumpINDpossible == false && Prod_22_Level > 0 && Prod_S01_Level > 0 && Prod_4_Level > 0 && Prod_5_Level > 0 && Prod_6_Level > 0 && Prod_7_Level > 0 && Prod_8_Level > 0 && Prod_9_Level > 0 && Prod_10_Level > 0 && Prod_11_Level > 0
+                && Prod_12_Level > 0 && Prod_13_Level > 0 && Prod_14_Level > 0 && Prod_15_Level > 0 && Prod_17_Level > 0 && Prod_18_Level > 0 && Prod_19_Level > 0 && Prod_20_Level > 0 && Prod_21_Level > 0 && Prod_1_Level > 0 && Prod_3_Level > 0)
             {
                 JumpINDpossible = true;
             }
 
-            if (JumpWARpossible == false && Prod_23_Level > 0 && Prod_24_Level > 0 && Prod_25_Level > 0 && Prod_26_Level > 0 && Prod_27_Level > 0 && Prod_28_Level > 0 && Prod_29_Level > 0 && Prod_30_Level > 0 && Prod_31_Level > 0
-                && Prod_32_Level > 0 && Prod_33_Level > 0 && Prod_34_Level > 0 && Prod_35_Level > 0 && Prod_36_Level > 0 && Prod_37_Level > 0 && Prod_S02_Level > 0)
+            if (JumpWARpossible == false && Prod_37_Level > 0 && Prod_S02_Level > 0 && Prod_25_Level > 0 && Prod_26_Level > 0 && Prod_27_Level > 0 && Prod_28_Level > 0 && Prod_29_Level > 0 && Prod_30_Level > 0 && Prod_31_Level > 0
+                && Prod_32_Level > 0 && Prod_33_Level > 0 && Prod_34_Level > 0 && Prod_35_Level > 0 && Prod_36_Level > 0 && Prod_23_Level > 0 && Prod_24_Level > 0)
             {
                 JumpWARpossible = true;
             }
 
-            if (JumpELECpossible == false && Prod_38_Level > 0 && Prod_39_Level > 0 && Prod_40_Level > 0 && Prod_41_Level > 0 && Prod_42_Level > 0 && Prod_43_Level > 0 && Prod_44_Level > 0 && Prod_45_Level > 0 && Prod_46_Level > 0
-                && Prod_47_Level > 0 && Prod_48_Level > 0 && Prod_49_Level > 0 && Prod_51_Level > 0 && Prod_52_Level > 0 && Prod_53_Level > 0 && Prod_54_Level > 0 && Prod_55_Level > 0 && Prod_S03_Level > 0)
+            if (JumpELECpossible == false && Prod_55_Level > 0 && Prod_S03_Level > 0 && Prod_40_Level > 0 && Prod_41_Level > 0 && Prod_42_Level > 0 && Prod_43_Level > 0 && Prod_44_Level > 0 && Prod_45_Level > 0 && Prod_46_Level > 0
+                && Prod_47_Level > 0 && Prod_48_Level > 0 && Prod_49_Level > 0 && Prod_51_Level > 0 && Prod_52_Level > 0 && Prod_53_Level > 0 && Prod_54_Level > 0 && Prod_38_Level > 0 && Prod_39_Level > 0)
             {
                 JumpELECpossible = true;
             }
 
-            if (JumpMODERNpossible == false && Prod_56_Level > 0 && Prod_58_Level > 0 && Prod_59_Level > 0 && Prod_60_Level > 0 && Prod_61_Level > 0 && Prod_62_Level > 0 && Prod_63_Level > 0 && Prod_64_Level > 0 && Prod_65_Level > 0
-                && Prod_66_Level > 0 && Prod_67_Level > 0 && Prod_68_Level > 0 && Prod_69_Level > 0 && Prod_70_Level > 0 && Prod_S04_Level > 0)
+            if (JumpMODERNpossible == false && Prod_70_Level > 0 && Prod_S04_Level > 0 && Prod_59_Level > 0 && Prod_60_Level > 0 && Prod_61_Level > 0 && Prod_62_Level > 0 && Prod_63_Level > 0 && Prod_64_Level > 0 && Prod_65_Level > 0
+                && Prod_66_Level > 0 && Prod_67_Level > 0 && Prod_68_Level > 0 && Prod_69_Level > 0 && Prod_56_Level > 0 && Prod_58_Level > 0)
             {
                 JumpMODERNpossible = true;
             }
@@ -2393,7 +2547,7 @@ public class ProductManager : MonoBehaviour
             exp.text = "산업시대의 기술을 총 집약한 개구리형 바이탈스코프입니다. 영화를 상영하는 기능 외에도 여러가지 기능이 장착되어 있습니다.";
             Icon.GetComponent<Image>().sprite = ProdIconS01;
             Level.text = Prod_S01_Level.ToString();
-            ProdMoneyText.text = "오프라인 상태일 때에도 6시간 자원 비축기능 지원";
+            ProdMoneyText.text = "오프라인 상태일 때에도 3시간 자원 비축기능 지원";
             TotalProdMoneyText.text = "";
             UpPriceText.text = UnitTransform(PdS01);
             if (Prod_S01_Level > 0)
@@ -3810,11 +3964,11 @@ public class ProductManager : MonoBehaviour
             {
                 if (GameManager.money >= Pd37 && Prod_37_Level < 99)
                 {
-                    UpgradeProdButton.interactable = true;
+                    UpgradeProdButton_U.interactable = true;
                 }
                 else
                 {
-                    UpgradeProdButton.interactable = false;
+                    UpgradeProdButton_U.interactable = false;
                 }
             }
             else if (PanelNum == 38)
@@ -4248,89 +4402,6 @@ public class ProductManager : MonoBehaviour
         }
     }
 
-    void SaveDataCheck_ProdUnlock() // 세이브로드 관련
-    {
-        if (TechManager.Tech1Complete == true)
-        {
-            ProdBtn1.SetActive(true);
-        }
-        if (TechManager.Tech3Complete == true)
-        {
-            ProdBtn3.SetActive(true);
-        }
-        if (TechManager.Tech4Complete == true)
-        {
-            ProdBtn4.SetActive(true);
-        }
-        if (TechManager.Tech5Complete == true)
-        {
-            ProdBtn5.SetActive(true);
-        }
-        if (TechManager.Tech6Complete == true)
-        {
-            ProdBtn6.SetActive(true);
-        }
-        if (TechManager.Tech7Complete == true)
-        {
-            ProdBtn7.SetActive(true);
-        }
-        if (TechManager.Tech8Complete == true)
-        {
-            ProdBtn8.SetActive(true);
-        }
-        if (TechManager.Tech9Complete == true)
-        {
-            ProdBtn9.SetActive(true);
-        }
-        if (TechManager.Tech10Complete == true)
-        {
-            ProdBtn10.SetActive(true);
-        }
-        if (TechManager.Tech11Complete == true)
-        {
-            ProdBtn11.SetActive(true);
-        }
-        if (TechManager.Tech12Complete == true)
-        {
-            ProdBtn12.SetActive(true);
-        }
-        if (TechManager.Tech13Complete == true)
-        {
-            ProdBtn13.SetActive(true);
-        }
-        if (TechManager.Tech14Complete == true)
-        {
-            ProdBtn14.SetActive(true);
-        }
-        if (TechManager.Tech15Complete == true)
-        {
-            ProdBtn15.SetActive(true);
-        }
-        if (TechManager.Tech17Complete == true)
-        {
-            ProdBtn17.SetActive(true);
-        }
-        if (TechManager.Tech18Complete == true)
-        {
-            ProdBtn18.SetActive(true);
-        }
-        if (TechManager.Tech19Complete == true)
-        {
-            ProdBtn19.SetActive(true);
-        }
-        if (TechManager.Tech20Complete == true)
-        {
-            ProdBtn20.SetActive(true);
-        }
-        if (TechManager.Tech21Complete == true)
-        {
-            ProdBtn21.SetActive(true);
-        }
-        if (TechManager.Tech22Complete == true)
-        {
-            ProdBtn22.SetActive(true);
-        }
-    }
     IEnumerator AutoMoneyGo()
     {
         while(true)

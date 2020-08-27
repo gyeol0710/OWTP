@@ -290,76 +290,76 @@ public class TechManager : MonoBehaviour
     static public bool Tech69Complete;
     static public bool Tech70Complete;
 
-    bool Tech1AnimC;
-    bool Tech2AnimC;
-    bool Tech3AnimC;
-    bool Tech4AnimC;
-    bool Tech5AnimC;
-    bool Tech6AnimC;
-    bool Tech7AnimC;
-    bool Tech8AnimC;
-    bool Tech9AnimC;
-    bool Tech10AnimC;
-    bool Tech11AnimC;
-    bool Tech12AnimC;
-    bool Tech13AnimC;
-    bool Tech14AnimC;
-    bool Tech15AnimC;
-    bool Tech16AnimC;
-    bool Tech17AnimC;
-    bool Tech18AnimC;
-    bool Tech19AnimC;
-    bool Tech20AnimC;
-    bool Tech21AnimC;
-    bool Tech22AnimC;
-    bool Tech23AnimC;
-    bool Tech24AnimC;
-    bool Tech25AnimC;
-    bool Tech26AnimC;
-    bool Tech27AnimC;
-    bool Tech28AnimC;
-    bool Tech29AnimC;
-    bool Tech30AnimC;
-    bool Tech31AnimC;
-    bool Tech32AnimC;
-    bool Tech33AnimC;
-    bool Tech34AnimC;
-    bool Tech35AnimC;
-    bool Tech36AnimC;
-    bool Tech37AnimC;
-    bool Tech38AnimC;
-    bool Tech39AnimC;
-    bool Tech40AnimC;
-    bool Tech41AnimC;
-    bool Tech42AnimC;
-    bool Tech43AnimC;
-    bool Tech44AnimC;
-    bool Tech45AnimC;
-    bool Tech46AnimC;
-    bool Tech47AnimC;
-    bool Tech48AnimC;
-    bool Tech49AnimC;
-    bool Tech50AnimC;
-    bool Tech51AnimC;
-    bool Tech52AnimC;
-    bool Tech53AnimC;
-    bool Tech54AnimC;
-    bool Tech55AnimC;
-    bool Tech56AnimC;
-    bool Tech57AnimC;
-    bool Tech58AnimC;
-    bool Tech59AnimC;
-    bool Tech60AnimC;
-    bool Tech61AnimC;
-    bool Tech62AnimC;
-    bool Tech63AnimC;
-    bool Tech64AnimC;
-    bool Tech65AnimC;
-    bool Tech66AnimC;
-    bool Tech67AnimC;
-    bool Tech68AnimC;
-    bool Tech69AnimC;
-    bool Tech70AnimC;
+    static public bool Tech1AnimC;
+    static public bool Tech2AnimC;
+    static public bool Tech3AnimC;
+    static public bool Tech4AnimC;
+    static public bool Tech5AnimC;
+    static public bool Tech6AnimC;
+    static public bool Tech7AnimC;
+    static public bool Tech8AnimC;
+    static public bool Tech9AnimC;
+    static public bool Tech10AnimC;
+    static public bool Tech11AnimC;
+    static public bool Tech12AnimC;
+    static public bool Tech13AnimC;
+    static public bool Tech14AnimC;
+    static public bool Tech15AnimC;
+    static public bool Tech16AnimC;
+    static public bool Tech17AnimC;
+    static public bool Tech18AnimC;
+    static public bool Tech19AnimC;
+    static public bool Tech20AnimC;
+    static public bool Tech21AnimC;
+    static public bool Tech22AnimC;
+    static public bool Tech23AnimC;
+    static public bool Tech24AnimC;
+    static public bool Tech25AnimC;
+    static public bool Tech26AnimC;
+    static public bool Tech27AnimC;
+    static public bool Tech28AnimC;
+    static public bool Tech29AnimC;
+    static public bool Tech30AnimC;
+    static public bool Tech31AnimC;
+    static public bool Tech32AnimC;
+    static public bool Tech33AnimC;
+    static public bool Tech34AnimC;
+    static public bool Tech35AnimC;
+    static public bool Tech36AnimC;
+    static public bool Tech37AnimC;
+    static public bool Tech38AnimC;
+    static public bool Tech39AnimC;
+    static public bool Tech40AnimC;
+    static public bool Tech41AnimC;
+    static public bool Tech42AnimC;
+    static public bool Tech43AnimC;
+    static public bool Tech44AnimC;
+    static public bool Tech45AnimC;
+    static public bool Tech46AnimC;
+    static public bool Tech47AnimC;
+    static public bool Tech48AnimC;
+    static public bool Tech49AnimC;
+    static public bool Tech50AnimC;
+    static public bool Tech51AnimC;
+    static public bool Tech52AnimC;
+    static public bool Tech53AnimC;
+    static public bool Tech54AnimC;
+    static public bool Tech55AnimC;
+    static public bool Tech56AnimC;
+    static public bool Tech57AnimC;
+    static public bool Tech58AnimC;
+    static public bool Tech59AnimC;
+    static public bool Tech60AnimC;
+    static public bool Tech61AnimC;
+    static public bool Tech62AnimC;
+    static public bool Tech63AnimC;
+    static public bool Tech64AnimC;
+    static public bool Tech65AnimC;
+    static public bool Tech66AnimC;
+    static public bool Tech67AnimC;
+    static public bool Tech68AnimC;
+    static public bool Tech69AnimC;
+    static public bool Tech70AnimC;
 
     public GameObject L2;
     public GameObject L2_3; // 영향을 받는 라인 L2, L3
@@ -836,6 +836,7 @@ public class TechManager : MonoBehaviour
 
     void Start()
     {
+        passiveLoad();
         StartCoroutine(AutoHidingHandle());
         StartCoroutine(TechUpButtonCheck());
         StartCoroutine(TechAgeTapCheck());
@@ -874,6 +875,816 @@ public class TechManager : MonoBehaviour
     {
         TechAnim();
         ExceptionRule();
+    }
+
+    void passiveLoad()
+    {
+        if (Tech1Complete)
+        {
+            TechIcon1.GetComponent<Image>().sprite = TechCplImg1;
+            TechIcon1.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon2.GetComponent<Button>().interactable = true;
+            TechIcon2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon3.GetComponent<Button>().interactable = true;
+            TechIcon3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L2.GetComponent<Image>().color += new Color32(0, 0, 0, 255);
+            L2_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255);
+            L3.GetComponent<Image>().color += new Color32(0, 0, 0, 255);
+            ProdBtn1.SetActive(true);
+        }
+        if (Tech2Complete)
+        {
+            TechIcon2.GetComponent<Image>().sprite = TechCplImg2;
+            TechIcon2.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon5.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon7.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon7.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L2_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L5.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L7_5.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L7.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+        }
+        if (Tech3Complete)
+        {
+            TechIcon3.GetComponent<Image>().sprite = TechCplImg3;
+            TechIcon3.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon4.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon4.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L2_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L4.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn3.SetActive(true);
+        }
+        if (Tech4Complete)
+        {
+            TechIcon4.GetComponent<Image>().sprite = TechCplImg4;
+            TechIcon4.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon6.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon6.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L4.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L6.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn4.SetActive(true);
+        }
+        if (Tech5Complete)
+        {
+            TechIcon5.GetComponent<Image>().sprite = TechCplImg5;
+            TechIcon5.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L5.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L7_5.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn5.SetActive(true);
+        }
+        if (Tech6Complete)
+        {
+            TechIcon6.GetComponent<Image>().sprite = TechCplImg6;
+            TechIcon6.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L6.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn6.SetActive(true);
+        }
+        if (Tech7Complete)
+        {
+            TechIcon7.GetComponent<Image>().sprite = TechCplImg7;
+            TechIcon7.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon8.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon10.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon10.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L7.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L7_5.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L8.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L10_8.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L10.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn7.SetActive(true);
+        }
+        if (Tech8Complete)
+        {
+            TechIcon8.GetComponent<Image>().sprite = TechCplImg8;
+            TechIcon8.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon9.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon9.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L8.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L10_8.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L9.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn8.SetActive(true);
+        }
+        if (Tech9Complete)
+        {
+            TechIcon9.GetComponent<Image>().sprite = TechCplImg9;
+            TechIcon9.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon13.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon13.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L9.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L13.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn9.SetActive(true);
+        }
+        if (Tech10Complete)
+        {
+            TechIcon10.GetComponent<Image>().sprite = TechCplImg10;
+            TechIcon10.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon11.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon11.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon12.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L10.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L10_8.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L11.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L11_12.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L12.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn10.SetActive(true);
+        }
+        if (Tech11Complete)
+        {
+            TechIcon11.GetComponent<Image>().sprite = TechCplImg11;
+            TechIcon11.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon14.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon14.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L11.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L11_12.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L14.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn11.SetActive(true);
+        }
+        if (Tech12Complete)
+        {
+            TechIcon12.GetComponent<Image>().sprite = TechCplImg12;
+            TechIcon12.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L12.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L11_12.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn12.SetActive(true);
+        }
+        if (Tech13Complete)
+        {
+            TechIcon13.GetComponent<Image>().sprite = TechCplImg13;
+            TechIcon13.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon15.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon15.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L13.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L15.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn13.SetActive(true);
+        }
+        if (Tech14Complete)
+        {
+            TechIcon14.GetComponent<Image>().sprite = TechCplImg14;
+            TechIcon14.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon16.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon17.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon17.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L14.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L16.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L17_16.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L17.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn14.SetActive(true);
+        }
+        if (Tech15Complete)
+        {
+            TechIcon15.GetComponent<Image>().sprite = TechCplImg15;
+            TechIcon15.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L15.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L19_1.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn15.SetActive(true);
+        }
+        if (Tech16Complete)
+        {
+            TechIcon16.GetComponent<Image>().sprite = TechCplImg16;
+            TechIcon16.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon18.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon18.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L16.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L17_16.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L18.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+        }
+        if (Tech17Complete)
+        {
+            TechIcon17.GetComponent<Image>().sprite = TechCplImg17;
+            TechIcon17.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon20.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon20.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L17.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L17_16.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L19_2.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L20.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L20_19.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn17.SetActive(true);
+        }
+        if (Tech18Complete)
+        {
+            TechIcon18.GetComponent<Image>().sprite = TechCplImg18;
+            TechIcon18.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L18.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn18.SetActive(true);
+        }
+        if (Tech19Complete)
+        {
+            TechIcon19.GetComponent<Image>().sprite = TechCplImg19;
+            TechIcon19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L19_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L19_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L20_19.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn19.SetActive(true);
+        }
+        if (Tech20Complete)
+        {
+            TechIcon20.GetComponent<Image>().sprite = TechCplImg20;
+            TechIcon20.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon21.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon22.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon22.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L20.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L20_19.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L21.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L22_21.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L22.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn20.SetActive(true);
+        }
+        if (Tech21Complete)
+        {
+            TechIcon21.GetComponent<Image>().sprite = TechCplImg21;
+            TechIcon21.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L21.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L22_21.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn21.SetActive(true);
+        }
+        if (Tech22Complete)
+        {
+            TechIcon22.GetComponent<Image>().sprite = TechCplImg22;
+            TechIcon22.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L22.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L22_21.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn22.SetActive(true);
+        }
+        if (Tech23Complete)
+        {
+            TechIcon23.GetComponent<Image>().sprite = TechCplImg23;
+            TechIcon23.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon24.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon24.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon25.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon25.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L24.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L24_25.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L25.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn23.SetActive(true);
+        }
+        if (Tech24Complete)
+        {
+            TechIcon24.GetComponent<Image>().sprite = TechCplImg24;
+            TechIcon24.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon26.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon26.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L24.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L24_25.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L26.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn24.SetActive(true);
+        }
+        if (Tech25Complete)
+        {
+            TechIcon25.GetComponent<Image>().sprite = TechCplImg25;
+            TechIcon25.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon29.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon29.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L24_25.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L25.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L29.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn25.SetActive(true);
+        }
+        if (Tech26Complete)
+        {
+            TechIcon26.GetComponent<Image>().sprite = TechCplImg26;
+            TechIcon26.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon27.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon27.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon28.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon28.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L26.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L27.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L27_28.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L28.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn26.SetActive(true);
+        }
+        if (Tech27Complete)
+        {
+            TechIcon27.GetComponent<Image>().sprite = TechCplImg27;
+            TechIcon27.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon30.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon30.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L27.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L27_28.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L30.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn27.SetActive(true);
+        }
+        if (Tech28Complete)
+        {
+            TechIcon28.GetComponent<Image>().sprite = TechCplImg28;
+            TechIcon28.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L27_28.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L28.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L28_32.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L32.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn28.SetActive(true);
+        }
+        if (Tech29Complete)
+        {
+            TechIcon29.GetComponent<Image>().sprite = TechCplImg29;
+            TechIcon29.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L29.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L29_32.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L32.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn29.SetActive(true);
+        }
+        if (Tech30Complete)
+        {
+            TechIcon30.GetComponent<Image>().sprite = TechCplImg30;
+            TechIcon30.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon31.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon31.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L30.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L31.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn30.SetActive(true);
+        }
+        if (Tech31Complete)
+        {
+            TechIcon31.GetComponent<Image>().sprite = TechCplImg31;
+            TechIcon31.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon33.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon33.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L31.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L33.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn31.SetActive(true);
+        }
+        if (Tech32Complete)
+        {
+            TechIcon32.GetComponent<Image>().sprite = TechCplImg32;
+            TechIcon32.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon34.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon34.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L28_32.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L29_32.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L32.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L34.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn32.SetActive(true);
+        }
+        if (Tech33Complete)
+        {
+            TechIcon33.GetComponent<Image>().sprite = TechCplImg33;
+            TechIcon33.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L33.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L36_1.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L36_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn33.SetActive(true);
+        }
+        if (Tech34Complete)
+        {
+            TechIcon34.GetComponent<Image>().sprite = TechCplImg34;
+            TechIcon34.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon35.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon35.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L34.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L35.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L36_2.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L36_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L37_1.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L37_36.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L37_35.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn34.SetActive(true);
+        }
+        if (Tech35Complete)
+        {
+            TechIcon35.GetComponent<Image>().sprite = TechCplImg35;
+            TechIcon35.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L35.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_35.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_2.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn35.SetActive(true);
+        }
+        if (Tech36Complete)
+        {
+            TechIcon36.GetComponent<Image>().sprite = TechCplImg36;
+            TechIcon36.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L36_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L36_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L36_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_35.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_36.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn36.SetActive(true);
+        }
+        if (Tech37Complete)
+        {
+            TechIcon37.GetComponent<Image>().sprite = TechCplImg37;
+            TechIcon37.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L37_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_35.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L37_36.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn37.SetActive(true);
+        }
+        if (Tech38Complete)
+        {
+            TechIcon38.GetComponent<Image>().sprite = TechCplImg38;
+            TechIcon38.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon39.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon39.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon40.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon40.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L39.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L40.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L40_39.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn38.SetActive(true);
+        }
+        if (Tech39Complete)
+        {
+            TechIcon39.GetComponent<Image>().sprite = TechCplImg39;
+            TechIcon39.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L39.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L40_39.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn39.SetActive(true);
+        }
+        if (Tech40Complete)
+        {
+            TechIcon40.GetComponent<Image>().sprite = TechCplImg40;
+            TechIcon40.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon41.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon41.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon42.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon42.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon43.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon43.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L40.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L40_39.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L41.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L42.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L43.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L43_1.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L43_2.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L43_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn40.SetActive(true);
+        }
+        if (Tech41Complete)
+        {
+            TechIcon41.GetComponent<Image>().sprite = TechCplImg41;
+            TechIcon41.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon44.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon44.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L41.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L44.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn41.SetActive(true);
+        }
+        if (Tech42Complete)
+        {
+            TechIcon42.GetComponent<Image>().sprite = TechCplImg42;
+            TechIcon42.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon46.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon46.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L42.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L46.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn42.SetActive(true);
+        }
+        if (Tech43Complete)
+        {
+            TechIcon43.GetComponent<Image>().sprite = TechCplImg43;
+            TechIcon43.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon45.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon45.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L43.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L43_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L45.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn43.SetActive(true);
+        }
+        if (Tech44Complete)
+        {
+            TechIcon44.GetComponent<Image>().sprite = TechCplImg44;
+            TechIcon44.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L44.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn44.SetActive(true);
+        }
+        if (Tech45Complete)
+        {
+            TechIcon45.GetComponent<Image>().sprite = TechCplImg45;
+            TechIcon45.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon47.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon47.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon48.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon48.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon50.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon50.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L45.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L47.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L48.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L50.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L50_47.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L50_48.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn45.SetActive(true);
+        }
+        if (Tech46Complete)
+        {
+            TechIcon46.GetComponent<Image>().sprite = TechCplImg46;
+            TechIcon46.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L46.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn46.SetActive(true);
+        }
+        if (Tech47Complete)
+        {
+            TechIcon47.GetComponent<Image>().sprite = TechCplImg47;
+            TechIcon47.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon49.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon49.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L47.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L50_47.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L49.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn47.SetActive(true);
+        }
+        if (Tech48Complete)
+        {
+            TechIcon48.GetComponent<Image>().sprite = TechCplImg48;
+            TechIcon48.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon51.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon51.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L48.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L50_47.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L50_48.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L51.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn48.SetActive(true);
+        }
+        if (Tech49Complete)
+        {
+            TechIcon49.GetComponent<Image>().sprite = TechCplImg49;
+            TechIcon49.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L49.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn49.SetActive(true);
+        }
+        if (Tech50Complete)
+        {
+            TechIcon50.GetComponent<Image>().sprite = TechCplImg50;
+            TechIcon50.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon52.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon52.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon53.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon53.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L50.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L50_47.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L50_48.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L52.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L53.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L53_52.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+        }
+        if (Tech51Complete)
+        {
+            TechIcon51.GetComponent<Image>().sprite = TechCplImg51;
+            TechIcon51.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L51.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn51.SetActive(true);
+        }
+        if (Tech52Complete)
+        {
+            TechIcon52.GetComponent<Image>().sprite = TechCplImg52;
+            TechIcon52.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon54.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon54.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L52.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L53_52.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L54.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn52.SetActive(true);
+        }
+        if (Tech53Complete)
+        {
+            TechIcon53.GetComponent<Image>().sprite = TechCplImg53;
+            TechIcon53.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon55.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon55.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L53.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L53_52.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L55.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn53.SetActive(true);
+        }
+        if (Tech54Complete)
+        {
+            TechIcon54.GetComponent<Image>().sprite = TechCplImg54;
+            TechIcon54.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L54.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn54.SetActive(true);
+        }
+        if (Tech55Complete)
+        {
+            TechIcon55.GetComponent<Image>().sprite = TechCplImg55;
+            TechIcon55.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L55.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn55.SetActive(true);
+        }
+        if (Tech56Complete)
+        {
+            TechIcon56.GetComponent<Image>().sprite = TechCplImg56;
+            TechIcon56.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon57.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon57.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon58.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon58.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L57.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L58.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L58_57.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn56.SetActive(true);
+        }
+        if (Tech57Complete)
+        {
+            TechIcon57.GetComponent<Image>().sprite = TechCplImg57;
+            TechIcon57.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon60.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon60.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L57.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L58_57.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L60.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+        }
+        if (Tech58Complete)
+        {
+            TechIcon58.GetComponent<Image>().sprite = TechCplImg58;
+            TechIcon58.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon59.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon59.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L57.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L58_57.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L59.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn58.SetActive(true);
+        }
+        if (Tech59Complete)
+        {
+            TechIcon59.GetComponent<Image>().sprite = TechCplImg59;
+            TechIcon59.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon61.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon61.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L59.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L61.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn59.SetActive(true);
+        }
+        if (Tech60Complete)
+        {
+            TechIcon60.GetComponent<Image>().sprite = TechCplImg60;
+            TechIcon60.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon62.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon62.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L60.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L62.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn60.SetActive(true);
+        }
+        if (Tech61Complete)
+        {
+            TechIcon61.GetComponent<Image>().sprite = TechCplImg61;
+            TechIcon61.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L61.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L63_2.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L63_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn61.SetActive(true);
+        }
+        if (Tech62Complete)
+        {
+            TechIcon62.GetComponent<Image>().sprite = TechCplImg62;
+            TechIcon62.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L62.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L63_1.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L63_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn62.SetActive(true);
+        }
+        if (Tech63Complete)
+        {
+            TechIcon63.GetComponent<Image>().sprite = TechCplImg63;
+            TechIcon63.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon64.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon64.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon65.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon65.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L63_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L63_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L63_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L64.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L65.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L65_64.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn63.SetActive(true);
+        }
+        if (Tech64Complete)
+        {
+            TechIcon64.GetComponent<Image>().sprite = TechCplImg64;
+            TechIcon64.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon66.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon66.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L64.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L65_64.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L66.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn64.SetActive(true);
+        }
+        if (Tech65Complete)
+        {
+            TechIcon65.GetComponent<Image>().sprite = TechCplImg65;
+            TechIcon65.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L65.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L65_64.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L67_2.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L67_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn65.SetActive(true);
+        }
+        if (Tech66Complete)
+        {
+            TechIcon66.GetComponent<Image>().sprite = TechCplImg66;
+            TechIcon66.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L66.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L67_1.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            L67_3.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn66.SetActive(true);
+        }
+        if (Tech67Complete)
+        {
+            TechIcon67.GetComponent<Image>().sprite = TechCplImg67;
+            TechIcon67.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon68.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon68.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L67_1.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L67_2.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L67_3.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L68.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn67.SetActive(true);
+        }
+        if (Tech68Complete)
+        {
+            TechIcon68.GetComponent<Image>().sprite = TechCplImg68;
+            TechIcon68.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon69.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon69.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L68.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L69.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn68.SetActive(true);
+        }
+        if (Tech69Complete)
+        {
+            TechIcon69.GetComponent<Image>().sprite = TechCplImg69;
+            TechIcon69.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon70.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon70.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L69.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L70.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn69.SetActive(true);
+        }
+        if (Tech70Complete)
+        {
+            TechIcon70.GetComponent<Image>().sprite = TechCplImg70;
+            TechIcon70.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            L70.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            ProdBtn70.SetActive(true);
+        }
+
+        if (Tech15Complete == true && Tech17Complete == true) // 유선통신(15) + 폭발성물질(17) -> 전류진동(19)
+        {
+            TechIcon19.GetComponent<Button>().interactable = true;
+            TechIcon19.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+        if (Tech28Complete == true && Tech29Complete == true) // 폭격기(28) + 4기통엔진(29) -> 탱크(32)
+        {
+            TechIcon32.GetComponent<Button>().interactable = true;
+            TechIcon32.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+        if (Tech33Complete == true && Tech34Complete == true) // 급속동결(33) + 항생제(34) -> 제트엔진(36)
+        {
+            TechIcon36.GetComponent<Button>().interactable = true;
+            TechIcon36.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+        if (Tech34Complete == true && Tech35Complete == true && Tech36Complete == true) // 항생제(34) + 나일론(35) + 제트엔진(36) -> 우라늄(37)
+        {
+            TechIcon37.GetComponent<Button>().interactable = true;
+            TechIcon37.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+        if (Tech61Complete == true && Tech62Complete == true) // 세계통합(61) + 복제(62) -> 컴퓨터(63)
+        {
+            TechIcon63.GetComponent<Button>().interactable = true;
+            TechIcon63.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+        if (Tech65Complete == true && Tech66Complete == true) // AI(65) + 고속통신(66) -> 가상현실(67)
+        {
+            TechIcon67.GetComponent<Button>().interactable = true;
+            TechIcon67.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+        }
+        /*
+        if (TechComplete)
+        {
+            TechIcon.GetComponent<Image>().sprite = TechCplImg;
+            TechIcon.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            TechIcon.GetComponent<Button>().interactable = true; // 다음 연구
+            TechIcon.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+            .GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            .GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            .GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            .GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            .GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            .GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
+            ProdBtn.SetActive(true);
+        }
+        */
     }
 
     public void ButtonNotiOff()

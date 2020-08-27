@@ -196,8 +196,6 @@ public class GameManager : MonoBehaviour
     public ScrollRect ScR; // 제안창 스크롤렉트 코루틴 강제 진행을 위해 스프라이트 이미지 컬러 접근을 위한 변수
     public GameObject JokeButton;
 
-    static public bool gomsg;
-
     public GameObject Noti_R;
     public GameObject Noti_P;
     public GameObject Noti_T;
@@ -210,7 +208,8 @@ public class GameManager : MonoBehaviour
     public Sprite Button_Bomb_pushed;
 
     public GameObject panel_robot;
-    
+    public GameObject panel_Quit;
+
     //-----------------------------------------
     static public float SpaceshipGoldBonus;
 
@@ -245,32 +244,66 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        /*
         string path = Application.persistentDataPath + "/save.xml";
         if (System.IO.File.Exists(path))
         {
             Load();
         }
-        */
         Offer01.SetActive(true);
-        SpaceshipGoldBonus = 1f;
-        AdBonus = 1f;
-        CashBonus = 1f;
-        ClickBonus = 1f;
-        SpaceshipScienceBonus = 1f;
-        Fuel2Debuff = 1f;
-        FinalGoldBonus = 1f;
-        FinalScienceBonus = 1f;
-        click_gauge = 0; // 클릭게이지 0으로 초기화
     }
 
     void Start()
     {
+        if (RePlay == false)
+        {
+            money = 0;
+            science = 0;
+            years = 1700;
+            robotLevel = 0;
+
+            SpaceshipGoldBonus = 1f;
+            AdBonus = 1f;
+            CashBonus = 1f;
+            ClickBonus = 1f;
+            SpaceshipScienceBonus = 1f;
+            Fuel2Debuff = 1f;
+            FinalGoldBonus = 1f;
+            FinalScienceBonus = 1f;
+        }
+        else
+        {
+            Image img1 = ScR.GetComponent<Image>();
+            Image img2 = Offer01.GetComponent<Image>();
+            Image img3 = Offer02.GetComponent<Image>();
+            Image img4 = Offer03.GetComponent<Image>();
+
+            img1.color = new Color32(255, 255, 255, 1);
+
+            img2.color = new Color32(255, 255, 255, 220);
+            if (TutorialManager.T04c == false)
+            {
+                img2.color = new Color32(255, 255, 255, 255);
+            }
+            img1.raycastTarget = true;
+            img2.raycastTarget = true;
+            img3.raycastTarget = true;
+            img4.raycastTarget = true;
+
+            if (robotLevel >= 150)
+            {
+                JokeButton.SetActive(true);
+            }
+        }
+
+        click_gauge = 0;
+
         if (robotLevel == 0)
         {
             robotLevelUpPrice = StandardConst_Need;
         }
-        // StartCoroutine(save());
+
+        passiveLoad();
+        StartCoroutine(save());
         StartCoroutine(AutoMoney());
         StartCoroutine(AutoMoneyDigit());
         StartCoroutine(AutoScience());
@@ -285,13 +318,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(MultipleInfo());
         StartCoroutine(ClickGaugeControll());
 
-        if (RePlay == false)
-        {
-            money = 0;
-            science = 0;
-            years = 1770;
-            robotLevel = 0;
-        }
         RePlay = true;
     }
 
@@ -301,6 +327,15 @@ public class GameManager : MonoBehaviour
         {
             money = 9000000000000000000;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            panel_Quit.SetActive(true);
+        }
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     private void OnApplicationQuit()
@@ -327,6 +362,457 @@ public class GameManager : MonoBehaviour
         saveData.scienceIncreaseAmount = scienceIncreaseAmount;
         saveData.years = years;
         saveData.RePlay = RePlay;
+        saveData.robotLevel = robotLevel;
+        saveData.robotLevelUpPrice = robotLevelUpPrice;
+
+        saveData.SpaceshipGoldBonus = SpaceshipGoldBonus;
+        saveData.AdBonus = AdBonus;
+        saveData.CashBonus = CashBonus;
+        saveData.ClickBonus = ClickBonus;
+        saveData.SpaceshipScienceBonus = SpaceshipScienceBonus;
+        saveData.eventOn = eventOn;
+        saveData.ClickCount_Fuel2 = ClickCount_Fuel2;
+        saveData.Story_Fuel2_Complete = Story_Fuel2_Complete;
+        saveData.Fuel2Debuff = Fuel2Debuff;
+        saveData.FinalGoldBonus = FinalGoldBonus;
+        saveData.FinalScienceBonus = FinalScienceBonus;
+
+
+        /* TechManager 관련 Save */
+        saveData.Tech1Complete = TechManager.Tech1Complete;
+        saveData.Tech2Complete = TechManager.Tech2Complete;
+        saveData.Tech3Complete = TechManager.Tech3Complete;
+        saveData.Tech4Complete = TechManager.Tech4Complete;
+        saveData.Tech5Complete = TechManager.Tech5Complete;
+        saveData.Tech6Complete = TechManager.Tech6Complete;
+        saveData.Tech7Complete = TechManager.Tech7Complete;
+        saveData.Tech8Complete = TechManager.Tech8Complete;
+        saveData.Tech9Complete = TechManager.Tech9Complete;
+        saveData.Tech10Complete = TechManager.Tech10Complete;
+        saveData.Tech11Complete = TechManager.Tech11Complete;
+        saveData.Tech12Complete = TechManager.Tech12Complete;
+        saveData.Tech13Complete = TechManager.Tech13Complete;
+        saveData.Tech14Complete = TechManager.Tech14Complete;
+        saveData.Tech15Complete = TechManager.Tech15Complete;
+        saveData.Tech16Complete = TechManager.Tech16Complete;
+        saveData.Tech17Complete = TechManager.Tech17Complete;
+        saveData.Tech18Complete = TechManager.Tech18Complete;
+        saveData.Tech19Complete = TechManager.Tech19Complete;
+        saveData.Tech20Complete = TechManager.Tech20Complete;
+        saveData.Tech21Complete = TechManager.Tech21Complete;
+        saveData.Tech22Complete = TechManager.Tech22Complete;
+        saveData.Tech23Complete = TechManager.Tech23Complete;
+        saveData.Tech24Complete = TechManager.Tech24Complete;
+        saveData.Tech25Complete = TechManager.Tech25Complete;
+        saveData.Tech26Complete = TechManager.Tech26Complete;
+        saveData.Tech27Complete = TechManager.Tech27Complete;
+        saveData.Tech28Complete = TechManager.Tech28Complete;
+        saveData.Tech29Complete = TechManager.Tech29Complete;
+        saveData.Tech30Complete = TechManager.Tech30Complete;
+        saveData.Tech31Complete = TechManager.Tech31Complete;
+        saveData.Tech32Complete = TechManager.Tech32Complete;
+        saveData.Tech33Complete = TechManager.Tech33Complete;
+        saveData.Tech34Complete = TechManager.Tech34Complete;
+        saveData.Tech35Complete = TechManager.Tech35Complete;
+        saveData.Tech36Complete = TechManager.Tech36Complete;
+        saveData.Tech37Complete = TechManager.Tech37Complete;
+        saveData.Tech38Complete = TechManager.Tech38Complete;
+        saveData.Tech39Complete = TechManager.Tech39Complete;
+        saveData.Tech40Complete = TechManager.Tech40Complete;
+        saveData.Tech41Complete = TechManager.Tech41Complete;
+        saveData.Tech42Complete = TechManager.Tech42Complete;
+        saveData.Tech43Complete = TechManager.Tech43Complete;
+        saveData.Tech44Complete = TechManager.Tech44Complete;
+        saveData.Tech45Complete = TechManager.Tech45Complete;
+        saveData.Tech46Complete = TechManager.Tech46Complete;
+        saveData.Tech47Complete = TechManager.Tech47Complete;
+        saveData.Tech48Complete = TechManager.Tech48Complete;
+        saveData.Tech49Complete = TechManager.Tech49Complete;
+        saveData.Tech50Complete = TechManager.Tech50Complete;
+        saveData.Tech51Complete = TechManager.Tech51Complete;
+        saveData.Tech52Complete = TechManager.Tech52Complete;
+        saveData.Tech53Complete = TechManager.Tech53Complete;
+        saveData.Tech54Complete = TechManager.Tech54Complete;
+        saveData.Tech55Complete = TechManager.Tech55Complete;
+        saveData.Tech56Complete = TechManager.Tech56Complete;
+        saveData.Tech57Complete = TechManager.Tech57Complete;
+        saveData.Tech58Complete = TechManager.Tech58Complete;
+        saveData.Tech59Complete = TechManager.Tech59Complete;
+        saveData.Tech60Complete = TechManager.Tech60Complete;
+        saveData.Tech61Complete = TechManager.Tech61Complete;
+        saveData.Tech62Complete = TechManager.Tech62Complete;
+        saveData.Tech63Complete = TechManager.Tech63Complete;
+        saveData.Tech64Complete = TechManager.Tech64Complete;
+        saveData.Tech65Complete = TechManager.Tech65Complete;
+        saveData.Tech66Complete = TechManager.Tech66Complete;
+        saveData.Tech67Complete = TechManager.Tech67Complete;
+        saveData.Tech68Complete = TechManager.Tech68Complete;
+        saveData.Tech69Complete = TechManager.Tech69Complete;
+        saveData.Tech70Complete = TechManager.Tech70Complete;
+
+        saveData.Tech1AnimC = TechManager.Tech1AnimC;
+        saveData.Tech2AnimC = TechManager.Tech2AnimC;
+        saveData.Tech3AnimC = TechManager.Tech3AnimC;
+        saveData.Tech4AnimC = TechManager.Tech4AnimC;
+        saveData.Tech5AnimC = TechManager.Tech5AnimC;
+        saveData.Tech6AnimC = TechManager.Tech6AnimC;
+        saveData.Tech7AnimC = TechManager.Tech7AnimC;
+        saveData.Tech8AnimC = TechManager.Tech8AnimC;
+        saveData.Tech9AnimC = TechManager.Tech9AnimC;
+        saveData.Tech10AnimC = TechManager.Tech10AnimC;
+        saveData.Tech11AnimC = TechManager.Tech11AnimC;
+        saveData.Tech12AnimC = TechManager.Tech12AnimC;
+        saveData.Tech13AnimC = TechManager.Tech13AnimC;
+        saveData.Tech14AnimC = TechManager.Tech14AnimC;
+        saveData.Tech15AnimC = TechManager.Tech15AnimC;
+        saveData.Tech16AnimC = TechManager.Tech16AnimC;
+        saveData.Tech17AnimC = TechManager.Tech17AnimC;
+        saveData.Tech18AnimC = TechManager.Tech18AnimC;
+        saveData.Tech19AnimC = TechManager.Tech19AnimC;
+        saveData.Tech20AnimC = TechManager.Tech20AnimC;
+        saveData.Tech21AnimC = TechManager.Tech21AnimC;
+        saveData.Tech22AnimC = TechManager.Tech22AnimC;
+        saveData.Tech23AnimC = TechManager.Tech23AnimC;
+        saveData.Tech24AnimC = TechManager.Tech24AnimC;
+        saveData.Tech25AnimC = TechManager.Tech25AnimC;
+        saveData.Tech26AnimC = TechManager.Tech26AnimC;
+        saveData.Tech27AnimC = TechManager.Tech27AnimC;
+        saveData.Tech28AnimC = TechManager.Tech28AnimC;
+        saveData.Tech29AnimC = TechManager.Tech29AnimC;
+        saveData.Tech30AnimC = TechManager.Tech30AnimC;
+        saveData.Tech31AnimC = TechManager.Tech31AnimC;
+        saveData.Tech32AnimC = TechManager.Tech32AnimC;
+        saveData.Tech33AnimC = TechManager.Tech33AnimC;
+        saveData.Tech34AnimC = TechManager.Tech34AnimC;
+        saveData.Tech35AnimC = TechManager.Tech35AnimC;
+        saveData.Tech36AnimC = TechManager.Tech36AnimC;
+        saveData.Tech37AnimC = TechManager.Tech37AnimC;
+        saveData.Tech38AnimC = TechManager.Tech38AnimC;
+        saveData.Tech39AnimC = TechManager.Tech39AnimC;
+        saveData.Tech40AnimC = TechManager.Tech40AnimC;
+        saveData.Tech41AnimC = TechManager.Tech41AnimC;
+        saveData.Tech42AnimC = TechManager.Tech42AnimC;
+        saveData.Tech43AnimC = TechManager.Tech43AnimC;
+        saveData.Tech44AnimC = TechManager.Tech44AnimC;
+        saveData.Tech45AnimC = TechManager.Tech45AnimC;
+        saveData.Tech46AnimC = TechManager.Tech46AnimC;
+        saveData.Tech47AnimC = TechManager.Tech47AnimC;
+        saveData.Tech48AnimC = TechManager.Tech48AnimC;
+        saveData.Tech49AnimC = TechManager.Tech49AnimC;
+        saveData.Tech50AnimC = TechManager.Tech50AnimC;
+        saveData.Tech51AnimC = TechManager.Tech51AnimC;
+        saveData.Tech52AnimC = TechManager.Tech52AnimC;
+        saveData.Tech53AnimC = TechManager.Tech53AnimC;
+        saveData.Tech54AnimC = TechManager.Tech54AnimC;
+        saveData.Tech55AnimC = TechManager.Tech55AnimC;
+        saveData.Tech56AnimC = TechManager.Tech56AnimC;
+        saveData.Tech57AnimC = TechManager.Tech57AnimC;
+        saveData.Tech58AnimC = TechManager.Tech58AnimC;
+        saveData.Tech59AnimC = TechManager.Tech59AnimC;
+        saveData.Tech60AnimC = TechManager.Tech60AnimC;
+        saveData.Tech61AnimC = TechManager.Tech61AnimC;
+        saveData.Tech62AnimC = TechManager.Tech62AnimC;
+        saveData.Tech63AnimC = TechManager.Tech63AnimC;
+        saveData.Tech64AnimC = TechManager.Tech64AnimC;
+        saveData.Tech65AnimC = TechManager.Tech65AnimC;
+        saveData.Tech66AnimC = TechManager.Tech66AnimC;
+        saveData.Tech67AnimC = TechManager.Tech67AnimC;
+        saveData.Tech68AnimC = TechManager.Tech68AnimC;
+        saveData.Tech69AnimC = TechManager.Tech69AnimC;
+        saveData.Tech70AnimC = TechManager.Tech70AnimC;
+
+        saveData.age_war = TechManager.age_war;
+        saveData.age_elec = TechManager.age_elec;
+        saveData.age_modern = TechManager.age_modern;
+        // ------------------------------------------
+
+
+        /* ProductManager 관련 Save */
+        saveData.autoMoney = ProductManager.autoMoney;
+        saveData.autoScience = ProductManager.autoScience;
+
+        saveData.Pd1 = ProductManager.Pd1;
+        saveData.Pd3 = ProductManager.Pd3;
+        saveData.Pd4 = ProductManager.Pd4;
+        saveData.Pd5 = ProductManager.Pd5;
+        saveData.Pd6 = ProductManager.Pd6;
+        saveData.Pd7 = ProductManager.Pd7;
+        saveData.Pd8 = ProductManager.Pd8;
+        saveData.Pd9 = ProductManager.Pd9;
+        saveData.Pd10 = ProductManager.Pd10;
+        saveData.Pd11 = ProductManager.Pd11;
+        saveData.Pd12 = ProductManager.Pd12;
+        saveData.Pd13 = ProductManager.Pd13;
+        saveData.Pd14 = ProductManager.Pd14;
+        saveData.Pd15 = ProductManager.Pd15;
+        saveData.Pd17 = ProductManager.Pd17;
+        saveData.Pd18 = ProductManager.Pd18;
+        saveData.Pd19 = ProductManager.Pd19;
+        saveData.Pd20 = ProductManager.Pd20;
+        saveData.Pd21 = ProductManager.Pd21;
+        saveData.Pd22 = ProductManager.Pd22;
+        saveData.Pd23 = ProductManager.Pd23;
+        saveData.Pd24 = ProductManager.Pd24;
+        saveData.Pd25 = ProductManager.Pd25;
+        saveData.Pd26 = ProductManager.Pd26;
+        saveData.Pd27 = ProductManager.Pd27;
+        saveData.Pd28 = ProductManager.Pd28;
+        saveData.Pd29 = ProductManager.Pd29;
+        saveData.Pd30 = ProductManager.Pd30;
+        saveData.Pd31 = ProductManager.Pd31;
+        saveData.Pd32 = ProductManager.Pd32;
+        saveData.Pd33 = ProductManager.Pd33;
+        saveData.Pd34 = ProductManager.Pd34;
+        saveData.Pd35 = ProductManager.Pd35;
+        saveData.Pd36 = ProductManager.Pd36;
+        saveData.Pd37 = ProductManager.Pd37;
+        saveData.Pd38 = ProductManager.Pd38;
+        saveData.Pd39 = ProductManager.Pd39;
+        saveData.Pd40 = ProductManager.Pd40;
+        saveData.Pd41 = ProductManager.Pd41;
+        saveData.Pd42 = ProductManager.Pd42;
+        saveData.Pd43 = ProductManager.Pd43;
+        saveData.Pd44 = ProductManager.Pd44;
+        saveData.Pd45 = ProductManager.Pd45;
+        saveData.Pd46 = ProductManager.Pd46;
+        saveData.Pd47 = ProductManager.Pd47;
+        saveData.Pd48 = ProductManager.Pd48;
+        saveData.Pd49 = ProductManager.Pd49;
+        saveData.Pd51 = ProductManager.Pd51;
+        saveData.Pd52 = ProductManager.Pd52;
+        saveData.Pd53 = ProductManager.Pd53;
+        saveData.Pd54 = ProductManager.Pd54;
+        saveData.Pd55 = ProductManager.Pd55;
+        saveData.Pd56 = ProductManager.Pd56;
+        saveData.Pd58 = ProductManager.Pd58;
+        saveData.Pd59 = ProductManager.Pd59;
+        saveData.Pd60 = ProductManager.Pd60;
+        saveData.Pd61 = ProductManager.Pd61;
+        saveData.Pd62 = ProductManager.Pd62;
+        saveData.Pd63 = ProductManager.Pd63;
+        saveData.Pd64 = ProductManager.Pd64;
+        saveData.Pd65 = ProductManager.Pd65;
+        saveData.Pd66 = ProductManager.Pd66;
+        saveData.Pd67 = ProductManager.Pd67;
+        saveData.Pd68 = ProductManager.Pd68;
+        saveData.Pd69 = ProductManager.Pd69;
+        saveData.Pd70 = ProductManager.Pd70;
+
+        saveData.Prod_1_Level = ProductManager.Prod_1_Level;
+        saveData.Prod_3_Level = ProductManager.Prod_3_Level;
+        saveData.Prod_4_Level = ProductManager.Prod_4_Level;
+        saveData.Prod_5_Level = ProductManager.Prod_5_Level;
+        saveData.Prod_6_Level = ProductManager.Prod_6_Level;
+        saveData.Prod_7_Level = ProductManager.Prod_7_Level;
+        saveData.Prod_8_Level = ProductManager.Prod_8_Level;
+        saveData.Prod_9_Level = ProductManager.Prod_9_Level;
+        saveData.Prod_10_Level = ProductManager.Prod_10_Level;
+        saveData.Prod_11_Level = ProductManager.Prod_11_Level;
+        saveData.Prod_12_Level = ProductManager.Prod_12_Level;
+        saveData.Prod_13_Level = ProductManager.Prod_13_Level;
+        saveData.Prod_14_Level = ProductManager.Prod_14_Level;
+        saveData.Prod_15_Level = ProductManager.Prod_15_Level;
+        saveData.Prod_17_Level = ProductManager.Prod_17_Level;
+        saveData.Prod_18_Level = ProductManager.Prod_18_Level;
+        saveData.Prod_19_Level = ProductManager.Prod_19_Level;
+        saveData.Prod_20_Level = ProductManager.Prod_20_Level;
+        saveData.Prod_21_Level = ProductManager.Prod_21_Level;
+        saveData.Prod_22_Level = ProductManager.Prod_22_Level;
+        saveData.Prod_23_Level = ProductManager.Prod_23_Level;
+        saveData.Prod_24_Level = ProductManager.Prod_24_Level;
+        saveData.Prod_25_Level = ProductManager.Prod_25_Level;
+        saveData.Prod_26_Level = ProductManager.Prod_26_Level;
+        saveData.Prod_27_Level = ProductManager.Prod_27_Level;
+        saveData.Prod_28_Level = ProductManager.Prod_28_Level;
+        saveData.Prod_29_Level = ProductManager.Prod_29_Level;
+        saveData.Prod_30_Level = ProductManager.Prod_30_Level;
+        saveData.Prod_31_Level = ProductManager.Prod_31_Level;
+        saveData.Prod_32_Level = ProductManager.Prod_32_Level;
+        saveData.Prod_33_Level = ProductManager.Prod_33_Level;
+        saveData.Prod_34_Level = ProductManager.Prod_34_Level;
+        saveData.Prod_35_Level = ProductManager.Prod_35_Level;
+        saveData.Prod_36_Level = ProductManager.Prod_36_Level;
+        saveData.Prod_37_Level = ProductManager.Prod_37_Level;
+        saveData.Prod_38_Level = ProductManager.Prod_38_Level;
+        saveData.Prod_39_Level = ProductManager.Prod_39_Level;
+        saveData.Prod_40_Level = ProductManager.Prod_40_Level;
+        saveData.Prod_41_Level = ProductManager.Prod_41_Level;
+        saveData.Prod_42_Level = ProductManager.Prod_42_Level;
+        saveData.Prod_43_Level = ProductManager.Prod_43_Level;
+        saveData.Prod_44_Level = ProductManager.Prod_44_Level;
+        saveData.Prod_45_Level = ProductManager.Prod_45_Level;
+        saveData.Prod_46_Level = ProductManager.Prod_46_Level;
+        saveData.Prod_47_Level = ProductManager.Prod_47_Level;
+        saveData.Prod_48_Level = ProductManager.Prod_48_Level;
+        saveData.Prod_49_Level = ProductManager.Prod_49_Level;
+        saveData.Prod_51_Level = ProductManager.Prod_51_Level;
+        saveData.Prod_52_Level = ProductManager.Prod_52_Level;
+        saveData.Prod_53_Level = ProductManager.Prod_53_Level;
+        saveData.Prod_54_Level = ProductManager.Prod_54_Level;
+        saveData.Prod_55_Level = ProductManager.Prod_55_Level;
+        saveData.Prod_56_Level = ProductManager.Prod_56_Level;
+        saveData.Prod_58_Level = ProductManager.Prod_58_Level;
+        saveData.Prod_59_Level = ProductManager.Prod_59_Level;
+        saveData.Prod_60_Level = ProductManager.Prod_60_Level;
+        saveData.Prod_61_Level = ProductManager.Prod_61_Level;
+        saveData.Prod_62_Level = ProductManager.Prod_62_Level;
+        saveData.Prod_63_Level = ProductManager.Prod_63_Level;
+        saveData.Prod_64_Level = ProductManager.Prod_64_Level;
+        saveData.Prod_65_Level = ProductManager.Prod_65_Level;
+        saveData.Prod_66_Level = ProductManager.Prod_66_Level;
+        saveData.Prod_67_Level = ProductManager.Prod_67_Level;
+        saveData.Prod_68_Level = ProductManager.Prod_68_Level;
+        saveData.Prod_69_Level = ProductManager.Prod_69_Level;
+        saveData.Prod_70_Level = ProductManager.Prod_70_Level;
+        saveData.Prod_S01_Level = ProductManager.Prod_S01_Level;
+        saveData.Prod_S02_Level = ProductManager.Prod_S02_Level;
+        saveData.Prod_S03_Level = ProductManager.Prod_S03_Level;
+        saveData.Prod_S04_Level = ProductManager.Prod_S04_Level;
+
+        saveData.PdS01Complete = ProductManager.PdS01Complete;
+        saveData.PdS02Complete = ProductManager.PdS02Complete;
+        saveData.PdS03Complete = ProductManager.PdS03Complete;
+        saveData.PdS04Complete = ProductManager.PdS04Complete;
+        saveData.JumpINDpossible = ProductManager.JumpINDpossible;
+        saveData.JumpWARpossible = ProductManager.JumpWARpossible;
+        saveData.JumpELECpossible = ProductManager.JumpELECpossible;
+        saveData.JumpMODERNpossible = ProductManager.JumpMODERNpossible;
+        // -------------------------------------------------------------
+
+
+        /* SpaceshipManager 관련 Save */
+        for (int i = 0; i < 21 ; i++)
+        {
+            saveData.SScomplete[i] = SpaceshipManager.SScomplete[i];
+        }
+        saveData.SSupNum = SpaceshipManager.SSupNum;
+        saveData.SSgauge = SpaceshipManager.SSgauge;
+        // ---------------------------------------------------------
+
+
+        /* TutorialManager 및 MessageManager 관련 Save */
+        saveData.T01 = TutorialManager.T01; // 대화창 변수
+        saveData.T01c = TutorialManager.T01c; // 대화창 클리어 변수
+        saveData.T02 = TutorialManager.T02;
+        saveData.T02c = TutorialManager.T02c;
+        saveData.T03 = TutorialManager.T03;
+        saveData.T03c = TutorialManager.T03c;
+        saveData.T04 = TutorialManager.T04;
+        saveData.T04c = TutorialManager.T04c;
+        saveData.P01 = TutorialManager.P01; // 푸시 변수
+        saveData.P01c = TutorialManager.P01c; // 푸시 클리어 변수
+        saveData.T05 = TutorialManager.T05;
+        saveData.T05c = TutorialManager.T05c;
+        saveData.P02 = TutorialManager.P02;
+        saveData.P02c = TutorialManager.P02c;
+        saveData.P03 = TutorialManager.P03;
+        saveData.P03c = TutorialManager.P03c;
+        saveData.T06 = TutorialManager.T06;
+        saveData.T06c = TutorialManager.T06c;
+        saveData.T07 = TutorialManager.T07;
+        saveData.T07c = TutorialManager.T07c;
+        saveData.P04 = TutorialManager.P04;
+        saveData.P04c = TutorialManager.P04c;
+        saveData.T08 = TutorialManager.T08;
+        saveData.T08c = TutorialManager.T08c;
+        saveData.T09 = TutorialManager.T09;
+        saveData.T09c = TutorialManager.T09c;
+        saveData.TutoAllClear = TutorialManager.TutoAllClear; // 튜토리얼 최종 완료 변수
+
+        saveData.message01c = MessageManager.message01c;
+
+        for (int i = 0; i < 71; i++)
+        {
+            saveData.techMessage[i] = MessageManager.techMessage[i];
+        }
+        for (int i = 0; i < 21; i++)
+        {
+            saveData.etcMessage[i] = MessageManager.etcMessage[i];
+        }
+        saveData.ageMessage_WAR = MessageManager.ageMessage_WAR;
+        saveData.ageMessage_ELEC = MessageManager.ageMessage_ELEC;
+        saveData.ageMessage_MODERN = MessageManager.ageMessage_MODERN;
+        // -----------------------------------------------------------
+
+
+        /* SoundManager 관련 Save */
+        saveData.BGM_Meter = SoundManager.BGM_Meter;
+        saveData.SFX_Meter = SoundManager.SFX_Meter;
+        // -----------------------------------------
+
+
+        /*
+        saveData.1 = ProductManager.1;
+        saveData.2 = ProductManager.2;
+        saveData.3 = ProductManager.3;
+        saveData.4 = ProductManager.4;
+        saveData.5 = ProductManager.5;
+        saveData.6 = ProductManager.6;
+        saveData.7 = ProductManager.7;
+        saveData.8 = ProductManager.8;
+        saveData.9 = ProductManager.9;
+        saveData.10 = ProductManager.10;
+        saveData.11 = ProductManager.11;
+        saveData.12 = ProductManager.12;
+        saveData.13 = ProductManager.13;
+        saveData.14 = ProductManager.14;
+        saveData.15 = ProductManager.15;
+        saveData.16 = ProductManager.16;
+        saveData.17 = ProductManager.17;
+        saveData.18 = ProductManager.18;
+        saveData.19 = ProductManager.19;
+        saveData.20 = ProductManager.20;
+        saveData.21 = ProductManager.21;
+        saveData.22 = ProductManager.22;
+        saveData.23 = ProductManager.23;
+        saveData.24 = ProductManager.24;
+        saveData.25 = ProductManager.25;
+        saveData.26 = ProductManager.26;
+        saveData.27 = ProductManager.27;
+        saveData.28 = ProductManager.28;
+        saveData.29 = ProductManager.29;
+        saveData.30 = ProductManager.30;
+        saveData.31 = ProductManager.31;
+        saveData.32 = ProductManager.32;
+        saveData.33 = ProductManager.33;
+        saveData.34 = ProductManager.34;
+        saveData.35 = ProductManager.35;
+        saveData.36 = ProductManager.36;
+        saveData.37 = ProductManager.37;
+        saveData.38 = ProductManager.38;
+        saveData.39 = ProductManager.39;
+        saveData.40 = ProductManager.40;
+        saveData.41 = ProductManager.41;
+        saveData.42 = ProductManager.42;
+        saveData.43 = ProductManager.43;
+        saveData.44 = ProductManager.44;
+        saveData.45 = ProductManager.45;
+        saveData.46 = ProductManager.46;
+        saveData.47 = ProductManager.47;
+        saveData.48 = ProductManager.48;
+        saveData.49 = ProductManager.49;
+        saveData.50 = ProductManager.50;
+        saveData.51 = ProductManager.51;
+        saveData.52 = ProductManager.52;
+        saveData.53 = ProductManager.53;
+        saveData.54 = ProductManager.54;
+        saveData.55 = ProductManager.55;
+        saveData.56 = ProductManager.56;
+        saveData.57 = ProductManager.57;
+        saveData.58 = ProductManager.58;
+        saveData.59 = ProductManager.59;
+        saveData.60 = ProductManager.60;
+        saveData.61 = ProductManager.61;
+        saveData.62 = ProductManager.62;
+        saveData.63 = ProductManager.63;
+        saveData.64 = ProductManager.64;
+        saveData.65 = ProductManager.65;
+        saveData.66 = ProductManager.66;
+        saveData.67 = ProductManager.67;
+        saveData.68 = ProductManager.68;
+        saveData.69 = ProductManager.69;
+        saveData.70 = ProductManager.70;
+        */
 
         string path = Application.persistentDataPath + "/save.xml";
         XmlManager.XmlSave<SaveData>(saveData, path);
@@ -345,6 +831,499 @@ public class GameManager : MonoBehaviour
         scienceIncreaseAmount = saveData.scienceIncreaseAmount;
         years = saveData.years;
         RePlay = saveData.RePlay;
+        robotLevel = saveData.robotLevel;
+        robotLevelUpPrice = saveData.robotLevelUpPrice;
+
+        SpaceshipGoldBonus = saveData.SpaceshipGoldBonus;
+        AdBonus = saveData.AdBonus;
+        CashBonus = saveData.CashBonus;
+        ClickBonus = saveData.ClickBonus;
+        SpaceshipScienceBonus = saveData.SpaceshipScienceBonus;
+        eventOn = saveData.eventOn;
+        ClickCount_Fuel2 = saveData.ClickCount_Fuel2;
+        Story_Fuel2_Complete = saveData.Story_Fuel2_Complete;
+        Fuel2Debuff = saveData.Fuel2Debuff;
+        FinalGoldBonus = saveData.FinalGoldBonus;
+        FinalScienceBonus = saveData.FinalScienceBonus;
+
+
+        /* TechManager 관련 Load */
+        TechManager.Tech1Complete = saveData.Tech1Complete;
+        TechManager.Tech2Complete = saveData.Tech2Complete;
+        TechManager.Tech3Complete = saveData.Tech3Complete;
+        TechManager.Tech4Complete = saveData.Tech4Complete;
+        TechManager.Tech5Complete = saveData.Tech5Complete;
+        TechManager.Tech6Complete = saveData.Tech6Complete;
+        TechManager.Tech7Complete = saveData.Tech7Complete;
+        TechManager.Tech8Complete = saveData.Tech8Complete;
+        TechManager.Tech9Complete = saveData.Tech9Complete;
+        TechManager.Tech10Complete = saveData.Tech10Complete;
+        TechManager.Tech11Complete = saveData.Tech11Complete;
+        TechManager.Tech12Complete = saveData.Tech12Complete;
+        TechManager.Tech13Complete = saveData.Tech13Complete;
+        TechManager.Tech14Complete = saveData.Tech14Complete;
+        TechManager.Tech15Complete = saveData.Tech15Complete;
+        TechManager.Tech16Complete = saveData.Tech16Complete;
+        TechManager.Tech17Complete = saveData.Tech17Complete;
+        TechManager.Tech18Complete = saveData.Tech18Complete;
+        TechManager.Tech19Complete = saveData.Tech19Complete;
+        TechManager.Tech20Complete = saveData.Tech20Complete;
+        TechManager.Tech21Complete = saveData.Tech21Complete;
+        TechManager.Tech22Complete = saveData.Tech22Complete;
+        TechManager.Tech23Complete = saveData.Tech23Complete;
+        TechManager.Tech24Complete = saveData.Tech24Complete;
+        TechManager.Tech25Complete = saveData.Tech25Complete;
+        TechManager.Tech26Complete = saveData.Tech26Complete;
+        TechManager.Tech27Complete = saveData.Tech27Complete;
+        TechManager.Tech28Complete = saveData.Tech28Complete;
+        TechManager.Tech29Complete = saveData.Tech29Complete;
+        TechManager.Tech30Complete = saveData.Tech30Complete;
+        TechManager.Tech31Complete = saveData.Tech31Complete;
+        TechManager.Tech32Complete = saveData.Tech32Complete;
+        TechManager.Tech33Complete = saveData.Tech33Complete;
+        TechManager.Tech34Complete = saveData.Tech34Complete;
+        TechManager.Tech35Complete = saveData.Tech35Complete;
+        TechManager.Tech36Complete = saveData.Tech36Complete;
+        TechManager.Tech37Complete = saveData.Tech37Complete;
+        TechManager.Tech38Complete = saveData.Tech38Complete;
+        TechManager.Tech39Complete = saveData.Tech39Complete;
+        TechManager.Tech40Complete = saveData.Tech40Complete;
+        TechManager.Tech41Complete = saveData.Tech41Complete;
+        TechManager.Tech42Complete = saveData.Tech42Complete;
+        TechManager.Tech43Complete = saveData.Tech43Complete;
+        TechManager.Tech44Complete = saveData.Tech44Complete;
+        TechManager.Tech45Complete = saveData.Tech45Complete;
+        TechManager.Tech46Complete = saveData.Tech46Complete;
+        TechManager.Tech47Complete = saveData.Tech47Complete;
+        TechManager.Tech48Complete = saveData.Tech48Complete;
+        TechManager.Tech49Complete = saveData.Tech49Complete;
+        TechManager.Tech50Complete = saveData.Tech50Complete;
+        TechManager.Tech51Complete = saveData.Tech51Complete;
+        TechManager.Tech52Complete = saveData.Tech52Complete;
+        TechManager.Tech53Complete = saveData.Tech53Complete;
+        TechManager.Tech54Complete = saveData.Tech54Complete;
+        TechManager.Tech55Complete = saveData.Tech55Complete;
+        TechManager.Tech56Complete = saveData.Tech56Complete;
+        TechManager.Tech57Complete = saveData.Tech57Complete;
+        TechManager.Tech58Complete = saveData.Tech58Complete;
+        TechManager.Tech59Complete = saveData.Tech59Complete;
+        TechManager.Tech60Complete = saveData.Tech60Complete;
+        TechManager.Tech61Complete = saveData.Tech61Complete;
+        TechManager.Tech62Complete = saveData.Tech62Complete;
+        TechManager.Tech63Complete = saveData.Tech63Complete;
+        TechManager.Tech64Complete = saveData.Tech64Complete;
+        TechManager.Tech65Complete = saveData.Tech65Complete;
+        TechManager.Tech66Complete = saveData.Tech66Complete;
+        TechManager.Tech67Complete = saveData.Tech67Complete;
+        TechManager.Tech68Complete = saveData.Tech68Complete;
+        TechManager.Tech69Complete = saveData.Tech69Complete;
+        TechManager.Tech70Complete = saveData.Tech70Complete;
+
+        TechManager.Tech1AnimC = saveData.Tech1AnimC;
+        TechManager.Tech2AnimC = saveData.Tech2AnimC;
+        TechManager.Tech3AnimC = saveData.Tech3AnimC;
+        TechManager.Tech4AnimC = saveData.Tech4AnimC;
+        TechManager.Tech5AnimC = saveData.Tech5AnimC;
+        TechManager.Tech6AnimC = saveData.Tech6AnimC;
+        TechManager.Tech7AnimC = saveData.Tech7AnimC;
+        TechManager.Tech8AnimC = saveData.Tech8AnimC;
+        TechManager.Tech9AnimC = saveData.Tech9AnimC;
+        TechManager.Tech10AnimC = saveData.Tech10AnimC;
+        TechManager.Tech11AnimC = saveData.Tech11AnimC;
+        TechManager.Tech12AnimC = saveData.Tech12AnimC;
+        TechManager.Tech13AnimC = saveData.Tech13AnimC;
+        TechManager.Tech14AnimC = saveData.Tech14AnimC;
+        TechManager.Tech15AnimC = saveData.Tech15AnimC;
+        TechManager.Tech16AnimC = saveData.Tech16AnimC;
+        TechManager.Tech17AnimC = saveData.Tech17AnimC;
+        TechManager.Tech18AnimC = saveData.Tech18AnimC;
+        TechManager.Tech19AnimC = saveData.Tech19AnimC;
+        TechManager.Tech20AnimC = saveData.Tech20AnimC;
+        TechManager.Tech21AnimC = saveData.Tech21AnimC;
+        TechManager.Tech22AnimC = saveData.Tech22AnimC;
+        TechManager.Tech23AnimC = saveData.Tech23AnimC;
+        TechManager.Tech24AnimC = saveData.Tech24AnimC;
+        TechManager.Tech25AnimC = saveData.Tech25AnimC;
+        TechManager.Tech26AnimC = saveData.Tech26AnimC;
+        TechManager.Tech27AnimC = saveData.Tech27AnimC;
+        TechManager.Tech28AnimC = saveData.Tech28AnimC;
+        TechManager.Tech29AnimC = saveData.Tech29AnimC;
+        TechManager.Tech30AnimC = saveData.Tech30AnimC;
+        TechManager.Tech31AnimC = saveData.Tech31AnimC;
+        TechManager.Tech32AnimC = saveData.Tech32AnimC;
+        TechManager.Tech33AnimC = saveData.Tech33AnimC;
+        TechManager.Tech34AnimC = saveData.Tech34AnimC;
+        TechManager.Tech35AnimC = saveData.Tech35AnimC;
+        TechManager.Tech36AnimC = saveData.Tech36AnimC;
+        TechManager.Tech37AnimC = saveData.Tech37AnimC;
+        TechManager.Tech38AnimC = saveData.Tech38AnimC;
+        TechManager.Tech39AnimC = saveData.Tech39AnimC;
+        TechManager.Tech40AnimC = saveData.Tech40AnimC;
+        TechManager.Tech41AnimC = saveData.Tech41AnimC;
+        TechManager.Tech42AnimC = saveData.Tech42AnimC;
+        TechManager.Tech43AnimC = saveData.Tech43AnimC;
+        TechManager.Tech44AnimC = saveData.Tech44AnimC;
+        TechManager.Tech45AnimC = saveData.Tech45AnimC;
+        TechManager.Tech46AnimC = saveData.Tech46AnimC;
+        TechManager.Tech47AnimC = saveData.Tech47AnimC;
+        TechManager.Tech48AnimC = saveData.Tech48AnimC;
+        TechManager.Tech49AnimC = saveData.Tech49AnimC;
+        TechManager.Tech50AnimC = saveData.Tech50AnimC;
+        TechManager.Tech51AnimC = saveData.Tech51AnimC;
+        TechManager.Tech52AnimC = saveData.Tech52AnimC;
+        TechManager.Tech53AnimC = saveData.Tech53AnimC;
+        TechManager.Tech54AnimC = saveData.Tech54AnimC;
+        TechManager.Tech55AnimC = saveData.Tech55AnimC;
+        TechManager.Tech56AnimC = saveData.Tech56AnimC;
+        TechManager.Tech57AnimC = saveData.Tech57AnimC;
+        TechManager.Tech58AnimC = saveData.Tech58AnimC;
+        TechManager.Tech59AnimC = saveData.Tech59AnimC;
+        TechManager.Tech60AnimC = saveData.Tech60AnimC;
+        TechManager.Tech61AnimC = saveData.Tech61AnimC;
+        TechManager.Tech62AnimC = saveData.Tech62AnimC;
+        TechManager.Tech63AnimC = saveData.Tech63AnimC;
+        TechManager.Tech64AnimC = saveData.Tech64AnimC;
+        TechManager.Tech65AnimC = saveData.Tech65AnimC;
+        TechManager.Tech66AnimC = saveData.Tech66AnimC;
+        TechManager.Tech67AnimC = saveData.Tech67AnimC;
+        TechManager.Tech68AnimC = saveData.Tech68AnimC;
+        TechManager.Tech69AnimC = saveData.Tech69AnimC;
+        TechManager.Tech70AnimC = saveData.Tech70AnimC;
+
+        TechManager.age_war = saveData.age_war;
+        TechManager.age_elec = saveData.age_elec;
+        TechManager.age_modern = saveData.age_modern;
+        // ------------------------------------------
+
+
+        /* ProductManager 관련 Load */
+        ProductManager.autoMoney = saveData.autoMoney;
+        ProductManager.autoScience = saveData.autoScience;
+
+        ProductManager.Pd1 = saveData.Pd1;
+        ProductManager.Pd3 = saveData.Pd3;
+        ProductManager.Pd4 = saveData.Pd4;
+        ProductManager.Pd5 = saveData.Pd5;
+        ProductManager.Pd6 = saveData.Pd6;
+        ProductManager.Pd7 = saveData.Pd7;
+        ProductManager.Pd8 = saveData.Pd8;
+        ProductManager.Pd9 = saveData.Pd9;
+        ProductManager.Pd10 = saveData.Pd10;
+        ProductManager.Pd11 = saveData.Pd11;
+        ProductManager.Pd12 = saveData.Pd12;
+        ProductManager.Pd13 = saveData.Pd13;
+        ProductManager.Pd14 = saveData.Pd14;
+        ProductManager.Pd15 = saveData.Pd15;
+        ProductManager.Pd17 = saveData.Pd17;
+        ProductManager.Pd18 = saveData.Pd18;
+        ProductManager.Pd19 = saveData.Pd19;
+        ProductManager.Pd20 = saveData.Pd20;
+        ProductManager.Pd21 = saveData.Pd21;
+        ProductManager.Pd22 = saveData.Pd22;
+        ProductManager.Pd23 = saveData.Pd23;
+        ProductManager.Pd24 = saveData.Pd24;
+        ProductManager.Pd25 = saveData.Pd25;
+        ProductManager.Pd26 = saveData.Pd26;
+        ProductManager.Pd27 = saveData.Pd27;
+        ProductManager.Pd28 = saveData.Pd28;
+        ProductManager.Pd29 = saveData.Pd29;
+        ProductManager.Pd30 = saveData.Pd30;
+        ProductManager.Pd31 = saveData.Pd31;
+        ProductManager.Pd32 = saveData.Pd32;
+        ProductManager.Pd33 = saveData.Pd33;
+        ProductManager.Pd34 = saveData.Pd34;
+        ProductManager.Pd35 = saveData.Pd35;
+        ProductManager.Pd36 = saveData.Pd36;
+        ProductManager.Pd37 = saveData.Pd37;
+        ProductManager.Pd38 = saveData.Pd38;
+        ProductManager.Pd39 = saveData.Pd39;
+        ProductManager.Pd40 = saveData.Pd40;
+        ProductManager.Pd41 = saveData.Pd41;
+        ProductManager.Pd42 = saveData.Pd42;
+        ProductManager.Pd43 = saveData.Pd43;
+        ProductManager.Pd44 = saveData.Pd44;
+        ProductManager.Pd45 = saveData.Pd45;
+        ProductManager.Pd46 = saveData.Pd46;
+        ProductManager.Pd47 = saveData.Pd47;
+        ProductManager.Pd48 = saveData.Pd48;
+        ProductManager.Pd49 = saveData.Pd49;
+        ProductManager.Pd51 = saveData.Pd51;
+        ProductManager.Pd52 = saveData.Pd52;
+        ProductManager.Pd53 = saveData.Pd53;
+        ProductManager.Pd54 = saveData.Pd54;
+        ProductManager.Pd55 = saveData.Pd55;
+        ProductManager.Pd56 = saveData.Pd56;
+        ProductManager.Pd58 = saveData.Pd58;
+        ProductManager.Pd59 = saveData.Pd59;
+        ProductManager.Pd60 = saveData.Pd60;
+        ProductManager.Pd61 = saveData.Pd61;
+        ProductManager.Pd62 = saveData.Pd62;
+        ProductManager.Pd63 = saveData.Pd63;
+        ProductManager.Pd64 = saveData.Pd64;
+        ProductManager.Pd65 = saveData.Pd65;
+        ProductManager.Pd66 = saveData.Pd66;
+        ProductManager.Pd67 = saveData.Pd67;
+        ProductManager.Pd68 = saveData.Pd68;
+        ProductManager.Pd69 = saveData.Pd69;
+        ProductManager.Pd70 = saveData.Pd70;
+
+        ProductManager.Prod_1_Level = saveData.Prod_1_Level;
+        ProductManager.Prod_3_Level = saveData.Prod_3_Level;
+        ProductManager.Prod_4_Level = saveData.Prod_4_Level;
+        ProductManager.Prod_5_Level = saveData.Prod_5_Level;
+        ProductManager.Prod_6_Level = saveData.Prod_6_Level;
+        ProductManager.Prod_7_Level = saveData.Prod_7_Level;
+        ProductManager.Prod_8_Level = saveData.Prod_8_Level;
+        ProductManager.Prod_9_Level = saveData.Prod_9_Level;
+        ProductManager.Prod_10_Level = saveData.Prod_10_Level;
+        ProductManager.Prod_11_Level = saveData.Prod_11_Level;
+        ProductManager.Prod_12_Level = saveData.Prod_12_Level;
+        ProductManager.Prod_13_Level = saveData.Prod_13_Level;
+        ProductManager.Prod_14_Level = saveData.Prod_14_Level;
+        ProductManager.Prod_15_Level = saveData.Prod_15_Level;
+        ProductManager.Prod_17_Level = saveData.Prod_17_Level;
+        ProductManager.Prod_18_Level = saveData.Prod_18_Level;
+        ProductManager.Prod_19_Level = saveData.Prod_19_Level;
+        ProductManager.Prod_20_Level = saveData.Prod_20_Level;
+        ProductManager.Prod_21_Level = saveData.Prod_21_Level;
+        ProductManager.Prod_22_Level = saveData.Prod_22_Level;
+        ProductManager.Prod_23_Level = saveData.Prod_23_Level;
+        ProductManager.Prod_24_Level = saveData.Prod_24_Level;
+        ProductManager.Prod_25_Level = saveData.Prod_25_Level;
+        ProductManager.Prod_26_Level = saveData.Prod_26_Level;
+        ProductManager.Prod_27_Level = saveData.Prod_27_Level;
+        ProductManager.Prod_28_Level = saveData.Prod_28_Level;
+        ProductManager.Prod_29_Level = saveData.Prod_29_Level;
+        ProductManager.Prod_30_Level = saveData.Prod_30_Level;
+        ProductManager.Prod_31_Level = saveData.Prod_31_Level;
+        ProductManager.Prod_32_Level = saveData.Prod_32_Level;
+        ProductManager.Prod_33_Level = saveData.Prod_33_Level;
+        ProductManager.Prod_34_Level = saveData.Prod_34_Level;
+        ProductManager.Prod_35_Level = saveData.Prod_35_Level;
+        ProductManager.Prod_36_Level = saveData.Prod_36_Level;
+        ProductManager.Prod_37_Level = saveData.Prod_37_Level;
+        ProductManager.Prod_38_Level = saveData.Prod_38_Level;
+        ProductManager.Prod_39_Level = saveData.Prod_39_Level;
+        ProductManager.Prod_40_Level = saveData.Prod_40_Level;
+        ProductManager.Prod_41_Level = saveData.Prod_41_Level;
+        ProductManager.Prod_42_Level = saveData.Prod_42_Level;
+        ProductManager.Prod_43_Level = saveData.Prod_43_Level;
+        ProductManager.Prod_44_Level = saveData.Prod_44_Level;
+        ProductManager.Prod_45_Level = saveData.Prod_45_Level;
+        ProductManager.Prod_46_Level = saveData.Prod_46_Level;
+        ProductManager.Prod_47_Level = saveData.Prod_47_Level;
+        ProductManager.Prod_48_Level = saveData.Prod_48_Level;
+        ProductManager.Prod_49_Level = saveData.Prod_49_Level;
+        ProductManager.Prod_51_Level = saveData.Prod_51_Level;
+        ProductManager.Prod_52_Level = saveData.Prod_52_Level;
+        ProductManager.Prod_53_Level = saveData.Prod_53_Level;
+        ProductManager.Prod_54_Level = saveData.Prod_54_Level;
+        ProductManager.Prod_55_Level = saveData.Prod_55_Level;
+        ProductManager.Prod_56_Level = saveData.Prod_56_Level;
+        ProductManager.Prod_58_Level = saveData.Prod_58_Level;
+        ProductManager.Prod_59_Level = saveData.Prod_59_Level;
+        ProductManager.Prod_60_Level = saveData.Prod_60_Level;
+        ProductManager.Prod_61_Level = saveData.Prod_61_Level;
+        ProductManager.Prod_62_Level = saveData.Prod_62_Level;
+        ProductManager.Prod_63_Level = saveData.Prod_63_Level;
+        ProductManager.Prod_64_Level = saveData.Prod_64_Level;
+        ProductManager.Prod_65_Level = saveData.Prod_65_Level;
+        ProductManager.Prod_66_Level = saveData.Prod_66_Level;
+        ProductManager.Prod_67_Level = saveData.Prod_67_Level;
+        ProductManager.Prod_68_Level = saveData.Prod_68_Level;
+        ProductManager.Prod_69_Level = saveData.Prod_69_Level;
+        ProductManager.Prod_70_Level = saveData.Prod_70_Level;
+        ProductManager.Prod_S01_Level = saveData.Prod_S01_Level;
+        ProductManager.Prod_S02_Level = saveData.Prod_S02_Level;
+        ProductManager.Prod_S03_Level = saveData.Prod_S03_Level;
+        ProductManager.Prod_S04_Level = saveData.Prod_S04_Level;
+
+        ProductManager.PdS01Complete = saveData.PdS01Complete;
+        ProductManager.PdS02Complete = saveData.PdS02Complete;
+        ProductManager.PdS03Complete = saveData.PdS03Complete;
+        ProductManager.PdS04Complete = saveData.PdS04Complete;
+        ProductManager.JumpINDpossible = saveData.JumpINDpossible;
+        ProductManager.JumpWARpossible = saveData.JumpWARpossible;
+        ProductManager.JumpELECpossible = saveData.JumpELECpossible;
+        ProductManager.JumpMODERNpossible = saveData.JumpMODERNpossible;
+        // -------------------------------------------------------------
+
+
+        /* SpaceshipManager 관련 Load */
+        for (int i = 0; i < 21; i++)
+        {
+            SpaceshipManager.SScomplete[i] = saveData.SScomplete[i];
+        }
+        SpaceshipManager.SSupNum = saveData.SSupNum;
+        SpaceshipManager.SSgauge = saveData.SSgauge;
+        // ---------------------------------------------------------
+
+
+        /* TutorialManager 및 MessageManager 관련 Load */
+        TutorialManager.T01 = saveData.T01; // 대화창 변수
+        TutorialManager.T01c = saveData.T01c; // 대화창 클리어 변수
+        TutorialManager.T02 = saveData.T02;
+        TutorialManager.T02c = saveData.T02c;
+        TutorialManager.T03 = saveData.T03;
+        TutorialManager.T03c = saveData.T03c;
+        TutorialManager.T04 = saveData.T04;
+        TutorialManager.T04c = saveData.T04c;
+        TutorialManager.P01 = saveData.P01; // 푸시 변수
+        TutorialManager.P01c = saveData.P01c; // 푸시 클리어 변수
+        TutorialManager.T05 = saveData.T05;
+        TutorialManager.T05c = saveData.T05c;
+        TutorialManager.P02 = saveData.P02;
+        TutorialManager.P02c = saveData.P02c;
+        TutorialManager.P03 = saveData.P03;
+        TutorialManager.P03c = saveData.P03c;
+        TutorialManager.T06 = saveData.T06;
+        TutorialManager.T06c = saveData.T06c;
+        TutorialManager.T07 = saveData.T07;
+        TutorialManager.T07c = saveData.T07c;
+        TutorialManager.P04 = saveData.P04;
+        TutorialManager.P04c = saveData.P04c;
+        TutorialManager.T08 = saveData.T08;
+        TutorialManager.T08c = saveData.T08c;
+        TutorialManager.T09 = saveData.T09;
+        TutorialManager.T09c = saveData.T09c;
+        TutorialManager.TutoAllClear = saveData.TutoAllClear; // 튜토리얼 최종 완료 변수
+
+        MessageManager.message01c = saveData.message01c;
+
+        for (int i = 0; i < 71; i++)
+        {
+            MessageManager.techMessage[i] = saveData.techMessage[i];
+        }
+        for (int i = 0; i < 21; i++)
+        {
+            MessageManager.etcMessage[i] = saveData.etcMessage[i];
+        }
+
+        MessageManager.ageMessage_WAR = saveData.ageMessage_WAR;
+        MessageManager.ageMessage_ELEC = saveData.ageMessage_ELEC;
+        MessageManager.ageMessage_MODERN = saveData.ageMessage_MODERN;
+        // ---------------------------------------------------------
+
+
+        /* SoundManager 관련 Load */
+        SoundManager.BGM_Meter = saveData.BGM_Meter;
+        SoundManager.SFX_Meter = saveData.SFX_Meter;
+        // -------------------------------------------------------
+
+
+        /*
+        ProductManager.1 = saveData.1;
+        ProductManager.2 = saveData.2;
+        ProductManager.3 = saveData.3;
+        ProductManager.4 = saveData.4;
+        ProductManager.5 = saveData.5;
+        ProductManager.6 = saveData.6;
+        ProductManager.7 = saveData.7;
+        ProductManager.8 = saveData.8;
+        ProductManager.9 = saveData.9;
+        ProductManager.10 = saveData.10;
+        ProductManager.11 = saveData.11;
+        ProductManager.12 = saveData.12;
+        ProductManager.13 = saveData.13;
+        ProductManager.14 = saveData.14;
+        ProductManager.15 = saveData.15;
+        ProductManager.16 = saveData.16;
+        ProductManager.17 = saveData.17;
+        ProductManager.18 = saveData.18;
+        ProductManager.19 = saveData.19;
+        ProductManager.20 = saveData.20;
+        ProductManager.21 = saveData.21;
+        ProductManager.22 = saveData.22;
+        ProductManager.23 = saveData.23;
+        ProductManager.24 = saveData.24;
+        ProductManager.25 = saveData.25;
+        ProductManager.26 = saveData.26;
+        ProductManager.27 = saveData.27;
+        ProductManager.28 = saveData.28;
+        ProductManager.29 = saveData.29;
+        ProductManager.30 = saveData.30;
+        ProductManager.31 = saveData.31;
+        ProductManager.32 = saveData.32;
+        ProductManager.33 = saveData.33;
+        ProductManager.34 = saveData.34;
+        ProductManager.35 = saveData.35;
+        ProductManager.36 = saveData.36;
+        ProductManager.37 = saveData.37;
+        ProductManager.38 = saveData.38;
+        ProductManager.39 = saveData.39;
+        ProductManager.40 = saveData.40;
+        ProductManager.41 = saveData.41;
+        ProductManager.42 = saveData.42;
+        ProductManager.43 = saveData.43;
+        ProductManager.44 = saveData.44;
+        ProductManager.45 = saveData.45;
+        ProductManager.46 = saveData.46;
+        ProductManager.47 = saveData.47;
+        ProductManager.48 = saveData.48;
+        ProductManager.49 = saveData.49;
+        ProductManager.50 = saveData.50;
+        ProductManager.51 = saveData.51;
+        ProductManager.52 = saveData.52;
+        ProductManager.53 = saveData.53;
+        ProductManager.54 = saveData.54;
+        ProductManager.55 = saveData.55;
+        ProductManager.56 = saveData.56;
+        ProductManager.57 = saveData.57;
+        ProductManager.58 = saveData.58;
+        ProductManager.59 = saveData.59;
+        ProductManager.60 = saveData.60;
+        ProductManager.61 = saveData.61;
+        ProductManager.62 = saveData.62;
+        ProductManager.63 = saveData.63;
+        ProductManager.64 = saveData.64;
+        ProductManager.65 = saveData.65;
+        ProductManager.66 = saveData.66;
+        ProductManager.67 = saveData.67;
+        ProductManager.68 = saveData.68;
+        ProductManager.69 = saveData.69;
+        ProductManager.70 = saveData.70;
+        */
+    }
+
+    void passiveLoad()
+    {
+        if (eventOn == true && Story_Fuel2_Complete == false && SpaceshipManager.SScomplete[6] == true)
+        {
+            Click_Button.sprite = Button_Bomb;
+        }
+
+        if (robotLevel >= 1)
+        {
+            Robot01.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 2)
+        {
+            Robot02.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 3)
+        {
+            Robot03.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 4)
+        {
+            Robot04.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 5)
+        {
+            Robot05.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 6)
+        {
+            Robot06.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 7)
+        {
+            Robot07.color = new Color32(255, 255, 255, 255);
+        }
+        if (robotLevel >= 8)
+        {
+            Robot08.color = new Color32(255, 255, 255, 255);
+        }
     }
 
     public void MoneyIncrease()
@@ -352,8 +1331,11 @@ public class GameManager : MonoBehaviour
         money += (long)(moneyIncreaseAmount * FinalGoldBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
-        Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
-        if(eventOn == true)
+        if (eventOn == false)
+        {
+            Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
+        }
+        else if(eventOn == true)
         {
             EventOn();
         }
@@ -1459,7 +2441,10 @@ public class GameManager : MonoBehaviour
             img3.raycastTarget = true;
             img4.raycastTarget = true;
 
-            JokeButton.SetActive(true);
+            if(robotLevel >= 150)
+            {
+                JokeButton.SetActive(true);
+            }
         }
         else if (img2.color == new Color32(255, 255, 255, 220))
         {
@@ -1472,8 +2457,10 @@ public class GameManager : MonoBehaviour
             img3.raycastTarget = false;
             img4.raycastTarget = false;
 
-            JokeButton.SetActive(false);
-
+            if(robotLevel >= 150)
+            {
+                JokeButton.SetActive(false);
+            }
         }
 
     }
@@ -1500,8 +2487,8 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            GoldMultipleInfo.text = "골드 배율 : " + FinalGoldBonus + "배";
-            ScienceMultipleInfo.text = "연구력 배율 : " + FinalScienceBonus + "배";
+            GoldMultipleInfo.text = "x " + FinalGoldBonus + "배";
+            ScienceMultipleInfo.text = "x " + FinalScienceBonus + "배";
 
             yield return new WaitForSeconds(0.2f);
         }
@@ -1533,6 +2520,11 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(1.0f);
         }
+    }
+
+    void Offline_Income()
+    {
+
     }
 
     public void Noti_R_Off()

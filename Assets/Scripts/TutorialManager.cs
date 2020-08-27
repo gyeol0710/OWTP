@@ -37,6 +37,9 @@ public class TutorialManager : MonoBehaviour
 
     static public bool T08;
     static public bool T08c;
+    static public bool T09;
+    static public bool T09c;
+
     static public bool TutoAllClear; // 튜토리얼 최종 완료 변수
     public Button Click;
     public Button Robot;
@@ -49,6 +52,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (TutoAllClear == true)
         {
+            passiveLoad();
             Destroy(this);
         }
         if (TutoAllClear == false)
@@ -59,11 +63,20 @@ public class TutorialManager : MonoBehaviour
             Tech.interactable = false;
             Offer.interactable = false;
 
+
+
             T01 = true;
         }
+
+        StartCoroutine(Tutorial());
     }
 
     void Update()
+    {
+        
+    }
+
+    void Tutorial01()
     {
         if (T02 == false)
         {
@@ -84,7 +97,7 @@ public class TutorialManager : MonoBehaviour
             T04 = true;
         }
 
-        if (T04c ==true)
+        if (T04c == true)
         {
             Offer.interactable = true;
             Robot.interactable = true;
@@ -119,12 +132,56 @@ public class TutorialManager : MonoBehaviour
         if (T06c == true)
         {
             T07 = true;
-            Product.interactable = true; // 추후 튜토리얼 수정시 삭제 요망
         }
 
         if (T07c == true)
         {
             P04 = true;
+            Product.interactable = true;
+        }
+
+        if (ProductManager.Prod_1_Level > 0)
+        {
+            T08 = true;
+        }
+
+        if (T08c == true)
+        {
+            T09 = true;
+        }
+    }
+
+    IEnumerator Tutorial()
+    {
+        while(true)
+        {
+            Tutorial01();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void passiveLoad()
+    {
+        if (T02c == true)
+        {
+            Click.interactable = true;
+        }
+
+        if (T04c == true)
+        {
+            Offer.interactable = true;
+            Robot.interactable = true;
+        }
+
+        if (T05 == true)
+        {
+            T05 = true;
+            Tech.interactable = true;
+        }
+
+        if (T07c == true)
+        {
+            Product.interactable = true;
         }
     }
 }
