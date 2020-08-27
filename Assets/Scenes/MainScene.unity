@@ -865,7 +865,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19927,7 +19927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &605202517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40491,6 +40491,8 @@ MonoBehaviour:
   Robot06: {fileID: 927201519}
   Robot07: {fileID: 688683301}
   Robot08: {fileID: 1124987857}
+  PerGoldInfo: {fileID: 1785278954}
+  PerScienceInfo: {fileID: 1379716324}
   GoldMultipleInfo: {fileID: 1338214108}
   ScienceMultipleInfo: {fileID: 1307022629}
 --- !u!4 &1225608269
@@ -42764,7 +42766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2627451, g: 0.5568628, b: 0.8313726, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -43734,7 +43736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.745283, g: 0.48999175, b: 0.10194911, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -49782,6 +49784,16 @@ MonoBehaviour:
   Noti_O: {fileID: 406353789}
   Click_Button: {fileID: 1658265886}
   Button_Bomb: {fileID: 21300000, guid: 4eb27f82344b14f45818782e9b518fc0, type: 3}
+  Button_Robot: {fileID: 183601023}
+  Button_Prod: {fileID: 1483500441}
+  Button_Tech: {fileID: 407025908}
+  Button_Click: {fileID: 1658265885}
+  Button_Offer: {fileID: 1076337711}
+  Offer01: {fileID: 605202516}
+  Offer02: {fileID: 880956070}
+  Offer03: {fileID: 1817799036}
+  ScR: {fileID: 1022186414}
+  jokeButton: {fileID: 19994320}
 --- !u!4 &1519617175
 Transform:
   m_ObjectHideFlags: 0
@@ -55220,7 +55232,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1673287624
 MonoBehaviour:

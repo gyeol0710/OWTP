@@ -238,6 +238,8 @@ public class GameManager : MonoBehaviour
     //-----------------------------------------
     int click_gauge;
     //-----------------------------------------
+    public Text PerGoldInfo;
+    public Text PerScienceInfo;
     public Text GoldMultipleInfo;
     public Text ScienceMultipleInfo;
 
@@ -315,7 +317,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(UpdateRobotPanelText());
         StartCoroutine(RobotLevelUpButtonActiveCheck());
         StartCoroutine(FinalBonus());
-        StartCoroutine(MultipleInfo());
+        StartCoroutine(GoldScienceInfo());
         StartCoroutine(ClickGaugeControll());
 
         RePlay = true;
@@ -1368,6 +1370,7 @@ public class GameManager : MonoBehaviour
             ClickCount_Fuel2++;
             if (ClickCount_Fuel2 >= 50)
             {
+                eventOn = false;
                 Fuel2Debuff = 1f;
                 Story_Fuel2_Complete = true;
                 Click_Button.sprite = Button_normal;
@@ -2492,10 +2495,20 @@ public class GameManager : MonoBehaviour
         img4.raycastTarget = false;
     }
 
-    IEnumerator MultipleInfo()
+    IEnumerator GoldScienceInfo()
     {
         while(true)
         {
+            PerGoldInfo.text = "초당 " + UnitTransform((long)((ProductManager.autoMoney) * FinalGoldBonus)) + " 획득";
+            PerScienceInfo.text = "초당 " + UnitTransform((long)((ProductManager.autoScience) * FinalScienceBonus)) + " 획득";
+            if (ProductManager.autoMoney == 0)
+            {
+                PerGoldInfo.text = "초당 0 획득";
+            }
+            if (ProductManager.autoScience == 0)
+            {
+                PerScienceInfo.text = "초당 0 획득";
+            }
             GoldMultipleInfo.text = "x " + FinalGoldBonus + "배";
             ScienceMultipleInfo.text = "x " + FinalScienceBonus + "배";
 

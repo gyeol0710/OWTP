@@ -35,9 +35,11 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        BGM_meter.value = BGM_Meter;
-        SFX_meter.value = SFX_Meter;
-
+        if (GameManager.RePlay == true)
+        {
+            BGM_meter.value = BGM_Meter;
+            SFX_meter.value = SFX_Meter;
+        }
         StartCoroutine(PlayBGM());
         StartCoroutine(Volume_BGM());
         StartCoroutine(Volume_SFX());
