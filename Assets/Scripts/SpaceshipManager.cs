@@ -324,6 +324,7 @@ public class SpaceshipManager : MonoBehaviour
         }
         else if (SSupNum == 16 && (GameManager.money >= cockpit4_Gold) && ProductManager.JumpMODERNpossible == true)
         {
+            SSupNum++;
             GameManager.money -= cockpit4_Gold;
             SScomplete[16] = true;
             SSCommonFn();

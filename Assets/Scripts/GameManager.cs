@@ -335,6 +335,7 @@ public class GameManager : MonoBehaviour
 
     public void Quit()
     {
+        Save();
         Application.Quit();
     }
 
@@ -597,6 +598,10 @@ public class GameManager : MonoBehaviour
         saveData.Pd68 = ProductManager.Pd68;
         saveData.Pd69 = ProductManager.Pd69;
         saveData.Pd70 = ProductManager.Pd70;
+        saveData.PdS01 = ProductManager.PdS01;
+        saveData.PdS02 = ProductManager.PdS02;
+        saveData.PdS03 = ProductManager.PdS03;
+        saveData.PdS04 = ProductManager.PdS04;
 
         saveData.Prod_1_Level = ProductManager.Prod_1_Level;
         saveData.Prod_3_Level = ProductManager.Prod_3_Level;
@@ -1066,6 +1071,10 @@ public class GameManager : MonoBehaviour
         ProductManager.Pd68 = saveData.Pd68;
         ProductManager.Pd69 = saveData.Pd69;
         ProductManager.Pd70 = saveData.Pd70;
+        ProductManager.PdS01 = saveData.PdS01;
+        ProductManager.PdS02 = saveData.PdS02;
+        ProductManager.PdS03 = saveData.PdS03;
+        ProductManager.PdS04 = saveData.PdS04;
 
         ProductManager.Prod_1_Level = saveData.Prod_1_Level;
         ProductManager.Prod_3_Level = saveData.Prod_3_Level;

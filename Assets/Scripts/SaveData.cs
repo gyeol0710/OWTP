@@ -241,6 +241,10 @@ public class SaveData
     public long Pd68;
     public long Pd69;
     public long Pd70;
+    public long PdS01;
+    public long PdS02;
+    public long PdS03;
+    public long PdS04;
 
     public int Prod_1_Level; // 2번 제품 없음
     public int Prod_3_Level;

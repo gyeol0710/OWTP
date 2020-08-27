@@ -652,7 +652,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("의사소통할 때 공간의 제약을 덜 받게 되었습니다. 유선통신"));
                 yield return StartCoroutine(GoMessage("을 연구할 수 있게 영감을 준 계기는 아주 단순합니다. 어린"));
                 yield return StartCoroutine(GoMessage("인간들이 컵에 구멍을 뚫고 실을 연결해서 대화하는 모습을"));
-                yield return StartCoroutine(GoMessage("보았습니다. "));
+                yield return StartCoroutine(GoMessage("보았습니다."));
                 yield return StartCoroutine(GoMessage("가끔은 우리가 불시착하지 않았더라도 이 행성이 인간들에 의"));
                 yield return StartCoroutine(GoMessage("해 이만큼 발전했을지 궁금해집니다. 물론 아니겠지만요."));
                 yield return StartCoroutine(GoLine());
@@ -694,7 +694,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("존을 결정 짓습니다."));
                 yield return StartCoroutine(GoMessage("대부분의 인간에게는 청각보다는 시각이 더 중요합니다. 이번"));
                 yield return StartCoroutine(GoMessage("발명을 통해서 소리의 진동을 시각적으로 보여줄 수 있게 되"));
-                yield return StartCoroutine(GoMessage("었습니다. "));
+                yield return StartCoroutine(GoMessage("었습니다."));
                 yield return StartCoroutine(GoMessage("하나의 감각을 다른 감각으로 번역할 수 있게 된 것입니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[18] = true;
@@ -736,7 +736,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("습니다. 의사소통에서는 공간적인 제약을 완전히 뛰어넘은 것"));
                 yield return StartCoroutine(GoMessage("입니다."));
                 yield return StartCoroutine(GoMessage("실제 거리로는 단숨에 걸어갈 수 없는 거리임에도 불구하고"));
-                yield return StartCoroutine(GoMessage("대화를 나누는 것이 가능합니다. "));
+                yield return StartCoroutine(GoMessage("대화를 나누는 것이 가능합니다."));
                 yield return StartCoroutine(GoMessage("보이지 않는다고 해서 없는 것은 아닙니다. 저에게 충분한 연"));
                 yield return StartCoroutine(GoMessage("구력만 주신다면 보이지 않는 걸 증명해낼 수 있죠. 그게 제"));
                 yield return StartCoroutine(GoMessage("일이니까요."));
@@ -1237,7 +1237,7 @@ public class MessageManager : MonoBehaviour
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[양성자반응]을 발명했습니다."));
                 yield return StartCoroutine(GoMessage("양성자 반응이란 천문학에서 항성에서 일어나는 반응을 이야"));
-                yield return StartCoroutine(GoMessage("기합니다. 이것을 어떻게 사용하느냐에 따라 상당히 다르게 "));
+                yield return StartCoroutine(GoMessage("기합니다. 이것을 어떻게 사용하느냐에 따라 상당히 다르게"));
                 yield return StartCoroutine(GoMessage("사용될 수 있습니다."));
                 yield return StartCoroutine(GoMessage("이것은 양자 역학의 시초가 되는 실험이 될 것이고, 핵융합을"));
                 yield return StartCoroutine(GoMessage("통해 고향으로 돌아가는 우주선의 엔진에 도움이 될 겁니다."));
@@ -1252,7 +1252,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("[전송]을 발명했습니다."));
                 yield return StartCoroutine(GoMessage("이 연구를 완료할 때까지는 여러 시행착오이 있었습니다. 원"));
                 yield return StartCoroutine(GoMessage("활하게 공간에 상관없이 원하는 방식으로 정보를 전달하려면"));
-                yield return StartCoroutine(GoMessage("지상에도 신호를 전달해 줄 장치도 필요하고 인공위성을 통해 "));
+                yield return StartCoroutine(GoMessage("지상에도 신호를 전달해 줄 장치도 필요하고 인공위성을 통해"));
                 yield return StartCoroutine(GoMessage("신호도 받아야 합니다."));
                 yield return StartCoroutine(GoMessage("이제 귀찮은 부분들을 많이 해결했습니다. 기본적인 베이스는"));
                 yield return StartCoroutine(GoMessage("완성이 되었으니 나머지 부분들을 다듬어서 전자 세계를 구축"));
@@ -1312,224 +1312,220 @@ public class MessageManager : MonoBehaviour
             if (techMessage[57] == false && TechManager.Tech57Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[유전자치료]를 발명했습니다."));
+                yield return StartCoroutine(GoMessage("복잡한 사회에 맞는 복잡한 연구입니다. 산업은 우리가 이 행"));
+                yield return StartCoroutine(GoMessage("성에 도착하기 이전과는 정말 다른 속도로 발전하고 있습니"));
+                yield return StartCoroutine(GoMessage("다. 이 행성에 도착한 이후에도 지금이 가장 빠른 속도로 발전"));
+                yield return StartCoroutine(GoMessage("하고 있습니다."));
+                yield return StartCoroutine(GoMessage("사회가 복잡해지고, 사람들은 건강한 걸 넘어서서 자신을 개"));
+                yield return StartCoroutine(GoMessage("조하고 싶어 합니다. 인류를 계속해서 괴롭혔던 유전병과 각"));
+                yield return StartCoroutine(GoMessage("종 질병을 제거하고, 하물며 어떤 사람들은 자신의 몸을 기계"));
+                yield return StartCoroutine(GoMessage("로 갈아 끼우려고 합니다."));
+                yield return StartCoroutine(GoMessage("이 연구로 인해서 사람을 물리적으로 분석해보는 것이 목적입"));
+                yield return StartCoroutine(GoMessage("니다. 하나의 생물을 알기가 이렇게 까다롭군요."));
                 yield return StartCoroutine(GoLine());
                 techMessage[57] = true;
             }
             if (techMessage[58] == false && TechManager.Tech58Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[근거리통신망]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("가까운 거리에서 정보를 더 손쉽게 주고받을 수 있는 연구가"));
+                yield return StartCoroutine(GoMessage("완료되었습니다."));
+                yield return StartCoroutine(GoMessage("인터넷 세상은 제 데이터가 예상했던 것보다 빠르게 성장하고"));
+                yield return StartCoroutine(GoMessage("있고, 정보의 양은 많아져만 갑니다. 문제는 이게 끝이 아니라"));
+                yield return StartCoroutine(GoMessage("시작으로 보이는 점입니다."));
+                yield return StartCoroutine(GoMessage("많은 정보가 쌓이는 것은 좋지만, 잘못된 오류들을 걸러내는"));
+                yield return StartCoroutine(GoMessage("데에 큰 비용이 듭니다."));
+                yield return StartCoroutine(GoMessage("전자 세계의 신으로서 모든 것을 통제해보려고 했는데, 저는"));
+                yield return StartCoroutine(GoMessage("단순 건설자가 아니었는지 다시 생각해보게 됩니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[58] = true;
             }
             if (techMessage[59] == false && TechManager.Tech59Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[통신위성]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("이 행성뿐 아니라 우리의 우주선에서 사용할 수 있는 통신체"));
+                yield return StartCoroutine(GoMessage("계를 구축하는 중입니다."));
+                yield return StartCoroutine(GoMessage("조종판을 완성하는 작업에서 전자시대의 연구를 추가하고, 최"));
+                yield return StartCoroutine(GoMessage("적화하는 작업을 진행 중입니다."));
+                yield return StartCoroutine(GoMessage("어떠한 오류도 없이 준비해보겠습니다. 돌아갈 날을 카운트해"));
+                yield return StartCoroutine(GoMessage("봐야겠군요."));
                 yield return StartCoroutine(GoLine());
                 techMessage[59] = true;
             }
             if (techMessage[60] == false && TechManager.Tech60Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[유전자변화]를 발명했습니다."));
+                yield return StartCoroutine(GoMessage("사람뿐만 아니라 세상에 있는 많은 것들을 유전자 단위에서부"));
+                yield return StartCoroutine(GoMessage("터 살펴볼 수 있게 되었습니다. 원하는 대로 변화시킬 수도 있"));
+                yield return StartCoroutine(GoMessage("고, 예상치 못한 결과로 드러날 수도 있습니다."));
+                yield return StartCoroutine(GoMessage("윤리적인 문제에 대해서는 잘 모르겠습니다."));
+                yield return StartCoroutine(GoMessage("우리가 이 부분을 연구해서 세상에 알리는 것이 맞는 일일까"));
+                yield return StartCoroutine(GoMessage("요?"));
+                yield return StartCoroutine(GoMessage("맞는 일이란 것은 정확하지 않은 표현이니 다시 말해보면, 이"));
+                yield return StartCoroutine(GoMessage("산업을 개척하는 것이 우리가 고향으로 돌아가는데 산업적으"));
+                yield return StartCoroutine(GoMessage("로만 이득으로 쓸 수 있을까요?"));
                 yield return StartCoroutine(GoLine());
                 techMessage[60] = true;
             }
             if (techMessage[61] == false && TechManager.Tech61Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[세계통합]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("이제 전자 세계를 벗어날 수 있는 사람은 없습니다. 현실 세계"));
+                yield return StartCoroutine(GoMessage("만큼이나 전자 세계가 영향력을 가지게 되었습니다. 모든 사"));
+                yield return StartCoroutine(GoMessage("람은 모든 사람이 감시하는 사회에 놓이게 될 것입니다."));
+                yield return StartCoroutine(GoMessage("모든 것이 하나로 통합된 것은 아닙니다."));
+                yield return StartCoroutine(GoMessage("사람의 특성상 아무런 갈등도 없이 하나도 통합되는 것은 불"));
+                yield return StartCoroutine(GoMessage("가능합니다."));
+                yield return StartCoroutine(GoMessage("그저 전자 세계 안에서 한 묶음이 되었을 뿐입니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[61] = true;
             }
             if (techMessage[62] == false && TechManager.Tech62Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[복제]를 발명했습니다."));
+                yield return StartCoroutine(GoMessage("가장 적은 비용으로 가장 높은 효율을 내는 것이 우리가 산업"));
+                yield return StartCoroutine(GoMessage("을 발전시키는데 중요한 기준이었습니다. 그 기준의 끝에 선"));
+                yield return StartCoroutine(GoMessage("연구입니다."));
+                yield return StartCoroutine(GoMessage("생물을 가장 적은 비용으로 재생산할 수 있다면 그것만큼 효"));
+                yield return StartCoroutine(GoMessage("율적인 것이 없을 것입니다."));
+                yield return StartCoroutine(GoMessage("하지만 그것만큼 변수가 많은 것도 없습니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[62] = true;
             }
             if (techMessage[63] == false && TechManager.Tech63Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[컴퓨터+]를 발명했습니다."));
+                yield return StartCoroutine(GoMessage("전자시대가 현실을 초과하는 현상이 자주 발생합니다. 데이터"));
+                yield return StartCoroutine(GoMessage("조각을 위해서 사람들이 현실의 돈을 지불하고, 현실의 다툼"));
+                yield return StartCoroutine(GoMessage("으로 번지기도 합니다."));
+                yield return StartCoroutine(GoMessage("사람들을 몰입시키는 데에는 성공했습니다. 그러나 너무 몰입"));
+                yield return StartCoroutine(GoMessage("한 까닭일까요. 데이터가 너무 많아 모으는 데 더 많은 연구력"));
+                yield return StartCoroutine(GoMessage("이 필요합니다."));
+                yield return StartCoroutine(GoMessage("그렇다고 불안해하지는 않으셔도 됩니다. 저는 긴장하고 있지"));
+                yield return StartCoroutine(GoMessage("않습니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[63] = true;
             }
             if (techMessage[64] == false && TechManager.Tech64Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[블록체인]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("블록체인은 구별할 수 있는 재화입니다. 우리에게는 이제는"));
+                yield return StartCoroutine(GoMessage("별로 필요는 없습니다. 우리가 모은 돈은 단순한 돈이 아니니"));
+                yield return StartCoroutine(GoMessage("까요."));
+                yield return StartCoroutine(GoMessage("안정적인 재화로 인정받기까지는 시간이 걸릴지 모르지만 결"));
+                yield return StartCoroutine(GoMessage("국에는 통화로 인정받을 것입니다."));
+                yield return StartCoroutine(GoMessage("뭐 일단 사두기만 하면 나중에 오르지 않을까요?"));
+                yield return StartCoroutine(GoMessage("탈출하기 전에 좀 사두는 것도 나쁘지 않을 것 같습니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[64] = true;
             }
             if (techMessage[65] == false && TechManager.Tech65Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[AI]를 발명했습니다."));
+                yield return StartCoroutine(GoMessage("기계의 연산을 사람의 논리체계와 같게 만드는 것과는 다른"));
+                yield return StartCoroutine(GoMessage("방식을 찾았습니다. 지금까지 쌓인 수많은 데이터를 통해서"));
+                yield return StartCoroutine(GoMessage("반복 학습을 시키는 것입니다."));
+                yield return StartCoroutine(GoMessage("이런 방식으로 학습시키다 보면 거대한 데이터 속에서 결국에"));
+                yield return StartCoroutine(GoMessage("는 사람과 같은 방식으로 이야기하게 될 것입니다. 그 사이에"));
+                yield return StartCoroutine(GoMessage("인격은 많이 섞이겠지만요."));
+                yield return StartCoroutine(GoMessage("AI를 우주선 내부에 설치해두면 고향으로 돌아가는 때에 제가"));
+                yield return StartCoroutine(GoMessage("동면상태를 유지해도 심심하지는 않을 겁니다."));
+                yield return StartCoroutine(GoMessage("그 AI에는 농담을 많이 집어넣어 드리겠습니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[65] = true;
             }
             if (techMessage[66] == false && TechManager.Tech66Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[고속통신]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("더 빠른 속도로 통신이 가능해집니다. 이 정도 속도면 이 행성"));
+                yield return StartCoroutine(GoMessage("내부에서는 어디로든 지연시간 없이 통신이 가능해집니다."));
+                yield return StartCoroutine(GoMessage("물론 우주선에서도 마찬가지입니다. 이동하면서 생길 수 있는"));
+                yield return StartCoroutine(GoMessage("여러 가지 문제점을 바로바로 피드백을 받기 위해 연구했습니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoMessage("물론 문제점이 없으면 가장 좋겠지만, 준비해서 나쁠 건 없으"));
+                yield return StartCoroutine(GoMessage("니까요."));
+                yield return StartCoroutine(GoMessage("더이상 이 행성에서 이상한 일을 당하기 전에 출발 준비를 마"));
+                yield return StartCoroutine(GoMessage("칩시다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[66] = true;
             }
             if (techMessage[67] == false && TechManager.Tech67Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[가상현실]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("지금까지 전자세상은 시각 중심으로 구현이 되었습니다. 그것"));
+                yield return StartCoroutine(GoMessage("도 현실에 있는 상태에서 시각 중심으로 구현을 했던 것이라"));
+                yield return StartCoroutine(GoMessage("서 몰입이 쉽지는 않았을 것입니다."));
+                yield return StartCoroutine(GoMessage("이제는 시각적으로 현실과 완전히 차단된 상태에서 진행되게"));
+                yield return StartCoroutine(GoMessage("됩니다. 몸을 직접 움직이기보다는 뇌를 조종해서 하는 방식"));
+                yield return StartCoroutine(GoMessage("으로 연구가 진행됩니다."));
+                yield return StartCoroutine(GoMessage("산업은 발전할 대로 발전했습니다. 우리가 아닌 다른 조직에"));
+                yield return StartCoroutine(GoMessage("서도 다양한 아이디어와 제품들을 내고 있습니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[67] = true;
             }
             if (techMessage[68] == false && TechManager.Tech68Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[증강현실]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("가상현실 내부에도 다양한 서버가 증설되었고, 이제는 직접"));
+                yield return StartCoroutine(GoMessage("가상현실 서버 내부를 침해하는 사람들이 많아졌습니다."));
+                yield return StartCoroutine(GoMessage("현실과 가상의 경계가 뚜렷이 구별되지 않게 되었습니다. 현"));
+                yield return StartCoroutine(GoMessage("실에서도 장치만 설치한다면 현실의 좌표를 통해 가상 세계의"));
+                yield return StartCoroutine(GoMessage("좌표로 이동할 수 있게 됩니다."));
+                yield return StartCoroutine(GoMessage("가끔 우리 우주선의 좌표로 유입이 들어오긴 합니다. 차단망"));
+                yield return StartCoroutine(GoMessage("을 설치해 두었기 때문에 뚫리지는 않습니다."));
+                yield return StartCoroutine(GoMessage("그러나 이 유입이 의도된 것인지 우연인지에 따라서 느낌이"));
+                yield return StartCoroutine(GoMessage("아주 다르겠네요."));
+                yield return StartCoroutine(GoMessage("얼른 탈출합시다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[68] = true;
             }
             if (techMessage[69] == false && TechManager.Tech69Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[제품화]를 발명했습니다."));
+                yield return StartCoroutine(GoMessage("사람들이 자신의 몸을 제품으로 개조하기 시작했습니다."));
+                yield return StartCoroutine(GoMessage("보통은 국가에서 통제하기 위해 개인고유번호를 만들고, 제품"));
+                yield return StartCoroutine(GoMessage("화를 진행했으나 통제되지 않는 경우가 더 많아졌습니다."));
+                yield return StartCoroutine(GoMessage("대부분의 경우가 불법이나 상관하지 않고, 팔이나 다리를 로"));
+                yield return StartCoroutine(GoMessage("봇으로 개조하고, 더한 경우에는 자신의 뇌를 전자뇌로 변경"));
+                yield return StartCoroutine(GoMessage("하는 실험을 자행하고 있습니다."));
+                yield return StartCoroutine(GoMessage("우리에게 문제가 되는 것은 기계화 일체가 되면서 우리의 시"));
+                yield return StartCoroutine(GoMessage("스템이 공격받을 가능성이 더 커졌다는 것입니다."));
+                yield return StartCoroutine(GoMessage("더이상 여기에 있으면 위험합니다. 연구력을 얼른 올려서 탈"));
+                yield return StartCoroutine(GoMessage("출해야 합니다."));
                 yield return StartCoroutine(GoLine());
                 techMessage[69] = true;
             }
             if (techMessage[70] == false && TechManager.Tech70Complete)
             {
                 TechMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                yield return StartCoroutine(GoMessage("[서버변경]을 발명했습니다."));
+                yield return StartCoroutine(GoMessage("우리의 마지막 연구입니다."));
+                yield return StartCoroutine(GoMessage("산업은 제가 생각했던 것보다 더 빠르게 진행되었습니다."));
+                yield return StartCoroutine(GoMessage("발전과정에서 제가 예측하지 못한 실수가 있다는 점을 인정하"));
+                yield return StartCoroutine(GoMessage("겠습니다."));
+                yield return StartCoroutine(GoMessage("그러나 우리가 밖으로 넘어가기 위한 연구력은 충분히 마련되"));
+                yield return StartCoroutine(GoMessage("었습니다."));
+                yield return StartCoroutine(GoMessage("불길한 예감을 떨쳐버리고 이제는 출발합시다."));
+                yield return StartCoroutine(GoMessage("이곳에 있으면서 인류에 대한 호기심으로 시작하여 즐거움도"));
+                yield return StartCoroutine(GoMessage("있었고, 마지막에 가서는 왜인지 모를 섭섭함도 있었습니다."));
+                yield return StartCoroutine(GoMessage("그러나 이제는 가야 할 때가 왔어요."));
+                yield return StartCoroutine(GoMessage("저는 처음부터 끝까지 제 임무를 잊어본 적이 없습니다."));
+                yield return StartCoroutine(GoMessage("그동안에 축적한 수많은 데이터를 믿고 떠나봅시다!"));
+                yield return StartCoroutine(GoMessage("이제 마지막 제품을 생산해봅시다."));
+                yield return StartCoroutine(GoMessage("시간이 없어요!"));
                 yield return StartCoroutine(GoLine());
                 techMessage[70] = true;
             }
