@@ -63,15 +63,27 @@ public class MessageManager : MonoBehaviour
     public ScrollRect ScR; // 제안창 스크롤렉트 코루틴 강제 진행을 위해 스프라이트 이미지 컬러 접근을 위한 변수
     public GameObject jokeButton;
 
+    /* 오프라인 수입 관련 */
+    static public System.DateTime startTime;
+    System.DateTime currentTime;
+    System.TimeSpan timeDif;
+
+    public GameObject Panel_OfflineIncome;
+    public Text IncomeGold;
+    public Text IncomeScience;
+    //----------------------
+
     void Start()
     {
+        OfflineIncomeFnc();
+
         ScrBar = scrBar.GetComponent<Scrollbar>();
         Noti_o = Noti_O.GetComponent<Image>();
         StartCoroutine(Message1());
         StartCoroutine(Message2());
         StartCoroutine(TechMessage());
         StartCoroutine(EtcMessage());
-        
+        StartCoroutine(StartTime());
 
         JokeMessage[0,0] = "지속적으로 게임 도중 탈주하는 플레이어는 제제를 받습니다.";
         JokeMessage[0,1] = "아 이 게임이 아니군요 죄송합니다.";
@@ -204,7 +216,7 @@ public class MessageManager : MonoBehaviour
             {
                 break;
             }
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
@@ -231,7 +243,7 @@ public class MessageManager : MonoBehaviour
             {
                 break;
             }
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
@@ -254,7 +266,7 @@ public class MessageManager : MonoBehaviour
             {
                 break;
             }
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
         }
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
@@ -356,7 +368,7 @@ public class MessageManager : MonoBehaviour
 
     IEnumerator Message2()
     {
-        if(message01c == false)
+        if(message01c == false || TutorialManager.TutoAllClear == true)
         {
             yield break;
         }
@@ -440,7 +452,7 @@ public class MessageManager : MonoBehaviour
 
         yield return StartCoroutine(Tuto(TutorialManager.T09));
 
-        if (TutorialManager.T09c == false) // 대화창 8
+        if (TutorialManager.T09c == false) // 대화창 9
         {
             gomsg = true;
             yield return StartCoroutine(GoMessage("최초 연구와 최초 제품을 완료했군요."));
@@ -1620,11 +1632,11 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("다. 일단 생산설비를 복구하고 방어할만한 장치를 만들어야"));
                 yield return StartCoroutine(GoMessage("합니다."));
                 yield return StartCoroutine(GoMessage("인간들에게 본때를 보여줘야겠군요."));
-                yield return StartCoroutine(GoMessage("클리커 버튼의 용도를 잠시 변경했습니다. 클리커 버튼을 누"));
                 GameManager.eventOn = true;
                 GameManager.Fuel2Debuff = 0.03f;
                 etcMessage[6] = true;
                 Click_Button.sprite = Button_Bomb;
+                yield return StartCoroutine(GoMessage("클리커 버튼의 용도를 잠시 변경했습니다. 클리커 버튼을 누"));
                 yield return StartCoroutine(GoMessage("르면 무작위로 포격합니다. 주변 지대가 안전해질 때까지 클"));
                 yield return StartCoroutine(GoMessage("리커 버튼을 계속 눌러주세요."));
                 yield return StartCoroutine(GoLine());
@@ -1745,6 +1757,10 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("..."));
                 yield return StartCoroutine(GoLine());
                 etcMessage[16] = true;
+            }
+            else if (etcMessage[16] == false && SpaceshipManager.SScomplete[16] == true)
+            {
+
             }
 
             yield return new WaitForSeconds(1f);
@@ -1914,5 +1930,120 @@ public class MessageManager : MonoBehaviour
         scrbar.value = 0;
 
         yield break;
+    }
+
+    void OfflineIncomeFnc()
+    {
+        if ((SpaceshipManager.SScomplete[1] == true) || (SpaceshipManager.SScomplete[2] == true) || (ProductManager.Prod_S01_Level > 0)) // 오프라인 수입 관련
+        {
+            currentTime = System.DateTime.Now; // 오프라인 수입 관련
+            timeDif = currentTime - startTime;
+            int TimeDif = (int)timeDif.TotalSeconds;
+            long incomeGold = 0;
+            long incomeScience = 0;
+            long addGold = (long)(ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.05 / GameManager.AdBonus);
+            long addScience = (long)(ProductManager.autoScience * GameManager.FinalScienceBonus * 0.05 );
+            int Seconds = 0;
+            if (ProductManager.Prod_S01_Level > 0)
+            {
+                Seconds = 10801;
+            }
+            else if (SpaceshipManager.SScomplete[2] == true)
+            {
+                Seconds = 7201;
+            }
+            else if (SpaceshipManager.SScomplete[1] == true)
+            {
+                Seconds = 3601;
+            }
+
+            for (int i = 1; i < Seconds; i++)
+            {
+                if (GameManager.money >= 9000000000000000000)
+                {
+                    break;
+                }
+
+                if ((i + 1) >= TimeDif)
+                {
+                    break;
+                }
+
+                GameManager.money += addGold;
+                incomeGold += addGold;
+            }
+
+            for (int i = 1; i < Seconds; i++)
+            {
+                if (GameManager.science >= 9000000000000000000)
+                {
+                    break;
+                }
+
+                if ((i + 1) >= TimeDif)
+                {
+                    break;
+                }
+
+                GameManager.science += addScience;
+                incomeScience += addScience;
+            }
+            
+            if ((incomeGold != 0) || (incomeScience != 0))
+            {
+                IncomeGold.text = UnitTransform(incomeGold) + " 획득";
+                IncomeScience.text = UnitTransform(incomeScience) + " 획득";
+                if(incomeGold == 0)
+                {
+                    IncomeGold.text = "0 획득";
+                }
+                if (incomeScience == 0)
+                {
+                    IncomeScience.text = "0 획득";
+                }
+                Panel_OfflineIncome.SetActive(true);
+            }
+        }
+    }
+
+    IEnumerator StartTime()
+    {
+        yield return new WaitForSeconds(2.0f);
+        while (true)
+        {
+            startTime = System.DateTime.Now;
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+
+    string UnitTransform(long a)
+    {
+        long b;
+        string c = "";
+        if (a <= 999999999)
+        {
+            c = a.ToString("###,###");
+        }
+        else if (a <= 999999999999)
+        {
+            b = a / 1000;
+            c = b.ToString("###,###") + " k";
+        }
+        else if (a <= 999999999999999)
+        {
+            b = a / 1000000;
+            c = b.ToString("###,###") + " m";
+        }
+        else if (a <= 999999999999999999)
+        {
+            b = a / 1000000000;
+            c = b.ToString("###,###") + " b";
+        }
+        else if (a <= 9223372036854775807)
+        {
+            b = a / 1000000000000;
+            c = b.ToString("###,###") + " t";
+        }
+        return c;
     }
 }

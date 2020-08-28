@@ -372,6 +372,8 @@ public class SaveData
     public bool ageMessage_WAR;
     public bool ageMessage_ELEC;
     public bool ageMessage_MODERN;
+
+    public string startTime;
     // ---------------------------
 
     public float BGM_Meter;

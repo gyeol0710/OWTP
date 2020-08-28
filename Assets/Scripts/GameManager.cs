@@ -242,10 +242,11 @@ public class GameManager : MonoBehaviour
     public Text PerScienceInfo;
     public Text GoldMultipleInfo;
     public Text ScienceMultipleInfo;
-
+    
 
     void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep; // 강제 화면 On
         string path = Application.persistentDataPath + "/save.xml";
         if (System.IO.File.Exists(path))
         {
@@ -329,6 +330,10 @@ public class GameManager : MonoBehaviour
         {
             money = 9000000000000000000;
         }
+        if(science >= 9000000000000000000 || science <= -8000000000000000000)
+        {
+            science = 9000000000000000000;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             panel_Quit.SetActive(true);
@@ -351,7 +356,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             Save();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
@@ -739,6 +744,7 @@ public class GameManager : MonoBehaviour
         saveData.ageMessage_WAR = MessageManager.ageMessage_WAR;
         saveData.ageMessage_ELEC = MessageManager.ageMessage_ELEC;
         saveData.ageMessage_MODERN = MessageManager.ageMessage_MODERN;
+        saveData.startTime = MessageManager.startTime.ToString();
         // -----------------------------------------------------------
 
 
@@ -1213,6 +1219,8 @@ public class GameManager : MonoBehaviour
         MessageManager.ageMessage_WAR = saveData.ageMessage_WAR;
         MessageManager.ageMessage_ELEC = saveData.ageMessage_ELEC;
         MessageManager.ageMessage_MODERN = saveData.ageMessage_MODERN;
+
+        MessageManager.startTime = System.Convert.ToDateTime(saveData.startTime);
         // ---------------------------------------------------------
 
 
@@ -2542,11 +2550,6 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(1.0f);
         }
-    }
-
-    void Offline_Income()
-    {
-
     }
 
     public void Noti_R_Off()
