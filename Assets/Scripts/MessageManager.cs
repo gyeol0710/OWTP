@@ -272,7 +272,6 @@ public class MessageManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
         yield return StartCoroutine(Tuto(TutorialManager.T05));
-
         if (TutorialManager.T05c == false) // 대화창 5 [조건 : 로봇레벨 5 이상]
         {
             gomsg = true;
@@ -408,7 +407,6 @@ public class MessageManager : MonoBehaviour
             yield return StartCoroutine(GoLine());
         }
         TutorialManager.T07c = true;
-        Noti_P.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
 
         yield return new WaitForSeconds(1.0f);
 
@@ -417,6 +415,7 @@ public class MessageManager : MonoBehaviour
         if (TutorialManager.P04c == false) // 푸시 4
         {
             gomsg = true;
+            Noti_P.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             yield return StartCoroutine(GoPush("이제 증기기관과 관련된 제품을 생산할 수 있습니다."));
             yield return StartCoroutine(GoPush("좋아요."));
             yield return StartCoroutine(GoPush("이제 제품을 만들어봅시다!"));
@@ -441,6 +440,7 @@ public class MessageManager : MonoBehaviour
         if (TutorialManager.T08c == false) // 대화창 8
         {
             gomsg = true;
+            Noti_o.color = new Color32(255, 255, 255, 255);
             yield return StartCoroutine(GoMessage("좋아요."));
             yield return StartCoroutine(GoMessage("이제 제품을 생산했다면 제품이 꾸준히 돈을 벌어다 줄 겁니"));
             yield return StartCoroutine(GoMessage("다."));
@@ -448,20 +448,23 @@ public class MessageManager : MonoBehaviour
         }
         TutorialManager.T08c = true;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1.0f);
 
         yield return StartCoroutine(Tuto(TutorialManager.T09));
 
         if (TutorialManager.T09c == false) // 대화창 9
         {
             gomsg = true;
+            Noti_o.color = new Color32(255, 255, 255, 255);
             yield return StartCoroutine(GoMessage("최초 연구와 최초 제품을 완료했군요."));
             yield return StartCoroutine(GoMessage("이대로 계속 진행하다 보면, 우주선을 완전히 수리할 수 있을"));
-            yield return StartCoroutine(GoMessage("거에요. 고향을 위해 힘냅시다."));
+            yield return StartCoroutine(GoMessage("거예요. 고향을 위해 힘냅시다."));
             yield return StartCoroutine(GoLine());
         }
         TutorialManager.T09c = true;
+
         TutorialManager.TutoAllClear = true;
+
         yield return new WaitForSeconds(0.1f);
 
         yield break;
@@ -1709,12 +1712,10 @@ public class MessageManager : MonoBehaviour
             else if (etcMessage[14] == false && SpaceshipManager.SScomplete[14] == true)
             {
                 EtcMessageCommonFN();
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoMessage(""));
+                /*
                 yield return StartCoroutine(GoMessage(""));
                 yield return StartCoroutine(GoLine());
+                */
                 etcMessage[14] = true;
             }
             else if (etcMessage[15] == false && SpaceshipManager.SScomplete[15] == true)
@@ -1942,52 +1943,106 @@ public class MessageManager : MonoBehaviour
             long incomeGold = 0;
             long incomeScience = 0;
             long addGold = (long)(ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.05 / GameManager.AdBonus);
-            long addScience = (long)(ProductManager.autoScience * GameManager.FinalScienceBonus * 0.05 );
+            long addScience = (long)(ProductManager.autoScience * GameManager.FinalScienceBonus * 0.05 / GameManager.AdBonus);
+            float incomeSmallGold = 0;
+            float addSmallGold = 0;
+            float incomeSmallScience = 0;
+            float addSmallScience = 0;
             int Seconds = 0;
+
             if (ProductManager.Prod_S01_Level > 0)
             {
-                Seconds = 10801;
+                Seconds = 10802;
             }
             else if (SpaceshipManager.SScomplete[2] == true)
             {
-                Seconds = 7201;
+                Seconds = 7202;
             }
             else if (SpaceshipManager.SScomplete[1] == true)
             {
-                Seconds = 3601;
+                Seconds = 3602;
             }
 
-            for (int i = 1; i < Seconds; i++)
+            if (ProductManager.autoMoney <= 1000)
             {
-                if (GameManager.money >= 9000000000000000000)
-                {
-                    break;
-                }
+                addSmallGold = (float)ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.05f / GameManager.AdBonus;
 
-                if ((i + 1) >= TimeDif)
+                for (int i = 1; i < Seconds; i++)
                 {
-                    break;
-                }
+                    if (GameManager.money >= 9000000000000000000)
+                    {
+                        break;
+                    }
 
-                GameManager.money += addGold;
-                incomeGold += addGold;
+                    if ((i + 1) >= TimeDif)
+                    {
+                        break;
+                    }
+
+                    incomeSmallGold += addSmallGold;
+                }
+                incomeGold = (long)incomeSmallGold;
+                GameManager.money += incomeGold;
             }
-
-            for (int i = 1; i < Seconds; i++)
+            else
             {
-                if (GameManager.science >= 9000000000000000000)
+                for (int i = 1; i < Seconds; i++)
                 {
-                    break;
-                }
+                    if (GameManager.money >= 9000000000000000000)
+                    {
+                        break;
+                    }
 
-                if ((i + 1) >= TimeDif)
-                {
-                    break;
-                }
+                    if ((i + 1) >= TimeDif)
+                    {
+                        break;
+                    }
 
-                GameManager.science += addScience;
-                incomeScience += addScience;
+                    GameManager.money += addGold;
+                    incomeGold += addGold;
+                }
             }
+
+            if (ProductManager.autoScience <= 1000)
+            {
+                addSmallScience = (float)ProductManager.autoScience * GameManager.FinalScienceBonus * 0.05f / GameManager.AdBonus;
+
+                for (int i = 1; i < Seconds; i++)
+                {
+                    if (GameManager.science >= 9000000000000000000)
+                    {
+                        break;
+                    }
+
+                    if ((i + 1) >= TimeDif)
+                    {
+                        break;
+                    }
+
+                    incomeSmallScience += addSmallScience;
+                }
+                incomeScience = (long)incomeSmallScience;
+                GameManager.science += incomeScience;
+            }
+            else
+            {
+                for (int i = 1; i < Seconds; i++)
+                {
+                    if (GameManager.science >= 9000000000000000000)
+                    {
+                        break;
+                    }
+
+                    if ((i + 1) >= TimeDif)
+                    {
+                        break;
+                    }
+
+                    GameManager.science += addScience;
+                    incomeScience += addScience;
+                }
+            }
+            
             
             if ((incomeGold != 0) || (incomeScience != 0))
             {
@@ -2003,6 +2058,20 @@ public class MessageManager : MonoBehaviour
                 }
                 Panel_OfflineIncome.SetActive(true);
             }
+            Debug.Log("autoGold : " + (ProductManager.autoMoney * GameManager.FinalGoldBonus));
+            Debug.Log("autoScience : " + (ProductManager.autoScience * GameManager.FinalScienceBonus));
+            Debug.Log("incomeGold : " + incomeGold);
+            Debug.Log("incomeScience : " + incomeScience);
+            Debug.Log("incomeSmallGold : " + incomeSmallGold);
+            Debug.Log("incomeSmallScience : " + incomeSmallScience);
+            Debug.Log("addGold : " + addGold);
+            Debug.Log("addScience : " + addScience);
+            Debug.Log("addSmallGold : " + addSmallGold);
+            Debug.Log("addSmallScience : " + addSmallScience);
+            Debug.Log("Seconds : " + Seconds);
+            Debug.Log("currentTime : " + currentTime);
+            Debug.Log("startTime : " + startTime);
+            Debug.Log("TimeDif : " + TimeDif);
         }
     }
 

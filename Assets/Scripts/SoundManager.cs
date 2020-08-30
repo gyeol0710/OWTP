@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip OfferChat_effectSound; // 제안탭 글자 출력 효과음
     public AudioClip TechComplete_effectSound; // 연구완료 버튼 효과음
     public AudioClip ProdBuy_effectSound; // 제품구입 버튼 효과음
+    public AudioClip ClickButton_BombEffect; // 클릭 폭탄 효과음
 
     public AudioSource TextEffect;
     public AudioSource JokeEffect;
@@ -89,7 +90,14 @@ public class SoundManager : MonoBehaviour
 
     public void Play_ClickButtonEffectSound() // 클릭(느낌표) 버튼 효과음
     {
-        EffectSource.PlayOneShot(ClickButton_effectSound);
+        if (GameManager.eventOn == true && GameManager.Story_Fuel2_Complete == false && SpaceshipManager.SScomplete[6] == true)
+        {
+            EffectSource.PlayOneShot(ClickButton_BombEffect);
+        }
+        else
+        {
+            EffectSource.PlayOneShot(ClickButton_effectSound);
+        }
     }
 
     public void Play_TechProdButtonEffectSound() // 연구 및 제품 탭 버튼 효과음
@@ -120,5 +128,9 @@ public class SoundManager : MonoBehaviour
     public void Play_ProdBuyEffectSound() // 제품구입 버튼 효과음
     {
         EffectSource.PlayOneShot(ProdBuy_effectSound);
+    }
+
+    public void Play_ClickButtonBombEffectSound() // 클릭버튼 폭탄 효과음
+    {
     }
 }

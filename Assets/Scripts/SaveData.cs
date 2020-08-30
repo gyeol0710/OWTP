@@ -22,6 +22,9 @@ public class SaveData
     public float FinalGoldBonus;
     public float FinalScienceBonus;
 
+    public long SSclickBonus;
+    public int SStimer;
+
     /* TechManager 관련 */
     public bool Tech1Complete;
     public bool Tech2Complete;

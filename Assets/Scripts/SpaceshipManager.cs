@@ -184,7 +184,7 @@ public class SpaceshipManager : MonoBehaviour
         {
             GameManager.money -= body1_Gold;
             SSupNum++;
-            body.GetComponent<Image>().sprite = body2; // 오프라인 수입 보류
+            body.GetComponent<Image>().sprite = body2;
             SScomplete[1] = true;
             SSCommonFn();
         }
@@ -192,7 +192,7 @@ public class SpaceshipManager : MonoBehaviour
         {
             GameManager.money -= body2_Gold;
             SSupNum++;
-            body.GetComponent<Image>().sprite = body3; // 오프라인 수입 보류
+            body.GetComponent<Image>().sprite = body3;
             SScomplete[2] = true;
             SSCommonFn();
         }
@@ -223,8 +223,11 @@ public class SpaceshipManager : MonoBehaviour
         {
             GameManager.money -= fuel1_Gold;
             SSupNum++;
-            fuel.GetComponent<Image>().sprite = fuel2; // 100초 동안 클릭 골드 증가 일단 보류
+            fuel.GetComponent<Image>().sprite = fuel2;
             SScomplete[5] = true;
+            GameManager.SStimer += 100;
+            GameManager.SSclickBonus = 50;
+            StartCoroutine(GameManager.SSclick());
             SSCommonFn();
         }
         else if (SSupNum == 6 && (GameManager.money >= fuel2_Gold))
@@ -264,6 +267,9 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             engine.GetComponent<Image>().sprite = engine2;
             SScomplete[9] = true;
+            GameManager.SStimer += 100;
+            GameManager.SSclickBonus = 100;
+            StartCoroutine(GameManager.SSclick());
             SSCommonFn();
         }
         else if (SSupNum == 10 && (GameManager.money >= engine2_Gold))
@@ -303,6 +309,9 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             cockpit.GetComponent<Image>().sprite = cockpit2;
             SScomplete[13] = true;
+            GameManager.SStimer += 100;
+            GameManager.SSclickBonus = 500;
+            StartCoroutine(GameManager.SSclick());
             SSCommonFn();
         }
         else if (SSupNum == 14 && (GameManager.money >= cockpit2_Gold))

@@ -226,6 +226,16 @@ public class GameManager : MonoBehaviour
 
     static public float FinalGoldBonus;
     static public float FinalScienceBonus;
+    //------------------------------------
+
+
+    /*우주선 연료 1단계 관련*/
+    static public long SSclickBonus;
+    static public int SStimer;
+    public GameObject SSclickIMG;
+    static public GameObject sSclickIMG;
+    //--------------------------
+
     //-----------------------------------------
     public SpriteRenderer Robot01;
     public SpriteRenderer Robot02;
@@ -253,6 +263,7 @@ public class GameManager : MonoBehaviour
             Load();
         }
         Offer01.SetActive(true);
+        sSclickIMG = SSclickIMG;
     }
 
     void Start()
@@ -264,6 +275,7 @@ public class GameManager : MonoBehaviour
             years = 1700;
             robotLevel = 0;
 
+            SSclickBonus = 1;
             SpaceshipGoldBonus = 1f;
             AdBonus = 1f;
             CashBonus = 1f;
@@ -320,6 +332,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(FinalBonus());
         StartCoroutine(GoldScienceInfo());
         StartCoroutine(ClickGaugeControll());
+        StartCoroutine(SSclick());
 
         RePlay = true;
     }
@@ -384,6 +397,9 @@ public class GameManager : MonoBehaviour
         saveData.Fuel2Debuff = Fuel2Debuff;
         saveData.FinalGoldBonus = FinalGoldBonus;
         saveData.FinalScienceBonus = FinalScienceBonus;
+
+        saveData.SSclickBonus = SSclickBonus;
+        saveData.SStimer = SStimer;
 
 
         /* TechManager 관련 Save */
@@ -858,6 +874,9 @@ public class GameManager : MonoBehaviour
         Fuel2Debuff = saveData.Fuel2Debuff;
         FinalGoldBonus = saveData.FinalGoldBonus;
         FinalScienceBonus = saveData.FinalScienceBonus;
+
+        SSclickBonus = saveData.SSclickBonus;
+        SStimer = saveData.SStimer;
 
 
         /* TechManager 관련 Load */
@@ -1347,7 +1366,7 @@ public class GameManager : MonoBehaviour
 
     public void MoneyIncrease()
     {
-        money += (long)(moneyIncreaseAmount * FinalGoldBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
+        money += (long)(moneyIncreaseAmount * FinalGoldBonus * SSclickBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
         if (eventOn == false)
@@ -1365,7 +1384,7 @@ public class GameManager : MonoBehaviour
     {
         if (robotLevel >= 1)
         {
-            science += (long)(scienceIncreaseAmount * FinalScienceBonus); // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
+            science += (long)(scienceIncreaseAmount * FinalScienceBonus * SSclickBonus); // 연구력을 '클릭 시 연구력 증가량'만큼 증가시킴
             Instantiate(prefabScience, panel_robot.transform);
         }
 
@@ -1549,6 +1568,42 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    static public IEnumerator SSclick() // 클릭 보너스 관련 (우주선 업그레이드)
+    {
+        if (SStimer <= 0)
+        {
+            SSclickBonus = 1;
+            yield break;
+        }
+
+        if (SpaceshipManager.SScomplete[13] == true)
+        {
+            sSclickIMG.GetComponent<Text>().text = "X 500";
+        }
+        else if (SpaceshipManager.SScomplete[9] == true)
+        {
+            sSclickIMG.GetComponent<Text>().text = "X 100";
+        }
+        else if (SpaceshipManager.SScomplete[5] == true)
+        {
+            sSclickIMG.GetComponent<Text>().text = "X 50";
+        }
+        sSclickIMG.SetActive(true);
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+
+            SStimer--;
+            if (SStimer <= 0)
+            {
+                sSclickIMG.SetActive(false);
+                SSclickBonus = 1;
+                yield break;
+            }
+        }
+    }
+
     IEnumerator ShowInfo()
     {
         while(true)
@@ -1701,8 +1756,8 @@ public class GameManager : MonoBehaviour
         while(true)
         {
             robotTierAndLevel.text = robotLevel + " 단계";
-            robotInfo1.text = "클릭 시       획득\n: " + UnitTransform((long)(moneyIncreaseAmount * FinalGoldBonus));
-            robotInfo2.text = "클릭 시       획득\n: " + UnitTransform((long)(scienceIncreaseAmount * FinalScienceBonus));
+            robotInfo1.text = "클릭 시       획득\n: " + UnitTransform((long)(moneyIncreaseAmount * FinalGoldBonus * SSclickBonus));
+            robotInfo2.text = "클릭 시       획득\n: " + UnitTransform((long)(scienceIncreaseAmount * FinalScienceBonus * SSclickBonus));
             robotInfo3.text = UnitTransform(robotLevelUpPrice);
 
             yield return new WaitForSeconds(0.1f);
