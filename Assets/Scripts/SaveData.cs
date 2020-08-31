@@ -18,9 +18,14 @@ public class SaveData
     public bool eventOn;
     public int ClickCount_Fuel2;
     public bool Story_Fuel2_Complete;
+    public bool Story_Engine2_Complete;
+    public int Engine2_RobotSpeed;
     public float Fuel2Debuff;
+    public float Engine2Debuff;
     public float FinalGoldBonus;
     public float FinalScienceBonus;
+    public float Fuel2Bonus;
+    public float Engine2Bonus;
 
     public long SSclickBonus;
     public int SStimer;

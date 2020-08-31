@@ -280,7 +280,7 @@ public class SpaceshipManager : MonoBehaviour
             SScomplete[10] = true;
             SSCommonFn();
         }
-        else if (SSupNum == 11 && (GameManager.money >= engine3_Gold))
+        else if (SSupNum == 11 && (GameManager.money >= engine3_Gold) && GameManager.Story_Engine2_Complete == true)
         {
             GameManager.money -= engine3_Gold;
             SSupNum++;
@@ -485,7 +485,7 @@ public class SpaceshipManager : MonoBehaviour
             else if (SSupNum == 11)
             {
                 SpaceshipUpNeedGold_Text.text = UnitTransform(engine3_Gold);
-                if (GameManager.money >= engine3_Gold)
+                if ((GameManager.money >= engine3_Gold) && (GameManager.Story_Engine2_Complete == true))
                 {
                     SpaceshipUp_Button.interactable = true;
                 }

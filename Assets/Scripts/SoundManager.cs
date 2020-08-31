@@ -129,8 +129,4 @@ public class SoundManager : MonoBehaviour
     {
         EffectSource.PlayOneShot(ProdBuy_effectSound);
     }
-
-    public void Play_ClickButtonBombEffectSound() // 클릭버튼 폭탄 효과음
-    {
-    }
 }

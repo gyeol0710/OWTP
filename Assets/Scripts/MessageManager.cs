@@ -1636,9 +1636,9 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("합니다."));
                 yield return StartCoroutine(GoMessage("인간들에게 본때를 보여줘야겠군요."));
                 GameManager.eventOn = true;
-                GameManager.Fuel2Debuff = 0.03f;
-                etcMessage[6] = true;
+                GameManager.Fuel2Debuff = 0.3f;
                 Click_Button.sprite = Button_Bomb;
+                etcMessage[6] = true;
                 yield return StartCoroutine(GoMessage("클리커 버튼의 용도를 잠시 변경했습니다. 클리커 버튼을 누"));
                 yield return StartCoroutine(GoMessage("르면 무작위로 포격합니다. 주변 지대가 안전해질 때까지 클"));
                 yield return StartCoroutine(GoMessage("리커 버튼을 계속 눌러주세요."));
@@ -1678,8 +1678,30 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("지구의 전력과 자원을 우리 기지와 연결해서 공급을 받을 수"));
                 yield return StartCoroutine(GoMessage("있습니다. 외부에 연결하기 위하여 잠시 우주선을 중지했습"));
                 yield return StartCoroutine(GoMessage("니다."));
-                yield return StartCoroutine(GoLine());
+                yield return StartCoroutine(GoMessage("연결 중..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                GameManager.eventOn = true;
+                GameManager.Engine2_RobotSpeed = 0;
+                GameManager.Engine2Debuff = 0;
+                yield return StartCoroutine(GoMessage("잠시만요..."));
+                yield return StartCoroutine(GoMessage("우주선이 제 지시대로 작동하지 않습니다. 처음 겪는 문제인"));
+                yield return StartCoroutine(GoMessage("데... 제 힘으로는 해결하기가 어렵습니다..."));
+                yield return StartCoroutine(GoMessage("직원들이 움직이지 않습니다. 잠시 무슨 문제가 생긴 것 같군"));
+                yield return StartCoroutine(GoMessage("요. 해결방법을 찾아보시는게 좋겠습니다. 기지의 설정을 한"));
+                yield return StartCoroutine(GoMessage("번 건드려서 고쳐보시겠어요? 설정창에 보시면 이 우주선을"));
+                yield return StartCoroutine(GoMessage("제작한 사람들이 만약을 대비해 설비해 둔 직원 복구 버튼이"));
+                yield return StartCoroutine(GoMessage("있습니다."));
+                yield return StartCoroutine(GoMessage("이 우주선을 제작한 사람들이 적힌 곳으로 들어가 보십시오."));
                 etcMessage[10] = true;
+                yield return StartCoroutine(GoLine());
             }
             else if (etcMessage[11] == false && SpaceshipManager.SScomplete[11] == true)
             {
@@ -1759,9 +1781,34 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 etcMessage[16] = true;
             }
-            else if (etcMessage[16] == false && SpaceshipManager.SScomplete[16] == true)
+            else if (etcMessage[17] == false && GameManager.Story_Fuel2_Complete == true) // etcMessage[6], 2번엔진 이벤트 종료 관련
             {
-
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("이전의 문제들은 해결했습니다."));
+                yield return StartCoroutine(GoMessage("전쟁 시대 이전 제품들의 모든 생산량이 150% 증가합니다."));
+                yield return StartCoroutine(GoLine());
+                GameManager.Fuel2Bonus = 1.5f;
+                etcMessage[17] = true;
+            }
+            else if (etcMessage[18] == false && GameManager.Story_Engine2_Complete == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("다시 원상복귀 되었습니다."));
+                yield return StartCoroutine(GoMessage("처음 겪는 일이라 상당히 당황했습니다만, 지금은 해결되었으"));
+                yield return StartCoroutine(GoMessage("니 다행입니다."));
+                yield return StartCoroutine(GoMessage("제 생각에는 지구의 전력을 사용하는 과정에서 보안망이 잠시"));
+                yield return StartCoroutine(GoMessage("해제되었고, 해킹 시도가 있었던 것으로 보입니다."));
+                yield return StartCoroutine(GoMessage("설마 우리가 이 행성의 사람들에게 노출된 걸까요?"));
+                yield return StartCoroutine(GoMessage("신기합니다. 학습능력이 매우 우수합니다."));
+                yield return StartCoroutine(GoMessage("어쩌면 우리의 존재를 아는 사람들이 존재할 수도 있겠어요."));
+                yield return StartCoroutine(GoMessage("그래도 우리가 자원을 사용하는 걸 막을 순 없을 겁니다."));
+                yield return StartCoroutine(GoMessage("그들은 우리를 절대 방해하지 못합니다."));
+                yield return StartCoroutine(GoMessage("전자시대 이전 제품의 효율이 200% 증가합니다."));
+                yield return StartCoroutine(GoLine());
+                GameManager.Engine2Bonus = 2f;
+                GameManager.Engine2_RobotSpeed = 1;
+                GameManager.Engine2Debuff = 1f;
+                etcMessage[18] = true;
             }
 
             yield return new WaitForSeconds(1f);

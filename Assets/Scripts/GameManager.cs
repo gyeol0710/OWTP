@@ -222,21 +222,33 @@ public class GameManager : MonoBehaviour
     static public bool eventOn;
     static public int ClickCount_Fuel2;
     static public bool Story_Fuel2_Complete;
+    static public bool Story_Engine2_Complete;
+    static public int Engine2_RobotSpeed;
     static public float Fuel2Debuff;
+    static public float Engine2Debuff;
 
     static public float FinalGoldBonus;
     static public float FinalScienceBonus;
+
+    static public float Fuel2Bonus;
+    static public float Engine2Bonus;
     //------------------------------------
 
 
-    /*우주선 연료 1단계 관련*/
+    /* 우주선 연료, 엔진, 조종판 1단계 관련 */
     static public long SSclickBonus;
     static public int SStimer;
     public GameObject SSclickIMG;
     static public GameObject sSclickIMG;
-    //--------------------------
+    //----------------------------------
 
-    //-----------------------------------------
+
+    /*  */
+
+    //---------------------
+
+
+    /* 로봇 관련 */
     public SpriteRenderer Robot01;
     public SpriteRenderer Robot02;
     public SpriteRenderer Robot03;
@@ -282,9 +294,13 @@ public class GameManager : MonoBehaviour
             ClickBonus = 1f;
             SpaceshipScienceBonus = 1f;
             Fuel2Debuff = 1f;
+            Engine2Debuff = 1f;
             FinalGoldBonus = 1f;
             FinalScienceBonus = 1f;
-        }
+            Fuel2Bonus = 1f;
+            Engine2Bonus = 1f;
+            Engine2_RobotSpeed = 1;
+}
         else
         {
             Image img1 = ScR.GetComponent<Image>();
@@ -394,9 +410,14 @@ public class GameManager : MonoBehaviour
         saveData.eventOn = eventOn;
         saveData.ClickCount_Fuel2 = ClickCount_Fuel2;
         saveData.Story_Fuel2_Complete = Story_Fuel2_Complete;
+        saveData.Story_Engine2_Complete = Story_Engine2_Complete;
+        saveData.Engine2_RobotSpeed = Engine2_RobotSpeed;
         saveData.Fuel2Debuff = Fuel2Debuff;
+        saveData.Engine2Debuff = Engine2Debuff;
         saveData.FinalGoldBonus = FinalGoldBonus;
         saveData.FinalScienceBonus = FinalScienceBonus;
+        saveData.Fuel2Bonus = Fuel2Bonus;
+        saveData.Engine2Bonus = Engine2Bonus;
 
         saveData.SSclickBonus = SSclickBonus;
         saveData.SStimer = SStimer;
@@ -871,9 +892,14 @@ public class GameManager : MonoBehaviour
         eventOn = saveData.eventOn;
         ClickCount_Fuel2 = saveData.ClickCount_Fuel2;
         Story_Fuel2_Complete = saveData.Story_Fuel2_Complete;
+        Story_Engine2_Complete = saveData.Story_Engine2_Complete;
+        Engine2_RobotSpeed = saveData.Engine2_RobotSpeed;
         Fuel2Debuff = saveData.Fuel2Debuff;
+        Engine2Debuff = saveData.Engine2Debuff;
         FinalGoldBonus = saveData.FinalGoldBonus;
         FinalScienceBonus = saveData.FinalScienceBonus;
+        Fuel2Bonus = saveData.Fuel2Bonus;
+        Engine2Bonus = saveData.Engine2Bonus;
 
         SSclickBonus = saveData.SSclickBonus;
         SStimer = saveData.SStimer;
@@ -1409,8 +1435,8 @@ public class GameManager : MonoBehaviour
     {
         while(true)
         {
-            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff;
-            FinalScienceBonus = 1 * SpaceshipScienceBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff;
+            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff * Engine2Debuff;
+            FinalScienceBonus = 1 * SpaceshipScienceBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff * Engine2Debuff;
 
             yield return new WaitForSeconds(0.2f);
         }
@@ -2656,6 +2682,15 @@ public class GameManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public void CreditReviveButton()
+    {
+        if (eventOn == true && MessageManager.etcMessage[10] == true && Story_Engine2_Complete == false)
+        {
+            eventOn = false;
+            Story_Engine2_Complete = true;
         }
     }
 }

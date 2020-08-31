@@ -52,7 +52,7 @@ public class RobotManager : MonoBehaviour
             if (RightOn == false)
             {
                 sr.flipX = false;
-                tr.Translate(Vector3.left * Speed * 0.01f);
+                tr.Translate(Vector3.left * Speed * 0.01f * GameManager.Engine2_RobotSpeed);
 
                 if (tr.position.x < -7.5)
                 {
@@ -62,7 +62,7 @@ public class RobotManager : MonoBehaviour
             else if (RightOn == true)
             {
                 sr.flipX = true;
-                tr.Translate(Vector3.right * Speed * 0.01f);
+                tr.Translate(Vector3.right * Speed * 0.01f * GameManager.Engine2_RobotSpeed);
 
                 if (tr.position.x > 7.5)
                 {
