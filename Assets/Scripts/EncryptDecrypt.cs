@@ -10,7 +10,7 @@ public class SaveManager
 	// XML SAVING
 	public static void Save<T>(T obj, string path)
 	{
-		string sKey = "Testing1";
+		string sKey = "OwtpOwtp";
 
 		var serializer = new XmlSerializer(obj.GetType());
 		var stream = new FileStream(path, FileMode.Create);
@@ -31,7 +31,7 @@ public class SaveManager
 
 	public static void Load<T>(ref T obj, string path)
 	{
-		string sKey = "Testing1";
+		string sKey = "OwtpOwtp";
 
 		var serializer = new XmlSerializer(obj.GetType());
 		var stream = new FileStream(path, FileMode.Open);
