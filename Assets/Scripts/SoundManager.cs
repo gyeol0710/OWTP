@@ -90,7 +90,7 @@ public class SoundManager : MonoBehaviour
 
     public void Play_ClickButtonEffectSound() // 클릭(느낌표) 버튼 효과음
     {
-        if (GameManager.eventOn == true && GameManager.Story_Fuel2_Complete == false && SpaceshipManager.SScomplete[6] == true)
+        if (GameManager.eventOn == true && GameManager.Story_Fuel2_Complete == false && MessageManager.etcMessage[6] == true)
         {
             EffectSource.PlayOneShot(ClickButton_BombEffect);
         }

@@ -222,9 +222,10 @@ public class MessageManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
         yield return StartCoroutine(Tuto(TutorialManager.T04));
-
+        Debug.Log("버그 확인 지점1");
         if (TutorialManager.T04c == false) // 대화창 4
         {
+            Debug.Log("버그 확인 지점2");
             gomsg = true;
             yield return StartCoroutine(GoMessage("좋아요."));
             yield return StartCoroutine(GoMessage("직원을 생산할만한 자금을 모았으니, 기존에 있던 부품들로"));
@@ -1691,6 +1692,7 @@ public class MessageManager : MonoBehaviour
                 GameManager.eventOn = true;
                 GameManager.Engine2_RobotSpeed = 0;
                 GameManager.Engine2Debuff = 0;
+                etcMessage[10] = true;
                 yield return StartCoroutine(GoMessage("잠시만요..."));
                 yield return StartCoroutine(GoMessage("우주선이 제 지시대로 작동하지 않습니다. 처음 겪는 문제인"));
                 yield return StartCoroutine(GoMessage("데... 제 힘으로는 해결하기가 어렵습니다..."));
@@ -1700,7 +1702,6 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("제작한 사람들이 만약을 대비해 설비해 둔 직원 복구 버튼이"));
                 yield return StartCoroutine(GoMessage("있습니다."));
                 yield return StartCoroutine(GoMessage("이 우주선을 제작한 사람들이 적힌 곳으로 들어가 보십시오."));
-                etcMessage[10] = true;
                 yield return StartCoroutine(GoLine());
             }
             else if (etcMessage[11] == false && SpaceshipManager.SScomplete[11] == true)
@@ -1734,11 +1735,34 @@ public class MessageManager : MonoBehaviour
             else if (etcMessage[14] == false && SpaceshipManager.SScomplete[14] == true)
             {
                 EtcMessageCommonFN();
-                /*
-                yield return StartCoroutine(GoMessage(""));
-                yield return StartCoroutine(GoLine());
-                */
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("긴급상황입니다."));
+                GameManager.eventOn = true;
+                GameManager.Cockpit2Debuff = 0;
                 etcMessage[14] = true;
+                yield return StartCoroutine(GoMessage("우리의 기지가 해킹당했습니다."));
+                yield return StartCoroutine(GoMessage("우리의 자원이 계속 외부로 빠져나가고 있습니다."));
+                yield return StartCoroutine(GoMessage("빠르게 해결해야 합니다."));
+                yield return StartCoroutine(GoMessage("우리의 존재가 들킨 것 같습니다. 이건 분명한 견제에요."));
+                yield return StartCoroutine(GoMessage("우리가 상상한 것보다 사람들의 인지능력이 더 빠르게 성장"));
+                yield return StartCoroutine(GoMessage("했습니다."));
+                yield return StartCoroutine(GoMessage("사람들이 기술을 활용하는 능력이 점점 좋아집니다."));
+                yield return StartCoroutine(GoMessage("조금만 자원을 더 모으면 됩니다..."));
+                yield return StartCoroutine(GoMessage("조금만 더..."));
+                yield return StartCoroutine(GoMessage("일단 임시방편으로 연결을 해제해서 해결해야겠습니다."));
+                yield return StartCoroutine(GoMessage("돈을 조금만 더 모아서 이 행성을 탈출합시다. 이렇게 발목을"));
+                yield return StartCoroutine(GoMessage("잡힐 수 없습니다."));
+                yield return StartCoroutine(GoMessage("일단 이 해킹 상황을 방어합시다."));
+                yield return StartCoroutine(GoMessage("클리커 버튼의 용도를 잠시 변경했으니 시스템이 정상화될"));
+                yield return StartCoroutine(GoMessage("때까지 눌러주세요."));
+                yield return StartCoroutine(GoLine());
             }
             else if (etcMessage[15] == false && SpaceshipManager.SScomplete[15] == true)
             {
@@ -1781,7 +1805,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 etcMessage[16] = true;
             }
-            else if (etcMessage[17] == false && GameManager.Story_Fuel2_Complete == true) // etcMessage[6], 2번엔진 이벤트 종료 관련
+            else if (etcMessage[17] == false && GameManager.Story_Fuel2_Complete == true) // etcMessage[6], 2번연료 이벤트 종료 관련
             {
                 EtcMessageCommonFN();
                 yield return StartCoroutine(GoMessage("이전의 문제들은 해결했습니다."));
@@ -1790,7 +1814,7 @@ public class MessageManager : MonoBehaviour
                 GameManager.Fuel2Bonus = 1.5f;
                 etcMessage[17] = true;
             }
-            else if (etcMessage[18] == false && GameManager.Story_Engine2_Complete == true)
+            else if (etcMessage[18] == false && GameManager.Story_Engine2_Complete == true) // etcMessage[10], 2번엔진 이벤트 종료 관련
             {
                 EtcMessageCommonFN();
                 yield return StartCoroutine(GoMessage("다시 원상복귀 되었습니다."));
@@ -1806,9 +1830,15 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("전자시대 이전 제품의 효율이 200% 증가합니다."));
                 yield return StartCoroutine(GoLine());
                 GameManager.Engine2Bonus = 2f;
-                GameManager.Engine2_RobotSpeed = 1;
-                GameManager.Engine2Debuff = 1f;
                 etcMessage[18] = true;
+            }
+            else if (etcMessage[19] == false && GameManager.Story_Cockpit2_Complete == true) // etcMessage[14], 2번조종판 이벤트 종료 관련
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("해결했습니다. 그래도 상황이 완전히 안전한 것은 아닙니다."));
+                yield return StartCoroutine(GoMessage("제가 최대한 힘이 닿는 곳까지는 돕겠습니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[19] = true;
             }
 
             yield return new WaitForSeconds(1f);
@@ -1982,7 +2012,11 @@ public class MessageManager : MonoBehaviour
 
     void OfflineIncomeFnc()
     {
-        if ((SpaceshipManager.SScomplete[1] == true) || (SpaceshipManager.SScomplete[2] == true) || (ProductManager.Prod_S01_Level > 0)) // 오프라인 수입 관련
+        if (GameManager.eventOn == true)
+        {
+
+        }
+        else if ((SpaceshipManager.SScomplete[1] == true) || (SpaceshipManager.SScomplete[2] == true) || (ProductManager.Prod_S01_Level > 0)) // 오프라인 수입 관련
         {
             currentTime = System.DateTime.Now; // 오프라인 수입 관련
             timeDif = currentTime - startTime;

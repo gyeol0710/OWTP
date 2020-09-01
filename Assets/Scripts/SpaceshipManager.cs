@@ -225,7 +225,7 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             fuel.GetComponent<Image>().sprite = fuel2;
             SScomplete[5] = true;
-            GameManager.SStimer += 100;
+            GameManager.SStimer = 100;
             GameManager.SSclickBonus = 50;
             StartCoroutine(GameManager.SSclick());
             SSCommonFn();
@@ -267,7 +267,7 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             engine.GetComponent<Image>().sprite = engine2;
             SScomplete[9] = true;
-            GameManager.SStimer += 100;
+            GameManager.SStimer = 100;
             GameManager.SSclickBonus = 100;
             StartCoroutine(GameManager.SSclick());
             SSCommonFn();
@@ -309,7 +309,7 @@ public class SpaceshipManager : MonoBehaviour
             SSupNum++;
             cockpit.GetComponent<Image>().sprite = cockpit2;
             SScomplete[13] = true;
-            GameManager.SStimer += 100;
+            GameManager.SStimer = 100;
             GameManager.SSclickBonus = 500;
             StartCoroutine(GameManager.SSclick());
             SSCommonFn();
@@ -322,12 +322,13 @@ public class SpaceshipManager : MonoBehaviour
             SScomplete[14] = true;
             SSCommonFn();
         }
-        else if (SSupNum == 15 && (GameManager.money >= cockpit3_Gold))
+        else if (SSupNum == 15 && (GameManager.money >= cockpit3_Gold) && GameManager.Story_Cockpit2_Complete == true)
         {
             GameManager.money -= cockpit3_Gold;
             SSupNum++;
             cockpit.GetComponent<Image>().sprite = cockpit4;
             GameManager.SpaceshipGoldBonus = 1.4f;
+            GameManager.SpaceshipScienceBonus = 1.4f;
             SScomplete[15] = true;
             SSCommonFn();
         }
