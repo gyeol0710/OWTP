@@ -50,12 +50,11 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        if (TutoAllClear == true)
+        if (TutoAllClear == true && SpaceshipManager.SScomplete[16] == false)
         {
             passiveLoad();
-            Destroy(this);
         }
-        if (TutoAllClear == false)
+        else if (TutoAllClear == false)
         {
             Click.interactable = false;
             Robot.interactable = false;
@@ -64,9 +63,10 @@ public class TutorialManager : MonoBehaviour
             Offer.interactable = false;
 
             T01 = true;
+            StartCoroutine(Tutorial());
         }
 
-        StartCoroutine(Tutorial());
+        
     }
 
     void Update()
@@ -154,6 +154,11 @@ public class TutorialManager : MonoBehaviour
         while(true)
         {
             Tutorial01();
+
+            if (TutoAllClear == true)
+            {
+                yield break;
+            }
             yield return new WaitForSeconds(0.2f);
         }
     }

@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     AudioSource BGM_audioSource;
 
     public AudioSource EffectSource;
+    static public AudioSource sEffectSource;
     public AudioClip ClickButton_effectSound; // 클릭(느낌표) 버튼 효과음
     public AudioClip TechProdButton_effectSound;  // 연구 및 제품 탭 버튼 효과음
     public AudioClip Setting_effectSound; // 설정창 버튼 효과음
@@ -18,6 +19,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip TechComplete_effectSound; // 연구완료 버튼 효과음
     public AudioClip ProdBuy_effectSound; // 제품구입 버튼 효과음
     public AudioClip ClickButton_BombEffect; // 클릭 폭탄 효과음
+    public AudioClip Age_effectSound;
+    static public AudioClip sAge_effectSound;
+    public AudioClip SpaceshipUp_effectSound;
+    static public AudioClip sSpaceshipUp_effectSound;
+    public AudioClip Hacking_effectSound;
+    static public AudioClip sHacking_effectSound;
+
 
     public AudioSource TextEffect;
     public AudioSource JokeEffect;
@@ -32,6 +40,10 @@ public class SoundManager : MonoBehaviour
     void Awake()
     {
         BGM_audioSource = this.GetComponent<AudioSource>();
+        sEffectSource = EffectSource;
+        sAge_effectSound = Age_effectSound;
+        sSpaceshipUp_effectSound = SpaceshipUp_effectSound;
+        sHacking_effectSound = Hacking_effectSound;
     }
 
     void Start()
@@ -128,5 +140,20 @@ public class SoundManager : MonoBehaviour
     public void Play_ProdBuyEffectSound() // 제품구입 버튼 효과음
     {
         EffectSource.PlayOneShot(ProdBuy_effectSound);
+    }
+
+    static public void Play_AgeEffect() // static 시대 변화 효과음
+    {
+        sEffectSource.PlayOneShot(sAge_effectSound);
+    }
+
+    static public void Play_SpaceshipEffect() // static 우주선 업그레이드 효과음
+    {
+        sEffectSource.PlayOneShot(sSpaceshipUp_effectSound);
+    }
+
+    static public void Play_HackingEffect() // static 해킹 효과음
+    {
+        sEffectSource.PlayOneShot(sHacking_effectSound);
     }
 }

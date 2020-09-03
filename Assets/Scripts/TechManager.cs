@@ -1508,7 +1508,7 @@ public class TechManager : MonoBehaviour
             TechIcon58.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
             TechIcon59.GetComponent<Button>().interactable = true; // 다음 연구
             TechIcon59.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
-            L57.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
+            L58.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
             L58_57.GetComponent<Image>().color += new Color32(255, 255, 255, 255); // 하얀색으로
             L59.GetComponent<Image>().color += new Color32(0, 0, 0, 255); // 불투명하게
             ProdBtn58.SetActive(true);
@@ -1735,6 +1735,7 @@ public class TechManager : MonoBehaviour
         if (PanelNum == 1 && Tech1Complete == false && GameManager.science >= Tech1)
         {
             UpTechLogic2(Tech1, tYear1, ref Tech1Complete, ref TechIcon1, TechCplImg1, ref TechIcon2, ref TechIcon3, ref ProdBtn1);
+            SoundManager.Play_AgeEffect();
         }
         else if (PanelNum == 2 && Tech2Complete == false && GameManager.science >= Tech2 && Tech1Complete == true)
         {
@@ -2113,7 +2114,7 @@ public class TechManager : MonoBehaviour
         {
             TechAnimLogic2_0_3(ref Tech56AnimC, ref Tech56Complete, ref TechIcon56, ref TechIcon57, ref TechIcon58, ref L57, ref L58, ref L58_57);
             TechAnimLogic1_2_1(ref Tech57AnimC, ref Tech57Complete, ref TechIcon57, ref TechIcon60, ref L57, ref L58_57, ref L60);
-            TechAnimLogic1_2_1(ref Tech58AnimC, ref Tech58Complete, ref TechIcon58, ref TechIcon59, ref L57, ref L58_57, ref L59);
+            TechAnimLogic1_2_1(ref Tech58AnimC, ref Tech58Complete, ref TechIcon58, ref TechIcon59, ref L58, ref L58_57, ref L59);
             TechAnimLogic1_1_1(ref Tech59AnimC, ref Tech59Complete, ref TechIcon59, ref TechIcon61, ref L59, ref L61);
             TechAnimLogic1_1_1(ref Tech60AnimC, ref Tech60Complete, ref TechIcon60, ref TechIcon62, ref L60, ref L62);
             TechAnimLogic0_1_2(ref Tech61AnimC, ref Tech61Complete, ref TechIcon61, ref L61, ref L63_2, ref L63_3);

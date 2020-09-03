@@ -7,6 +7,7 @@ public class SaveData
     public long scienceIncreaseAmount;
     public int years;
     public bool RePlay;
+    public bool GameClear;
     public int robotLevel;
     public long robotLevelUpPrice;
 
@@ -15,16 +16,20 @@ public class SaveData
     public float CashBonus;
     public float ClickBonus;
     public float SpaceshipScienceBonus;
+    public ulong ClickCount;
     public bool eventOn;
     public int ClickCount_Fuel2;
     public int ClickCount_Cockpit2;
+    public int ClickCount_Ending;
     public bool Story_Fuel2_Complete;
     public bool Story_Engine2_Complete;
     public bool Story_Cockpit2_Complete;
+    public bool Story_Ending_Complete;
     public int Engine2_RobotSpeed;
     public float Fuel2Debuff;
     public float Engine2Debuff;
     public float Cockpit2Debuff;
+    public float EndingDebuff;
     public float FinalGoldBonus;
     public float FinalScienceBonus;
     public float Fuel2Bonus;

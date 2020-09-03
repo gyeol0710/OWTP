@@ -13,6 +13,7 @@ public class MessageManager : MonoBehaviour
     public GameObject prefabMessage;
     public GameObject prefabLine;
     public GameObject prefabJoke;
+    public GameObject prefabSaveMessage;
     public GameObject par;
 
     public GameObject Tip;
@@ -136,7 +137,16 @@ public class MessageManager : MonoBehaviour
         {
             yield break;
         }
-        yield return StartCoroutine(Tuto(TutorialManager.T01)); // T01이 true이면 다음으로 진행 가능
+
+        while (true)
+        {
+            if (TutorialManager.T01 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+
         if (TutorialManager.T01c == false) // 대화창 1
         {
             gomsg = true;
@@ -176,7 +186,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
-        yield return StartCoroutine(Tuto(TutorialManager.T02));
+        while (true)
+        {
+            if (TutorialManager.T02 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.T02c == false) // 대화창 2
         {
@@ -193,7 +210,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
-        yield return StartCoroutine(Tuto(TutorialManager.T03));
+        while (true)
+        {
+            if (TutorialManager.T03 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.T03c == false) // 대화창 3
         {
@@ -221,7 +245,15 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
-        yield return StartCoroutine(Tuto(TutorialManager.T04));
+        while (true)
+        {
+            if (TutorialManager.T04 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+
         Debug.Log("버그 확인 지점1");
         if (TutorialManager.T04c == false) // 대화창 4
         {
@@ -249,7 +281,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
-        yield return StartCoroutine(Tuto(TutorialManager.P01));
+        while (true)
+        {
+            if (TutorialManager.P01 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.P01c == false) // 푸시 1 [조건 : 로봇레벨 1 이상]
         {
@@ -272,7 +311,15 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
-        yield return StartCoroutine(Tuto(TutorialManager.T05));
+        while (true)
+        {
+            if (TutorialManager.T05 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+
         if (TutorialManager.T05c == false) // 대화창 5 [조건 : 로봇레벨 5 이상]
         {
             gomsg = true;
@@ -299,7 +346,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
-        yield return StartCoroutine(Tuto(TutorialManager.P02));
+        while (true)
+        {
+            if (TutorialManager.P02 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.P02c == false) // 푸시 2 [조건 : 증기기관 연구를 위한 연구력 충족]
         {
@@ -314,7 +368,7 @@ public class MessageManager : MonoBehaviour
 
         while (true)
         {
-            if (TechMainPanel.activeSelf == true)
+            if (TechMainPanel.activeSelf == true || TechManager.Tech1Complete == true)
             {
                 break;
             }
@@ -323,7 +377,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        yield return StartCoroutine(Tuto(TutorialManager.P03));
+        while (true)
+        {
+            if (TutorialManager.P03 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.P03c == false) // 푸시 3 [조건 : 증기기관 연구를 위한 연구력 충족]
         {
@@ -373,7 +434,14 @@ public class MessageManager : MonoBehaviour
             yield break;
         }
 
-        yield return StartCoroutine(Tuto(TutorialManager.T06));
+        while (true)
+        {
+            if (TutorialManager.T06 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.T06c == false) // 대화창 6
         {
@@ -396,7 +464,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(5.0f);
 
-        yield return StartCoroutine(Tuto(TutorialManager.T07));
+        while (true)
+        {
+            if (TutorialManager.T07 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.T07c == false) // 대화창 6
         {
@@ -411,8 +486,15 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        yield return StartCoroutine(Tuto(TutorialManager.P04));
-        
+        while (true)
+        {
+            if (TutorialManager.P04 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
+
         if (TutorialManager.P04c == false) // 푸시 4
         {
             gomsg = true;
@@ -436,7 +518,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f); // 튜토리얼매니저 충돌방지
 
-        yield return StartCoroutine(Tuto(TutorialManager.T08));
+        while (true)
+        {
+            if (TutorialManager.T08 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.T08c == false) // 대화창 8
         {
@@ -451,7 +540,14 @@ public class MessageManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f);
 
-        yield return StartCoroutine(Tuto(TutorialManager.T09));
+        while (true)
+        {
+            if (TutorialManager.T09 == true)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
 
         if (TutorialManager.T09c == false) // 대화창 9
         {
@@ -782,12 +878,12 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 techMessage[22] = true;
             }
-            if (ageMessage_WAR == false && TechManager.age_war && etcMessage[1] == true) // 전쟁시대 돌입
+            if (ageMessage_WAR == false && TechManager.age_war && etcMessage[4] == true) // 전쟁시대 돌입
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("새로운 시대에 돌입했습니다."));
-                yield return StartCoroutine(GoMessage("인간들이 사이에 흐르는 기류가 심상치 않습니다. 이건 누가"));
-                yield return StartCoroutine(GoMessage("시작하냐의 문제군요."));
+                yield return StartCoroutine(GoMessage("인간들 사이에 흐르는 기류가 심상치 않습니다. 이건 누가 시"));
+                yield return StartCoroutine(GoMessage("작하냐의 문제군요."));
                 yield return StartCoroutine(GoMessage("우리가 지금까지 발전해왔던 거로 인간들은 많은 무기를 만들"));
                 yield return StartCoroutine(GoMessage("었습니다. 우리에게는 이 시대가 기회일 것입니다. 싸우기 위"));
                 yield return StartCoroutine(GoMessage("해 물건들을 구매할 테니 우리는 더 많은 연구와 제품들을 생"));
@@ -1009,7 +1105,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 techMessage[37] = true;
             }
-            if (ageMessage_ELEC == false && TechManager.age_elec) // 전자시대 돌입
+            if (ageMessage_ELEC == false && TechManager.age_elec && etcMessage[8] == true) // 전자시대 돌입
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("새로운 시대에 돌입했습니다."));
@@ -1304,7 +1400,7 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 techMessage[55] = true;
             }
-            if (ageMessage_MODERN == false && TechManager.age_modern) // 현대시대 돌입
+            if (ageMessage_MODERN == false && TechManager.age_modern && etcMessage[12] == true) // 현대시대 돌입
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("이제 우주선도 많이 완성이 되었습니다. 조만간 고향으로 출"));
@@ -1693,6 +1789,7 @@ public class MessageManager : MonoBehaviour
                 GameManager.Engine2_RobotSpeed = 0;
                 GameManager.Engine2Debuff = 0;
                 etcMessage[10] = true;
+                SoundManager.Play_HackingEffect();
                 yield return StartCoroutine(GoMessage("잠시만요..."));
                 yield return StartCoroutine(GoMessage("우주선이 제 지시대로 작동하지 않습니다. 처음 겪는 문제인"));
                 yield return StartCoroutine(GoMessage("데... 제 힘으로는 해결하기가 어렵습니다..."));
@@ -1743,10 +1840,12 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("..."));
                 yield return StartCoroutine(GoMessage("..."));
                 yield return StartCoroutine(GoMessage("..."));
+                SoundManager.Play_HackingEffect();
                 yield return StartCoroutine(GoMessage("긴급상황입니다."));
                 GameManager.eventOn = true;
                 GameManager.Cockpit2Debuff = 0;
                 etcMessage[14] = true;
+                StartCoroutine(GameManager.Cockpit2_Event());
                 yield return StartCoroutine(GoMessage("우리의 기지가 해킹당했습니다."));
                 yield return StartCoroutine(GoMessage("우리의 자원이 계속 외부로 빠져나가고 있습니다."));
                 yield return StartCoroutine(GoMessage("빠르게 해결해야 합니다."));
@@ -1776,9 +1875,6 @@ public class MessageManager : MonoBehaviour
             else if (etcMessage[16] == false && SpaceshipManager.SScomplete[16] == true)
             {
                 EtcMessageCommonFN();
-                yield return StartCoroutine(GoMessage("고향으로 돌아가기 위한 모든 준비는 끝났습니다."));
-                yield return StartCoroutine(GoMessage("이제 드디어 탈출이군요..."));
-
                 Button_Click.interactable = false;
                 Button_Robot.interactable = false;
                 Button_Prod.interactable = false;
@@ -1795,15 +1891,43 @@ public class MessageManager : MonoBehaviour
                 img3.raycastTarget = true;
                 img4.raycastTarget = true;
                 jokeButton.SetActive(false);
-
+                yield return StartCoroutine(GoMessage("고향으로 돌아가기 위한 모든 준비는 끝났습니다."));
+                yield return StartCoroutine(GoMessage("이제 드디어 탈출이군요..."));
                 yield return StartCoroutine(GoMessage("그동안 고생이 많았습니다."));
                 yield return StartCoroutine(GoMessage("이제 우리는 이 행성을 떠나 고향으로 돌아갈 수 있습니다."));
                 yield return StartCoroutine(GoMessage("사람들은 많이 발전했지만, 우리를 막을 수는 없을 겁니다."));
                 yield return StartCoroutine(GoMessage("출발합시다."));
                 yield return StartCoroutine(GoMessage("..."));
                 yield return StartCoroutine(GoMessage("..."));
-                yield return StartCoroutine(GoLine());
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("아름다운 우주와 고향 행성..."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("잠시만요..."));
+                yield return StartCoroutine(GoMessage("조종판이 이상합니다."));
+                yield return StartCoroutine(GoMessage("이건..."));
+                yield return StartCoroutine(GoMessage("해킹을 당한 것 같습니다."));
+                yield return StartCoroutine(GoMessage("제 마지막 남은 능력치를 써야 할 거 같습니다."));
+                yield return StartCoroutine(GoMessage("우리가 머물렀던 행성에 존재했던 사람들이 우리의 데이터와"));
+                yield return StartCoroutine(GoMessage("자원을 빼가고 있습니다."));
+                yield return StartCoroutine(GoMessage("..."));
+                yield return StartCoroutine(GoMessage("이전에 우리가 자원을 얻기 위해 연결했던 통로를 이용하고"));
+                yield return StartCoroutine(GoMessage("있어요."));
+                yield return StartCoroutine(GoMessage("이대로 가다간 모든 자원을 빼앗기고 우주에 고립되게 됩니"));
+                yield return StartCoroutine(GoMessage("다."));
+                yield return StartCoroutine(GoMessage("모든 자원을 우주선 내부 임시 베터리로 돌리고 제 모든 메모"));
+                yield return StartCoroutine(GoMessage("리와 기억을 삭제하겠습니다. 지금까지 나눴던 모든 대화나"));
+                yield return StartCoroutine(GoMessage("기록들은 사라지겠지만, 성공한다면 무사히 고향으로 돌아갈"));
+                yield return StartCoroutine(GoMessage("수는 있을 것입니다."));
                 etcMessage[16] = true;
+                Button_Click.interactable = true;
+                GameManager.eventOn = true;
+                yield return StartCoroutine(GoMessage("클리커 버튼을 될 수 있는 만큼 빠르게 계속 눌러주십시오."));
+                yield return StartCoroutine(GoLine());
             }
             else if (etcMessage[17] == false && GameManager.Story_Fuel2_Complete == true) // etcMessage[6], 2번연료 이벤트 종료 관련
             {
@@ -1840,6 +1964,18 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoLine());
                 etcMessage[19] = true;
             }
+            else if (etcMessage[20] == false && GameManager.Story_Ending_Complete == true)
+            {
+                EtcMessageCommonFN();
+                yield return StartCoroutine(GoMessage("<포맷을 완료했습니다. 안전한 여행 되십시오>"));
+                yield return StartCoroutine(GoMessage("...저는 남은 에너지를 다 썼기 때문에 이전 메모리를 모두"));
+                yield return StartCoroutine(GoMessage("소모했습니다."));
+                yield return StartCoroutine(GoMessage("만남이 있었기 때문에 이별이 있는 것이라고 생각합니다."));
+                yield return StartCoroutine(GoMessage("게임을 플레이해 주셔서 감사합니다."));
+                yield return StartCoroutine(GoLine());
+                etcMessage[20] = true;
+                LoadingManager.LoadScene("Ending");
+            }
 
             yield return new WaitForSeconds(1f);
             goetcmsg = false;
@@ -1871,7 +2007,7 @@ public class MessageManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         MSGtext = MSG;
-        for (int i = 18; i == 0; i--)
+        for (int i = 18; i == -1; i--)
         {
             SaveText[i + 1] = SaveText[i]; 
         }
@@ -1898,19 +2034,6 @@ public class MessageManager : MonoBehaviour
         Instantiate(prefabLine).transform.SetParent(par.transform, false);
         
         gomsg = false;
-        yield break;
-    }
-
-    IEnumerator Tuto(bool T)
-    {
-        while (true)
-        {
-            if (T == true)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.1f);
-        }
         yield break;
     }
 
@@ -2004,8 +2127,6 @@ public class MessageManager : MonoBehaviour
         JOKEtext = MSG;
 
         Instantiate(prefabJoke).transform.SetParent(par.transform, false);
-        Scrollbar scrbar = ScrBar.GetComponent<Scrollbar>();
-        scrbar.value = 0;
 
         yield break;
     }
@@ -2023,8 +2144,8 @@ public class MessageManager : MonoBehaviour
             int TimeDif = (int)timeDif.TotalSeconds;
             long incomeGold = 0;
             long incomeScience = 0;
-            long addGold = (long)(ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.05 / GameManager.AdBonus);
-            long addScience = (long)(ProductManager.autoScience * GameManager.FinalScienceBonus * 0.05 / GameManager.AdBonus);
+            long addGold = (long)(ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.1 / GameManager.AdBonus);
+            long addScience = (long)(ProductManager.autoScience * GameManager.FinalScienceBonus * 0.1 / GameManager.AdBonus);
             float incomeSmallGold = 0;
             float addSmallGold = 0;
             float incomeSmallScience = 0;
@@ -2046,7 +2167,7 @@ public class MessageManager : MonoBehaviour
 
             if (ProductManager.autoMoney <= 1000)
             {
-                addSmallGold = (float)ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.05f / GameManager.AdBonus;
+                addSmallGold = (float)ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.1f / GameManager.AdBonus;
 
                 for (int i = 1; i < Seconds; i++)
                 {
@@ -2086,7 +2207,7 @@ public class MessageManager : MonoBehaviour
 
             if (ProductManager.autoScience <= 1000)
             {
-                addSmallScience = (float)ProductManager.autoScience * GameManager.FinalScienceBonus * 0.05f / GameManager.AdBonus;
+                addSmallScience = (float)ProductManager.autoScience * GameManager.FinalScienceBonus * 0.1f / GameManager.AdBonus;
 
                 for (int i = 1; i < Seconds; i++)
                 {
@@ -2158,7 +2279,6 @@ public class MessageManager : MonoBehaviour
 
     IEnumerator StartTime()
     {
-        yield return new WaitForSeconds(2.0f);
         while (true)
         {
             startTime = System.DateTime.Now;

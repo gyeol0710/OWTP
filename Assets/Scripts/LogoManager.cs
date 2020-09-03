@@ -15,7 +15,8 @@ public class LogoManager : MonoBehaviour
         string path = Application.persistentDataPath + "/save.xml";
         if (System.IO.File.Exists(path))
         {
-            saveData = XmlManager.XmlLoad<SaveData>(path);
+            SaveManager.Load<SaveData>(ref saveData, path);
+
             GameManager.RePlay = saveData.RePlay;
         }
 

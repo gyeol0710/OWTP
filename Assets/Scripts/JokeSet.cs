@@ -20,14 +20,15 @@ public class JokeSet : MonoBehaviour
     IEnumerator TextAnim()
     {
         Text text = GetComponent<Text>();
-        Scrollbar scrbar = MessageManager.ScrBar.GetComponent<Scrollbar>();
         string subtext = MessageManager.JOKEtext;
         int n;
         int Length = subtext.Length;
         for (n = 0; n < Length; n++)
         {
-            scrbar.value = 0;
-
+            if (n == 1)
+            {
+                MessageManager.ScrBar.value = 0;
+            }
             text.text += subtext[n];
             yield return new WaitForSeconds(0.03f);
         }

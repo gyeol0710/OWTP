@@ -163,6 +163,7 @@ public class GameManager : MonoBehaviour
     public double Need_Lv491_500;
 
     static public bool RePlay;
+    static public bool GameClear;
 
     static public long money; // 돈
     public long ConvertedMoney; // 변환된 돈
@@ -180,6 +181,10 @@ public class GameManager : MonoBehaviour
     public Text robotInfo2;
     public Text robotInfo3;
     public Button robotLevelUpButton; // 로봇 레벨업 버튼
+    public Image robotImage;
+    public Sprite WarAge_RobotImage;
+    public Sprite ElecAge_RobotImage;
+    public Sprite ModernAge_RobotImage;
 
     static public int years; // 연도
     static public int robotLevel; // 로봇 레벨
@@ -220,16 +225,21 @@ public class GameManager : MonoBehaviour
 
     static public float SpaceshipScienceBonus;
 
+    static public ulong ClickCount;
+
     static public bool eventOn;
     static public int ClickCount_Fuel2;
     static public int ClickCount_Cockpit2;
+    static public int ClickCount_Ending;
     static public bool Story_Fuel2_Complete;
     static public bool Story_Engine2_Complete;
     static public bool Story_Cockpit2_Complete;
+    static public bool Story_Ending_Complete;
     static public int Engine2_RobotSpeed;
     static public float Fuel2Debuff;
     static public float Engine2Debuff;
     static public float Cockpit2Debuff;
+    static public float EndingDebuff;
 
     static public float FinalGoldBonus;
     static public float FinalScienceBonus;
@@ -248,8 +258,12 @@ public class GameManager : MonoBehaviour
     //----------------------------------
 
 
-    /*  */
-
+    /* 메인 프레임 버튼 관련 */
+    public Button Click;
+    public Button Robot;
+    public Button Product;
+    public Button Tech;
+    public Button Offer;
     //---------------------
 
 
@@ -301,6 +315,7 @@ public class GameManager : MonoBehaviour
             Fuel2Debuff = 1f;
             Engine2Debuff = 1f;
             Cockpit2Debuff = 1f;
+            EndingDebuff = 1f;
             FinalGoldBonus = 1f;
             FinalScienceBonus = 1f;
             Fuel2Bonus = 1f;
@@ -308,7 +323,7 @@ public class GameManager : MonoBehaviour
             Cockpit2Bonus = 1f;
             Engine2_RobotSpeed = 1;
 }
-        else
+        else if (RePlay == true && SpaceshipManager.SScomplete[16] == false)
         {
             Image img1 = ScR.GetComponent<Image>();
             Image img2 = Offer01.GetComponent<Image>();
@@ -331,6 +346,33 @@ public class GameManager : MonoBehaviour
             {
                 JokeButton.SetActive(true);
             }
+        }
+        else if (RePlay == true && SpaceshipManager.SScomplete[16] == true)
+        {
+            Click.interactable = false;
+            Robot.interactable = false;
+            Product.interactable = false;
+            Tech.interactable = false;
+            Offer.interactable = false;
+
+            Image img1 = ScR.GetComponent<Image>();
+            Image img2 = Offer01.GetComponent<Image>();
+            Image img3 = Offer02.GetComponent<Image>();
+            Image img4 = Offer03.GetComponent<Image>();
+
+            img1.color = new Color32(255, 255, 255, 1);
+            img2.color = new Color32(255, 255, 255, 255);
+            img1.raycastTarget = true;
+            img2.raycastTarget = true;
+            img3.raycastTarget = true;
+            img4.raycastTarget = true;
+
+            JokeButton.SetActive(false);
+        }
+
+        if (MessageManager.etcMessage[16] == true)
+        {
+            Click.interactable = true;
         }
 
         click_gauge = 0;
@@ -356,7 +398,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GoldScienceInfo());
         StartCoroutine(ClickGaugeControll());
         StartCoroutine(SSclick());
-
+        StartCoroutine(Cockpit2_Event());
+        
         RePlay = true;
     }
 
@@ -406,6 +449,7 @@ public class GameManager : MonoBehaviour
         saveData.scienceIncreaseAmount = scienceIncreaseAmount;
         saveData.years = years;
         saveData.RePlay = RePlay;
+        saveData.GameClear = GameClear;
         saveData.robotLevel = robotLevel;
         saveData.robotLevelUpPrice = robotLevelUpPrice;
 
@@ -414,16 +458,20 @@ public class GameManager : MonoBehaviour
         saveData.CashBonus = CashBonus;
         saveData.ClickBonus = ClickBonus;
         saveData.SpaceshipScienceBonus = SpaceshipScienceBonus;
+        saveData.ClickCount = ClickCount;
         saveData.eventOn = eventOn;
         saveData.ClickCount_Fuel2 = ClickCount_Fuel2;
         saveData.ClickCount_Cockpit2 = ClickCount_Cockpit2;
+        saveData.ClickCount_Ending = ClickCount_Ending;
         saveData.Story_Fuel2_Complete = Story_Fuel2_Complete;
         saveData.Story_Engine2_Complete = Story_Engine2_Complete;
         saveData.Story_Cockpit2_Complete = Story_Cockpit2_Complete;
+        saveData.Story_Ending_Complete = Story_Ending_Complete;
         saveData.Engine2_RobotSpeed = Engine2_RobotSpeed;
         saveData.Fuel2Debuff = Fuel2Debuff;
         saveData.Engine2Debuff = Engine2Debuff;
         saveData.Cockpit2Debuff = Cockpit2Debuff;
+        saveData.EndingDebuff = EndingDebuff;
         saveData.FinalGoldBonus = FinalGoldBonus;
         saveData.FinalScienceBonus = FinalScienceBonus;
         saveData.Fuel2Bonus = Fuel2Bonus;
@@ -894,6 +942,7 @@ public class GameManager : MonoBehaviour
         scienceIncreaseAmount = saveData.scienceIncreaseAmount;
         years = saveData.years;
         RePlay = saveData.RePlay;
+        GameClear = saveData.GameClear;
         robotLevel = saveData.robotLevel;
         robotLevelUpPrice = saveData.robotLevelUpPrice;
 
@@ -902,16 +951,20 @@ public class GameManager : MonoBehaviour
         CashBonus = saveData.CashBonus;
         ClickBonus = saveData.ClickBonus;
         SpaceshipScienceBonus = saveData.SpaceshipScienceBonus;
+        ClickCount = saveData.ClickCount;
         eventOn = saveData.eventOn;
         ClickCount_Fuel2 = saveData.ClickCount_Fuel2;
         ClickCount_Cockpit2 = saveData.ClickCount_Cockpit2;
+        ClickCount_Ending = saveData.ClickCount_Ending;
         Story_Fuel2_Complete = saveData.Story_Fuel2_Complete;
         Story_Engine2_Complete = saveData.Story_Engine2_Complete;
         Story_Cockpit2_Complete = saveData.Story_Cockpit2_Complete;
+        Story_Ending_Complete = saveData.Story_Ending_Complete;
         Engine2_RobotSpeed = saveData.Engine2_RobotSpeed;
         Fuel2Debuff = saveData.Fuel2Debuff;
         Engine2Debuff = saveData.Engine2Debuff;
         Cockpit2Debuff = saveData.Cockpit2Debuff;
+        EndingDebuff = saveData.EndingDebuff;
         FinalGoldBonus = saveData.FinalGoldBonus;
         FinalScienceBonus = saveData.FinalScienceBonus;
         Fuel2Bonus = saveData.Fuel2Bonus;
@@ -1412,6 +1465,7 @@ public class GameManager : MonoBehaviour
         money += (long)(moneyIncreaseAmount * FinalGoldBonus * SSclickBonus); // 돈을 '클릭 시 돈 증가량'만큼 증가시킴
         float r1 = Random.Range(-0.4f, 0.4f);
         Vector2 MoneyPosition = new Vector2(r1, -4);
+        ClickCount++;
         if (eventOn == false)
         {
             Instantiate(prefabMoney, MoneyPosition, Quaternion.identity);
@@ -1457,14 +1511,44 @@ public class GameManager : MonoBehaviour
                 Story_Cockpit2_Complete = true;
             }
         }
+
+        if (Story_Ending_Complete == false && MessageManager.etcMessage[16] == true)
+        {
+            ClickCount_Ending++;
+            if (ClickCount_Ending >= 200)
+            {
+                eventOn = false;
+                EndingDebuff = 1f;
+                Story_Ending_Complete = true;
+            }
+        }
+    }
+
+    static public IEnumerator Cockpit2_Event()
+    {
+        if (Story_Cockpit2_Complete == true || MessageManager.etcMessage[14] == false || eventOn == false)
+        {
+            yield break;
+        }
+
+        while(true)
+        {
+            if (Story_Cockpit2_Complete == true)
+            {
+                yield break;
+            }
+
+            money -= 6553600000000;
+            yield return new WaitForSeconds(1.0f);
+        }
     }
 
     IEnumerator FinalBonus()
     {
         while(true)
         {
-            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff * Engine2Debuff * Cockpit2Debuff;
-            FinalScienceBonus = 1 * SpaceshipScienceBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff * Engine2Debuff * Cockpit2Debuff;
+            FinalGoldBonus = 1 * SpaceshipGoldBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff * Engine2Debuff * Cockpit2Debuff * EndingDebuff;
+            FinalScienceBonus = 1 * SpaceshipScienceBonus * AdBonus * CashBonus * ClickBonus * Fuel2Debuff * Engine2Debuff * Cockpit2Debuff * EndingDebuff;
 
             yield return new WaitForSeconds(0.2f);
         }

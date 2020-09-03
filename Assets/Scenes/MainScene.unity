@@ -7280,7 +7280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &238034163
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9325,6 +9325,10 @@ MonoBehaviour:
   ProdBuy_effectSound: {fileID: 8300000, guid: ae0028cd224ed25488857fa12ae875f1, type: 3}
   ClickButton_BombEffect: {fileID: 8300000, guid: 35eb9da528dbace4688a468d4d1570ba,
     type: 3}
+  Age_effectSound: {fileID: 8300000, guid: 0553d840f4824a648adb7b1b86af5054, type: 3}
+  SpaceshipUp_effectSound: {fileID: 8300000, guid: db11b1b6189756a47871b2fd735d3f02,
+    type: 3}
+  Hacking_effectSound: {fileID: 8300000, guid: 589e9be083c0716438f9b6c9397222bc, type: 3}
   TextEffect: {fileID: 3026523367836199866, guid: b3b29d7de34f68442a224cfabd93b293,
     type: 3}
   JokeEffect: {fileID: 3026523367836199866, guid: 063dfdba2fde0f14c8fe91ee010ad128,
@@ -40998,6 +41002,13 @@ MonoBehaviour:
   robotInfo2: {fileID: 799145574}
   robotInfo3: {fileID: 1562859390}
   robotLevelUpButton: {fileID: 1039575954}
+  robotImage: {fileID: 1583671742}
+  WarAge_RobotImage: {fileID: -101767609117852312, guid: c78f09e56c39e974c971eca6da1cb519,
+    type: 3}
+  ElecAge_RobotImage: {fileID: -2643624077272528827, guid: 7dac023f6a9a74f4d94a0fa108527cc4,
+    type: 3}
+  ModernAge_RobotImage: {fileID: 21300000, guid: 80d89e9431e8fe8429c0483118a85a8c,
+    type: 3}
   textMoney: {fileID: 1760576247}
   textScience: {fileID: 1751255681}
   textYears: {fileID: 805736243}
@@ -41023,6 +41034,11 @@ MonoBehaviour:
   panel_robot: {fileID: 1100343649}
   panel_Quit: {fileID: 1002949310}
   SSclickIMG: {fileID: 227264926}
+  Click: {fileID: 1658265885}
+  Robot: {fileID: 183601023}
+  Product: {fileID: 1483500441}
+  Tech: {fileID: 407025908}
+  Offer: {fileID: 1076337711}
   Robot01: {fileID: 761666232}
   Robot02: {fileID: 1647371739}
   Robot03: {fileID: 734249952}
@@ -50653,6 +50669,8 @@ MonoBehaviour:
     type: 3}
   prefabJoke: {fileID: 5229456788185291047, guid: 063dfdba2fde0f14c8fe91ee010ad128,
     type: 3}
+  prefabSaveMessage: {fileID: 5229456788185291047, guid: bdbb838aa9e7a794b8d71ab740af2c00,
+    type: 3}
   par: {fileID: 1817799036}
   Tip: {fileID: 2060064302}
   tipText: {fileID: 1171081843}
@@ -53370,7 +53388,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c5eebdb71fd092478639b205e1567a2, type: 3}
+  m_Sprite: {fileID: -1868669507221432035, guid: 6f956474b07c07848b654b0cd839c381,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

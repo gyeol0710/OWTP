@@ -216,6 +216,7 @@ public class SpaceshipManager : MonoBehaviour
 
             Age_banner.sprite = WarAge_banner;
             StartCoroutine(Age_Anim());
+            SoundManager.Play_AgeEffect();
             SScomplete[4] = true;
             SSCommonFn();
         }
@@ -258,6 +259,7 @@ public class SpaceshipManager : MonoBehaviour
 
             Age_banner.sprite = ElecAge_banner;
             StartCoroutine(Age_Anim());
+            SoundManager.Play_AgeEffect();
             SScomplete[8] = true;
             SSCommonFn();
         }
@@ -300,6 +302,7 @@ public class SpaceshipManager : MonoBehaviour
 
             Age_banner.sprite = ModernAge_banner;
             StartCoroutine(Age_Anim());
+            SoundManager.Play_AgeEffect();
             SScomplete[12] = true;
             SSCommonFn();
         }
@@ -345,6 +348,7 @@ public class SpaceshipManager : MonoBehaviour
     {
         gauge.fillAmount += 0.0625f;
         SSgauge = gauge.fillAmount;
+        SoundManager.Play_SpaceshipEffect();
     }
 
     IEnumerator SpaceshipUpdate() // 실시간 골드텍스트 대입 및 버튼 접근 체크
@@ -615,6 +619,7 @@ public class SpaceshipManager : MonoBehaviour
         int i = 0;
         int j = 0;
         int k = 0;
+        
         while (true)
         {
             if(i < 30)
