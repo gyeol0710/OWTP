@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioClip[] BGM = new AudioClip[9];
+    public AudioClip[] BGM = new AudioClip[8];
     AudioSource BGM_audioSource;
 
     public AudioSource EffectSource;
@@ -65,15 +65,67 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator PlayBGM()
     {
-        while(true)
+        bool a = (Random.value > 0.5f);
+        int b = 0;
+        while (true)
         {
             if (!BGM_audioSource.isPlaying)
             {
-                BGM_audioSource.clip = BGM[Random.Range(0, BGM.Length)];
+                if (TechManager.age_modern == true)
+                {
+                    if(a == true)
+                    {
+                        BGM_audioSource.clip = BGM[7];
+                    }
+                    else
+                    {
+                        BGM_audioSource.clip = BGM[6];
+                    }
+                }
+                else if (TechManager.age_elec == true)
+                {
+                    if (a == true)
+                    {
+                        BGM_audioSource.clip = BGM[5];
+                    }
+                    else
+                    {
+                        BGM_audioSource.clip = BGM[4];
+                    }
+                }
+                else if (TechManager.age_war == true)
+                {
+                    if (a == true)
+                    {
+                        BGM_audioSource.clip = BGM[3];
+                    }
+                    else
+                    {
+                        BGM_audioSource.clip = BGM[2];
+                    }
+                }
+                else
+                {
+                    if (a == true)
+                    {
+                        BGM_audioSource.clip = BGM[1];
+                    }
+                    else
+                    {
+                        BGM_audioSource.clip = BGM[0];
+                    }
+                }
+                b++;
                 BGM_audioSource.Play();
             }
-                
-            yield return new WaitForSeconds(1.0f);
+
+            if (b == 2)
+            {
+                b = 0;
+                a = !a;
+            }
+
+            yield return new WaitForSeconds(1.5f);
         }
     }
 

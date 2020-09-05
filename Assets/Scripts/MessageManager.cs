@@ -72,6 +72,8 @@ public class MessageManager : MonoBehaviour
     public GameObject Panel_OfflineIncome;
     public Text IncomeGold;
     public Text IncomeScience;
+
+    static public int TimeDif;
     //----------------------
 
     void Start()
@@ -84,7 +86,9 @@ public class MessageManager : MonoBehaviour
         StartCoroutine(Message2());
         StartCoroutine(TechMessage());
         StartCoroutine(EtcMessage());
+        StartCoroutine(GoldRobotManager.ChargingAD());
         StartCoroutine(StartTime());
+
 
         JokeMessage[0,0] = "지속적으로 게임 도중 탈주하는 플레이어는 제제를 받습니다.";
         JokeMessage[0,1] = "아 이 게임이 아니군요 죄송합니다.";
@@ -161,9 +165,9 @@ public class MessageManager : MonoBehaviour
             yield return StartCoroutine(GoMessage("언어설정 완료."));
             yield return StartCoroutine(GoMessage("지역 스캔 완료."));
             yield return StartCoroutine(GoMessage("환경성 검토 완료."));
-            yield return StartCoroutine(GoMessage("반갑습니다. 저는 당신의 여행 도우미 GKS-A096 입니다. 연료"));
-            yield return StartCoroutine(GoMessage("효율을 위해 장시간 수면 상태에 있다가 돌발상황이 감지되어"));
-            yield return StartCoroutine(GoMessage("기상했습니다."));
+            yield return StartCoroutine(GoMessage("반갑습니다. 저는 당신의 여행 도우미 GKS-A096 입니다."));
+            yield return StartCoroutine(GoMessage("연료 효율을 위해 장시간 수면 상태에 있다가 돌발상황이"));
+            yield return StartCoroutine(GoMessage("감지되어 기상했습니다."));
             yield return StartCoroutine(GoMessage("기본 데이터를 불러오는 중입니다..."));
             yield return StartCoroutine(GoMessage("........."));
             yield return StartCoroutine(GoMessage("........."));
@@ -176,8 +180,8 @@ public class MessageManager : MonoBehaviour
             yield return StartCoroutine(GoMessage("우주선이 해적단을 만나 습격을 받았고 우주선의 많은 부분이 "));
             yield return StartCoroutine(GoMessage("손상되어서 가까운 이 행성에 불시착했습니다."));
             yield return StartCoroutine(GoMessage("이렇게 된 이상, 이 행성에 터를 잡고 우주선을 수리해서 다시"));
-            yield return StartCoroutine(GoMessage("고향으로 무사히 돌아갑시다. 제가 에너지를 모으는 것을 비롯"));
-            yield return StartCoroutine(GoMessage("한 모든 것을 보조해드리겠습니다."));
+            yield return StartCoroutine(GoMessage("고향으로 무사히 돌아갑시다. 제가 에너지를 모으는 것을"));
+            yield return StartCoroutine(GoMessage("비롯한 모든 것을 보조해드리겠습니다."));
             yield return StartCoroutine(GoMessage("혼자서 에너지를 모으는 것은 너무 오래 걸립니다. 이 행성을"));
             yield return StartCoroutine(GoMessage("발전시켜서 생성된 에너지와 자원을 사용하는 게 좋겠어요."));
             yield return StartCoroutine(GoLine());
@@ -254,10 +258,8 @@ public class MessageManager : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
 
-        Debug.Log("버그 확인 지점1");
         if (TutorialManager.T04c == false) // 대화창 4
         {
-            Debug.Log("버그 확인 지점2");
             gomsg = true;
             yield return StartCoroutine(GoMessage("좋아요."));
             yield return StartCoroutine(GoMessage("직원을 생산할만한 자금을 모았으니, 기존에 있던 부품들로"));
@@ -2133,15 +2135,16 @@ public class MessageManager : MonoBehaviour
 
     void OfflineIncomeFnc()
     {
+        currentTime = System.DateTime.Now; // 오프라인 수입 관련
+        timeDif = currentTime - startTime;
+        TimeDif = (int)timeDif.TotalSeconds;
+
         if (GameManager.eventOn == true)
         {
 
         }
         else if ((SpaceshipManager.SScomplete[1] == true) || (SpaceshipManager.SScomplete[2] == true) || (ProductManager.Prod_S01_Level > 0)) // 오프라인 수입 관련
         {
-            currentTime = System.DateTime.Now; // 오프라인 수입 관련
-            timeDif = currentTime - startTime;
-            int TimeDif = (int)timeDif.TotalSeconds;
             long incomeGold = 0;
             long incomeScience = 0;
             long addGold = (long)(ProductManager.autoMoney * GameManager.FinalGoldBonus * 0.1 / GameManager.AdBonus);

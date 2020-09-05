@@ -247,6 +247,9 @@ public class GameManager : MonoBehaviour
     static public float Fuel2Bonus;
     static public float Engine2Bonus;
     static public float Cockpit2Bonus;
+
+    static public bool Ading;
+    static public int AdEffectRemain;
     //------------------------------------
 
 
@@ -295,6 +298,9 @@ public class GameManager : MonoBehaviour
         }
         Offer01.SetActive(true);
         sSclickIMG = SSclickIMG;
+
+        AdBonus = 1f;
+        Ading = false;
     }
 
     void Start()
@@ -308,7 +314,6 @@ public class GameManager : MonoBehaviour
 
             SSclickBonus = 1;
             SpaceshipGoldBonus = 1f;
-            AdBonus = 1f;
             CashBonus = 1f;
             ClickBonus = 1f;
             SpaceshipScienceBonus = 1f;
@@ -454,7 +459,6 @@ public class GameManager : MonoBehaviour
         saveData.robotLevelUpPrice = robotLevelUpPrice;
 
         saveData.SpaceshipGoldBonus = SpaceshipGoldBonus;
-        saveData.AdBonus = AdBonus;
         saveData.CashBonus = CashBonus;
         saveData.ClickBonus = ClickBonus;
         saveData.SpaceshipScienceBonus = SpaceshipScienceBonus;
@@ -480,6 +484,9 @@ public class GameManager : MonoBehaviour
 
         saveData.SSclickBonus = SSclickBonus;
         saveData.SStimer = SStimer;
+
+        saveData.remain_time_AD = GoldRobotManager.remain_time_AD;
+        saveData.ticket_AD = GoldRobotManager.ticket_AD;
 
 
         /* TechManager 관련 Save */
@@ -947,7 +954,6 @@ public class GameManager : MonoBehaviour
         robotLevelUpPrice = saveData.robotLevelUpPrice;
 
         SpaceshipGoldBonus = saveData.SpaceshipGoldBonus;
-        AdBonus = saveData.AdBonus;
         CashBonus = saveData.CashBonus;
         ClickBonus = saveData.ClickBonus;
         SpaceshipScienceBonus = saveData.SpaceshipScienceBonus;
@@ -973,6 +979,9 @@ public class GameManager : MonoBehaviour
 
         SSclickBonus = saveData.SSclickBonus;
         SStimer = saveData.SStimer;
+
+        GoldRobotManager.remain_time_AD = saveData.remain_time_AD;
+        GoldRobotManager.ticket_AD = saveData.ticket_AD;
 
 
         /* TechManager 관련 Load */
@@ -2805,6 +2814,27 @@ public class GameManager : MonoBehaviour
             Story_Engine2_Complete = true;
             Engine2_RobotSpeed = 1;
             Engine2Debuff = 1f;
+        }
+    }
+
+    static public IEnumerator AdOn()
+    {
+        Ading = true;
+        AdEffectRemain = 60;
+        if (ProductManager.Prod_S02_Level > 0)
+        {
+            AdEffectRemain = 120;
+        }
+        while(true)
+        {
+            yield return new WaitForSeconds(1f);
+            if (AdEffectRemain == 0)
+            {
+                Ading = false;
+                AdBonus = 1f;
+                yield break;
+            }
+            AdEffectRemain--;
         }
     }
 }

@@ -12,7 +12,6 @@ public class SaveData
     public long robotLevelUpPrice;
 
     public float SpaceshipGoldBonus;
-    public float AdBonus;
     public float CashBonus;
     public float ClickBonus;
     public float SpaceshipScienceBonus;
@@ -38,6 +37,9 @@ public class SaveData
 
     public long SSclickBonus;
     public int SStimer;
+
+    public int remain_time_AD;
+    public int ticket_AD;
 
     /* TechManager 관련 */
     public bool Tech1Complete;

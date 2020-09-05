@@ -43,20 +43,12 @@ public class FrogControll : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     void OnMouseDown()
     {
-        int j = 0;
-        for (int i = -1; i < 7; i++)
-        {
-            if (EventSystem.current.IsPointerOverGameObject(i) == false)
-            {
-                j++;
-            }
-        }
-        if (j >= 8)
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject())
         {
             Frog_Effect.Play();
         }
@@ -280,5 +272,14 @@ public class FrogControll : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);
         }
+    }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }
