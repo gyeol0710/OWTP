@@ -1807,12 +1807,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd39);
             if (Pd39 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd39);
             PanelNum = 39;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1832,12 +1832,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd40);
             if (Pd40 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd40);
             PanelNum = 40;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1857,12 +1857,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd41);
             if (Pd41 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd41);
             PanelNum = 41;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1882,12 +1882,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd42);
             if (Pd42 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd42);
             PanelNum = 42;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1907,12 +1907,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd43);
             if (Pd43 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd43);
             PanelNum = 43;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -1932,12 +1932,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd44);
             if (Pd44 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd44);
             PanelNum = 44;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1957,12 +1957,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd45);
             if (Pd45 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd45);
             PanelNum = 45;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -1982,12 +1982,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd46);
             if (Pd46 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd46);
             PanelNum = 46;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2007,12 +2007,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd47);
             if (Pd47 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd47);
             PanelNum = 47;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2032,12 +2032,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd48);
             if (Pd48 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd48);
             PanelNum = 48;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2057,12 +2057,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd49);
             if (Pd49 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd49);
             PanelNum = 49;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2082,12 +2082,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd51);
             if (Pd51 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd51);
             PanelNum = 51;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2107,12 +2107,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd52);
             if (Pd52 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd52);
             PanelNum = 52;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2132,12 +2132,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd53);
             if (Pd53 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd53);
             PanelNum = 53;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2157,12 +2157,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd54);
             if (Pd54 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd54);
             PanelNum = 54;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2182,12 +2182,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd55);
             if (Pd55 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd55);
             PanelNum = 55;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2207,12 +2207,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd56);
             if (Pd56 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd56);
             PanelNum = 56;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2232,12 +2232,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd58);
             if (Pd58 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd58);
             PanelNum = 58;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2257,12 +2257,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd59);
             if (Pd59 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd59);
             PanelNum = 59;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2282,12 +2282,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd60);
             if (Pd60 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd60);
             PanelNum = 60;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2307,12 +2307,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd61);
             if (Pd61 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd61);
             PanelNum = 61;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2332,12 +2332,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd62);
             if (Pd62 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd62);
             PanelNum = 62;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2357,12 +2357,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd63);
             if (Pd63 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd63);
             PanelNum = 63;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2382,12 +2382,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd64);
             if (Pd64 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd64);
             PanelNum = 64;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2407,12 +2407,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd65);
             if (Pd65 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd65);
             PanelNum = 65;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2432,12 +2432,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd66);
             if (Pd66 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd66);
             PanelNum = 66;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;
@@ -2457,12 +2457,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd67);
             if (Pd67 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd67);
             PanelNum = 67;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2482,12 +2482,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd68);
             if (Pd68 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd68);
             PanelNum = 68;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;
@@ -2507,12 +2507,12 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            UpPriceText.text = UnitTransform(Pd69);
             if (Pd69 > MaxPrice)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd69);
             PanelNum = 69;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Science;

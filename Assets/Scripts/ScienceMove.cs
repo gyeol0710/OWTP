@@ -16,7 +16,7 @@ public class ScienceMove : MonoBehaviour
     {
         sii_text = this.GetComponent<Text>();
         sii_image = this.GetComponentInChildren<Image>();
-        sii_text.text = "+ " + ((long)(GameManager.scienceIncreaseAmount * GameManager.FinalScienceBonus)).ToString("###,###");
+        sii_text.text = "+ " + ((long)(GameManager.scienceIncreaseAmount * GameManager.FinalScienceBonus * GameManager.SSclickBonus)).ToString("###,###");
 
         StartCoroutine(ScienceIncreaseInfo_Fade());
         /*

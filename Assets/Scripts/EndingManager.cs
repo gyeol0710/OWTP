@@ -43,7 +43,7 @@ public class EndingManager : MonoBehaviour
         {
             Black_sr.color += new Color32(0, 0, 0, 2);
             i++;
-            if (i == 35)
+            if (i == 40)
             {
                 yield break;
             }    

@@ -18,6 +18,7 @@ public class LogoManager : MonoBehaviour
             SaveManager.Load<SaveData>(ref saveData, path);
 
             GameManager.RePlay = saveData.RePlay;
+            MessageManager.etcMessage[20] = saveData.etcMessage[20];
         }
 
         StartCoroutine(Logo_Fade());
@@ -40,6 +41,10 @@ public class LogoManager : MonoBehaviour
                 if (GameManager.RePlay == false)
                 {
                     LoadingManager.LoadScene("Intro");
+                }
+                else if (MessageManager.etcMessage[20] == true)
+                {
+                    LoadingManager.LoadScene("Ending");
                 }
                 else
                 {

@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class AdManager : MonoBehaviour
 {
-    private string rewardTestID = "ca-app-pub-3940256099942544/5224354917";
+    private string rewardID = "ca-app-pub-8495930648368888/4941976587";
     // 테스트 광고 ID, 지금은 테스트를 사용
 
     private RewardedAd rewardedAd;
@@ -18,7 +18,7 @@ public class AdManager : MonoBehaviour
     void Start()
     {
         MobileAds.Initialize(initStatus => { });
-        rewardedAd = new RewardedAd(rewardTestID);
+        rewardedAd = new RewardedAd(rewardID);
         AdRequest request = new AdRequest.Builder().Build();
         rewardedAd.LoadAd(request); // 광고 로드
 
@@ -42,7 +42,15 @@ public class AdManager : MonoBehaviour
     {
         if (GoldRobotManager.ticket_AD > 0 && GameManager.Ading == false)
         {
-            UserChoseToWatchAd();
+            if(GameManager.InAppPur_AdSkip == true)
+            {
+                rewarded = true; // 변수 true
+                GoldRobotManager.ticket_AD--;
+            }
+            else
+            {
+                UserChoseToWatchAd();
+            }
         }
     }
 
@@ -56,7 +64,7 @@ public class AdManager : MonoBehaviour
 
     public void CreateAndLoadRewardedAd() // 광고 다시 로드하는 함수
     {
-        rewardedAd = new RewardedAd(rewardTestID);
+        rewardedAd = new RewardedAd(rewardID);
 
         rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
         rewardedAd.OnAdClosed += HandleRewardedAdClosed;

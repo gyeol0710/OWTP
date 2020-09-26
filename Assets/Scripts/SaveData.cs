@@ -41,6 +41,11 @@ public class SaveData
     public int remain_time_AD;
     public int ticket_AD;
 
+    public bool InAppPur_AdSkip;
+    public bool InAppPur_AutoClick;
+    public bool InAppPur_DoubleBoost;
+    public bool InAppPur_DecupleBoost;
+
     /* TechManager 관련 */
     public bool Tech1Complete;
     public bool Tech2Complete;

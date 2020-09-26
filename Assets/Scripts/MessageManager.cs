@@ -719,9 +719,9 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("부터 크고 잔인한 싸움으로 번지게 되었습니다. 물론 수렵이"));
                 yield return StartCoroutine(GoMessage("나 사냥도 이전과는 비교될 정도로 편해졌습니다."));
                 yield return StartCoroutine(GoMessage("인간들은 철을 더 단단하게 만들 수 있는 연구를 오랜 기간 진"));
-                yield return StartCoroutine(GoMessage("행해 왔습니다. 우리가 거기에 힘을 좀 더 보태고, 산업으로 성"));
-                yield return StartCoroutine(GoMessage("장시키면 자원을 통해 금화를 생산할 수 있는 더 튼튼한 기계"));
-                yield return StartCoroutine(GoMessage("장치를 제작할 수 있을 것입니다."));
+                yield return StartCoroutine(GoMessage("행해 왔습니다. 우리가 거기에 힘을 좀 더 보태고, 산업으로"));
+                yield return StartCoroutine(GoMessage("성장시키면 자원을 통해 금화를 생산할 수 있는 더 튼튼한"));
+                yield return StartCoroutine(GoMessage("기계 장치를 제작할 수 있을 것입니다."));
                 yield return StartCoroutine(GoMessage("인간들의 연구발전과정은 느리지만, 학습은 꽤 빠른 것으로"));
                 yield return StartCoroutine(GoMessage("보입니다. 정말 이용하기 좋군요."));
                 yield return StartCoroutine(GoLine());
@@ -787,8 +787,8 @@ public class MessageManager : MonoBehaviour
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[탄도학]을 발명했습니다."));
                 yield return StartCoroutine(GoMessage("모든 물질은 다양한 힘에 간섭을 받게 되어있어요. 물건을 던"));
-                yield return StartCoroutine(GoMessage("지고 주고받고, 떨어뜨리고 나는 것. 이 모든 것에는 힘이 작용"));
-                yield return StartCoroutine(GoMessage("합니다."));
+                yield return StartCoroutine(GoMessage("지고 주고받고, 떨어뜨리고 나는 것. 이 모든 것에는 힘이"));
+                yield return StartCoroutine(GoMessage("작용합니다."));
                 yield return StartCoroutine(GoMessage("이 행성의 물리 값을 계산해 놓으면 언젠가 고향으로 돌아갈"));
                 yield return StartCoroutine(GoMessage("때, 오류 없이 날아갈 수 있을 겁니다."));
                 yield return StartCoroutine(GoLine());
@@ -813,9 +813,9 @@ public class MessageManager : MonoBehaviour
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[소리]를 발명했습니다."));
-                yield return StartCoroutine(GoMessage("소리는 이 행성에 있는 많은 동물들에 아주 중요한 감각입니"));
-                yield return StartCoroutine(GoMessage("다. 특히 심해에 사는 동식물들은 촉각과 함께 소리를 통해 생"));
-                yield return StartCoroutine(GoMessage("존을 결정 짓습니다."));
+                yield return StartCoroutine(GoMessage("소리는 이 행성에 있는 많은 동물들에게 아주 중요한 감각입"));
+                yield return StartCoroutine(GoMessage("니다. 특히 심해에 사는 동식물들은 촉각과 함께 소리를 통해"));
+                yield return StartCoroutine(GoMessage("생존을 결정 짓습니다."));
                 yield return StartCoroutine(GoMessage("대부분의 인간에게는 청각보다는 시각이 더 중요합니다. 이번"));
                 yield return StartCoroutine(GoMessage("발명을 통해서 소리의 진동을 시각적으로 보여줄 수 있게 되"));
                 yield return StartCoroutine(GoMessage("었습니다."));
@@ -846,9 +846,9 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("밤에도 낮에 하는 것처럼 일할 수 있다는 이야기입니다."));
                 yield return StartCoroutine(GoMessage("하지만 계속해서 일을 시키면 안 됩니다."));
                 yield return StartCoroutine(GoMessage("일정 시간 이상 계속 일을 하게 되면 어느 순간부터 효율이 급"));
-                yield return StartCoroutine(GoMessage("격하게 떨어집니다. 인간이라는 생물 연료의 한계입니다. 그러"));
-                yield return StartCoroutine(GoMessage("나 거기까지는 생각 못 하고 일을 시키는 인간들이 많을 것 같"));
-                yield return StartCoroutine(GoMessage("군요..."));
+                yield return StartCoroutine(GoMessage("격하게 떨어집니다. 인간이라는 생물 연료의 한계입니다."));
+                yield return StartCoroutine(GoMessage("그러나 거기까지는 생각 못 하고 일을 시키는 인간들이 많을"));
+                yield return StartCoroutine(GoMessage("것 같군요..."));
                 yield return StartCoroutine(GoLine());
                 techMessage[20] = true;
             }
@@ -856,13 +856,13 @@ public class MessageManager : MonoBehaviour
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[무선통신]을 발명했습니다."));
-                yield return StartCoroutine(GoMessage("무선통신을 통해 이제는 선이 없어서 의사소통을 나눌 수 있"));
+                yield return StartCoroutine(GoMessage("무선통신을 통해 이제는 선이 없어도 의사소통을 나눌 수 있"));
                 yield return StartCoroutine(GoMessage("습니다. 의사소통에서는 공간적인 제약을 완전히 뛰어넘은 것"));
                 yield return StartCoroutine(GoMessage("입니다."));
-                yield return StartCoroutine(GoMessage("실제 거리로는 단숨에 걸어갈 수 없는 거리임에도 불구하고"));
-                yield return StartCoroutine(GoMessage("대화를 나누는 것이 가능합니다."));
+                yield return StartCoroutine(GoMessage("실제로는 단숨에 걸어갈 수 없는 거리임에도 불구하고 대화를"));
+                yield return StartCoroutine(GoMessage("나누는 것이 가능합니다."));
                 yield return StartCoroutine(GoMessage("보이지 않는다고 해서 없는 것은 아닙니다. 저에게 충분한 연"));
-                yield return StartCoroutine(GoMessage("구력만 주신다면 보이지 않는 걸 증명해낼 수 있죠. 그게 제"));
+                yield return StartCoroutine(GoMessage("구력만 주신다면 보이지 않는 걸 증명 해낼 수 있죠. 그게 제"));
                 yield return StartCoroutine(GoMessage("일이니까요."));
                 yield return StartCoroutine(GoLine());
                 techMessage[21] = true;
@@ -986,10 +986,10 @@ public class MessageManager : MonoBehaviour
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[4기통엔진]을 발명했습니다."));
                 yield return StartCoroutine(GoMessage("경제성이 장착된 엔진입니다. 산업의 발전은 이제 속도에 달"));
-                yield return StartCoroutine(GoMessage("렸습니다. 인간들이 학습속도는 꽤 빨라졌습니다. 우리가 발명"));
+                yield return StartCoroutine(GoMessage("렸습니다. 인간들의 학습속도는 꽤 빨라졌습니다. 우리가 발명"));
                 yield return StartCoroutine(GoMessage("하기도 전에 다양한 제품과 연구를 진행하기도 합니다. 현재"));
-                yield return StartCoroutine(GoMessage("까지는 좋은 징조라고 보입니다. 아직 저와 경쟁할 정도는 되"));
-                yield return StartCoroutine(GoMessage("지 않습니다."));
+                yield return StartCoroutine(GoMessage("까지는 좋은 징조라고 보입니다만, 아직 저와 경쟁할 정도는"));
+                yield return StartCoroutine(GoMessage("되지 않습니다."));
                 yield return StartCoroutine(GoMessage("전쟁으로 인해서 많은 인간이 죽는 와중에도 희망의 끈을 놓"));
                 yield return StartCoroutine(GoMessage("지 않고 다양한 연구를 하는 모습이 인상적이군요."));
                 yield return StartCoroutine(GoLine());
@@ -1098,8 +1098,8 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("러나 잘 사용하기가 어렵습니다. 정교한 기술이 필요하고, 다"));
                 yield return StartCoroutine(GoMessage("른 자원들을 손상할 수 있는 위험을 내포합니다."));
                 yield return StartCoroutine(GoMessage("핵무기로써 사용할 수 있습니다. 아마 이것으로 전쟁은 종결"));
-                yield return StartCoroutine(GoMessage("될 것입니다. 인간이 계속 전쟁을 하게 된다면 우라늄의 약한"));
-                yield return StartCoroutine(GoMessage("인류 특성상 버티지 못할 것입니다. 핵 무기의 경험하고도 전"));
+                yield return StartCoroutine(GoMessage("될 것입니다. 인간이 계속 전쟁을 하게 된다면 우라늄에 약한"));
+                yield return StartCoroutine(GoMessage("인류 특성상 버티지 못할 것입니다. 핵 무기를 경험하고도 전"));
                 yield return StartCoroutine(GoMessage("쟁을 멈추지 않는다면 인류는 원시시대로 회귀할 수도 있습니"));
                 yield return StartCoroutine(GoMessage("다."));
                 yield return StartCoroutine(GoMessage("우리가 탈출할 때 적당한 양을 가져간다면 이 힘으로 탈출하"));
@@ -1116,8 +1116,8 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("업이 부흥할 것입니다."));
                 yield return StartCoroutine(GoMessage("전쟁시대에 많은 제품을 팔 수 있을 것으로 전망했지만, 인적"));
                 yield return StartCoroutine(GoMessage("자원과 다른 수많은 자원이 훼손되는 것은 예상하지 못했습니"));
-                yield return StartCoroutine(GoMessage("다. 결과적으로는 손해였습니다. 자연에 존재하는 자원을 사용"));
-                yield return StartCoroutine(GoMessage("해서 인적 자원을 소모하는 형태가 반복되었습니다."));
+                yield return StartCoroutine(GoMessage("다. 결과적으로는 손해였습니다. 자연에 존재하는 자원을"));
+                yield return StartCoroutine(GoMessage("사용해서 인적 자원을 소모하는 형태가 반복되었습니다."));
                 yield return StartCoroutine(GoMessage("전쟁시대에는 데이터로 확인할 수 있는 변수도 예측하기 어려"));
                 yield return StartCoroutine(GoMessage("웠기 때문에 계산에 많은 혼선이 있었습니다."));
                 yield return StartCoroutine(GoMessage("불확실한 수많은 데이터를 다루는 건 이제 어려워요. 이제는"));
@@ -1374,7 +1374,7 @@ public class MessageManager : MonoBehaviour
             {
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[전송]을 발명했습니다."));
-                yield return StartCoroutine(GoMessage("이 연구를 완료할 때까지는 여러 시행착오이 있었습니다. 원"));
+                yield return StartCoroutine(GoMessage("이 연구를 완료할 때까지는 여러 시행착오가 있었습니다. 원"));
                 yield return StartCoroutine(GoMessage("활하게 공간에 상관없이 원하는 방식으로 정보를 전달하려면"));
                 yield return StartCoroutine(GoMessage("지상에도 신호를 전달해 줄 장치도 필요하고 인공위성을 통해"));
                 yield return StartCoroutine(GoMessage("신호도 받아야 합니다."));

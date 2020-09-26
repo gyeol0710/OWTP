@@ -60,7 +60,7 @@ public class GoldRobotManager : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject() && GameManager.robotLevel > 50)
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject() && GameManager.robotLevel > 20)
         {
             AD_Panel.SetActive(true);
         }
@@ -198,7 +198,7 @@ public class GoldRobotManager : MonoBehaviour
     {
         while (true)
         {
-            if(GameManager.robotLevel > 50)
+            if(GameManager.robotLevel > 20)
             {
                 sr.enabled = true;
                 bc2d.enabled = true;

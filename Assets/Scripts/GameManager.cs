@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
     static public long money; // 돈
     public long ConvertedMoney; // 변환된 돈
     public long DisplayedMoney; // 표시되는 돈
-    public long moneyIncreaseAmount; // 클릭 시 돈 증가량
+    static public long moneyIncreaseAmount; // 클릭 시 돈 증가량
     static public long science; // 연구력
     public long ConvertedScience; // 변환된 연구력
     static public long scienceIncreaseAmount; // 클릭 시 연구력 증가량
@@ -280,13 +280,21 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer Robot07;
     public SpriteRenderer Robot08;
     //-----------------------------------------
-    int click_gauge;
+    static public int click_gauge;
     //-----------------------------------------
     public Text PerGoldInfo;
     public Text PerScienceInfo;
     public Text GoldMultipleInfo;
     public Text ScienceMultipleInfo;
     //--------------------------------
+
+
+    /*인앱결제 변수*/
+    static public bool InAppPur_AdSkip;
+    static public bool InAppPur_AutoClick;
+    static public bool InAppPur_DoubleBoost;
+    static public bool InAppPur_DecupleBoost;
+
 
     void Awake()
     {
@@ -404,6 +412,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ClickGaugeControll());
         StartCoroutine(SSclick());
         StartCoroutine(Cockpit2_Event());
+        StartCoroutine(AutoClcik());
         
         RePlay = true;
     }
@@ -488,6 +497,10 @@ public class GameManager : MonoBehaviour
         saveData.remain_time_AD = GoldRobotManager.remain_time_AD;
         saveData.ticket_AD = GoldRobotManager.ticket_AD;
 
+        saveData.InAppPur_AdSkip = InAppPur_AdSkip;
+        saveData.InAppPur_AutoClick = InAppPur_AutoClick;
+        saveData.InAppPur_DoubleBoost = InAppPur_DoubleBoost;
+        saveData.InAppPur_DecupleBoost = InAppPur_DecupleBoost;
 
         /* TechManager 관련 Save */
         saveData.Tech1Complete = TechManager.Tech1Complete;
@@ -983,6 +996,10 @@ public class GameManager : MonoBehaviour
         GoldRobotManager.remain_time_AD = saveData.remain_time_AD;
         GoldRobotManager.ticket_AD = saveData.ticket_AD;
 
+        InAppPur_AdSkip = saveData.InAppPur_AdSkip;
+        InAppPur_AutoClick = saveData.InAppPur_AutoClick;
+        InAppPur_DoubleBoost = saveData.InAppPur_DoubleBoost;
+        InAppPur_DecupleBoost = saveData.InAppPur_DecupleBoost;
 
         /* TechManager 관련 Load */
         TechManager.Tech1Complete = saveData.Tech1Complete;
@@ -2802,6 +2819,26 @@ public class GameManager : MonoBehaviour
                 click_gauge--;
             }
 
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    static public IEnumerator AutoClcik()
+    {
+        if (InAppPur_AutoClick == false)
+        {
+            yield break;
+        }
+
+        while(true)
+        {
+            if (eventOn == false)
+            {
+                ClickCount++;
+                click_gauge = 23;
+                money += (long)(moneyIncreaseAmount * FinalGoldBonus * SSclickBonus);
+                science += (long)(scienceIncreaseAmount * FinalScienceBonus * SSclickBonus);
+            }
             yield return new WaitForSeconds(0.1f);
         }
     }
