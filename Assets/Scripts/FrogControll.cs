@@ -51,6 +51,7 @@ public class FrogControll : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject())
         {
             Frog_Effect.Play();
+            GameManager.ClickCount_Frog++;
         }
     }
 

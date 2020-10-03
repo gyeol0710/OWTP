@@ -4,7 +4,6 @@ using static System.Math;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Data.Common;
 
 public class ProductManager : MonoBehaviour
 {
@@ -705,7 +704,8 @@ public class ProductManager : MonoBehaviour
         ScrollBar_WAR.GetComponent<Scrollbar>().value = 1;
         ScrollBar_ELEC.GetComponent<Scrollbar>().value = 1;
         ScrollBar_MODERN.GetComponent<Scrollbar>().value = 1;
-
+        Debug.Log(TechManager.Tech1Complete);
+        
         if (GameManager.RePlay == false)
         {
             Pd1 = pd1_뉴커멘엔진_업글비용; // 2번 제품 없음
@@ -870,6 +870,80 @@ public class ProductManager : MonoBehaviour
     }
     void Start()
     {
+        if (TechManager.Tech1Complete == false)
+        {
+            Pd1 = pd1_뉴커멘엔진_업글비용; // 2번 제품 없음
+            Pd3 = pd3_나는북_업글비용;
+            Pd4 = pd4_뮬방적기_업글비용;
+            Pd5 = pd5_실린더_업글비용;
+            Pd6 = pd6_역직기_업글비용;
+            Pd7 = pd7_기구_업글비용;
+            Pd8 = pd8_개구리전지_업글비용;
+            Pd9 = pd9_볼타전지_업글비용;
+            Pd10 = pd10_가스등_업글비용;
+            Pd11 = pd11_강철_업글비용;
+            Pd12 = pd12_냉장고_업글비용;
+            Pd13 = pd13_자석_업글비용;
+            Pd14 = pd14_내연기관_업글비용;
+            Pd15 = pd15_전신줄_업글비용; // 16번 제품 없음
+            Pd17 = pd17_다이너마이트_업글비용;
+            Pd18 = pd18_포노토그라프_업글비용;
+            Pd19 = pd19_전화기_업글비용;
+            Pd20 = pd20_백열등_업글비용;
+            Pd21 = pd21_무선전신_업글비용;
+            Pd22 = pd22_비행선_업글비용;
+            Pd23 = pd23_총신크랭크_업글비용;
+            Pd24 = pd24_라디오_업글비용;
+            Pd25 = pd25_룰러_업글비용;
+            Pd26 = pd26_에어컨_업글비용;
+            Pd27 = pd27_모스부호기_업글비용;
+            Pd28 = pd28_운송폭탄_업글비용;
+            Pd29 = pd29_자동차_업글비용;
+            Pd30 = pd30_독가스_업글비용;
+            Pd31 = pd31_에니그마_업글비용;
+            Pd32 = pd32_무한궤도_업글비용;
+            Pd33 = pd33_냉동식품_업글비용;
+            Pd34 = pd34_페니실린_업글비용;
+            Pd35 = pd35_터보제트_업글비용;
+            Pd36 = pd36_스타킹_업글비용;
+            Pd37 = pd37_우라늄_업글비용;
+            Pd38 = pd38_컬러TV_업글비용;
+            Pd39 = pd39_전자레인지_업글비용;
+            Pd40 = pd40_트랜지스터플러스_업글비용;
+            Pd41 = pd41_레이저포인트_업글비용;
+            Pd42 = pd42_아스피린_업글비용;
+            Pd43 = pd43_하드드라이브_업글비용;
+            Pd44 = pd44_카세트_업글비용;
+            Pd45 = pd45_LED_업글비용;
+            Pd46 = pd46_다이제팜_업글비용;
+            Pd47 = pd47_RAM_업글비용;
+            Pd48 = pd48_계산기_업글비용;
+            Pd49 = pd49_CPU_업글비용; // 50번 제품 없음
+            Pd51 = pd51_LCD_업글비용;
+            Pd52 = pd52_랜선_업글비용;
+            Pd53 = pd53_MRI_업글비용;
+            Pd54 = pd54_휴대폰_업글비용;
+            Pd55 = pd55_휴대용게임기_업글비용;
+            Pd56 = pd56_JAVA_업글비용; // 57번 제품 없음
+            Pd58 = pd58_WIFI_업글비용;
+            Pd59 = pd59_GPS_업글비용;
+            Pd60 = pd60_대왕감자_업글비용;
+            Pd61 = pd61_인터넷_업글비용;
+            Pd62 = pd62_시험관_업글비용;
+            Pd63 = pd63_GPU_업글비용;
+            Pd64 = pd64_비트코인_업글비용;
+            Pd65 = pd65_딥러닝_업글비용;
+            Pd66 = pd66_10G_업글비용;
+            Pd67 = pd67_VR_업글비용;
+            Pd68 = pd68_AR_업글비용;
+            Pd69 = pd69_유전자칩_업글비용;
+            Pd70 = pd70_차원관문_업글비용;
+            PdS01 = pdS01_영화개구리_구매비용;
+            PdS02 = pdS02_음식보급기_구매비용;
+            PdS03 = pdS03_컴퓨터_구매비용;
+            PdS04 = pdS04_황제감자_구매비용;
+        }
+
         if (TechManager.age_modern == true)
         {
             ProdPanel_MODERN.SetActive(true);
@@ -2528,12 +2602,12 @@ public class ProductManager : MonoBehaviour
             Level.text = Prod_70_Level.ToString();
             ProdMoneyText.text = "";
             TotalProdMoneyText.text = "";
+            UpPriceText.text = UnitTransform(Pd70);
             if (Prod_70_Level > 0)
             {
                 UpPriceText.text = paneltext4;
                 UpgradeProdButton.interactable = false;
             }
-            UpPriceText.text = UnitTransform(Pd70);
             PanelNum = 70;
             ProdUpPanel.SetActive(true);
             infoPanel_icon.GetComponent<Image>().sprite = infoPanel_icon_Gold;

@@ -14,12 +14,16 @@ public class SaveData
     public float SpaceshipGoldBonus;
     public float CashBonus;
     public float ClickBonus;
+    public float GameClearBonus;
     public float SpaceshipScienceBonus;
     public ulong ClickCount;
     public bool eventOn;
     public int ClickCount_Fuel2;
     public int ClickCount_Cockpit2;
     public int ClickCount_Ending;
+    public int ClickCount_Joke;
+    public int ClickCount_AD;
+    public int ClickCount_Frog;
     public bool Story_Fuel2_Complete;
     public bool Story_Engine2_Complete;
     public bool Story_Cockpit2_Complete;
@@ -45,6 +49,12 @@ public class SaveData
     public bool InAppPur_AutoClick;
     public bool InAppPur_DoubleBoost;
     public bool InAppPur_DecupleBoost;
+
+    public long PlayTime;
+    public long ThisGamePlayTime;
+    public long GameOn;
+
+    public int HowManyClear;
 
     /* TechManager 관련 */
     public bool Tech1Complete;

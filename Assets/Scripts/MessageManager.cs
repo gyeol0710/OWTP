@@ -90,7 +90,7 @@ public class MessageManager : MonoBehaviour
         StartCoroutine(StartTime());
 
 
-        JokeMessage[0,0] = "지속적으로 게임 도중 탈주하는 플레이어는 제제를 받습니다.";
+        JokeMessage[0,0] = "지속적으로 게임 도중 탈주하는 플레이어는 제재를 받습니다.";
         JokeMessage[0,1] = "아 이 게임이 아니군요 죄송합니다.";
         JokeMessage[1,0] = "공룡 장난감은 석유로 만들죠.";
         JokeMessage[1,1] = "그런데 석유는 이전 이 행성에 있었던 공룡들이 죽어서 만든";
@@ -175,7 +175,7 @@ public class MessageManager : MonoBehaviour
             yield return StartCoroutine(GoMessage("........."));
             yield return StartCoroutine(GoMessage(".........로그 불러오는 중........."));
             yield return StartCoroutine(GoMessage("........."));
-            yield return StartCoroutine(GoMessage("당신은 우주 진미인 \"최상우주 감자\"를 고향에 계신 부모님께"));
+            yield return StartCoroutine(GoMessage("당신은 우주 진미인 \"최상 우주감자\"를 고향에 계신 부모님께"));
             yield return StartCoroutine(GoMessage("드리기 위해 항해하던 중이었군요."));
             yield return StartCoroutine(GoMessage("우주선이 해적단을 만나 습격을 받았고 우주선의 많은 부분이 "));
             yield return StartCoroutine(GoMessage("손상되어서 가까운 이 행성에 불시착했습니다."));
@@ -1065,7 +1065,7 @@ public class MessageManager : MonoBehaviour
                 TechMessageCommonFN();
                 yield return StartCoroutine(GoMessage("[나일론]을 발명했습니다."));
                 yield return StartCoroutine(GoMessage("질긴 소재입니다. 이것으로 옷을 만들 수 있습니다. 군용으로"));
-                yield return StartCoroutine(GoMessage("서 적합해 보이는 소재입니다."));
+                yield return StartCoroutine(GoMessage("적합해 보이는 소재입니다."));
                 yield return StartCoroutine(GoMessage("다양한 소재를 개발하면 산업에는 물론 우주선에도 사용이 가"));
                 yield return StartCoroutine(GoMessage("능합니다. 나일론이라는 소재는 우주선에 사용하기에는 좋은"));
                 yield return StartCoroutine(GoMessage("소재는 아닙니다. 그러나 산업에는 많은 도움이 될 것입니다."));
@@ -1656,6 +1656,11 @@ public class MessageManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
             gotechmsg = false;
+
+            if (SpaceshipManager.SScomplete[16] == true)
+            {
+                yield break;
+            }
         }
     }
 
@@ -1976,6 +1981,9 @@ public class MessageManager : MonoBehaviour
                 yield return StartCoroutine(GoMessage("게임을 플레이해 주셔서 감사합니다."));
                 yield return StartCoroutine(GoLine());
                 etcMessage[20] = true;
+                GameManager.GameClear = true;
+                GameManager.Save();
+                AchievementManager.Achi();
                 LoadingManager.LoadScene("Ending");
             }
 
@@ -2091,6 +2099,7 @@ public class MessageManager : MonoBehaviour
     IEnumerator JokeManager()
     {
         gojokemsg = true;
+        GameManager.ClickCount_Joke++;
         int i = Random.Range(0, 17);
         int j;
         int k = 5;

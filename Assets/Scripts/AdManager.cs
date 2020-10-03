@@ -32,6 +32,7 @@ public class AdManager : MonoBehaviour
     {
         if (rewarded)
         {
+            GameManager.ClickCount_AD++;
             GameManager.AdBonus = 4f;
             StartCoroutine(GameManager.AdOn());
             rewarded = false;
