@@ -15,6 +15,11 @@ public class AdManager : MonoBehaviour
 
     private bool rewarded = false;
 
+    private bool notReadyAD;
+
+    public Image NRAD_img;
+    public Text NRAD_text;
+
     void Start()
     {
         MobileAds.Initialize(initStatus => { });
@@ -61,6 +66,10 @@ public class AdManager : MonoBehaviour
         {
             rewardedAd.Show(); // 광고 보여주기
         }
+        else
+        {
+            NotReadyAD(); // 광고가 준비되지 않았을 때
+        }
     }
 
     public void CreateAndLoadRewardedAd() // 광고 다시 로드하는 함수
@@ -83,5 +92,31 @@ public class AdManager : MonoBehaviour
     {  // 광고를 다 봤을 때
         rewarded = true; // 변수 true
         GoldRobotManager.ticket_AD--;
+    }
+
+    void NotReadyAD()
+    {
+        notReadyAD = true;
+        StartCoroutine(NRAD_anim());
+    }
+
+    IEnumerator NRAD_anim()
+    {
+        yield return new WaitForSeconds(0.03f);
+
+        notReadyAD = false;
+
+        while (true)
+        {
+            if(notReadyAD == true)
+            {
+                yield break;
+            }
+
+            NRAD_img.color += new Color32(0, 0, 0, 10);
+            NRAD_text.color += new Color32(0, 0, 0, 10);
+
+            yield return new WaitForSeconds(0.02f);
+        }
     }
 }

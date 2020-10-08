@@ -1158,6 +1158,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_1_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd1);
             PanelNum = 1;
             ProdUpPanel.SetActive(true);
@@ -1178,6 +1182,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_3_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd3);
             PanelNum = 3;
             ProdUpPanel.SetActive(true);
@@ -1197,6 +1205,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_4_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_4_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd4);
             PanelNum = 4;
@@ -1219,6 +1231,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_5_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd5);
             PanelNum = 5;
             ProdUpPanel.SetActive(true);
@@ -1238,6 +1254,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_6_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_6_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd6);
             PanelNum = 6;
@@ -1259,6 +1279,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_7_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd7);
             PanelNum = 7;
             ProdUpPanel.SetActive(true);
@@ -1278,6 +1302,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_8_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_8_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd8);
             PanelNum = 8;
@@ -1299,6 +1327,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_9_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd9);
             PanelNum = 9;
             ProdUpPanel.SetActive(true);
@@ -1318,6 +1350,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_10_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_10_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd10);
             PanelNum = 10;
@@ -1339,6 +1375,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_11_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd11);
             PanelNum = 11;
             ProdUpPanel.SetActive(true);
@@ -1358,6 +1398,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_12_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_12_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd12);
             PanelNum = 12;
@@ -1379,6 +1423,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_13_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd13);
             PanelNum = 13;
             ProdUpPanel.SetActive(true);
@@ -1398,6 +1446,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_14_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_14_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd14);
             PanelNum = 14;
@@ -1419,6 +1471,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_15_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd15);
             PanelNum = 15;
             ProdUpPanel.SetActive(true);
@@ -1438,6 +1494,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_17_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_17_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd17);
             PanelNum = 17;
@@ -1459,6 +1519,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_18_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd18);
             PanelNum = 18;
             ProdUpPanel.SetActive(true);
@@ -1478,6 +1542,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_19_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_19_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd19);
             PanelNum = 19;
@@ -1499,6 +1567,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_20_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd20);
             PanelNum = 20;
             ProdUpPanel.SetActive(true);
@@ -1518,6 +1590,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_21_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_21_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd21);
             PanelNum = 21;
@@ -1539,6 +1615,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_22_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd22);
             PanelNum = 22;
             ProdUpPanel.SetActive(true);
@@ -1558,6 +1638,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_23_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_23_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd23);
             PanelNum = 23;
@@ -1579,6 +1663,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_24_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd24);
             PanelNum = 24;
             ProdUpPanel.SetActive(true);
@@ -1598,6 +1686,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_25_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_25_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd25);
             PanelNum = 25;
@@ -1619,6 +1711,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_26_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd26);
             PanelNum = 26;
             ProdUpPanel.SetActive(true);
@@ -1638,6 +1734,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_27_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_27_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd27);
             PanelNum = 27;
@@ -1659,6 +1759,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_28_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd28);
             PanelNum = 28;
             ProdUpPanel.SetActive(true);
@@ -1678,6 +1782,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_29_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_29_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd29);
             PanelNum = 29;
@@ -1699,6 +1807,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_30_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd30);
             PanelNum = 30;
             ProdUpPanel.SetActive(true);
@@ -1718,6 +1830,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_31_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_31_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd31);
             PanelNum = 31;
@@ -1739,6 +1855,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_32_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd32);
             PanelNum = 32;
             ProdUpPanel.SetActive(true);
@@ -1758,6 +1878,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_33_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_33_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd33);
             PanelNum = 33;
@@ -1779,6 +1903,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_34_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd34);
             PanelNum = 34;
             ProdUpPanel.SetActive(true);
@@ -1798,6 +1926,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_35_Level == 0)
             {
                 TotalProdMoneyText.text = paneltext3;
+            }
+            if (Prod_35_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
             }
             UpPriceText.text = UnitTransform(Pd35);
             PanelNum = 35;
@@ -1819,6 +1951,10 @@ public class ProductManager : MonoBehaviour
             {
                 TotalProdMoneyText.text = paneltext3;
             }
+            if (Prod_36_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             UpPriceText.text = UnitTransform(Pd36);
             PanelNum = 36;
             ProdUpPanel.SetActive(true);
@@ -1836,6 +1972,10 @@ public class ProductManager : MonoBehaviour
             if (Prod_37_Level == 0)
             {
                 TotalProdMoneyText_U.text = paneltext3;
+            }
+            if (Prod_37_Level >= 99)
+            {
+                TotalProdMoneyText_U.text = paneltext4;
             }
             UpPriceText_U.text = UnitTransform(Pd37);
             PanelNum = 37;
@@ -2047,7 +2187,7 @@ public class ProductManager : MonoBehaviour
         if (TechManager.Tech46Complete)
         {
             title.text = "다이제팜";
-            exp.text = "정신적인 장애나 경련 발작등을 치료할 수 있는 약품입니다. 인간의 건강을 늘려줍니다.";
+            exp.text = "정신적인 장애나 경련 발작등을 치료할 수 있는 약품입니다. 인간의 건강을 증진시킵니다";
             Icon.GetComponent<Image>().sprite = ProdIcon46;
             Level.text = Prod_46_Level.ToString();
             ProdMoneyText.text = UnitTransform(perOneAutoMoney46) + paneltext1;
@@ -2736,7 +2876,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd1;
             Prod_1_Level++;
             Pd1 = (long)((float)Pd1 * UpTimes);
-
+            if (Prod_1_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_1_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney1 * Prod_1_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd1);
@@ -2747,7 +2890,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd3;
             Prod_3_Level++;
             Pd3 = (long)((float)Pd3 * UpTimes);
-
+            if (Prod_3_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_3_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney3 * Prod_3_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd3);
@@ -2758,7 +2904,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd4;
             Prod_4_Level++;
             Pd4 = (long)((float)Pd4 * UpTimes);
-
+            if (Prod_4_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_4_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney4 * Prod_4_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd4);
@@ -2769,7 +2918,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd5;
             Prod_5_Level++;
             Pd5 = (long)((float)Pd5 * UpTimes);
-
+            if (Prod_5_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_5_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience5 * Prod_5_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd5);
@@ -2780,7 +2932,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd6;
             Prod_6_Level++;
             Pd6 = (long)((float)Pd6 * UpTimes);
-
+            if (Prod_6_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_6_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience6 * Prod_6_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd6);
@@ -2792,7 +2947,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd7;
             Prod_7_Level++;
             Pd7 = (long)((float)Pd7 * UpTimes);
-
+            if (Prod_7_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_7_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney7 * Prod_7_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd7);
@@ -2804,7 +2962,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd8;
             Prod_8_Level++;
             Pd8 = (long)((float)Pd8 * UpTimes);
-
+            if (Prod_8_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_8_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney8 * Prod_8_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd8);
@@ -2815,7 +2976,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd9;
             Prod_9_Level++;
             Pd9 = (long)((float)Pd9 * UpTimes);
-
+            if (Prod_9_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_9_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience9 * Prod_9_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd9);
@@ -2826,7 +2990,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd10;
             Prod_10_Level++;
             Pd10 = (long)((float)Pd10 * UpTimes);
-
+            if (Prod_10_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_10_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney10 * Prod_10_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd10);
@@ -2837,7 +3004,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd11;
             Prod_11_Level++;
             Pd11 = (long)((float)Pd11 * UpTimes);
-
+            if (Prod_11_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_11_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney11 * Prod_11_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd11);
@@ -2848,7 +3018,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd12;
             Prod_12_Level++;
             Pd12 = (long)((float)Pd12 * UpTimes);
-
+            if (Prod_12_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_12_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney12 * Prod_12_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd12);
@@ -2859,7 +3032,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd13;
             Prod_13_Level++;
             Pd13 = (long)((float)Pd13 * UpTimes);
-
+            if (Prod_13_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_13_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience13 * Prod_13_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd13);
@@ -2870,7 +3046,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd14;
             Prod_14_Level++;
             Pd14 = (long)((float)Pd14 * UpTimes);
-
+            if (Prod_14_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_14_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney14 * Prod_14_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd14);
@@ -2881,7 +3060,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd15;
             Prod_15_Level++;
             Pd15 = (long)((float)Pd15 * UpTimes);
-
+            if (Prod_15_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_15_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience15 * Prod_15_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd15);
@@ -2892,7 +3074,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd17;
             Prod_17_Level++;
             Pd17 = (long)((float)Pd17 * UpTimes);
-
+            if (Prod_17_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_17_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney17 * Prod_17_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd17);
@@ -2903,7 +3088,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd18;
             Prod_18_Level++;
             Pd18 = (long)((float)Pd18 * UpTimes);
-
+            if (Prod_18_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_18_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience18 * Prod_18_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd18);
@@ -2915,7 +3103,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd19;
             Prod_19_Level++;
             Pd19 = (long)((float)Pd19 * UpTimes);
-
+            if (Prod_19_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_19_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney19 * Prod_19_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd19);
@@ -2926,7 +3117,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd20;
             Prod_20_Level++;
             Pd20 = (long)((float)Pd20 * UpTimes);
-
+            if (Prod_20_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_20_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney20 * Prod_20_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd20);
@@ -2937,7 +3131,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd21;
             Prod_21_Level++;
             Pd21 = (long)((float)Pd21 * UpTimes);
-
+            if (Prod_21_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_21_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney21 * Prod_21_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd21);
@@ -2948,7 +3145,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd22;
             Prod_22_Level++;
             Pd22 = (long)((float)Pd22 * UpTimes);
-
+            if (Prod_22_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_22_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience22 * Prod_22_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd22);
@@ -2959,7 +3159,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd23;
             Prod_23_Level++;
             Pd23 = (long)((float)Pd23 * UpTimes);
-
+            if (Prod_23_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_23_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney23 * Prod_23_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd23);
@@ -2970,7 +3173,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd24;
             Prod_24_Level++;
             Pd24 = (long)((float)Pd24 * UpTimes);
-
+            if (Prod_24_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_24_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience24 * Prod_24_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd24);
@@ -2982,7 +3188,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd25;
             Prod_25_Level++;
             Pd25 = (long)((float)Pd25 * UpTimes);
-
+            if (Prod_25_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_25_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney25 * Prod_25_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd25);
@@ -2993,7 +3202,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd26;
             Prod_26_Level++;
             Pd26 = (long)((float)Pd26 * UpTimes);
-
+            if (Prod_26_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_26_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney26 * Prod_26_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd26);
@@ -3004,7 +3216,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd27;
             Prod_27_Level++;
             Pd27 = (long)((float)Pd27 * UpTimes);
-
+            if (Prod_27_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_27_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience27 * Prod_27_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd27);
@@ -3015,7 +3230,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd28;
             Prod_28_Level++;
             Pd28 = (long)((float)Pd28 * UpTimes);
-
+            if (Prod_28_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_28_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney28 * Prod_28_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd28);
@@ -3026,7 +3244,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd29;
             Prod_29_Level++;
             Pd29 = (long)((float)Pd29 * UpTimes);
-
+            if (Prod_29_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_29_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney29 * Prod_29_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd29);
@@ -3037,7 +3258,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd30;
             Prod_30_Level++;
             Pd30 = (long)((float)Pd30 * UpTimes);
-
+            if (Prod_30_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_30_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney30 * Prod_30_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd30);
@@ -3048,7 +3272,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd31;
             Prod_31_Level++;
             Pd31 = (long)((float)Pd31 * UpTimes);
-
+            if (Prod_31_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_31_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience31 * Prod_31_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd31);
@@ -3059,7 +3286,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd32;
             Prod_32_Level++;
             Pd32 = (long)((float)Pd32 * UpTimes);
-
+            if (Prod_32_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_32_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney32 * Prod_32_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd32);
@@ -3070,7 +3300,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd33;
             Prod_33_Level++;
             Pd33 = (long)((float)Pd33 * UpTimes);
-
+            if (Prod_33_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_33_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney33 * Prod_33_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd33);
@@ -3082,7 +3315,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd34;
             Prod_34_Level++;
             Pd34 = (long)((float)Pd34 * UpTimes);
-
+            if (Prod_34_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_34_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoScience34 * Prod_34_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd34);
@@ -3093,7 +3329,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd35;
             Prod_35_Level++;
             Pd35 = (long)((float)Pd35 * UpTimes);
-
+            if (Prod_35_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_35_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney35 * Prod_35_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd35);
@@ -3104,7 +3343,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd36;
             Prod_36_Level++;
             Pd36 = (long)((float)Pd36 * UpTimes);
-
+            if (Prod_36_Level >= 99)
+            {
+                TotalProdMoneyText.text = paneltext4;
+            }
             Level.text = Prod_36_Level.ToString();
             TotalProdMoneyText.text = UnitTransform(perOneAutoMoney36 * Prod_36_Level) + paneltext2;
             UpPriceText.text = UnitTransform(Pd36);
@@ -3115,7 +3357,10 @@ public class ProductManager : MonoBehaviour
             GameManager.money -= Pd37;
             Prod_37_Level++;
             Pd37 = (long)((float)Pd37 * UpTimes);
-
+            if (Prod_37_Level >= 99)
+            {
+                TotalProdMoneyText_U.text = paneltext4;
+            }
             Level_U.text = Prod_37_Level.ToString();
             TotalProdMoneyText_U.text = UnitTransform(perOneAutoMoney37 * Prod_37_Level) + " / " + UnitTransform(perOneAutoScience37 * Prod_37_Level) + paneltext2;
             UpPriceText_U.text = UnitTransform(Pd37);

@@ -49,6 +49,7 @@ public class SaveData
     public bool InAppPur_AutoClick;
     public bool InAppPur_DoubleBoost;
     public bool InAppPur_DecupleBoost;
+    public int InAppPur_Donate;
 
     public long PlayTime;
     public long ThisGamePlayTime;

@@ -146,6 +146,6 @@ public class InAppPurchase : MonoBehaviour, IStoreListener
 
 	void Donate()
 	{
-
+		GameManager.InAppPur_Donate++;
 	}
 }

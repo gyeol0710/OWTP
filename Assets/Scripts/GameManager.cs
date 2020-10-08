@@ -298,6 +298,7 @@ public class GameManager : MonoBehaviour
     static public bool InAppPur_AutoClick;
     static public bool InAppPur_DoubleBoost;
     static public bool InAppPur_DecupleBoost;
+    static public int InAppPur_Donate;
     //----------------------------------------
 
     static public long PlayTime;
@@ -435,11 +436,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(money >= 9000000000000000000 || money <= -8000000000000000000)
+        if(money >= 9000000000000000000 || money <= -1000000000000000000)
         {
             money = 9000000000000000000;
         }
-        if(science >= 9000000000000000000 || science <= -8000000000000000000)
+        if(science >= 9000000000000000000 || science <= -1000000000000000000)
         {
             science = 9000000000000000000;
         }
@@ -523,6 +524,7 @@ public class GameManager : MonoBehaviour
         saveData.InAppPur_AutoClick = InAppPur_AutoClick;
         saveData.InAppPur_DoubleBoost = InAppPur_DoubleBoost;
         saveData.InAppPur_DecupleBoost = InAppPur_DecupleBoost;
+        saveData.InAppPur_Donate = InAppPur_Donate;
 
         saveData.PlayTime = PlayTime;
         saveData.ThisGamePlayTime = ThisGamePlayTime;
@@ -1032,6 +1034,7 @@ public class GameManager : MonoBehaviour
         InAppPur_AutoClick = saveData.InAppPur_AutoClick;
         InAppPur_DoubleBoost = saveData.InAppPur_DoubleBoost;
         InAppPur_DecupleBoost = saveData.InAppPur_DecupleBoost;
+        InAppPur_Donate = saveData.InAppPur_Donate;
 
         PlayTime = saveData.PlayTime;
         ThisGamePlayTime = saveData.ThisGamePlayTime;
@@ -1603,6 +1606,12 @@ public class GameManager : MonoBehaviour
             }
 
             money -= 6553600000000;
+
+            if (money <= -1)
+            {
+                money = 0;
+            }
+
             yield return new WaitForSeconds(1.0f);
         }
     }
@@ -1961,6 +1970,10 @@ public class GameManager : MonoBehaviour
             robotInfo1.text = "클릭 시       획득\n: " + UnitTransform((long)(moneyIncreaseAmount * FinalGoldBonus * SSclickBonus));
             robotInfo2.text = "클릭 시       획득\n: " + UnitTransform((long)(scienceIncreaseAmount * FinalScienceBonus * SSclickBonus));
             robotInfo3.text = UnitTransform(robotLevelUpPrice);
+            if (robotLevel >= 411)
+            {
+                robotInfo3.text = "최대 레벨";
+            }
 
             yield return new WaitForSeconds(0.1f);
         }
@@ -2774,8 +2787,8 @@ public class GameManager : MonoBehaviour
             {
                 PerScienceInfo.text = "초당 0 획득";
             }
-            GoldMultipleInfo.text = "x " + FinalGoldBonus + "배";
-            ScienceMultipleInfo.text = "x " + FinalScienceBonus + "배";
+            GoldMultipleInfo.text = "x " + FinalGoldBonus.ToString("F2") + "배";
+            ScienceMultipleInfo.text = "x " + FinalScienceBonus.ToString("F2") + "배";
 
             yield return new WaitForSeconds(0.2f);
         }
